@@ -1,8 +1,8 @@
 {
   "name": "IDMFoundation",
   "version": "0.1.0",
-  "summary": "A short description of IDMFoundation.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Base classes for new project which follows IDMCore",
+  "description": "To install IDM Xcode Template: clone this repo run install-template.sh",
   "homepage": "https://github.com/congncif/IDMFoundation",
   "license": {
     "type": "MIT",
@@ -18,5 +18,31 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "IDMFoundation/Classes/**/*"
+  "source_files": "IDMFoundation/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "MobileCoreServices",
+    "AVFoundation"
+  ],
+  "dependencies": {
+    "SiFUtilities": [
+
+    ],
+    "IDMCore": [
+
+    ],
+    "Alamofire": [
+
+    ],
+    "ObjectMapper": [
+
+    ],
+    "MBProgressHUD": [
+
+    ],
+    "UIImage+FixOrientation": [
+
+    ]
+  }
 }

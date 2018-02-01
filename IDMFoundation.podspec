@@ -38,5 +38,10 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'Photos', 'MobileCoreServices', 'AVFoundation'
-  s.dependency = 'SiFUtilities', 'IDMCore', 'Alamofire', 'ObjectMapper', 'MBProgressHUD', 'UIImage+FixOrientation'
+  s.dependency 'SiFUtilities'
+  s.dependency 'IDMCore'
+  s.dependency 'Alamofire'
+  s.dependency 'ObjectMapper'
+  s.dependency 'MBProgressHUD'
+  s.dependency 'UIImage+FixOrientation'
 end

@@ -134,10 +134,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IDMCore/IDMCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IDMFoundation/IDMFoundation.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SiFUtilities/SiFUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UIImage+FixOrientation/UIImage_FixOrientation.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IDMCore/IDMCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IDMFoundation/IDMFoundation.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SiFUtilities/SiFUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UIImage+FixOrientation/UIImage_FixOrientation.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
