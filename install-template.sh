@@ -1,0 +1,1 @@
+cp -R IDM\ Foundation.xctemplate ~/Library/Developer/Xcode/Templates

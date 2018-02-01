@@ -1,0 +1,16 @@
+PODS:
+  - IDMFoundation (0.1.0)
+
+DEPENDENCIES:
+  - IDMFoundation (from `../`)
+
+EXTERNAL SOURCES:
+  IDMFoundation:
+    :path: ../
+
+SPEC CHECKSUMS:
+  IDMFoundation: ea8ebdb9162354122161942ad7d6c0abcf429498
+
+PODFILE CHECKSUM: 2b9a01a0803d728a5e0038c9a629801df638eae4
+
+COCOAPODS: 1.4.0

@@ -1,0 +1,22 @@
+{
+  "name": "IDMFoundation",
+  "version": "0.1.0",
+  "summary": "A short description of IDMFoundation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/congncif/IDMFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "congncif": "congnc.if@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/congncif/IDMFoundation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "IDMFoundation/Classes/**/*"
+}

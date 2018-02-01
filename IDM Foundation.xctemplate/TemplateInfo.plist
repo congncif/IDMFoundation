@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultCompletionName</key>
+	<string>File</string>
+	<key>Description</key>
+	<string>This generates a new Module using IDM generator. It consists of the Parameter, ResponseModel, DataProvider file.</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>The name of the module to create</string>
+			<key>Identifier</key>
+			<string>moduleName</string>
+			<key>Name</key>
+			<string>New Flow Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_moduleName___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>providerType</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Provider type:</string>
+			<key>Description</key>
+			<string>The type of provider to use</string>
+			<key>Type</key>
+			<string>combo</string>
+			<key>Default</key>
+			<string>BaseDataProvider</string>
+			<key>Values</key>
+			<array>
+				<string>BaseDataProvider</string>
+				<string>BaseUploadProvider</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_moduleName___RequestParameter</string>
+			<key>Description</key>
+			<string></string>
+			<key>Identifier</key>
+			<string>requestParameterName</string>
+			<key>Name</key>
+			<string>Parameter:</string>
+			<key>Type</key>
+			<string>static</string>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>providerType</key>
+				<array>
+					<string>BaseDataProvider</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_moduleName___Model</string>
+			<key>Description</key>
+			<string></string>
+			<key>Identifier</key>
+			<string>modelName</string>
+			<key>Name</key>
+			<string>Model:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_moduleName___ResponseModel</string>
+			<key>Description</key>
+			<string></string>
+			<key>Identifier</key>
+			<string>responseModelName</string>
+			<key>Name</key>
+			<string>Response:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_moduleName___Provider</string>
+			<key>Description</key>
+			<string></string>
+			<key>Identifier</key>
+			<string>providerName</string>
+			<key>Name</key>
+			<string>Provider:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>SortOrder</key>
+	<string>81</string>
+	<key>Summary</key>
+	<string>This generates IDM classes</string>
+</dict>
+</plist>

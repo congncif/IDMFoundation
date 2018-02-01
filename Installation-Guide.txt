@@ -1,0 +1,4 @@
+Install IDM Xcode Template:
+Open Terminal and execute commands:
+> chmod +x install-template.sh
+> ./install-template.sh
