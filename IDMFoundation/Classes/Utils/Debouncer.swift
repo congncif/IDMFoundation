@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 
 public class Debouncer: NSObject {
     public private(set) var callback: (() -> ())
