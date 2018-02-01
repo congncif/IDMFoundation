@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IDMFoundation_Example' do
+  pod 'IDMFoundation', :path => '../'
+
+  target 'IDMFoundation_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
