@@ -51,67 +51,6 @@
 				<string>BaseUploadProvider</string>
 			</array>
 		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName___RequestParameter</string>
-			<key>Description</key>
-			<string></string>
-			<key>Identifier</key>
-			<string>requestParameterName</string>
-			<key>Name</key>
-			<string>Parameter:</string>
-			<key>Type</key>
-			<string>static</string>
-			<key>RequiredOptions</key>
-			<dict>
-				<key>providerType</key>
-				<array>
-					<string>BaseDataProvider</string>
-				</array>
-			</dict>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName___Model</string>
-			<key>Description</key>
-			<string></string>
-			<key>Identifier</key>
-			<string>modelName</string>
-			<key>Name</key>
-			<string>Model:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName___ResponseModel</string>
-			<key>Description</key>
-			<string></string>
-			<key>Identifier</key>
-			<string>responseModelName</string>
-			<key>Name</key>
-			<string>Response:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName___Provider</string>
-			<key>Description</key>
-			<string></string>
-			<key>Identifier</key>
-			<string>providerName</string>
-			<key>Name</key>
-			<string>Provider:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
 	</array>
 	<key>Platforms</key>
 	<array>
