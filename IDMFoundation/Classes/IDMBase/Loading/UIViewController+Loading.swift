@@ -10,15 +10,7 @@ import Foundation
 import UIKit
 import SiFUtilities
 import MBProgressHUD
-
-public protocol LoadingProtocol: class {
-    func startLoading()
-    func stopLoading()
-}
-
-public protocol ErrorHandlingProtocol: class {
-    func showError(_: Error?)
-}
+import IDMCore
 
 public protocol ProgressLoadingProtocol: ProviderProgressTrackingDelegate {
     func startProgressLoading()
@@ -26,17 +18,17 @@ public protocol ProgressLoadingProtocol: ProviderProgressTrackingDelegate {
 }
 
 extension UIViewController: LoadingProtocol {
-    open func startLoading() {
+    open func beginLoading() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
     }
     
-    open func stopLoading() {
+    open func finishLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
 
 extension UIViewController: ErrorHandlingProtocol {
-    open func showError(_ error: Error?) {
+    open func handle(error: Error?) {
         guard let error = error else {
             return
         }

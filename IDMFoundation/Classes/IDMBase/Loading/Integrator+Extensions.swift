@@ -10,18 +10,6 @@ import Foundation
 import IDMCore
 
 extension Integrator {
-    open func setLoadingPresenter<T: LoadingProtocol>(_ controller: T) where T: ErrorHandlingProtocol {
-        self.onBeginning { [weak controller] in
-            controller?.startLoading()
-        }
-        self.onCompletion { [weak controller] in
-            controller?.stopLoading()
-        }
-        self.onError { [weak controller] (err) in
-            controller?.showError(_: err)
-        }
-    }
-    
     open func setProgressLoadingPresenter<T: ProgressLoadingProtocol>(_ controller: T) where T: ErrorHandlingProtocol {
         self.onBeginning { [weak controller] in
             controller?.startProgressLoading()
@@ -30,13 +18,7 @@ extension Integrator {
             controller?.stopProgressLoading()
         }
         self.onError { [weak controller] (err) in
-            controller?.showError(_: err)
-        }
-    }
-    
-    open func setErrorHandler<T: ErrorHandlingProtocol>(_ controller: T) {
-        self.onError { [weak controller] (err) in
-            controller?.showError(_: err)
+            controller?.handle(error: err)
         }
     }
 }

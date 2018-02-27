@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.6.0)
-  - IDMCore (2.1.0)
-  - IDMFoundation (0.1.0):
+  - IDMCore (2.2.0)
+  - IDMFoundation (0.1.1):
     - Alamofire
     - IDMCore
     - MBProgressHUD
@@ -22,8 +22,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  IDMCore: 682e5ea60c4afa5eb3bbf1b699bb104984732d2f
-  IDMFoundation: 6653df3a7e7d5e75c1091376b6059c3e359e1f52
+  IDMCore: 40de1f1b2262578fc96ccf6e656eb356a81e1b69
+  IDMFoundation: b1d70d842692a7f94d6425e7bc9ee40d8869d861
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   SiFUtilities: 7daadd02713b58c1f2377a08b8a1581e8aa642f5
