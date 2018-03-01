@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 //        BaseUploadProvider<String>()
         Noti()
+        ForwardParameterProvider<String>()
+        ResponseModel()
     }
 
     override func didReceiveMemoryWarning() {

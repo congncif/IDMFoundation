@@ -10,7 +10,7 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class ParameterProvider<P1, P2>: DataProviderProtocol {
+open class ParameterProvider<P1, P2>: NSObject, DataProviderProtocol {
     open func request(parameters: P1?,
                  completion: @escaping (Bool, P2?, Error?) -> Void) -> CancelHandler? {
         do {

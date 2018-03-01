@@ -11,7 +11,11 @@ import ObjectMapper
 import IDMCore
 import SiFUtilities
 
-open class BaseResponseModel: Mappable {
+open class BaseResponseModel: NSObject, Mappable {
+    public override init() {
+        super.init()
+    }
+    
     public required init?(map: Map) {}
     
     open func mapping(map: Map) {
@@ -24,6 +28,10 @@ open class ResponseModel: BaseResponseModel {
     }
     
     open var message: String?
+    
+    public override init() {
+        super.init()
+    }
     
     public required init?(map: Map) {
         super.init(map: map)
@@ -39,6 +47,10 @@ open class DataResponseModel<T: Mappable>: ResponseModel {
     private let kData = "data"
     
     open var data: T?
+    
+    public override init() {
+        super.init()
+    }
     
     public required init?(map: Map) {
         super.init(map: map)

@@ -9,6 +9,8 @@
 import Foundation
 import SiFUtilities
 
-open class RequestParameter: KeyValueProtocol {
-    public init() {}
+open class RequestParameter: NSObject, KeyValueProtocol {
+    public override init() {
+        super.init()
+    }
 }
