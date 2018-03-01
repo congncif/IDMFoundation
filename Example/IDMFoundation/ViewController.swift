@@ -10,11 +10,16 @@ import UIKit
 import IDMFoundation
 import ObjectMapper
 
+class Noti: RequestParameter {
+    
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        BaseUploadProvider<String>()
+        Noti()
     }
 
     override func didReceiveMemoryWarning() {

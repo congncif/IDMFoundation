@@ -9,4 +9,6 @@
 import Foundation
 import SiFUtilities
 
-open class RequestParameter: KeyValueProtocol {}
+open class RequestParameter: KeyValueProtocol {
+    public init() {}
+}

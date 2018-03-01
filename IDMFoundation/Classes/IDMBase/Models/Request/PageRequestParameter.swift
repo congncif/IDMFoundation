@@ -12,4 +12,13 @@ import SiFUtilities
 open class PageRequestParameter: RequestParameter {
     var page: Int = 0
     var pageSize: Int = 24
+    
+    public override init() {
+        super.init()
+    }
+    
+    public init(page: Int, pageSize: Int) {
+        self.page = page
+        self.pageSize = pageSize
+    }
 }
