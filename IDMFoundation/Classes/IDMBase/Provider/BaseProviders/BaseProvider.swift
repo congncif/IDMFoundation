@@ -54,11 +54,15 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
     open var progressTracking: ((T?, Double) -> Void)? // use block if you have multiple task providers
     open weak var progressDelegate: ProviderProgressTrackingDelegate? // use delegate if you have only one task provider
     
-    public init(delegate: ProviderProgressTrackingDelegate? = nil) {
+    public override init() {
+        super.init()
+    }
+    
+    public init(delegate: ProviderProgressTrackingDelegate?) {
         self.progressDelegate = delegate
     }
     
-    public init(trackingBlock: ((T?, Double) -> Void)? = nil) {
+    public init(trackingBlock: ((T?, Double) -> Void)?) {
         self.progressTracking = trackingBlock
     }
     

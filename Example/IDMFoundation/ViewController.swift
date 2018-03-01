@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import IDMFoundation
+import ObjectMapper
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+//        BaseUploadProvider<String>()
     }
 
     override func didReceiveMemoryWarning() {

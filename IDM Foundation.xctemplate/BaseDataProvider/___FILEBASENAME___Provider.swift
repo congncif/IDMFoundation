@@ -11,6 +11,6 @@ import IDMFoundation
 
 class ___VARIABLE_moduleName___Provider: BaseDataProvider<___VARIABLE_moduleName___RequestParameter> {
     override func requestPath(parameters: ___VARIABLE_moduleName___RequestParameter?) -> String {
-        <#code#>
+        return <#code#>
     }
 }

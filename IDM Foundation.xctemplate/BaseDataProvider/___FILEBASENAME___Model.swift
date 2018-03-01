@@ -12,5 +12,11 @@ import ObjectMapper
 
 //Replace this class or add custom model code here
 class ___VARIABLE_moduleName___Model: Mappable {
+    required init?(map: Map) {
+        
+    }
     
+    func mapping(map: Map) {
+        
+    }
 }
