@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IDMFoudation
+import IDMFoundation
 
 class ___VARIABLE_moduleName___Provider: BaseUploadProvider<UploadURLsParameter> {
     override func requestPath(parameters: UploadURLsParameter?) -> String {

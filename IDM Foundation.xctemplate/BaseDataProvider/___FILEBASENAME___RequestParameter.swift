@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IDMFoudation
+import IDMFoundation
 
 class ___VARIABLE_moduleName___RequestParameter: RequestParameter {
     
