@@ -9,7 +9,9 @@
 import Foundation
 import IDMFoundation
 
-class ___VARIABLE_moduleName___Provider: BaseDataProvider<___VARIABLE_moduleName___RequestParameter> {
+typealias ___VARIABLE_moduleName___Provider = BaseDataProvider<___VARIABLE_moduleName___RequestParameter>
+
+class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
     override func requestPath(parameters: ___VARIABLE_moduleName___RequestParameter?) -> String {
         return <#code#>
     }
