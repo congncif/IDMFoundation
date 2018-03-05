@@ -65,9 +65,7 @@ class ViewController: UIViewController {
 extension SwinjectStoryboard {
      @objc class func setup() {
         defaultContainer.autoregister(BaseDataProvider<ExamParameter>.self, initializer: ExamProvider.init)
-        defaultContainer.register(ExamService.self) { resolver in
-            ExamService(dataProvider: resolver.resolve(BaseDataProvider<ExamParameter>.self)!, modelType: ExamModel.self)
-        }
+        defaultContainer.autoregister(ExamService.self, initializer: ExamService.init(dataProvider:))
         defaultContainer.storyboardInitCompleted(ViewController.self) { (r, c) in
             c.service = r.resolve(ExamService.self)
         }
