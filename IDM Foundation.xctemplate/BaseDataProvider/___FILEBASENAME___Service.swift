@@ -10,9 +10,13 @@ import Foundation
 import IDMFoundation
 import IDMCore
 
-class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___Provider, ___VARIABLE_moduleName___ResponseModel> {
-    init() {
-        super.init(dataProvider: ___VARIABLE_moduleName___Provider(), modelType: ___VARIABLE_moduleName___ResponseModel.self)
+class ___VARIABLE_moduleName___Service: MagicalIntegrator<BaseDataProvider<___VARIABLE_moduleName___RequestParameter>, ___VARIABLE_moduleName___ResponseModel> {
+    
+}
+
+extension ___VARIABLE_moduleName___Service {
+	convenience init() {
+        self.init(dataProvider: ___VARIABLE_moduleName___Provider(), modelType: ___VARIABLE_moduleName___ResponseModel.self)
     }
 }
 

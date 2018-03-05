@@ -2,7 +2,11 @@ use_frameworks!
 
 target 'IDMFoundation_Example' do
   pod 'IDMFoundation', :path => '../'
-
+  pod 'Swinject'
+  pod 'SwinjectAutoregistration'
+#  pod 'SwinjectPropertyLoader'
+  pod 'SwinjectStoryboard'
+  
   target 'IDMFoundation_Tests' do
     inherit! :search_paths
 

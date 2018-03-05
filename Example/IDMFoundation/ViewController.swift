@@ -9,25 +9,69 @@
 import UIKit
 import IDMFoundation
 import ObjectMapper
+import IDMCore
+import SwinjectStoryboard
+import SwinjectAutoregistration
 
-class Noti: RequestParameter {
+class ExamParameter: RequestParameter {
+    var query: String = ""
+}
+
+class ExamProvider: BaseDataProvider<ExamParameter> {
+    override func requestPath(parameters: ExamParameter?) -> String {
+        return "https://www.api.com/exam"
+    }
+}
+
+class BetaExamProvider: BaseDataProvider<ExamParameter> {
+    override func requestPath(parameters: ExamParameter?) -> String {
+        return "https://www.beta-api.com/exam"
+    }
+}
+
+class Exam: Mappable {
+    var name: String = ""
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+    }
+}
+
+class ExamModel: DataResponseModel<Exam>, ModelProtocol {
+    
+}
+
+class ExamService: MagicalIntegrator<BaseDataProvider<ExamParameter>, ExamModel> {
     
 }
 
 class ViewController: UIViewController {
-
+    var service: ExamService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        BaseUploadProvider<String>()
-        Noti()
-        ForwardParameterProvider<String>()
-        ResponseModel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
+
+extension SwinjectStoryboard {
+     @objc class func setup() {
+        defaultContainer.autoregister(BaseDataProvider<ExamParameter>.self, initializer: ExamProvider.init)
+        defaultContainer.register(ExamService.self) { resolver in
+            ExamService(dataProvider: resolver.resolve(BaseDataProvider<ExamParameter>.self)!, modelType: ExamModel.self)
+        }
+        defaultContainer.storyboardInitCompleted(ViewController.self) { (r, c) in
+            c.service = r.resolve(ExamService.self)
+        }
+    }
+}
+
 
