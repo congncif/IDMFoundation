@@ -23,7 +23,11 @@ open class PageResponseModel: ResponseModel {
     open override func mapping(map: Map) {
         super.mapping(map: map)
         
-        page <- map[SerializationKeys.page]
+        page <- map[pageKey]
+    }
+    
+    open var pageKey: String {
+        return SerializationKeys.page
     }
 }
 
@@ -38,7 +42,10 @@ open class PageDataResponseModel<T: Mappable>: PageResponseModel {
     
     open override func mapping(map: Map) {
         super.mapping(map: map)
-        
-        data <- map[kData]
+        data <- map[dataKey]
+    }
+    
+    open var dataKey: String {
+        return kData
     }
 }

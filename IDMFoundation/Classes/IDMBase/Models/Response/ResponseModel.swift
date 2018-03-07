@@ -39,7 +39,11 @@ open class ResponseModel: BaseResponseModel {
     
     open override func mapping(map: Map) {
         super.mapping(map: map)
-        message <- map[SerializationKeys.message]
+        message <- map[messageKey]
+    }
+    
+    open var messageKey: String {
+        return SerializationKeys.message
     }
 }
 
@@ -58,6 +62,10 @@ open class DataResponseModel<T: Mappable>: ResponseModel {
     
     open override func mapping(map: Map) {
         super.mapping(map: map)
-        data <- map[kData]
+        data <- map[dataKey]
+    }
+    
+    open var dataKey: String {
+        return kData
     }
 }
