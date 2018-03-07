@@ -5,7 +5,7 @@ reset=`tput sgr0`
 app_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 if [ ! -d "$app_dir" ] 
 then
-    mkdir "$app_dir"
+    mkdir -p "$app_dir"
     echo "Creating new IDM-Foundation.xctemplate..."
 fi
 temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/IDM\ Foundation.xctemplate
