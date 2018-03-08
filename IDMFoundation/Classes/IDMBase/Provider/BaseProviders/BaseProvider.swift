@@ -35,7 +35,7 @@ open class BaseProvider<T>: NSObject, DataProviderProtocol {
     }
     
     open func headers(parameters: T?) -> [String: String]? {
-        return [:]
+        return ProviderConfiguration.shared.headerFields
     }
     
     open func logEnabled(parameters: T?) -> Bool {
