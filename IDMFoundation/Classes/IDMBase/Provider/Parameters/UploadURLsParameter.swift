@@ -81,17 +81,17 @@ open class UploadURLsParameter {
     
     open var query: StringKeyValueProtocol?
     
-    public init(urls: [URL]) {
+    public init(urls: [URL], name: String = "files") {
         var items = [URLUploadItem]()
-        for (idx, url) in urls.enumerated() {
-            let item = URLUploadItem(url: url, name: "file_\(idx)")
+        for url in urls {
+            let item = URLUploadItem(url: url, name: name)
             items.append(item)
         }
         self.uploadItems = items
     }
     
-    public convenience init<T: StringKeyValueProtocol>(urls: [URL], query: T) {
-        self.init(urls: urls)
+    public convenience init<T: StringKeyValueProtocol>(urls: [URL], name: String = "files", query: T) {
+        self.init(urls: urls, name: name)
         self.query = query
     }
     
@@ -99,8 +99,32 @@ open class UploadURLsParameter {
         self.uploadItems = items
     }
     
-    public init<T: StringKeyValueProtocol>(items: [URLUploadItem], query: T) {
-        self.uploadItems = items
+    public convenience init<T: StringKeyValueProtocol>(items: [URLUploadItem], query: T) {
+        self.init(items: items)
+        self.query = query
+    }
+    
+    public convenience init(images: [UIImage], name: String = "images") {
+        let items = images.map { img -> ImageUploadItem in
+            return ImageUploadItem(image: img, name: name)
+        }
+        self.init(items: items)
+    }
+    
+    public convenience init<T: StringKeyValueProtocol>(images: [UIImage], name: String = "images", query: T) {
+        self.init(images: images, name: name)
+        self.query = query
+    }
+    
+    public convenience init(assets: [CameraAsset], name: String = "assets") {
+        let items = assets.map { asset -> AssetUploadItem in
+            return AssetUploadItem(asset: asset, name: name)
+        }
+        self.init(items: items)
+    }
+    
+    public convenience init<T: StringKeyValueProtocol>(assets: [CameraAsset], name: String = "assets", query: T) {
+        self.init(assets: assets, name: name)
         self.query = query
     }
     
