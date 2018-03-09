@@ -21,7 +21,7 @@ extension CameraAsset: URLUploadItemProtocol, AssociatedObject {
     }
     
     public var uploadUrl: URL {
-        return _url!
+        return _url ?? URL(fileURLWithPath: "")
     }
     
     public var uploadName: String {
