@@ -10,8 +10,8 @@ import Foundation
 import SiFUtilities
 
 open class PageRequestParameter: RequestParameter {
-    var page: Int = 0
-    var pageSize: Int = 24
+    public var page: Int = 0
+    public var pageSize: Int = 24
     
     public override init() {
         super.init()

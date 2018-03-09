@@ -25,7 +25,7 @@ public enum AssetType: String {
     }
 }
 
-open class CameraAsset {
+open class CameraAsset: NSObject {
     open var type: AssetType
     open var image: UIImage?
     open var url: URL?
