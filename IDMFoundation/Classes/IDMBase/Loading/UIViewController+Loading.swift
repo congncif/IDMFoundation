@@ -18,17 +18,17 @@ public protocol ProgressLoadingProtocol: ProviderProgressTrackingDelegate {
 }
 
 extension UIViewController: LoadingProtocol {
-    open func beginLoading() {
+    @objc open func beginLoading() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
     }
     
-    open func finishLoading() {
+    @objc open func finishLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
 
 extension UIViewController: ErrorHandlingProtocol {
-    open func handle(error: Error?) {
+    @objc open func handle(error: Error?) {
         guard let error = error else {
             return
         }
@@ -43,17 +43,17 @@ extension UIViewController: ErrorHandlingProtocol {
 }
 
 extension UIViewController: ProgressLoadingProtocol {
-    open func progressDidUpdate(progress: Double) {
+    @objc open func progressDidUpdate(progress: Double) {
         let hud = MBProgressHUD(for: self.view)
         hud?.progress = Float(progress)
     }
     
-    open func startProgressLoading() {
+    @objc open func startProgressLoading() {
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = .determinateHorizontalBar
     }
     
-    open func stopProgressLoading() {
+    @objc open func stopProgressLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
