@@ -1,3 +1,25 @@
+/**
+ Copyright (c) 2016 Nguyen Chi Cong
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ */
+
 //
 //  IntegrationCall.swift
 //  IDMCore
@@ -12,6 +34,11 @@ public enum NextState {
     case success
     case error
     case completion
+}
+
+public enum Result<Value> {
+    case success(Value?)
+    case failure(Error?)
 }
 
 class IntegrationCallManager {
@@ -46,7 +73,6 @@ class IntegrationCallManager {
 }
 
 public class IntegrationCall<ModelType> {
-    
     fileprivate var doBeginning: (() -> ())?
     fileprivate var doSuccess: ((ModelType?) -> ())?
     fileprivate var doError: ((Error?) -> ())?
@@ -61,15 +87,21 @@ public class IntegrationCall<ModelType> {
     
     init() {
         idenitifier = ProcessInfo.processInfo.globallyUniqueString
-        //        print("Created integration call: \(idenitifier)")
+        #if DEBUG
+            print("Created integration call: \(idenitifier)")
+        #endif
     }
     
     deinit {
-        //        print("Released integration call \(idenitifier)")
+        #if DEBUG
+            print("Released integration call \(idenitifier)")
+        #endif
     }
     
     /*********************************************************************************/
+    
     // MARK: - Getters
+    
     /*********************************************************************************/
     
     func handleError(error: Error?) {
@@ -114,7 +146,9 @@ public class IntegrationCall<ModelType> {
     }
     
     /*********************************************************************************/
+    
     // MARK: - Execute
+    
     /*********************************************************************************/
     
     func doCall(_ handler: ((IntegrationCall<ModelType>) -> ())?) {
@@ -154,7 +188,9 @@ public class IntegrationCall<ModelType> {
     }
     
     /*********************************************************************************/
+    
     // MARK: - Retry
+    
     /*********************************************************************************/
     
     @discardableResult
@@ -173,7 +209,9 @@ public class IntegrationCall<ModelType> {
     }
     
     /*********************************************************************************/
+    
     // MARK: - Advance Next
+    
     /*********************************************************************************/
     
     @discardableResult
@@ -205,11 +243,38 @@ public class IntegrationCall<ModelType> {
     }
     
     @discardableResult
+    public func next(state: NextState = .completion, nextBlock: ((Result<ModelType>?) -> ())? = nil) -> Self {
+        switch state {
+        case .success:
+            let success = doSuccess
+            doSuccess = { result in
+                success?(result)
+                nextBlock?(Result.success(result))
+            }
+            
+        case .error:
+            let block = doError
+            doError = { error in
+                block?(error)
+                nextBlock?(Result.failure(error))
+            }
+            
+        case .completion:
+            let block = doCompletion
+            doCompletion = {
+                block?()
+                nextBlock?(nil)
+            }
+        }
+        
+        return self
+    }
+    
+    @discardableResult
     public func next<DataProvider, Model, Result>(state: NextState = .completion,
                                                   integrator: Integrator<DataProvider, Model, Result>,
                                                   parameters: DataProvider.ParameterType? = nil,
                                                   configuration: @escaping (IntegrationCall<Result>) -> () = { _ in }) -> Self {
-        
         switch state {
         case .success:
             let success = doSuccess
@@ -240,7 +305,6 @@ public class IntegrationCall<ModelType> {
         }
         
         return self
-        
     }
     
     public func forwardSuccess<Result>(callBuilder: @escaping (ModelType?) -> IntegrationCall<Result>) -> Self {
@@ -265,14 +329,15 @@ public class IntegrationCall<ModelType> {
     }
     
     /*********************************************************************************/
+    
     // MARK: - Manually next
+    
     /*********************************************************************************/
     
     @discardableResult
     public func nextSuccess<DataProvider, Model, Result>(integrator: Integrator<DataProvider, Model, Result>,
                                                          parameters: DataProvider.ParameterType? = nil,
                                                          configuration: @escaping (IntegrationCall<Result>) -> () = { _ in }) -> Self {
-        
         let success = doSuccess
         doSuccess = { result in
             success?(result)
@@ -342,7 +407,9 @@ public class IntegrationCall<ModelType> {
     }
     
     /*********************************************************************************/
+    
     // MARK: - ThenRecall
+    
     /*********************************************************************************/
     
     @discardableResult
@@ -362,5 +429,4 @@ public class IntegrationCall<ModelType> {
         }
         return self
     }
-    
 }
