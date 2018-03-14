@@ -26,7 +26,7 @@ extension URLUploadItemProtocol {
     public func cleanTemporaryData() {
         do {
             try FileManager.default.removeItem(at: uploadUrl)
-            print("Removed temporary file: \(uploadUrl.path)")
+            log("Removed temporary file: \(uploadUrl.path)")
         } catch let ex {
             print("Can't delete temporary file: \(uploadUrl.path) - \(ex)")
         }

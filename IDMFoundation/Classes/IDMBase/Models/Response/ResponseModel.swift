@@ -23,10 +23,6 @@ open class BaseResponseModel: NSObject, Mappable {
 }
 
 open class ResponseModel: BaseResponseModel {
-    private struct SerializationKeys {
-        static let message = "message"
-    }
-    
     open var message: String?
     
     public override init() {
@@ -43,13 +39,11 @@ open class ResponseModel: BaseResponseModel {
     }
     
     open var messageKey: String {
-        return SerializationKeys.message
+        return ResponseModelConfiguration.shared.messageKey
     }
 }
 
 open class DataResponseModel<T: Mappable>: ResponseModel {
-    private let kData = "data"
-    
     open var data: T?
     
     public override init() {
@@ -66,6 +60,6 @@ open class DataResponseModel<T: Mappable>: ResponseModel {
     }
     
     open var dataKey: String {
-        return kData
+        return ResponseModelConfiguration.shared.dataKey
     }
 }

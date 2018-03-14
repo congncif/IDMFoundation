@@ -7,13 +7,13 @@
 //
 
 import Foundation
-import Alamofire
 import IDMCore
 import SiFUtilities
+import Alamofire
 
 open class BaseUploadProvider<T>: BaseTaskProvider<T> {
     open override func request(parameters: T?,
-                          completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+                               completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         guard let parameters = parameters else {
             completion(false, nil, nil)
             return {}
@@ -23,13 +23,22 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         let method = httpMethod(parameters: parameters)
         let header = headers(parameters: parameters)
         
-        Alamofire.upload(multipartFormData: { [weak self] (multipart) in
+        Alamofire.upload(multipartFormData: { [weak self] multipart in
             self?.buildFormData(multipart: multipart, with: parameters)
-        }, to: path, method: method, headers: header) { (encodingResult) in
+        }, to: path, method: method, headers: header) { encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
-                upload.uploadProgress(closure: { [weak self] (progress) in
-                    self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                upload.uploadProgress(closure: { [weak self] progress in
+                    if self?.progressTracking == nil && self?.progressDelegate == nil {
+                        #if DEBUG
+                            log("Make sure you are handling task progress in success callback")
+                        #endif
+                        let progressValue = ProgressValue()
+                        progressValue.progress = progress.fractionCompleted
+                        completion(true, progressValue, nil)
+                    } else {
+                        self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                    }
                 })
                 
                 upload.responseJSON { [weak self] response in

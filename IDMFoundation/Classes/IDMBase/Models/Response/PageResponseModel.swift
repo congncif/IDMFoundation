@@ -10,10 +10,6 @@ import Foundation
 import ObjectMapper
 
 open class PageResponseModel: ResponseModel {
-    private struct SerializationKeys {
-        static let page = "page"
-    }
-    
     open var page: Int = 0
     
     public required init?(map: Map) {
@@ -27,13 +23,11 @@ open class PageResponseModel: ResponseModel {
     }
     
     open var pageKey: String {
-        return SerializationKeys.page
+        return ResponseModelConfiguration.shared.pageKey
     }
 }
 
 open class PageDataResponseModel<T: Mappable>: PageResponseModel {
-    private let kData = "data"
-    
     open var data: [T] = []
     
     public required init?(map: Map) {
@@ -46,6 +40,6 @@ open class PageDataResponseModel<T: Mappable>: PageResponseModel {
     }
     
     open var dataKey: String {
-        return kData
+        return ResponseModelConfiguration.shared.dataKey
     }
 }

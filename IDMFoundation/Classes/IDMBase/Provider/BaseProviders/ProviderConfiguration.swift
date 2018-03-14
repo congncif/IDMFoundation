@@ -8,11 +8,10 @@
 import Foundation
 
 public class ProviderConfiguration {
-    static let shared = ProviderConfiguration()
-    
+    public static let shared = ProviderConfiguration()
+
     private init() {
-        
     }
-    
+
     public var headerFields: [String: String]?
 }

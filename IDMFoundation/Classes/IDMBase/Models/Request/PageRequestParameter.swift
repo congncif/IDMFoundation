@@ -10,15 +10,21 @@ import Foundation
 import SiFUtilities
 
 open class PageRequestParameter: RequestParameter {
-    public var page: Int = 0
-    public var pageSize: Int = 24
+    public var page: Int
+    public var pageSize: Int
     
     public override init() {
+        page = RequestParameterConfiguration.shared.page
+        pageSize = RequestParameterConfiguration.shared.page
         super.init()
     }
     
     public init(page: Int, pageSize: Int) {
         self.page = page
         self.pageSize = pageSize
+    }
+    
+    open var mapKeys: [String : String] {
+        return RequestParameterConfiguration.shared.mapKeys
     }
 }
