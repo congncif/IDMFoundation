@@ -22,3 +22,12 @@ open class StandardProgressResponseModel: ProgressModelProtocol, ModelProtocol {
         }
     }
 }
+
+open class StandardProgressDataResponseModel<D: ModelProtocol>: StandardProgressResponseModel where D.DataType == Any {
+    public var data: D?
+    
+    public required init?(from data: Any?) {
+        super.init(from: data)
+        self.data = D(from: data)
+    }
+}

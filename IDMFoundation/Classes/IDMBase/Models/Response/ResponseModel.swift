@@ -11,7 +11,7 @@ import ObjectMapper
 import IDMCore
 import SiFUtilities
 
-open class BaseResponseModel: NSObject, Mappable {
+open class BaseResponseModel: NSObject, Mappable, ModelProtocol {
     public override init() {
         super.init()
     }
