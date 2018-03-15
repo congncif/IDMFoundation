@@ -50,10 +50,6 @@ open class BaseProvider<T>: NSObject, DataProviderProtocol {
     }
 }
 
-open class ProgressValue: NSObject {
-    open var progress: Double = 0
-}
-
 open class BaseTaskProvider<T>: BaseProvider<T> {
     open var progressTracking: ((T?, Double) -> Void)? // use block if you have multiple task providers
     open weak var progressDelegate: ProviderProgressTrackingDelegate? // use delegate if you have only one task provider

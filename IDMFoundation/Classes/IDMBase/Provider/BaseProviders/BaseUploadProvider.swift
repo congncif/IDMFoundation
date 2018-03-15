@@ -11,6 +11,10 @@ import IDMCore
 import SiFUtilities
 import Alamofire
 
+public protocol ProgressModelProtocol: DelayingCompletionProtocol {
+    var progress: Progress? {get set}
+}
+
 open class BaseUploadProvider<T>: BaseTaskProvider<T> {
     open override func request(parameters: T?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
@@ -29,7 +33,14 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
             switch encodingResult {
             case .success(let upload, _, _):
                 upload.uploadProgress(closure: { [weak self] progress in
-                    self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                    if self?.progressTracking == nil && self?.progressDelegate == nil {
+                        #if DEBUG
+                            log("Make sure you are handling task progress in success callback")
+                        #endif
+                        completion(true, progress, nil)
+                    } else {
+                        self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                    }
                 })
                 
                 upload.responseJSON { [weak self] response in
