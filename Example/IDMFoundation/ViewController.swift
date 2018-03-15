@@ -40,7 +40,7 @@ class Exam: Mappable {
     }
 }
 
-class ExamModel: DataResponseModel<Exam> {
+class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 }
 
 class ExamService: MagicalIntegrator<BaseDataProvider<ExamParameter>, ExamModel> {

@@ -10,6 +10,6 @@ import Foundation
 import IDMFoundation
 import IDMCore
 
-class ___VARIABLE_moduleName___ResponseModel: StandardProgressDataResponseModel<<#___VARIABLE_moduleName___Model#>> {
+class ___VARIABLE_moduleName___ResponseModel: StandardProgressDataResponseModel<<#___VARIABLE_moduleName___Model#>>, ModelProtocol {
     
 }
