@@ -11,16 +11,30 @@ import IDMCore
 import SiFUtilities
 import Alamofire
 
-public protocol ProgressModelProtocol: DelayingCompletionProtocol {
-    var progress: Progress? {get set}
-}
-
 open class BaseUploadProvider<T>: BaseTaskProvider<T> {
+    private var uploader: Request?
+    
     open override func request(parameters: T?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         guard let parameters = parameters else {
+            #if DEBUG
+                log("Upload provider don't accept no-parameters")
+            #endif
             completion(false, nil, nil)
-            return {}
+            return nil
+        }
+        
+        if let data = testCompletionData(parameters: parameters) {
+            completion(data.0, data.1, data.2)
+            return nil
+        }
+        
+        if let _ = uploader {
+            #if DEBUG
+                log("You should begin only one upload request at the same time")
+            #endif
+            completion(false, nil, nil)
+            return nil
         }
         
         let path = requestPath(parameters: parameters)
@@ -29,9 +43,11 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         
         Alamofire.upload(multipartFormData: { [weak self] multipart in
             self?.buildFormData(multipart: multipart, with: parameters)
-        }, to: path, method: method, headers: header) { encodingResult in
+        }, to: path, method: method, headers: header) { [weak self] encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
+                self?.uploader = upload
+                
                 upload.uploadProgress(closure: { [weak self] progress in
                     if self?.progressTracking == nil && self?.progressDelegate == nil {
                         #if DEBUG
@@ -57,6 +73,7 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                         print(result.value ?? "==> JSON Response: No value")
                     }
                     
+                    self?.uploader = nil
                     completion(result.success, result.value, result.error)
                 }
                 
@@ -66,6 +83,18 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
             }
         }
         
-        return {}
+        return { [weak self] in
+            self?.uploader?.cancel()
+        }
+    }
+    
+    open func testCompletionData(parameters: T?) -> (Bool, Any?, Error?)? {
+        return nil
+    }
+    
+    deinit {
+        uploader?.cancel()
+        uploader = nil
     }
 }
+

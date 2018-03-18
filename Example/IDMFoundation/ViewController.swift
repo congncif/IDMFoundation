@@ -12,6 +12,8 @@ import SwinjectStoryboard
 //
 
 import UIKit
+import CoreBluetooth
+import CoreLocation
 
 class ExamParameter: RequestParameter {
     var query: String = ""
@@ -46,20 +48,12 @@ class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 class ExamService: MagicalIntegrator<BaseDataProvider<ExamParameter>, ExamModel> {
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CBPeripheralManagerDelegate {
     var service: ExamService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let exam = ExamModel(JSON: [
-            "message": "test",
-            "data": [
-                "name": "name"
-            ]
-        ])
-        
-        print(exam)
+        initLocalBeacon()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +65,41 @@ class ViewController: UIViewController {
     }
 
     override func finishLoading() {
+    }
+    
+    var localBeacon: CLBeaconRegion!
+    var beaconPeripheralData: NSDictionary!
+    var peripheralManager: CBPeripheralManager!
+    
+    func initLocalBeacon() {
+        if localBeacon != nil {
+            stopLocalBeacon()
+        }
+        
+        let localBeaconUUID = "f7826da6-4fa2-4e98-8024-bc5b71e0893e"
+        let localBeaconMajor: CLBeaconMajorValue = 123
+        let localBeaconMinor: CLBeaconMinorValue = 456
+        
+        let uuid = UUID(uuidString: localBeaconUUID)!
+        localBeacon = CLBeaconRegion(proximityUUID: uuid, major: localBeaconMajor, minor: localBeaconMinor, identifier: "region-identifier")
+        
+        beaconPeripheralData = localBeacon.peripheralData(withMeasuredPower: nil)
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
+    }
+    
+    func stopLocalBeacon() {
+        peripheralManager.stopAdvertising()
+        peripheralManager = nil
+        beaconPeripheralData = nil
+        localBeacon = nil
+    }
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        if peripheral.state == .poweredOn {
+            peripheralManager.startAdvertising(beaconPeripheralData as! [String: AnyObject]!)
+        } else if peripheral.state == .poweredOff {
+            peripheralManager.stopAdvertising()
+        }
     }
 }
 

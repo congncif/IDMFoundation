@@ -15,15 +15,24 @@ public protocol ProviderProgressTrackingDelegate: class {
     func progressDidUpdate(progress: Double)
 }
 
-open class BaseProvider<T>: NSObject, DataProviderProtocol {
-    open func request(parameters: T?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        print("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
-        fatalError()
+public protocol ProgressModelProtocol: DelayingCompletionProtocol {
+    var progress: Progress? {get set}
+}
+
+open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
+    @discardableResult
+    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, DataType?, Error?) -> Void) -> CancelHandler? {
+        fatalError("Please override \(#function) to get data")
+    }
+}
+
+open class BaseProvider<T>: RootProvider<T, Any> {
+    open override func request(parameters: T?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
     }
     
     open func requestPath(parameters: T?) -> String {
-        print("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
-        fatalError()
+        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
     }
     
     open func httpMethod(parameters: T?) -> HTTPMethod {
@@ -47,6 +56,24 @@ open class BaseProvider<T>: NSObject, DataProviderProtocol {
         let error = response.error
         let success = error == nil
         return (success, value, error)
+    }
+}
+
+open class BaseProviderWrapper<T: DataProviderProtocol>: BaseProvider<T.ParameterType> where T.DataType == Any {
+    public var provider: T?
+    
+    public init(provider: T?) {
+        self.provider = provider
+    }
+    
+    open override func request(parameters: T.ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        return provider?.request(parameters: parameters, completion: completion)
+    }
+}
+
+extension DataProviderProtocol where DataType == Any {
+    public var wrapper: BaseProviderWrapper<Self> {
+        return BaseProviderWrapper(provider: self)
     }
 }
 

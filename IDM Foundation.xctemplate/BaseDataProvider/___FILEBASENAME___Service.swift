@@ -16,7 +16,7 @@ class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName
 
 extension ___VARIABLE_moduleName___Service {
 	convenience init() {
-        self.init(dataProvider: ___VARIABLE_moduleName___DataProvider(), modelType: ___VARIABLE_moduleName___ResponseModel.self)
+        self.init(dataProvider: ___VARIABLE_moduleName___DataProvider())
     }
 }
 

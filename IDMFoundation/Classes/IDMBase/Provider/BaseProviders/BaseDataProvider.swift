@@ -44,7 +44,7 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
         }
     }
     
-    func testCompletionData(parameters: T?) -> (Bool, Any?, Error?)? {
+    open func testCompletionData(parameters: T?) -> (Bool, Any?, Error?)? {
         return nil
     }
 }
