@@ -9,7 +9,8 @@
 import Foundation
 import IDMFoundation
 
-typealias ___VARIABLE_moduleName___Provider = BaseProvider<UploadURLsParameter>
+typealias ___VARIABLE_moduleName___BaseProvider = BaseProvider<UploadURLsParameter>
+typealias ___VARIABLE_moduleName___Provider = BaseUploadProvider<UploadURLsParameter>
 
 class ___VARIABLE_moduleName___UploadProvider: ___VARIABLE_moduleName___Provider {
     override func requestPath(parameters: UploadURLsParameter?) -> String {

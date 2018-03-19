@@ -10,7 +10,7 @@ import Foundation
 import IDMFoundation
 import IDMCore
 
-class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___Provider, ___VARIABLE_moduleName___ResponseModel> {
+class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
     
 }
 
