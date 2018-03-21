@@ -24,7 +24,7 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
             return nil
         }
         
-        if let data = testCompletionData(parameters: parameters) {
+        if let data = testResponseData(parameters: parameters) {
             completion(data.0, data.1, data.2)
             return nil
         }
@@ -86,10 +86,6 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         return { [weak self] in
             self?.uploader?.cancel()
         }
-    }
-    
-    open func testCompletionData(parameters: T?) -> (Bool, Any?, Error?)? {
-        return nil
     }
     
     deinit {

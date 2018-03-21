@@ -6,10 +6,4 @@ target 'IDMFoundation_Example' do
   pod 'SwinjectAutoregistration'
 #  pod 'SwinjectPropertyLoader'
   pod 'SwinjectStoryboard'
-  
-  target 'IDMFoundation_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

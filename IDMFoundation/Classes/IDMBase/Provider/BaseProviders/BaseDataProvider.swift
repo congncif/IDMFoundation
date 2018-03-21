@@ -15,7 +15,7 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
     open override func request(parameters: T?,
                           completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         
-        if let data = testCompletionData(parameters: parameters) {
+        if let data = testResponseData(parameters: parameters) {
             completion(data.0, data.1, data.2)
             return nil
         }
@@ -42,9 +42,5 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
         return {
             request.cancel()
         }
-    }
-    
-    open func testCompletionData(parameters: T?) -> (Bool, Any?, Error?)? {
-        return nil
     }
 }

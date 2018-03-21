@@ -1,4 +1,5 @@
 //
+import Alamofire
 //  BaseProvider.swift
 //  IDMCommon
 //
@@ -8,15 +9,16 @@
 
 import Foundation
 import IDMCore
-import Alamofire
 import SiFUtilities
+
+public typealias ProviderResponseAny = (Bool, Any?, Error?)
 
 public protocol ProviderProgressTrackingDelegate: class {
     func progressDidUpdate(progress: Double)
 }
 
 public protocol ProgressModelProtocol: DelayingCompletionProtocol {
-    var progress: Progress? {get set}
+    var progress: Progress? { get set }
 }
 
 open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
@@ -28,11 +30,11 @@ open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol
 
 open class BaseProvider<T>: RootProvider<T, Any> {
     open override func request(parameters: T?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
+        fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
     
     open func requestPath(parameters: T?) -> String {
-        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
+        fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
     
     open func httpMethod(parameters: T?) -> HTTPMethod {
@@ -56,6 +58,24 @@ open class BaseProvider<T>: RootProvider<T, Any> {
         let error = response.error
         let success = error == nil
         return (success, value, error)
+    }
+    
+    open func testResponseData(parameters: T?) -> ProviderResponseAny? {
+        if let filePath = testResponseFile(parameters: parameters) {
+            let keeper = ValueKeeper<ProviderResponseAny>(getValueAsync: { fullfill in
+                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                    let text = try? String(contentsOfFile: filePath)
+                    fullfill((true, text, nil))
+                })
+            })
+            return keeper.syncValue
+        } else {
+            return nil
+        }
+    }
+    
+    open func testResponseFile(parameters: T?) -> String? {
+        return nil
     }
 }
 
@@ -86,11 +106,11 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
     }
     
     public init(delegate: ProviderProgressTrackingDelegate?) {
-        self.progressDelegate = delegate
+        progressDelegate = delegate
     }
     
     public init(trackingBlock: ((T?, Double) -> Void)?) {
-        self.progressTracking = trackingBlock
+        progressTracking = trackingBlock
     }
     
     open func updateProgress(parameters: T?, progress: Double) {
@@ -102,7 +122,7 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
         if let exData = parameters as? UploadURLsParameter {
             multipart.append(urlParameter: exData)
         } else {
-            log("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
+            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
         }
     }
     
@@ -110,8 +130,7 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
         if let exData = parameters as? UploadURLsParameter {
             try? exData.cleanUp()
         } else {
-            log("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
+            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
         }
     }
 }
-
