@@ -42,11 +42,13 @@
 			<key>Description</key>
 			<string>The type of provider to use</string>
 			<key>Type</key>
-			<string>combo</string>
+			<string>popup</string>
 			<key>Default</key>
-			<string>BaseDataProvider</string>
+			<string>BaseDataProviderSingleFlow</string>
 			<key>Values</key>
 			<array>
+				<string>BaseDataProviderSingleFlow</string>
+				<string>BaseUploadProviderSingleFlow</string>
 				<string>BaseDataProvider</string>
 				<string>BaseUploadProvider</string>
 			</array>
@@ -57,7 +59,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>81</string>
+	<string>1</string>
 	<key>Summary</key>
 	<string>This generates IDM classes</string>
 </dict>

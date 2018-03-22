@@ -19,7 +19,7 @@ class ExamProvider: BaseDataProvider<ExamParameter> {
     override func testResponseData(parameters: ExamParameter?) -> (Bool, Any?, Error?)? {
         let keeper = ValueKeeper<ProviderResponseAny> { fullfill in
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
-                fullfill((false, "XXXX", NSError(domain: "", code: 1, userInfo: nil)))
+                fullfill((true, "XXXX", NSError(domain: "", code: 1, userInfo: nil)))
             })
         }
         return keeper.syncValue
@@ -46,36 +46,39 @@ class Exam: Mappable {
 class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 }
 
-class ExamService: MagicalIntegrator<BaseDataProvider<ExamParameter>, ExamModel> {
+class ExamService: MagicalIntegrator<RootProvider<ExamParameter>, ExamModel> {
+    convenience init() {
+        self.init(dataProvider: ExamProvider())
+    }
 }
 
 class AnimalService: AmazingIntegrator<BetaExamProvider> {
 }
 
 class ViewController: UIViewController {
-    var service: ExamService!
-    var service2: AnimalService! // = AnimalService(dataProvider: BetaExamProvider())
+    var service: ExamService = ExamService()
+    var service2: AnimalService = AnimalService(dataProvider: BetaExamProvider())
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewDidDisplay() {
-//        service.prepareCall()
-//            .onSuccess { model in
-//                print("ALOG: \(String(describing: model))")
-//            }
-//            .onError({ (err) in
-//                print(err ?? "")
-//            })
-//            .retry(3, silent: false)
-//            .call()
+        service.prepareCall()
+            .onSuccess { model in
+                print("ALOG: \(String(describing: model))")
+            }
+            .onError({ (err) in
+                print(err ?? "")
+            })
+            .retry(3, silent: false)
+            .call()
 
-        service2.prepareCall().onSuccess { res in
-            print(res)
-        }.onError { err in
-            print(err)
-        }.call()
+//        service2.prepareCall().onSuccess { res in
+//            print(res)
+//        }.onError { err in
+//            print(err)
+//        }.call()
     }
 
     override func beginLoading() {
@@ -87,21 +90,22 @@ class ViewController: UIViewController {
     }
 }
 
-extension SwinjectStoryboard {
-    @objc class func setup() {
-        defaultContainer.autoregister(BaseDataProvider<ExamParameter>.self, initializer: ExamProvider.init)
-        defaultContainer.autoregister(ExamService.self, initializer: ExamService.init(dataProvider:))
-        defaultContainer.autoregister(BetaExamProvider.self, initializer: BetaExamProvider.init)
-//        defaultContainer.autoregister(AnimalService.self, initializer: AnimalService.init(dataProvider: executingType:))
-        defaultContainer.register(AnimalService.self) { (resolver) -> AnimalService in
-            if let pro = resolver.resolve(BetaExamProvider.self) {
-                return AnimalService(dataProvider: pro)
-            }
-            fatalError()
-        }
-        defaultContainer.storyboardInitCompleted(ViewController.self) { r, c in
-            c.service = r.resolve(ExamService.self)
-            c.service2 = r.resolve(AnimalService.self)
-        }
-    }
-}
+//extension SwinjectStoryboard {
+//    @objc class func setup() {
+//        defaultContainer.autoregister(BaseDataProvider<ExamParameter>.self, initializer: ExamProvider.init)
+//        defaultContainer.autoregister(ExamService.self, initializer: ExamService.init)
+//        defaultContainer.autoregister(BetaExamProvider.self, initializer: BetaExamProvider.init)
+//        defaultContainer.autoregister(AnimalService.self, argument: IntegrationType.self, initializer: AnimalService.init(dataProvider: executingType:))
+////        defaultContainer.register(AnimalService.self) { (resolver) -> AnimalService in
+////            if let pro = resolver.resolve(BetaExamProvider.self) {
+////                return AnimalService(dataProvider: pro)
+////            }
+////            fatalError()
+////        }
+//        defaultContainer.storyboardInitCompleted(ViewController.self) { r, c in
+//            c.service = r.resolve(ExamService.self)
+//            c.service2 = r.resolve(AnimalService.self)
+//        }
+//    }
+//}
+

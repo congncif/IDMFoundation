@@ -21,14 +21,14 @@ public protocol ProgressModelProtocol: DelayingCompletionProtocol {
     var progress: Progress? { get set }
 }
 
-open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
+open class RootProvider<ParameterType>: NSObject, DataProviderProtocol {
     @discardableResult
-    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, DataType?, Error?) -> Void) -> CancelHandler? {
+    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         fatalError("Please override \(#function) to get data")
     }
 }
 
-open class BaseProvider<T>: RootProvider<T, Any> {
+open class BaseProvider<T>: RootProvider<T> {
     open override func request(parameters: T?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
@@ -79,7 +79,7 @@ open class BaseProvider<T>: RootProvider<T, Any> {
     }
 }
 
-open class BaseProviderWrapper<T: DataProviderProtocol>: BaseProvider<T.ParameterType> where T.DataType == Any {
+open class BaseProviderWrapper<T: DataProviderProtocol>: RootProvider<T.ParameterType> where T.DataType == Any {
     public var provider: T?
     
     public init(provider: T?) {
