@@ -13,6 +13,7 @@ public class RequestParameterConfiguration {
     private init() {
     }
     
+    public var ignoreKeys: [String] = []
     public var mapKeys: [String: String] = [:]
     public var page: Int = 0
     public var pageSize: Int = 24

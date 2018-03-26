@@ -13,4 +13,12 @@ open class RequestParameter: NSObject, KeyValueProtocol {
     public override init() {
         super.init()
     }
+    
+    open var mapKeys: [String : String] {
+        return RequestParameterConfiguration.shared.mapKeys
+    }
+    
+    open var ignoreKeys: [String] {
+        return RequestParameterConfiguration.shared.ignoreKeys
+    }
 }

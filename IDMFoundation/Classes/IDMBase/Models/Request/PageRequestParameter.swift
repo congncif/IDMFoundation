@@ -24,7 +24,11 @@ open class PageRequestParameter: RequestParameter {
         self.pageSize = pageSize
     }
     
-    open var mapKeys: [String : String] {
-        return RequestParameterConfiguration.shared.mapKeys
+    open override var mapKeys: [String : String] {
+        return super.mapKeys
+    }
+    
+    open override var ignoreKeys: [String] {
+        return super.ignoreKeys
     }
 }
