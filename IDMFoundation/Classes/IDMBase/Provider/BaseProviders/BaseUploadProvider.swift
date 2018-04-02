@@ -6,10 +6,10 @@
 //  Copyright © 2017 Julian Heissl. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 import IDMCore
 import SiFUtilities
-import Alamofire
 
 open class BaseUploadProvider<T>: BaseTaskProvider<T> {
     private var uploader: Request?
@@ -73,18 +73,22 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                         print(result.value ?? "==> JSON Response: No value")
                     }
                     
-                    self?.uploader = nil
                     completion(result.success, result.value, result.error)
+                    
+                    self?.uploader = nil
                 }
                 
             case .failure(let encodingError):
                 print(encodingError)
                 completion(false, nil, encodingError)
+                
+                self?.uploader = nil
             }
         }
         
         return { [weak self] in
             self?.uploader?.cancel()
+            self?.uploader = nil
         }
     }
     
@@ -93,4 +97,3 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         uploader = nil
     }
 }
-
