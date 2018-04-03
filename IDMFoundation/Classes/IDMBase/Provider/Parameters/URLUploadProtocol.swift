@@ -9,15 +9,15 @@ import Foundation
 import SiFUtilities
 
 public protocol StringKeyValueProtocol: KeyValueProtocol {
-    var queryParameters: [String: String] {get}
+    var queryParameters: [String: String] { get }
 }
 
 public protocol URLUploadItemProtocol {
-    var uploadUrl: URL {get}
-    var uploadName: String {get}
-    var fileName: String? {get}
-    var mimeType: String? {get}
-    
+    var uploadUrl: URL { get }
+    var uploadName: String { get }
+    var fileName: String? { get }
+    var mimeType: String? { get }
+
     mutating func saveTemporaryData() // change URL
     func cleanTemporaryData()
 }
@@ -35,8 +35,9 @@ extension URLUploadItemProtocol {
 
 extension StringKeyValueProtocol {
     public var queryParameters: [String: String] {
-        guard let query = self.dictionary as? [String: String] else {
-            return [:]
+        var query: [String: String] = [:]
+        for (key, value) in dictionary {
+            query[key] = String(describing: value)
         }
         return query
     }

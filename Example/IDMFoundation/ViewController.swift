@@ -7,6 +7,11 @@ import SwinjectAutoregistration
 import SwinjectStoryboard
 import UIKit
 
+struct TestStringProtocolObject: StringKeyValueProtocol {
+    var id: Int? = 123
+    var name: String? = "name"
+}
+
 class ExamParameter: RequestParameter {
     var query: String = ""
 }
@@ -61,18 +66,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let obj = TestStringProtocolObject(id: 123, name: "Name here")
+        let param = obj.queryParameters
+        print(param)
     }
 
     override func viewDidDisplay() {
-        service.prepareCall()
-            .onSuccess { model in
-                print("ALOG: \(String(describing: model))")
-            }
-            .onError({ (err) in
-                print(err ?? "")
-            })
-            .retry(3, silent: false)
-            .call()
+//        service.prepareCall()
+//            .onSuccess { model in
+//                print("ALOG: \(String(describing: model))")
+//            }
+//            .onError({ (err) in
+//                print(err ?? "")
+//            })
+//            .retry(3, silent: false)
+//            .call()
 
 //        service2.prepareCall().onSuccess { res in
 //            print(res)

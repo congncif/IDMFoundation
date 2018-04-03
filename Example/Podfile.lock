@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.7.0)
-  - IDMCore (2.3.7)
-  - IDMFoundation (1.0.0):
+  - Alamofire (4.7.1)
+  - IDMCore (2.4.0)
+  - IDMFoundation (1.0.5):
     - Alamofire
     - IDMCore
     - MBProgressHUD
@@ -10,12 +10,12 @@ PODS:
     - UIImage+FixOrientation
   - MBProgressHUD (1.1.0)
   - ObjectMapper (3.1.0)
-  - SiFUtilities (3.4.0)
-  - Swinject (2.2.0)
+  - SiFUtilities (3.5.5)
+  - Swinject (2.3.0)
   - SwinjectAutoregistration (2.1.1):
     - Swinject (~> 2.1)
-  - SwinjectStoryboard (1.1.2):
-    - Swinject (~> 2.1)
+  - SwinjectStoryboard (1.2.1):
+    - Swinject (~> 2.3)
   - UIImage+FixOrientation (1.0.0)
 
 DEPENDENCIES:
@@ -29,15 +29,15 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  IDMCore: e94bc49ee68c4f3c671b5b3bcde8de1ac3c5897f
-  IDMFoundation: 8327eb7d32cfbf76f0727915cfd70dc63843a9a2
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  IDMCore: 62b21ef59769d2b952a035c0f48955c110a2e958
+  IDMFoundation: fc4cc55734231837937a3a247048586163cd764f
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  SiFUtilities: 6370fb1a033d39826c92c7b3fbd090c1dd942033
-  Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
+  SiFUtilities: 7d455a174b4a30aa9ee2da215708c31c26427672
+  Swinject: 6e29897396bab81fe4aa40c5ca92ba996136334b
   SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
-  SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
+  SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
   UIImage+FixOrientation: 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
 PODFILE CHECKSUM: 2420f1ba69646687d7b961c14eeb07696263660c

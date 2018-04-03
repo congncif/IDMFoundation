@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class Debouncer: NSObject {
-    public private(set) var callback: (() -> ())
-    public private(set) var delay: Double
-    public private(set) weak var timer: Timer?
+class Debouncer: NSObject {
+    private(set) var callback: (() -> ())
+    private(set) var delay: Double
+    private(set) weak var timer: Timer?
     
-    public init(delay: Double, callback: @escaping (() -> ())) {
+    init(delay: Double, callback: @escaping (() -> ())) {
         self.delay = delay
         self.callback = callback
     }
@@ -22,18 +22,18 @@ public class Debouncer: NSObject {
         cancel()
     }
     
-    public func call() {
+    func call() {
         cancel()
         let nextTimer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(Debouncer.fireNow), userInfo: nil, repeats: false)
         timer = nextTimer
     }
     
-    public func cancel() {
+    func cancel() {
         timer?.invalidate()
         timer = nil
     }
     
-    @objc public func fireNow() {
-        self.callback()
+    @objc func fireNow() {
+        callback()
     }
 }
