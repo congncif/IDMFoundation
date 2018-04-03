@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 import IDMCore
 
-open class StandardProgressResponseModel: ProgressModelProtocol {
+open class StandardProgressResponseModel: ProgressModelProtocol, DelayingCompletionProtocol {
     public var progress: Progress?
     public var isDelaying: Bool = false
     
