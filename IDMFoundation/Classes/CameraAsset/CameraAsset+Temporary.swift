@@ -9,7 +9,7 @@
 import Foundation
 import SiFUtilities
 
-extension CameraAsset : TemporaryProtocol {
+extension CameraAsset: TemporaryProtocol {
     @objc open func saveTemporary(name: String? = nil) throws -> URL {
         var url: URL
         
@@ -20,11 +20,11 @@ extension CameraAsset : TemporaryProtocol {
                 do {
                     try FileManager.default.copyItem(at: videoURL, to: url)
                 } catch let ex {
-                    let err = CommonError(title: "Can not copy video", message: ex.localizedDescription)
+                    let err = CommonError(title: "Can not copy video".localized, message: ex.localizedDescription)
                     throw err
                 }
             } else {
-                let err = CommonError(title: "Video URL not found")
+                let err = CommonError(title: "Video URL not found".localized)
                 throw err
             }
             
@@ -34,12 +34,12 @@ extension CameraAsset : TemporaryProtocol {
                 let data = transformImageToData(image)
                 do {
                     try data?.write(to: url)
-                }catch let e {
-                    let error = CommonError(title: "Can not save temporary image", message: e.localizedDescription)
+                } catch let e {
+                    let error = CommonError(title: "Can not save temporary image".localized, message: e.localizedDescription)
                     throw error
                 }
             } else {
-                let err = CommonError(title: "Image not found")
+                let err = CommonError(title: "Image not found".localized)
                 throw err
             }
         }

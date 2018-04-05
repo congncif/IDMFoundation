@@ -19,11 +19,11 @@ extension UIImage : TemporaryProtocol {
             do {
                 try data?.write(to: url)
             }catch let e {
-                let error = CommonError(title: "Can not save temporary image", message: e.localizedDescription)
+                let error = CommonError(title: "Can not save temporary image".localized, message: e.localizedDescription)
                 throw error
             }
         } else {
-            let err = CommonError(title: "Image not found")
+            let err = CommonError(title: "Image not found".localized)
             throw err
         }
         return url

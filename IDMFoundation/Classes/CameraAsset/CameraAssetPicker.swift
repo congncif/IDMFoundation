@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import UIKit
+import MobileCoreServices
 import Photos
 import SiFUtilities
-import MobileCoreServices
+import UIKit
 
 open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     open static let shared = CameraAssetPicker()
@@ -22,29 +22,33 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
     private var handler: ((UIImagePickerController?, CameraAsset?, Error?) -> Void)?
     
     open func showImagePicker(sourceType: UIImagePickerControllerSourceType,
-                         on viewController: UIViewController? = nil,
-                         dismissOnFinished: Bool = true,
-                         outputType: [AssetType] = [.photo],
-                         finishHandler: ((UIImagePickerController?, CameraAsset?, Error?) -> Void)? = nil) {
-        
-        self.handler = finishHandler
+                              on viewController: UIViewController? = nil,
+                              dismissOnFinished: Bool = true,
+                              outputType: [AssetType] = [.photo],
+                              finishHandler: ((UIImagePickerController?, CameraAsset?, Error?) -> Void)? = nil) {
+        handler = finishHandler
         self.dismissOnFinished = dismissOnFinished
         self.outputType = outputType
         
         if !checkPermissions(sourceType: sourceType) {
-            viewController?.confirm(title: "Permission is denied", message: "Go to Settings to change permissions for app", cancelTitle: "Cancel", cancelHandler: {}, confirmedTitle: "OK", confirmedHandler: {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-                }
+            viewController?.confirm(title: "Permission is denied".localized,
+                                    message: "Go to Settings to change permissions for app".localized,
+                                    cancelTitle: "Cancel".localized,
+                                    cancelHandler: {},
+                                    confirmedTitle: "OK".localized,
+                                    confirmedHandler: {
+                                        if #available(iOS 10, *) {
+                                            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                                        } else {
+                                            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                                        }
             })
             handler?(nil, nil, nil)
             return
         }
         
         guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
-            let error = CommonError(title: nil, message: "Camera is not available")
+            let error = CommonError(title: nil, message: "Camera is not available".localized)
             handler?(nil, nil, error)
             return
         }
@@ -55,16 +59,15 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
         imagePicker.sourceType = sourceType
         
         imagePicker.mediaTypes = self.outputType.map({ (type) -> String in
-            return type.key
+            type.key
         })
-        self.picker = imagePicker
+        picker = imagePicker
         viewController?.present(imagePicker, animated: true, completion: nil)
     }
     
     // MARK: - UIImagePickerControllerDelegate
     
-    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         var asset: CameraAsset
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             asset = CameraAsset(type: .photo, image: pickedImage)
@@ -96,5 +99,27 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
         #endif
         let cameraPermission = authStatus == AVAuthorizationStatus.denied
         return sourceType == .camera ? !cameraPermission : !photoPermission
+    }
+}
+
+extension CameraAssetPicker {
+    func confirmShowAssetPicker(on vc: UIViewController?,
+                                completion: @escaping (UIImage?, Error?) -> Void) {
+        let viewController = vc
+        let confirmSheet = UIAlertController(title: "", message: "Choose photo from".localized, preferredStyle: .actionSheet)
+        confirmSheet.addAction(UIAlertAction(title: "Camera".localized, style: .destructive, handler: { _ in
+            CameraAssetPicker.shared.showImagePicker(sourceType: .camera, on: viewController) { _, asset, error in
+                completion(asset?.image, error)
+            }
+        }))
+        
+        confirmSheet.addAction(UIAlertAction(title: "Photo Library".localized, style: .default, handler: { _ in
+            CameraAssetPicker.shared.showImagePicker(sourceType: .photoLibrary, on: viewController) { _, asset, error in
+                completion(asset?.image, error)
+            }
+        }))
+        
+        confirmSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        viewController?.present(confirmSheet, animated: true, completion: nil)
     }
 }

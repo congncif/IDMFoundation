@@ -13,7 +13,7 @@ extension Data: TemporaryProtocol {
         let url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "")
         do {
             try self.write(to: url)
-        }catch let e {
+        } catch let e {
             let error = CommonError(message: e.localizedDescription)
             throw error
         }
