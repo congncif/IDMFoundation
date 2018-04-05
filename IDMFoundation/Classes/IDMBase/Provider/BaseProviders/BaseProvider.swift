@@ -98,8 +98,8 @@ extension DataProviderProtocol where DataType == Any {
 }
 
 open class BaseTaskProvider<T>: BaseProvider<T> {
-    open var progressTracking: ((T?, Double) -> Void)? // use block if you have multiple task providers
-    open weak var progressDelegate: ProviderProgressTrackingDelegate? // use delegate if you have only one task provider
+    open var progressTracking: ((T?, Double) -> Void)?
+    open weak var progressDelegate: ProviderProgressTrackingDelegate?
     
     public override init() {
         super.init()
@@ -116,6 +116,10 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
     open func updateProgress(parameters: T?, progress: Double) {
         progressTracking?(parameters, progress)
         progressDelegate?.progressDidUpdate(progress: progress)
+    }
+    
+    open var trackingProgressEnabled: Bool {
+        return true
     }
     
     open func buildFormData(multipart: MultipartFormData, with parameters: T?) {

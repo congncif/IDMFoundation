@@ -49,13 +49,12 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                 self?.uploader = upload
                 
                 upload.uploadProgress(closure: { [weak self] progress in
-                    if self?.progressTracking == nil && self?.progressDelegate == nil {
-//                        #if DEBUG
-//                            log("\nMake sure you are handling task progress in success callback")
-//                        #endif
-                        completion(true, progress, nil)
-                    } else {
-                        self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                    if self?.trackingProgressEnabled == true {
+                        if self?.progressTracking == nil && self?.progressDelegate == nil {
+                            completion(true, progress, nil)
+                        } else {
+                            self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
+                        }
                     }
                 })
                 
@@ -66,15 +65,11 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                     }
                     
                     self?.cleanUp(parameters: parameters)
-                    
                     let result = this.preprocessResponse(response)
-                    
                     if this.logEnabled(parameters: parameters) {
-                        print(result.value ?? "==> JSON Response: No value")
+                        print(result.value ?? "☞ Response: No value")
                     }
-                    
                     completion(result.success, result.value, result.error)
-                    
                     self?.uploader = nil
                 }
                 

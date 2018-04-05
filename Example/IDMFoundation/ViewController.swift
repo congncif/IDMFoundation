@@ -16,6 +16,12 @@ class ExamParameter: RequestParameter {
     var query: String = ""
 }
 
+class XXX: BaseUploadProvider<String> {
+    override var trackingProgressEnabled: Bool {
+        return false
+    }
+}
+
 class ExamProvider: BaseDataProvider<ExamParameter> {
     override func requestPath(parameters: ExamParameter?) -> String {
         return "https://www.api.com/exam"
