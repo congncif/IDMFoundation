@@ -21,7 +21,7 @@ open class URLUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData(name: String? = nil) {
+    open func saveTemporaryData() {
         // Do nothing
     }
 }
@@ -41,9 +41,9 @@ open class AssetUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData(name: String? = nil) {
+    open func saveTemporaryData() {
         do {
-            let url = try asset.saveTemporary(name: name)
+            let url = try asset.saveTemporary(name: fileName)
             uploadUrl = url
         } catch let ex {
             print("Error in \(#function): \(String(describing: ex))")
@@ -66,9 +66,9 @@ open class ImageUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData(name: String? = nil) {
+    open func saveTemporaryData() {
         do {
-            let url = try image.saveTemporary(name: name)
+            let url = try image.saveTemporary(name: fileName)
             uploadUrl = url
         } catch let ex {
             print("Error in \(#function): \(String(describing: ex))")
@@ -91,9 +91,9 @@ open class ImageDataUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData(name: String? = nil) {
+    open func saveTemporaryData() {
         do {
-            let url = try imageData.saveTemporary(name: name)
+            let url = try imageData.saveTemporary(name: fileName)
             uploadUrl = url
         } catch let ex {
             print("Error in \(#function): \(String(describing: ex))")
@@ -110,7 +110,7 @@ open class UploadURLsParameter {
         var items = [URLUploadItem]()
         for url in urls {
             let item = URLUploadItem(url: url, name: name)
-            item.saveTemporaryData(name: item.fileName)
+            item.saveTemporaryData()
             items.append(item)
         }
         self.uploadItems = items
@@ -124,7 +124,7 @@ open class UploadURLsParameter {
     public init(items: [URLUploadItemProtocol]) {
         self.uploadItems = items.map({ (item) -> URLUploadItemProtocol in
             var newItem = item
-            newItem.saveTemporaryData(name: item.fileName)
+            newItem.saveTemporaryData()
             return newItem
         })
     }

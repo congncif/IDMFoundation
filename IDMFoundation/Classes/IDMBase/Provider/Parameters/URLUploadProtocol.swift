@@ -18,7 +18,7 @@ public protocol URLUploadItemProtocol {
     var fileName: String? { get }
     var mimeType: String? { get }
 
-    mutating func saveTemporaryData(name: String?) // change URL
+    mutating func saveTemporaryData() // change URL
     func cleanTemporaryData()
 }
 
