@@ -36,7 +36,7 @@ extension CameraAsset: URLUploadItemProtocol, AssociatedObject {
         return nil
     }
     
-    public func saveTemporaryData() {
+    public func saveTemporaryData(name: String? = nil) {
         do {
             let tmpUrl = try saveTemporary()
             _url = tmpUrl

@@ -9,7 +9,8 @@
 import Foundation
 
 public protocol TemporaryProtocol {
-    func saveTemporary() throws -> URL
+    func saveTemporary(name: String?) throws -> URL
 }
+
 
 

@@ -11,15 +11,25 @@ import SiFUtilities
 import UIImage_FixOrientation
 
 extension UIImage : TemporaryProtocol {
-    public func saveTemporary() throws -> URL {
-        let url = TemporaryUtils.temporaryURL(fileExtension: "png")
-        let data = UIImagePNGRepresentation(self.fixOrientation())
-        do {
-            try data?.write(to: url)
-        }catch let e {
-            let error = CommonError(message: e.localizedDescription)
-            throw error
+    @objc open func saveTemporary(name: String? = nil) throws -> URL {
+        let url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "png")
+        
+        if let image = self.fixOrientation() {
+            let data = transformImageToData(image)
+            do {
+                try data?.write(to: url)
+            }catch let e {
+                let error = CommonError(title: "Can not save temporary image", message: e.localizedDescription)
+                throw error
+            }
+        } else {
+            let err = CommonError(title: "Image not found")
+            throw err
         }
         return url
+    }
+    
+    @objc open func transformImageToData(_ image: UIImage) -> Data? {
+        return UIImagePNGRepresentation(image)
     }
 }

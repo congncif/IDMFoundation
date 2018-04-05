@@ -10,12 +10,12 @@ import Foundation
 import SiFUtilities
 
 extension CameraAsset : TemporaryProtocol {
-    public func saveTemporary() throws -> URL {
+    @objc open func saveTemporary(name: String? = nil) throws -> URL {
         var url: URL
         
         switch type {
         case .video:
-            url = TemporaryUtils.temporaryURL(fileExtension: "mov")
+            url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "mov")
             if let videoURL = self.url {
                 do {
                     try FileManager.default.copyItem(at: videoURL, to: url)
@@ -29,9 +29,9 @@ extension CameraAsset : TemporaryProtocol {
             }
             
         default:
-            url = TemporaryUtils.temporaryURL(fileExtension: "png")
+            url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "png")
             if let image = self.image?.fixOrientation() {
-                let data = UIImagePNGRepresentation(image)
+                let data = transformImageToData(image)
                 do {
                     try data?.write(to: url)
                 }catch let e {
@@ -44,5 +44,9 @@ extension CameraAsset : TemporaryProtocol {
             }
         }
         return url
+    }
+    
+    @objc open func transformImageToData(_ image: UIImage) -> Data? {
+        return UIImagePNGRepresentation(image)
     }
 }

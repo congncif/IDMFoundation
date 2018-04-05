@@ -21,7 +21,7 @@ open class URLUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData() {
+    open func saveTemporaryData(name: String? = nil) {
         // Do nothing
     }
 }
@@ -41,9 +41,9 @@ open class AssetUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData() {
+    open func saveTemporaryData(name: String? = nil) {
         do {
-            let url = try asset.saveTemporary()
+            let url = try asset.saveTemporary(name: name)
             uploadUrl = url
         } catch let ex {
             print("Error in \(#function): \(String(describing: ex))")
@@ -66,9 +66,34 @@ open class ImageUploadItem: URLUploadItemProtocol {
         self.mimeType = mimeType
     }
     
-    open func saveTemporaryData() {
+    open func saveTemporaryData(name: String? = nil) {
         do {
-            let url = try image.saveTemporary()
+            let url = try image.saveTemporary(name: name)
+            uploadUrl = url
+        } catch let ex {
+            print("Error in \(#function): \(String(describing: ex))")
+        }
+    }
+}
+
+open class ImageDataUploadItem: URLUploadItemProtocol {
+    open private(set) var uploadUrl: URL = URL(fileURLWithPath: "")
+    open var uploadName: String = ""
+    open var fileName: String?
+    open var mimeType: String?
+    
+    open var imageData: Data
+    
+    public init(imageData: Data, name: String, fileName: String? = nil, mimeType: String? = nil) {
+        self.imageData = imageData
+        self.uploadName = name
+        self.fileName = fileName
+        self.mimeType = mimeType
+    }
+    
+    open func saveTemporaryData(name: String? = nil) {
+        do {
+            let url = try imageData.saveTemporary(name: name)
             uploadUrl = url
         } catch let ex {
             print("Error in \(#function): \(String(describing: ex))")
@@ -85,7 +110,7 @@ open class UploadURLsParameter {
         var items = [URLUploadItem]()
         for url in urls {
             let item = URLUploadItem(url: url, name: name)
-            item.saveTemporaryData()
+            item.saveTemporaryData(name: item.fileName)
             items.append(item)
         }
         self.uploadItems = items
@@ -99,7 +124,7 @@ open class UploadURLsParameter {
     public init(items: [URLUploadItemProtocol]) {
         self.uploadItems = items.map({ (item) -> URLUploadItemProtocol in
             var newItem = item
-            newItem.saveTemporaryData()
+            newItem.saveTemporaryData(name: item.fileName)
             return newItem
         })
     }
@@ -118,6 +143,18 @@ open class UploadURLsParameter {
     
     public convenience init<T: StringKeyValueProtocol>(images: [UIImage], name: String = "images", query: T) {
         self.init(images: images, name: name)
+        self.query = query
+    }
+    
+    public convenience init(imageData: [Data], name: String = "images") {
+        let items = imageData.map { img -> ImageDataUploadItem in
+            return ImageDataUploadItem(imageData: img, name: name)
+        }
+        self.init(items: items)
+    }
+    
+    public convenience init<T: StringKeyValueProtocol>(imageData: [Data], name: String = "images", query: T) {
+        self.init(imageData: imageData, name: name)
         self.query = query
     }
     

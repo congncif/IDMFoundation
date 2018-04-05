@@ -20,8 +20,8 @@ public struct TemporaryUtils {
         return path as String
     }
     
-    public static func temporaryURL(fileExtension: String = "") -> URL {
-        let path = temporaryPath(fileExtension: fileExtension)
+    public static func temporaryURL(fileName: String? = nil, fileExtension: String = "") -> URL {
+        let path = temporaryPath(fileName: fileName, fileExtension: fileExtension)
         return URL(fileURLWithPath: path)
     }
 }
