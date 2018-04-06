@@ -10,6 +10,11 @@ import CWStatusBarNotification
 import Foundation
 import Reachability
 
+public extension Notification.Name {
+    public static let InternetAvailable = Notification.Name("internet-available")
+    public static let InternetNotAvailable = Notification.Name("internet-not-available")
+}
+
 public class ConnectionManager {
     public static let shared = ConnectionManager()
 
@@ -32,6 +37,7 @@ public class ConnectionManager {
                     print("Reachable via Cellular")
                 }
                 self?.hideNotification()
+                NotificationCenter.default.post(name: NSNotification.Name.InternetAvailable, object: nil)
             }
         }
         reachability.whenUnreachable = { [weak self] _ in
@@ -40,6 +46,7 @@ public class ConnectionManager {
             DispatchQueue.main.async {
                 print("Not reachable")
                 self?.showNotification()
+                NotificationCenter.default.post(name: NSNotification.Name.InternetNotAvailable, object: nil)
             }
         }
     }
