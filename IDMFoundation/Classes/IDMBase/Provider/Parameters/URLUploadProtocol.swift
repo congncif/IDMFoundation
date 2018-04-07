@@ -7,7 +7,6 @@
 
 import Foundation
 import SiFUtilities
-import Alamofire
 
 public protocol StringKeyValueProtocol: KeyValueProtocol {
     var queryParameters: [(String, String)] { get }
@@ -36,11 +35,29 @@ extension URLUploadItemProtocol {
 
 extension StringKeyValueProtocol {
     public var queryParameters: [(String, String)] {
-        var components:  [(String, String)] = []
+        var components: [(String, String)] = []
         let parameters = dictionary
         for key in parameters.keys.sorted(by: <) {
             let value = parameters[key]!
-            components += URLEncoding.default.queryComponents(fromKey: key, value: value)
+            components += queryComponents(fromKey: key, value: value)
+        }
+        
+        return components
+    }
+    
+    func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
+        var components: [(String, String)] = []
+        
+        if let dictionary = value as? [String: Any] {
+            for (nestedKey, value) in dictionary {
+                components += queryComponents(fromKey: "\(key)[\(nestedKey)]", value: value)
+            }
+        } else if let array = value as? [Any] {
+            for value in array {
+                components += queryComponents(fromKey: key + "[]", value: value)
+            }
+        } else {
+            components.append((key, String(describing: value)))
         }
         
         return components

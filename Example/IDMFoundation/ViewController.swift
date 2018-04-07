@@ -94,6 +94,11 @@ class ViewController: UIViewController {
 //        }.onError { err in
 //            print(err)
 //        }.call()
+        
+        let num = NSNumber(booleanLiteral: true)
+        let num2 = NSNumber(value: 111)
+        print(String(describing: num))
+        print(String(describing: num2))
     }
 
     override func beginLoading() {
