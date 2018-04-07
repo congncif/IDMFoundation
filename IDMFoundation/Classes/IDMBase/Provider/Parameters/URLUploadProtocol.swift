@@ -7,9 +7,10 @@
 
 import Foundation
 import SiFUtilities
+import Alamofire
 
 public protocol StringKeyValueProtocol: KeyValueProtocol {
-    var queryParameters: [String: String] { get }
+    var queryParameters: [(String, String)] { get }
 }
 
 public protocol URLUploadItemProtocol {
@@ -34,11 +35,14 @@ extension URLUploadItemProtocol {
 }
 
 extension StringKeyValueProtocol {
-    public var queryParameters: [String: String] {
-        var query: [String: String] = [:]
-        for (key, value) in dictionary {
-            query[key] = String(describing: value)
+    public var queryParameters: [(String, String)] {
+        var components:  [(String, String)] = []
+        let parameters = dictionary
+        for key in parameters.keys.sorted(by: <) {
+            let value = parameters[key]!
+            components += URLEncoding.default.queryComponents(fromKey: key, value: value)
         }
-        return query
+        
+        return components
     }
 }

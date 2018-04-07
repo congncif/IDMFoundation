@@ -44,6 +44,10 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
         }
     }
     
+    open func parameterEncoding(parameters: T?) -> ParameterEncoding {
+        return URLEncoding.default
+    }
+    
     open func customRequest(_ request: DataRequest) {
 //        request.validate()
     }

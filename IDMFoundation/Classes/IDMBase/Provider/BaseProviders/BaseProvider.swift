@@ -41,10 +41,6 @@ open class BaseProvider<T>: RootProvider<T> {
         return .post
     }
     
-    open func parameterEncoding(parameters: T?) -> ParameterEncoding {
-        return URLEncoding.default
-    }
-    
     open func headers(parameters: T?) -> [String: String]? {
         return ProviderConfiguration.shared.headerFields
     }
