@@ -21,7 +21,7 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
         
         let request = Alamofire.request(requestPath(parameters: parameters),
                                         method: httpMethod(parameters: parameters),
-                                        parameters: parameters?.dictionary,
+                                        parameters: parameters?.parameters,
                                         encoding: parameterEncoding(parameters: parameters),
                                         headers: headers(parameters: parameters))
         customRequest(request)
