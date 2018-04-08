@@ -23,6 +23,7 @@ open class BaseResponseModel: NSObject, Mappable {
 }
 
 open class ResponseModel: BaseResponseModel {
+    open var code: Int?
     open var message: String?
     
     public override init() {
@@ -36,10 +37,19 @@ open class ResponseModel: BaseResponseModel {
     open override func mapping(map: Map) {
         super.mapping(map: map)
         message <- map[messageKey]
+        code <- map[codeKey]
     }
     
     open var messageKey: String {
         return ResponseModelConfiguration.shared.messageKey
+    }
+    
+    open var codeKey: String {
+        return ResponseModelConfiguration.shared.codeKey
+    }
+    
+    open var invalidDataError: Error? {
+        return ResponseModelConfiguration.shared.validator?(self)
     }
 }
 

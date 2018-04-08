@@ -30,7 +30,7 @@ class ExamProvider: BaseDataProvider<ExamParameter> {
     override func testResponseData(parameters: ExamParameter?) -> (Bool, Any?, Error?)? {
         let keeper = ValueKeeper<ProviderResponseAny> { fullfill in
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
-                fullfill((true, "XXXX", NSError(domain: "", code: 1, userInfo: nil)))
+                fullfill((true, "{ \"status\": 1 }", nil))
             })
         }
         return keeper.syncValue
@@ -57,13 +57,17 @@ class Exam: Mappable {
 class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 }
 
-class ExamService: MagicalIntegrator<RootProvider<ExamParameter>, ExamModel> {
+class ExamService: MagicalIntegrator<RootProvider<ExamParameter>, XAD> {
     convenience init() {
         self.init(dataProvider: ExamProvider())
     }
 }
 
 class AnimalService: AmazingIntegrator<BetaExamProvider> {
+}
+
+class XAD: ResponseModel, ModelProtocol {
+   
 }
 
 class ViewController: UIViewController {
@@ -73,9 +77,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let obj = TestStringProtocolObject(id: 123, name: "Name here")
-        let param = obj.queryParameters
-        print(param)
+//        let obj = TestStringProtocolObject(id: 123, name: "Name here")
+//        let param = obj.queryParameters
+//        print(param)
+        ResponseModelConfiguration.shared.codeKey = "status"
+        ResponseModelConfiguration.shared.validator =  { model in
+            if model.code == 1 {
+                return CommonError(title: "Error", message: "Failed status")
+            }
+            return nil
+        }
+        
+        service.prepareCall()
+            .onSuccess({ (xad) in
+                print(xad)
+            })
+            .onError { (err) in
+            print(err?.localizedDescription)
+        }.call()
     }
 
     override func viewDidDisplay() {

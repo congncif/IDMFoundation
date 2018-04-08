@@ -10,6 +10,7 @@ import Foundation
 public class ResponseModelConfiguration {
     private struct SerializationKeys {
         static let message = "message"
+        static let code = "code"
         static let data = "data"
         static let page = "page"
     }
@@ -20,6 +21,8 @@ public class ResponseModelConfiguration {
     }
     
     public var messageKey: String = SerializationKeys.message
+    public var codeKey: String = SerializationKeys.code
     public var dataKey: String = SerializationKeys.data
     public var pageKey: String = SerializationKeys.page
+    public var validator: ((ResponseModel) -> Error?)?
 }

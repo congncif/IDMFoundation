@@ -2,14 +2,20 @@
 All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
-- `1.1.x` Releases  - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112) | [1.1.3](#113) | [1.1.4](#114) 
+- `1.1.x` Releases  - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112) | [1.1.3](#113) | [1.1.4](#114)  | [1.1.5](#115) 
 
 ---
+## [1.1.5](https://github.com/congncif/IDMFoundation/releases/tag/1.1.5)
+Released on 2018-4-8
+
+#### Updated
+- Added validator to ResponseModelConfiguration
+
 ## [1.1.4](https://github.com/congncif/IDMFoundation/releases/tag/1.1.4)
 Released on 2018-4-8
 
 #### Updated
-- Add baseParameter to Request Parameter
+- Added baseParameter to Request Parameter
 
 ## [1.1.3](https://github.com/congncif/IDMFoundation/releases/tag/1.1.3)
 Released on 2018-4-7
