@@ -46,7 +46,7 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         }, to: path, method: method, headers: header) { [weak self] encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
-                self?.uploader = upload
+                self?.customRequest(upload)
                 
                 upload.uploadProgress(closure: { [weak self] progress in
                     if self?.trackingProgressEnabled == true {
@@ -73,6 +73,8 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                     self?.uploader = nil
                 }
                 
+                self?.uploader = upload
+                
             case .failure(let encodingError):
                 print(encodingError)
                 completion(false, nil, encodingError)
@@ -84,6 +86,12 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
         return { [weak self] in
             self?.uploader?.cancel()
             self?.uploader = nil
+        }
+    }
+    
+    open func customRequest(_ request: DataRequest) {
+        if let credential = ProviderConfiguration.shared.credential {
+            request.authenticate(usingCredential: credential)
         }
     }
     

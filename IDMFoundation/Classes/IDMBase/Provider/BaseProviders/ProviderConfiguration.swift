@@ -14,4 +14,5 @@ public class ProviderConfiguration {
     }
 
     public var headerFields: [String: String]?
+    public var credential: URLCredential?
 }

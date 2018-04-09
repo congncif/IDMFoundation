@@ -49,6 +49,8 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
     }
     
     open func customRequest(_ request: DataRequest) {
-//        request.validate()
+        if let credential = ProviderConfiguration.shared.credential {
+            request.authenticate(usingCredential: credential)
+        }
     }
 }
