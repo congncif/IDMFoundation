@@ -90,6 +90,9 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
     }
     
     open func customRequest(_ request: DataRequest) {
+        if let customClosure = ProviderConfiguration.shared.customRequest {
+            customClosure(request)
+        }
         if let credential = ProviderConfiguration.shared.credential {
             request.authenticate(usingCredential: credential)
         }

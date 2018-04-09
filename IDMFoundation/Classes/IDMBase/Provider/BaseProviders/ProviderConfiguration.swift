@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public class ProviderConfiguration {
     public static let shared = ProviderConfiguration()
@@ -15,4 +16,5 @@ public class ProviderConfiguration {
 
     public var headerFields: [String: String]?
     public var credential: URLCredential?
+    public var customRequest: ((DataRequest) -> Void)?
 }
