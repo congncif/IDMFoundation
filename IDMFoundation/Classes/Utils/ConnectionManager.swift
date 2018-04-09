@@ -25,22 +25,23 @@ public class ConnectionManager {
     }()
 
     init() {
-        reachability = Reachability()!
+        reachability = Reachability.forInternetConnection()
 
-        reachability.whenReachable = { [weak self] reachability in
+        reachability.reachableBlock = { [weak self] reachability in
             // this is called on a background thread, but UI updates must
             // be on the main thread, like this:
+            guard let this = self, let reach = reachability else { return }
             DispatchQueue.main.async {
-                if reachability.connection == .wifi {
+                if reach.currentReachabilityStatus() == NetworkStatus.ReachableViaWiFi {
                     print("Reachable via WiFi")
                 } else {
                     print("Reachable via Cellular")
                 }
-                self?.hideNotification()
+                this.hideNotification()
                 NotificationCenter.default.post(name: NSNotification.Name.InternetAvailable, object: nil)
             }
         }
-        reachability.whenUnreachable = { [weak self] _ in
+        reachability.unreachableBlock = { [weak self] _ in
             // this is called on a background thread, but UI updates must
             // be on the main thread, like this:
             DispatchQueue.main.async {
@@ -51,20 +52,16 @@ public class ConnectionManager {
         }
     }
 
-    public func startTracking() {
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
+    public func startMonitoring() {
+        reachability.startNotifier()
     }
 
-    public func stopTracking() {
+    public func stopMonitoring() {
         reachability.stopNotifier()
     }
 
     public var internetAvailable: Bool {
-        return reachability.connection == .wifi || reachability.connection == .cellular
+        return reachability.currentReachabilityStatus() == .ReachableViaWiFi || reachability.currentReachabilityStatus() == .ReachableViaWWAN
     }
 
     private func showNotification() {

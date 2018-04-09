@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.1.7'
+  s.version          = '1.1.8'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
 # This description is used to generate tags and improve search results.
@@ -45,5 +45,5 @@ Pod::Spec.new do |s|
   s.dependency 'MBProgressHUD'
   s.dependency 'UIImage+FixOrientation'
   s.dependency 'CWStatusBarNotification'
-  s.dependency 'ReachabilitySwift'
+  s.dependency 'Reachability'
 end
