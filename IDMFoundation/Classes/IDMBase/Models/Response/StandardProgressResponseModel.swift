@@ -30,4 +30,8 @@ open class StandardProgressDataResponseModel<D: ModelProtocol>: StandardProgress
         super.init(from: data)
         self.data = D(from: data)
     }
+    
+    open var invalidDataError: Error? {
+        return data?.invalidDataError
+    }
 }
