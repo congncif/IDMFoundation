@@ -2,9 +2,20 @@
 All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
+- `1.2.x` Releases  - [1.2.0](#120)
 - `1.1.x` Releases  - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112) | [1.1.3](#113) | [1.1.4](#114)  | [1.1.5](#115) | [1.1.6](#116) | [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) 
 
 ---
+## [1.2.0](https://github.com/congncif/IDMFoundation/releases/tag/1.2.0)
+Released on 2018-4-11
+
+#### Updated
+- Removed trackingProgress closure and progressDelegate from Provider. We should handle progress from here, please use <call>.onProgress(_:) instead.
+- Renamed ParameterProvider to ConvertProvider
+- Renamed ForwardParameterProvider to ForwardProvider
+- Removed extension Integrator . setProgressLoadingPresenter
+- Removed UIViewController + ProviderProgressTrackingDelegate
+
 ## [1.1.9](https://github.com/congncif/IDMFoundation/releases/tag/1.1.9)
 Released on 2018-4-9
 

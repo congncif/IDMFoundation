@@ -1,5 +1,4 @@
 //
-import Alamofire
 //  BaseProvider.swift
 //  IDMCommon
 //
@@ -7,15 +6,12 @@ import Alamofire
 //  Copyright © 2017 Julian Heissl. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 import IDMCore
 import SiFUtilities
 
 public typealias ProviderResponseAny = (Bool, Any?, Error?)
-
-public protocol ProviderProgressTrackingDelegate: class {
-    func progressDidUpdate(progress: Double)
-}
 
 public protocol ProgressModelProtocol: DelayingCompletionProtocol {
     var progress: Progress? { get set }
@@ -94,24 +90,8 @@ extension DataProviderProtocol where DataType == Any {
 }
 
 open class BaseTaskProvider<T>: BaseProvider<T> {
-    open var progressTracking: ((T?, Double) -> Void)?
-    open weak var progressDelegate: ProviderProgressTrackingDelegate?
-    
     public override init() {
         super.init()
-    }
-    
-    public init(delegate: ProviderProgressTrackingDelegate?) {
-        progressDelegate = delegate
-    }
-    
-    public init(trackingBlock: ((T?, Double) -> Void)?) {
-        progressTracking = trackingBlock
-    }
-    
-    open func updateProgress(parameters: T?, progress: Double) {
-        progressTracking?(parameters, progress)
-        progressDelegate?.progressDidUpdate(progress: progress)
     }
     
     open var trackingProgressEnabled: Bool {

@@ -50,11 +50,7 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
                 
                 upload.uploadProgress(closure: { [weak self] progress in
                     if self?.trackingProgressEnabled == true {
-                        if self?.progressTracking == nil && self?.progressDelegate == nil {
-                            completion(true, progress, nil)
-                        } else {
-                            self?.updateProgress(parameters: parameters, progress: progress.fractionCompleted)
-                        }
+                        completion(true, progress, nil)
                     }
                 })
                 
