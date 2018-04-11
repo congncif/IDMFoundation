@@ -36,3 +36,25 @@ extension UIViewController: ErrorHandlingProtocol {
         }
     }
 }
+
+public protocol ProgressLoadingProtocol: class {
+    func startProgressLoading()
+    func stopProgressLoading()
+    func progressDidUpdate(progress: Double)
+}
+
+extension UIViewController: ProgressLoadingProtocol {
+    @objc open func progressDidUpdate(progress: Double) {
+        let hud = MBProgressHUD(for: view)
+        hud?.progress = Float(progress)
+    }
+
+    @objc open func startProgressLoading() {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.mode = .determinateHorizontalBar
+    }
+
+    @objc open func stopProgressLoading() {
+        MBProgressHUD.hide(for: view, animated: true)
+    }
+}
