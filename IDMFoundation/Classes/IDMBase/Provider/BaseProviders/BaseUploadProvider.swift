@@ -29,12 +29,14 @@ open class BaseUploadProvider<T>: BaseTaskProvider<T> {
             return nil
         }
         
-        if let _ = uploader {
-            #if DEBUG
-                log("You should begin only one upload request at the same time")
-            #endif
-            completion(false, nil, nil)
-            return nil
+        if trackingProgressEnabled {
+            if let _ = uploader {
+                #if DEBUG
+                log("Tracking Progress is Enabled. You should begin only one upload request at the same time. Or consider to set Tracking Progress to disabled.")
+                #endif
+                completion(false, nil, nil)
+                return nil
+            }
         }
         
         let path = requestPath(parameters: parameters)
