@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 import IDMCore
+import ObjectMapper
 import SiFUtilities
 
 open class BaseResponseModel: NSObject, Mappable {
@@ -23,8 +23,9 @@ open class BaseResponseModel: NSObject, Mappable {
 }
 
 open class ResponseModel: BaseResponseModel {
-    open var code: Int?
+    open var status: Int?
     open var message: String?
+    open var extra: Any?
     
     public override init() {
         super.init()
@@ -37,19 +38,24 @@ open class ResponseModel: BaseResponseModel {
     open override func mapping(map: Map) {
         super.mapping(map: map)
         message <- map[messageKey]
-        code <- map[codeKey]
+        status <- map[statusKey]
+        extra = extraMapping(map: map)
     }
     
     open var messageKey: String {
         return ResponseModelConfiguration.shared.messageKey
     }
     
-    open var codeKey: String {
-        return ResponseModelConfiguration.shared.codeKey
+    open var statusKey: String {
+        return ResponseModelConfiguration.shared.statusKey
     }
     
     open var invalidDataError: Error? {
         return ResponseModelConfiguration.shared.validator?(self)
+    }
+    
+    open func extraMapping(map: Map) -> Any? {
+        return ResponseModelConfiguration.shared.extraMapping?(map)
     }
 }
 

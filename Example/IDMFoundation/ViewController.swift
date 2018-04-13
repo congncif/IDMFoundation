@@ -80,9 +80,9 @@ class ViewController: UIViewController {
 //        let obj = TestStringProtocolObject(id: 123, name: "Name here")
 //        let param = obj.queryParameters
 //        print(param)
-        ResponseModelConfiguration.shared.codeKey = "status"
+        ResponseModelConfiguration.shared.statusKey = "status"
         ResponseModelConfiguration.shared.validator =  { model in
-            if model.code == 1 {
+            if model.status == 1 {
                 return CommonError(title: "Error", message: "Failed status")
             }
             return nil
