@@ -11,10 +11,10 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BaseUploadProvider<T>: BaseTaskProvider<T> {
+open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
     private var uploader: Request?
     
-    open override func request(parameters: T?,
+    open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         guard let parameters = parameters else {
             #if DEBUG

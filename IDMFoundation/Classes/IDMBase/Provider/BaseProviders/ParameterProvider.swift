@@ -33,3 +33,9 @@ open class ForwardProvider<P>: ConvertProvider<P, P> {
         return parameter
     }
 }
+
+open class BridgeResponseProvider<R: ModelProtocol>: ConvertProvider<Any, R> where R.DataType == Any {
+    open override func convert(parameter: Any?) throws -> R? {
+        return R(from: parameter)
+    }
+}

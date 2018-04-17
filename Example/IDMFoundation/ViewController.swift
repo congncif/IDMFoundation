@@ -57,7 +57,7 @@ class Exam: Mappable {
 class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 }
 
-class ExamService: MagicalIntegrator<RootProvider<ExamParameter>, XAD> {
+class ExamService: MagicalIntegrator<RootAnyProvider<ExamParameter>, XAD> {
     convenience init() {
         self.init(dataProvider: ExamProvider())
     }

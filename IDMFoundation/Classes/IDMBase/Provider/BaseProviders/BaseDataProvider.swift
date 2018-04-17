@@ -11,8 +11,8 @@ import Alamofire
 import IDMCore
 import SiFUtilities
 
-open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
-    open override func request(parameters: T?,
+open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<ParameterType> {
+    open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         if let data = testResponseData(parameters: parameters) {
             completion(data.0, data.1, data.2)
@@ -44,7 +44,7 @@ open class BaseDataProvider<T: KeyValueProtocol>: BaseProvider<T> {
         }
     }
     
-    open func parameterEncoding(parameters: T?) -> ParameterEncoding {
+    open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
         return URLEncoding.default
     }
     

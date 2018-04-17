@@ -17,31 +17,38 @@ public protocol ProgressModelProtocol: DelayingCompletionProtocol {
     var progress: Progress? { get set }
 }
 
-open class RootProvider<ParameterType>: NSObject, DataProviderProtocol {
+open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
     @discardableResult
-    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, DataType?, Error?) -> Void) -> CancelHandler? {
         fatalError("Please override \(#function) to get data")
     }
 }
 
-open class BaseProvider<T>: RootProvider<T> {
-    open override func request(parameters: T?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+open class RootAnyProvider<ParameterType>: RootProvider<ParameterType, Any> {
+    @discardableResult
+    open override func request(parameters _: ParameterType?, completion _: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        fatalError("Please override \(#function) to get data")
+    }
+}
+
+open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
+    open override func request(parameters: ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
     
-    open func requestPath(parameters: T?) -> String {
+    open func requestPath(parameters: ParameterType?) -> String {
         fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
     
-    open func httpMethod(parameters: T?) -> HTTPMethod {
+    open func httpMethod(parameters: ParameterType?) -> HTTPMethod {
         return .post
     }
     
-    open func headers(parameters: T?) -> [String: String]? {
+    open func headers(parameters: ParameterType?) -> [String: String]? {
         return ProviderConfiguration.shared.headerFields
     }
     
-    open func logEnabled(parameters: T?) -> Bool {
+    open func logEnabled(parameters: ParameterType?) -> Bool {
         return false
     }
     
@@ -52,7 +59,7 @@ open class BaseProvider<T>: RootProvider<T> {
         return (success, value, error)
     }
     
-    open func testResponseData(parameters: T?) -> ProviderResponseAny? {
+    open func testResponseData(parameters: ParameterType?) -> ProviderResponseAny? {
         if let filePath = testResponseFile(parameters: parameters) {
             let keeper = ValueKeeper<ProviderResponseAny>(getValueAsync: { fullfill in
                 DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 3, execute: {
@@ -66,19 +73,19 @@ open class BaseProvider<T>: RootProvider<T> {
         }
     }
     
-    open func testResponseFile(parameters: T?) -> String? {
+    open func testResponseFile(parameters: ParameterType?) -> String? {
         return nil
     }
 }
 
-open class BaseProviderWrapper<T: DataProviderProtocol>: RootProvider<T.ParameterType> where T.DataType == Any {
-    public var provider: T?
+open class BaseProviderWrapper<ProviderType: DataProviderProtocol>: RootAnyProvider<ProviderType.ParameterType> where ProviderType.DataType == Any {
+    public var provider: ProviderType?
     
-    public init(provider: T?) {
+    public init(provider: ProviderType?) {
         self.provider = provider
     }
     
-    open override func request(parameters: T.ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+    open override func request(parameters: ProviderType.ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         return provider?.request(parameters: parameters, completion: completion)
     }
 }
@@ -89,7 +96,7 @@ extension DataProviderProtocol where DataType == Any {
     }
 }
 
-open class BaseTaskProvider<T>: BaseProvider<T> {
+open class BaseTaskProvider<ParameterType>: BaseProvider<ParameterType> {
     public override init() {
         super.init()
     }
@@ -98,7 +105,7 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
         return true
     }
     
-    open func buildFormData(multipart: MultipartFormData, with parameters: T?) {
+    open func buildFormData(multipart: MultipartFormData, with parameters: ParameterType?) {
         if let exData = parameters as? UploadURLsParameter {
             multipart.append(urlParameter: exData)
         } else {
@@ -106,7 +113,7 @@ open class BaseTaskProvider<T>: BaseProvider<T> {
         }
     }
     
-    open func cleanUp(parameters: T?) {
+    open func cleanUp(parameters: ParameterType?) {
         if let exData = parameters as? UploadURLsParameter {
             try? exData.cleanUp()
         } else {

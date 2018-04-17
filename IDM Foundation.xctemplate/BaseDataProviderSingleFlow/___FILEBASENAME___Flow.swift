@@ -28,7 +28,7 @@ class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
     }
 
     override func httpMethod(parameters: ___VARIABLE_moduleName___RequestParameter?) -> HTTPMethod {
-        return .post
+        return <#.post#>
     }
 }
 

@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.7.1)
+  - Alamofire (4.7.2)
   - CWStatusBarNotification (2.3.5)
-  - IDMCore (2.6.1)
-  - IDMFoundation (1.2.0):
+  - IDMCore (2.6.2)
+  - IDMFoundation (1.2.4):
     - Alamofire
     - CWStatusBarNotification
     - IDMCore
@@ -14,7 +14,7 @@ PODS:
   - MBProgressHUD (1.1.0)
   - ObjectMapper (3.1.0)
   - Reachability (3.2)
-  - SiFUtilities (3.9.2)
+  - SiFUtilities (3.9.3)
   - Swinject (2.4.0)
   - SwinjectAutoregistration (2.1.1):
     - Swinject (~> 2.1)
@@ -47,14 +47,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
-  IDMCore: 138ff7aec4483826978a6e82b7f96c7bc96a909f
-  IDMFoundation: 512f7b12a0d2d611c94f03c8588bbccd5d17f3ae
+  IDMCore: 45b37eab5cc53c9cf3e282436ee5adfd28665edf
+  IDMFoundation: 1b1d6e897c047833d2317be0774690dc04bbb883
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SiFUtilities: 2b176f0b63f1a0003b1e86cac3ce6a434c43d7b8
+  SiFUtilities: b5f5d5b93351be0018265069443616059d86db65
   Swinject: a1364b0f66c2736bb03c1c7cab54809e16df25da
   SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
   SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
