@@ -10,7 +10,7 @@ import Foundation
 import IDMFoundation
 import Alamofire
 
-typealias ___VARIABLE_moduleName___BaseProvider = RootProvider<___VARIABLE_moduleName___RequestParameter>
+typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<___VARIABLE_moduleName___RequestParameter>
 typealias ___VARIABLE_moduleName___Provider = BaseDataProvider<___VARIABLE_moduleName___RequestParameter>
 
 class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
