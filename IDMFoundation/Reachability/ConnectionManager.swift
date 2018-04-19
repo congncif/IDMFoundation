@@ -9,6 +9,7 @@
 import CWStatusBarNotification
 import Foundation
 import Reachability
+import SiFUtilities
 
 public extension Notification.Name {
     public static let InternetAvailable = Notification.Name("internet-available")

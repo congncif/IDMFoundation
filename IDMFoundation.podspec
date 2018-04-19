@@ -62,6 +62,7 @@ Pod::Spec.new do |s|
       
       co.dependency 'CWStatusBarNotification'
       co.dependency 'Reachability'
+      co.dependency 'SiFUtilities'
   end
   
   s.subspec 'Loading' do |co|
