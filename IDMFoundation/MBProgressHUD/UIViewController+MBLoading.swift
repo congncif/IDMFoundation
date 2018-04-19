@@ -12,19 +12,19 @@ import MBProgressHUD
 import SiFUtilities
 import UIKit
 
-extension UIViewController: LoadingProtocol {
-    @objc open func beginLoading() {
+extension LoadingProtocol where Self: UIViewController {
+    public func beginLoading() {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.text = "Loading...".localized
     }
 
-    @objc open func finishLoading() {
+    public func finishLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
 
-extension UIViewController: ErrorHandlingProtocol {
-    @objc open func handle(error: Error?) {
+extension ErrorHandlingProtocol where Self: UIViewController {
+    public func handle(error: Error?) {
         guard let error = error else {
             return
         }

@@ -119,14 +119,6 @@ class ViewController: UIViewController {
         print(String(describing: num))
         print(String(describing: num2))
     }
-
-    override func beginLoading() {
-        print("Loading")
-    }
-
-    override func finishLoading() {
-        print("Finished")
-    }
 }
 
 //extension SwinjectStoryboard {

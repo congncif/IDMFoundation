@@ -11,22 +11,22 @@ import IDMCore
 import SiFUtilities
 import UIKit
 
-extension UIViewController: LoadingProtocol {
-    @objc open func beginLoading() {
+extension LoadingProtocol where Self: UIViewController {
+    public func beginLoading() {
         let hud = JGProgressHUD(style: .light)
         hud.textLabel.text = "Loading...".localized
         hud.show(in: view)
     }
-
-    @objc open func finishLoading() {
+    
+    public func finishLoading() {
         JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
             hud.dismiss()
         }
     }
 }
 
-extension UIViewController: ErrorHandlingProtocol {
-    @objc open func handle(error: Error?) {
+extension ErrorHandlingProtocol where Self: UIViewController {
+    public func handle(error: Error?) {
         guard let error = error else {
             return
         }
@@ -47,19 +47,19 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         hud.textLabel.text = "Loading...".localized
         hud.show(in: view)
     }
-
+    
     public func finishLoading() {
         JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
             hud.dismiss()
         }
     }
-
+    
     public func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
             let hud = JGProgressHUD.allProgressHUDs(in: view).first
+            hud?.progress = Float(value)
             hud?.textLabel.text = "Loading...".localized
             hud?.detailTextLabel.text = (value * 100).intValue.stringValue + "% " + "Complete".localized
-            hud?.progress = Float(value)
         }
     }
 }
