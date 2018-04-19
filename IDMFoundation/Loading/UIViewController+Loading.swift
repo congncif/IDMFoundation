@@ -41,14 +41,15 @@ extension ErrorHandlingProtocol where Self: UIViewController {
 }
 
 extension ProgressLoadingProtocol where Self: UIViewController {
-    public func beginLoading() {
+    public func beginProgressLoading() {
         let hud = JGProgressHUD(style: .light)
         hud.indicatorView = JGProgressHUDPieIndicatorView()
         hud.textLabel.text = "Loading...".localized
+        hud.detailTextLabel.text = "0% " + "Complete".localized
         hud.show(in: view)
     }
     
-    public func finishLoading() {
+    public func finishProgressLoading() {
         JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
             hud.dismiss()
         }
@@ -63,3 +64,5 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         }
     }
 }
+
+extension UIViewController: LoadingProtocol, ProgressLoadingProtocol, ErrorHandlingProtocol {}

@@ -39,13 +39,14 @@ extension ErrorHandlingProtocol where Self: UIViewController {
 }
 
 extension ProgressLoadingProtocol where Self: UIViewController {
-    public func beginLoading() {
+    public func beginProgressLoading() {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.text = "Loading...".localized
+        hud.detailsLabel.text = "0% " + "Complete".localized
         hud.mode = .determinateHorizontalBar
     }
     
-    public func finishLoading() {
+    public func finishProgressLoading() {
         MBProgressHUD.hide(for: view, animated: true)
     }
     
@@ -58,3 +59,5 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         }
     }
 }
+
+extension UIViewController: LoadingProtocol, ProgressLoadingProtocol, ErrorHandlingProtocol {}

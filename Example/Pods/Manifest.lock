@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
   - CWStatusBarNotification (2.3.5)
-  - IDMCore (2.6.4)
+  - IDMCore (2.6.5)
   - IDMFoundation (1.3.5):
     - IDMFoundation/Core (= 1.3.5)
   - IDMFoundation/Core (1.3.5):
@@ -10,15 +10,15 @@ PODS:
     - ObjectMapper
     - SiFUtilities
     - "UIImage+FixOrientation"
-  - IDMFoundation/MBProgressHUD (1.3.5):
+  - IDMFoundation/Loading (1.3.5):
     - IDMCore
-    - MBProgressHUD
+    - JGProgressHUD
     - SiFUtilities
   - IDMFoundation/Reachability (1.3.5):
     - CWStatusBarNotification
     - Reachability
     - SiFUtilities
-  - MBProgressHUD (1.1.0)
+  - JGProgressHUD (2.0.2)
   - ObjectMapper (3.1.0)
   - Reachability (3.2)
   - SiFUtilities (3.9.3)
@@ -31,7 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
-  - IDMFoundation/MBProgressHUD (from `../`)
+  - IDMFoundation/Loading (from `../`)
   - IDMFoundation/Reachability (from `../`)
   - Swinject
   - SwinjectAutoregistration
@@ -42,7 +42,7 @@ SPEC REPOS:
     - Alamofire
     - CWStatusBarNotification
     - IDMCore
-    - MBProgressHUD
+    - JGProgressHUD
     - ObjectMapper
     - Reachability
     - SiFUtilities
@@ -58,9 +58,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
-  IDMCore: 977607d3772954840f2ae0c3242932693e98d71c
+  IDMCore: 37ff7237e536f178697b232489d34699e01d6638
   IDMFoundation: 392b80e30625992285b2049aa30adc58bd398c40
-  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  JGProgressHUD: bf75da151936cfd3c9b674afb17e8a5df2e14a7d
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SiFUtilities: b5f5d5b93351be0018265069443616059d86db65
@@ -69,6 +69,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
-PODFILE CHECKSUM: 7f9e93028c5cfd80a7786a6d15f08de9b09c4484
+PODFILE CHECKSUM: c2a52b11843f4798d7d074c02222ee6f9770ef8a
 
 COCOAPODS: 1.5.0
