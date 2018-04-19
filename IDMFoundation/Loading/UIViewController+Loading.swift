@@ -13,7 +13,7 @@ import UIKit
 
 extension UIViewController: LoadingProtocol {
     @objc open func beginLoading() {
-        let hud = JGProgressHUD(style: .dark)
+        let hud = JGProgressHUD(style: .light)
         hud.textLabel.text = "Loading...".localized
         hud.show(in: view)
     }
@@ -42,8 +42,8 @@ extension UIViewController: ErrorHandlingProtocol {
 
 extension ProgressLoadingProtocol where Self: UIViewController {
     public func beginLoading() {
-        let hud = JGProgressHUD(style: .dark)
-        hud.indicatorView = JGProgressHUDIndicatorView()
+        let hud = JGProgressHUD(style: .light)
+        hud.indicatorView = JGProgressHUDPieIndicatorView()
         hud.textLabel.text = "Loading...".localized
         hud.show(in: view)
     }
