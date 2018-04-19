@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.2.4'
+  s.version          = '1.3.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
 # This description is used to generate tags and improve search results.
@@ -29,8 +29,6 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'IDMFoundation/Classes/**/*'
   
   # s.resource_bundles = {
   #   'IDMFoundation' => ['IDMFoundation/Assets/*.png']
@@ -38,12 +36,40 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'Photos', 'MobileCoreServices', 'AVFoundation'
-  s.dependency 'SiFUtilities'
-  s.dependency 'IDMCore'
-  s.dependency 'Alamofire'
-  s.dependency 'ObjectMapper'
-  s.dependency 'MBProgressHUD'
-  s.dependency 'UIImage+FixOrientation'
-  s.dependency 'CWStatusBarNotification'
-  s.dependency 'Reachability'
+  
+  s.default_subspec = 'Core'
+  
+  s.subspec 'Core' do |co|
+      co.source_files = 'IDMFoundation/Core/**/*'
+      
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
+      co.dependency 'Alamofire'
+      co.dependency 'ObjectMapper'
+      co.dependency 'UIImage+FixOrientation'
+  end
+  
+  s.subspec 'MBProgressHUD' do |co|
+      co.source_files = 'IDMFoundation/MBProgressHUD/**/*'
+      
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
+      co.dependency 'MBProgressHUD'
+  end
+  
+  s.subspec 'Reachability' do |co|
+      co.source_files = 'IDMFoundation/Reachability/**/*'
+      
+      co.dependency 'CWStatusBarNotification'
+      co.dependency 'Reachability'
+  end
+  
+  s.subspec 'Loading' do |co|
+      co.source_files = 'IDMFoundation/Loading/**/*'
+      
+      co.dependency 'FTIndicator'
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
+  end
+  
 end
