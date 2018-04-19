@@ -13,10 +13,6 @@ import SiFUtilities
 
 public typealias ProviderResponseAny = (Bool, Any?, Error?)
 
-public protocol ProgressModelProtocol: DelayingCompletionProtocol {
-    var progress: Progress? { get set }
-}
-
 open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
     @discardableResult
     open func request(parameters _: ParameterType?, completion _: @escaping (Bool, DataType?, Error?) -> Void) -> CancelHandler? {
