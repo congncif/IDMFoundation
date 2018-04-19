@@ -30,23 +30,21 @@ extension UIViewController: ErrorHandlingProtocol {
     }
 }
 
-public protocol ProgressLoadingProtocol: class {
-    func startProgressLoading()
-    func stopProgressLoading()
-    func progressDidUpdate(progress: Double)
-}
-
-extension UIViewController: ProgressLoadingProtocol {
-    @objc open func progressDidUpdate(progress: Double) {
-        let text = progress.intValue.stringValue + "%"
-        FTIndicator.showProgress(withMessage: text, userInteractionEnable: false)
-    }
-
-    @objc open func startProgressLoading() {
+extension ProgressLoadingProtocol where Self: UIViewController {
+    public func beginLoading() {
         FTIndicator.showProgress(withMessage: "Loading...".localized, userInteractionEnable: false)
     }
 
-    @objc open func stopProgressLoading() {
+    public func finishLoading() {
         FTIndicator.dismissProgress()
+    }
+
+    public func loadingDidUpdateProgress(_ progress: Progress?) {
+        if let value = progress?.fractionCompleted {
+            let text = value.stringValue + "%"
+            FTIndicator.showProgress(withMessage: text, userInteractionEnable: false)
+        } else {
+            FTIndicator.showProgress(withMessage: "Processing...".localized, userInteractionEnable: false)
+        }
     }
 }

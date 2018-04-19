@@ -14,7 +14,8 @@ import UIKit
 
 extension UIViewController: LoadingProtocol {
     @objc open func beginLoading() {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.label.text = "Loading...".localized
     }
 
     @objc open func finishLoading() {
@@ -37,24 +38,24 @@ extension UIViewController: ErrorHandlingProtocol {
     }
 }
 
-public protocol ProgressLoadingProtocol: class {
-    func startProgressLoading()
-    func stopProgressLoading()
-    func progressDidUpdate(progress: Double)
-}
-
-extension UIViewController: ProgressLoadingProtocol {
-    @objc open func progressDidUpdate(progress: Double) {
-        let hud = MBProgressHUD(for: view)
-        hud?.progress = Float(progress)
-    }
-
-    @objc open func startProgressLoading() {
+extension ProgressLoadingProtocol where Self: UIViewController {
+    public func beginLoading() {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.label.text = "Loading...".localized
         hud.mode = .determinateHorizontalBar
     }
-
-    @objc open func stopProgressLoading() {
+    
+    public func finishLoading() {
         MBProgressHUD.hide(for: view, animated: true)
+    }
+    
+    public func loadingDidUpdateProgress(_ progress: Progress?) {
+        if let value = progress?.fractionCompleted {
+            let hud = MBProgressHUD(for: view)
+            hud?.progress = Float(value)
+        } else {
+            let hud = MBProgressHUD(for: view)
+            hud?.label.text = "Processing".localized
+        }
     }
 }

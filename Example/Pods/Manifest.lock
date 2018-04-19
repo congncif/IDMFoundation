@@ -8,22 +8,23 @@ PODS:
   - FTIndicator/FTNotificationIndicator (1.2.8)
   - FTIndicator/FTProgressIndicator (1.2.8)
   - FTIndicator/FTToastIndicator (1.2.8)
-  - IDMCore (2.6.3)
-  - IDMFoundation (1.3.0):
-    - IDMFoundation/Core (= 1.3.0)
-  - IDMFoundation/Core (1.3.0):
+  - IDMCore (2.6.4)
+  - IDMFoundation (1.3.1):
+    - IDMFoundation/Core (= 1.3.1)
+  - IDMFoundation/Core (1.3.1):
     - Alamofire
     - IDMCore
     - ObjectMapper
     - SiFUtilities
     - "UIImage+FixOrientation"
-  - IDMFoundation/Loading (1.3.0):
+  - IDMFoundation/Loading (1.3.1):
     - FTIndicator
     - IDMCore
     - SiFUtilities
-  - IDMFoundation/Reachability (1.3.0):
+  - IDMFoundation/Reachability (1.3.1):
     - CWStatusBarNotification
     - Reachability
+    - SiFUtilities
   - ObjectMapper (3.1.0)
   - Reachability (3.2)
   - SiFUtilities (3.9.3)
@@ -64,8 +65,8 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
   FTIndicator: 5218a42e6a3bb6623f58e4931fc36bb09b7e1b78
-  IDMCore: 3bc319cbada2fc2a5494890ce2b55af007b8590e
-  IDMFoundation: f7d745b790389f2ab54a4144400fbdc26788177c
+  IDMCore: 977607d3772954840f2ae0c3242932693e98d71c
+  IDMFoundation: 7bb6b66917de419a7bf7022f866c167c4cea1643
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SiFUtilities: b5f5d5b93351be0018265069443616059d86db65
