@@ -6,18 +6,22 @@
 //
 
 import Foundation
-import FTIndicator
+import JGProgressHUD
 import IDMCore
 import SiFUtilities
 import UIKit
 
 extension UIViewController: LoadingProtocol {
     @objc open func beginLoading() {
-        FTIndicator.showProgress(withMessage: "Loading...".localized, userInteractionEnable: false)
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading...".localized
+        hud.show(in: view)
     }
 
     @objc open func finishLoading() {
-        FTIndicator.dismissProgress()
+        JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
+            hud.dismiss()
+        }
     }
 }
 
@@ -26,25 +30,36 @@ extension UIViewController: ErrorHandlingProtocol {
         guard let error = error else {
             return
         }
-        FTIndicator.showError(withMessage: error.localizedDescription)
+        
+        if let err = error as? CommonError {
+            self.notify(title: err.title, message: err.message)
+        } else {
+            let message = error.localizedDescription
+            self.notify(message: message)
+        }
     }
 }
 
 extension ProgressLoadingProtocol where Self: UIViewController {
     public func beginLoading() {
-        FTIndicator.showProgress(withMessage: "Loading...".localized, userInteractionEnable: false)
+        let hud = JGProgressHUD(style: .dark)
+        hud.indicatorView = JGProgressHUDIndicatorView()
+        hud.textLabel.text = "Loading...".localized
+        hud.show(in: view)
     }
 
     public func finishLoading() {
-        FTIndicator.dismissProgress()
+        JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
+            hud.dismiss()
+        }
     }
 
     public func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
-            let text = value.stringValue + "%"
-            FTIndicator.showProgress(withMessage: text, userInteractionEnable: false)
-        } else {
-            FTIndicator.showProgress(withMessage: "Processing...".localized, userInteractionEnable: false)
+            let hud = JGProgressHUD.allProgressHUDs(in: view).first
+            hud?.textLabel.text = "Loading...".localized
+            hud?.detailTextLabel.text = (value * 100).intValue.stringValue + "% " + "Complete".localized
+            hud?.progress = Float(value)
         }
     }
 }

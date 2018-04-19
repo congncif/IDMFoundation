@@ -53,9 +53,8 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         if let value = progress?.fractionCompleted {
             let hud = MBProgressHUD(for: view)
             hud?.progress = Float(value)
-        } else {
-            let hud = MBProgressHUD(for: view)
-            hud?.label.text = "Processing".localized
+            hud?.label.text = "Loading...".localized
+            hud?.detailsLabel.text = (value * 100).intValue.stringValue + "% " + "Complete".localized
         }
     }
 }
