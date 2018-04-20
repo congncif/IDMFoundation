@@ -77,6 +77,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        beginLoading()
+        
 //        let obj = TestStringProtocolObject(id: 123, name: "Name here")
 //        let param = obj.queryParameters
 //        print(param)

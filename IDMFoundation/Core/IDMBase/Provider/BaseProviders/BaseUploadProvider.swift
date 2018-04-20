@@ -43,6 +43,12 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         let method = httpMethod(parameters: parameters)
         let header = headers(parameters: parameters)
         
+        if logEnabled(parameters: parameters) {
+            print("☛ Upload: " + requestPath(parameters: parameters))
+            let param = String(describing: parameters)
+            print("❉ Parameters: \(param)")
+        }
+        
         Alamofire.upload(multipartFormData: { [weak self] multipart in
             self?.buildFormData(multipart: multipart, with: parameters)
         }, to: path, method: method, headers: header) { [weak self] encodingResult in
@@ -65,7 +71,7 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
                     self?.cleanUp(parameters: parameters)
                     let result = this.preprocessResponse(response)
                     if this.logEnabled(parameters: parameters) {
-                        print(result.value ?? "☞ Response: No value")
+                        print("☂︎ Response: \(String(describing: result.value))")
                     }
                     completion(result.success, result.value, result.error)
                     self?.uploader = nil
