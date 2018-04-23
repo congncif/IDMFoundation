@@ -7,6 +7,26 @@ import SwinjectAutoregistration
 import SwinjectStoryboard
 import UIKit
 
+class ErrorHandler: ErrorHandlingProtocol {
+    
+    static let shared = ErrorHandler()
+    
+    func handle(error: Error?) {
+        let vc = UIApplication.topViewController()
+        vc?.handle(error: error)
+    }
+}
+
+extension UIViewController: LoadingProtocol {
+    public func beginLoading() {
+        view.beginLoading()
+    }
+    
+    public func finishLoading() {
+        view.finishLoading()
+    }
+}
+
 struct TestStringProtocolObject: StringKeyValueProtocol {
     var id: Int? = 123
     var name: String? = "name"
@@ -30,7 +50,7 @@ class ExamProvider: BaseDataProvider<ExamParameter> {
     override func testResponseData(parameters: ExamParameter?) -> (Bool, Any?, Error?)? {
         let keeper = ValueKeeper<ProviderResponseAny> { fullfill in
             DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
-                fullfill((true, "{ \"status\": 1 }", nil))
+                fullfill((false, "{ \"status\": 1 }", NSError(domain: "xxx", code: 1, userInfo: [NSLocalizedDescriptionKey : "XXX"])))
             })
         }
         return keeper.syncValue
@@ -77,26 +97,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        beginLoading()
+//        beginLoading()
+//
+////        let obj = TestStringProtocolObject(id: 123, name: "Name here")
+////        let param = obj.queryParameters
+////        print(param)
+//        ResponseModelConfiguration.shared.statusKey = "status"
+//        ResponseModelConfiguration.shared.validator =  { model in
+//            if model.status == 1 {
+//                return CommonError(title: "Error", message: "Failed status")
+//            }
+//            return nil
+//        }
+//
+//        service.prepareCall()
+//            .onSuccess({ (xad) in
+//                print(xad)
+//            })
+//            .onError { (err) in
+//            print(err?.localizedDescription)
+//        }.call()
         
-//        let obj = TestStringProtocolObject(id: 123, name: "Name here")
-//        let param = obj.queryParameters
-//        print(param)
-        ResponseModelConfiguration.shared.statusKey = "status"
-        ResponseModelConfiguration.shared.validator =  { model in
-            if model.status == 1 {
-                return CommonError(title: "Error", message: "Failed status")
-            }
-            return nil
-        }
-        
-        service.prepareCall()
-            .onSuccess({ (xad) in
-                print(xad)
-            })
-            .onError { (err) in
-            print(err?.localizedDescription)
-        }.call()
+        service.prepareCall().loading(monitor: self).error(handler: ErrorHandler.shared).call()
     }
 
     override func viewDidDisplay() {

@@ -12,19 +12,19 @@ import MBProgressHUD
 import SiFUtilities
 import UIKit
 
-extension UIViewController: LoadingProtocol {
-    @objc open func beginLoading() {
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+extension LoadingProtocol where Self: UIView {
+    public func beginLoading() {
+        let hud = MBProgressHUD.showAdded(to: self, animated: true)
         hud.label.text = "Loading...".localized
     }
 
-    @objc open func finishLoading() {
-        MBProgressHUD.hide(for: self.view, animated: true)
+    public func finishLoading() {
+        MBProgressHUD.hide(for: self, animated: true)
     }
 }
 
-extension UIViewController: ErrorHandlingProtocol {
-    @objc open func handle(error: Error?) {
+extension ErrorHandlingProtocol where Self: UIViewController {
+    public func handle(error: Error?) {
         guard let error = error else {
             return
         }
@@ -38,24 +38,27 @@ extension UIViewController: ErrorHandlingProtocol {
     }
 }
 
-extension UIViewController: ProgressLoadingProtocol {
-    @objc open func beginProgressLoading() {
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+extension ProgressLoadingProtocol where Self: UIView {
+    public func beginProgressLoading() {
+        let hud = MBProgressHUD.showAdded(to: self, animated: true)
         hud.label.text = "Loading...".localized
         hud.detailsLabel.text = "0% " + "Complete".localized
         hud.mode = .determinateHorizontalBar
     }
 
-    @objc open func finishProgressLoading() {
-        MBProgressHUD.hide(for: view, animated: true)
+    public func finishProgressLoading() {
+        MBProgressHUD.hide(for: self, animated: true)
     }
 
-    @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
+    public func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
-            let hud = MBProgressHUD(for: view)
+            let hud = MBProgressHUD(for: self)
             hud?.progress = Float(value)
             hud?.label.text = "Loading...".localized
             hud?.detailsLabel.text = (value * 100).intValue.stringValue + "% " + "Complete".localized
         }
     }
 }
+
+extension UIViewController: ErrorHandlingProtocol {}
+extension UIView: LoadingProtocol, ProgressLoadingProtocol {}
