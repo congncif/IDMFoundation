@@ -12,19 +12,19 @@ import MBProgressHUD
 import SiFUtilities
 import UIKit
 
-extension LoadingProtocol where Self: UIViewController {
-    public func beginLoading() {
+extension UIViewController: LoadingProtocol {
+    @objc open func beginLoading() {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.text = "Loading...".localized
     }
 
-    public func finishLoading() {
+    @objc open func finishLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
 
-extension ErrorHandlingProtocol where Self: UIViewController {
-    public func handle(error: Error?) {
+extension UIViewController: ErrorHandlingProtocol {
+    @objc open func handle(error: Error?) {
         guard let error = error else {
             return
         }
@@ -38,19 +38,19 @@ extension ErrorHandlingProtocol where Self: UIViewController {
     }
 }
 
-extension ProgressLoadingProtocol where Self: UIViewController {
-    public func beginProgressLoading() {
+extension UIViewController: ProgressLoadingProtocol {
+    @objc open func beginProgressLoading() {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.text = "Loading...".localized
         hud.detailsLabel.text = "0% " + "Complete".localized
         hud.mode = .determinateHorizontalBar
     }
-    
-    public func finishProgressLoading() {
+
+    @objc open func finishProgressLoading() {
         MBProgressHUD.hide(for: view, animated: true)
     }
-    
-    public func loadingDidUpdateProgress(_ progress: Progress?) {
+
+    @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
             let hud = MBProgressHUD(for: view)
             hud?.progress = Float(value)
@@ -59,5 +59,3 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         }
     }
 }
-
-extension UIViewController: LoadingProtocol, ProgressLoadingProtocol, ErrorHandlingProtocol {}

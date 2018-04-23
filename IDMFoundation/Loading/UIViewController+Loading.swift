@@ -6,31 +6,31 @@
 //
 
 import Foundation
-import JGProgressHUD
 import IDMCore
+import JGProgressHUD
 import SiFUtilities
 import UIKit
 
-extension LoadingProtocol where Self: UIViewController {
-    public func beginLoading() {
+extension UIViewController: LoadingProtocol {
+    @objc open func beginLoading() {
         let hud = JGProgressHUD(style: .light)
         hud.textLabel.text = "Loading...".localized
         hud.show(in: view)
     }
-    
-    public func finishLoading() {
-        JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
+
+    @objc open func finishLoading() {
+        JGProgressHUD.allProgressHUDs(in: view).forEach { hud in
             hud.dismiss()
         }
     }
 }
 
-extension ErrorHandlingProtocol where Self: UIViewController {
-    public func handle(error: Error?) {
+extension UIViewController: ErrorHandlingProtocol {
+    @objc open func handle(error: Error?) {
         guard let error = error else {
             return
         }
-        
+
         if let err = error as? CommonError {
             self.notify(title: err.title, message: err.message)
         } else {
@@ -40,22 +40,22 @@ extension ErrorHandlingProtocol where Self: UIViewController {
     }
 }
 
-extension ProgressLoadingProtocol where Self: UIViewController {
-    public func beginProgressLoading() {
+extension UIViewController: ProgressLoadingProtocol {
+    @objc open func beginProgressLoading() {
         let hud = JGProgressHUD(style: .light)
         hud.indicatorView = JGProgressHUDPieIndicatorView()
         hud.textLabel.text = "Loading...".localized
         hud.detailTextLabel.text = "0% " + "Complete".localized
         hud.show(in: view)
     }
-    
-    public func finishProgressLoading() {
-        JGProgressHUD.allProgressHUDs(in: view).forEach { (hud) in
+
+    @objc open func finishProgressLoading() {
+        JGProgressHUD.allProgressHUDs(in: view).forEach { hud in
             hud.dismiss()
         }
     }
-    
-    public func loadingDidUpdateProgress(_ progress: Progress?) {
+
+    @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
             let hud = JGProgressHUD.allProgressHUDs(in: view).first
             hud?.progress = Float(value)
@@ -64,5 +64,3 @@ extension ProgressLoadingProtocol where Self: UIViewController {
         }
     }
 }
-
-extension UIViewController: LoadingProtocol, ProgressLoadingProtocol, ErrorHandlingProtocol {}

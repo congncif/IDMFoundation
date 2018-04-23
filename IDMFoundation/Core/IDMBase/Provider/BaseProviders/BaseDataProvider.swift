@@ -1,4 +1,7 @@
 //
+import Alamofire
+import IDMCore
+import SiFUtilities
 //  BaseDataProvider.swift
 //  IDMCommon
 //
@@ -7,9 +10,6 @@
 //
 
 import UIKit
-import Alamofire
-import IDMCore
-import SiFUtilities
 
 open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<ParameterType> {
     open override func request(parameters: ParameterType?,
@@ -20,9 +20,9 @@ open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<Param
         }
         
         if logEnabled(parameters: parameters) {
-            print("☛ Request: " + requestPath(parameters: parameters))
+            print("📦 Request: " + requestPath(parameters: parameters))
             let param = String(describing: parameters?.parameters)
-            print("❉ Parameters: \(param)")
+            print("🌿 Parameters: \(param)")
         }
         
         let request = Alamofire.request(requestPath(parameters: parameters),
@@ -39,9 +39,11 @@ open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<Param
             let result = this.preprocessResponse(response)
             
             if this.logEnabled(parameters: parameters) {
-                print("☂︎ Response: \(String(describing: result.value))")
+                print("🌷 Response: \(String(describing: result.value))")
+                if let error = result.error {
+                    print("🥀 Error: " + String(describing: error))
+                }
             }
-            
             completion(result.success, result.value, result.error)
         }
         
