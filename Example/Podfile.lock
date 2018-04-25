@@ -10,6 +10,7 @@ PODS:
   - IDMFoundation (1.4.0):
     - IDMFoundation/Core (= 1.4.0)
   - IDMFoundation/CameraAsset (1.4.0):
+    - IDMFoundation/Core
     - SiFUtilities
   - IDMFoundation/Core (1.4.0):
     - Alamofire
@@ -19,6 +20,7 @@ PODS:
     - "UIImage+FixOrientation"
   - IDMFoundation/DKAsset (1.4.0):
     - DKImagePickerController
+    - IDMFoundation/Core
     - SiFUtilities
   - IDMFoundation/Loading (1.4.0):
     - IDMCore
@@ -73,7 +75,7 @@ SPEC CHECKSUMS:
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
   DKImagePickerController: 51ad6ee2ba05414bb741db54a72cd7f4fb178e34
   IDMCore: 8d72158918b52ef9eb47ac3592a076a4ac9188ee
-  IDMFoundation: 9f8f2d07d22ab6db8e902d764fb96c8abcbb550f
+  IDMFoundation: acaffdcc800ec92fff2a0870929c86df8025177e
   JGProgressHUD: bf75da151936cfd3c9b674afb17e8a5df2e14a7d
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96

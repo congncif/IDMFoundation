@@ -77,6 +77,7 @@ Pod::Spec.new do |s|
       co.source_files = 'IDMFoundation/CameraAsset/**/*'
       
       co.dependency 'SiFUtilities'
+      co.dependency 'IDMFoundation/Core'
   end
   
   s.subspec 'DKAsset' do |co|
@@ -84,6 +85,7 @@ Pod::Spec.new do |s|
       
       co.dependency 'DKImagePickerController'
       co.dependency 'SiFUtilities'
+      co.dependency 'IDMFoundation/Core'
   end
   
 end
