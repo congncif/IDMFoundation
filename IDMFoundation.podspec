@@ -79,4 +79,11 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
   end
   
+  s.subspec 'DKAsset' do |co|
+      co.source_files = 'IDMFoundation/DKAsset/**/*'
+      
+      co.dependency 'DKImagePickerController'
+      co.dependency 'SiFUtilities'
+  end
+  
 end

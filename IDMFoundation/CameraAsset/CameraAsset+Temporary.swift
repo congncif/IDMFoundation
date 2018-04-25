@@ -9,6 +9,11 @@
 import Foundation
 import SiFUtilities
 
+/**
+ * To custom asset quality before uploading, create a subclass of CameraAsset then override `transformImageToData(_:)`, currently only support image
+ * Eg: class SubAsset: CameraAsset {...}
+ * let subAsset = asset as? SubAsset ...
+ */
 extension CameraAsset: TemporaryProtocol {
     @objc open func saveTemporary(name: String? = nil) throws -> URL {
         var url: URL
@@ -24,7 +29,7 @@ extension CameraAsset: TemporaryProtocol {
                     throw err
                 }
             } else {
-                let err = CommonError(title: "Video URL not found".localized)
+                let err = CommonError(message: "Video URL not found".localized)
                 throw err
             }
             
@@ -39,7 +44,7 @@ extension CameraAsset: TemporaryProtocol {
                     throw error
                 }
             } else {
-                let err = CommonError(title: "Image not found".localized)
+                let err = CommonError(message: "Image not found".localized)
                 throw err
             }
         }
