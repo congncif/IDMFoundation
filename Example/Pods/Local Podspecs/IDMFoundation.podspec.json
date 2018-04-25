@@ -91,6 +91,15 @@
 
         ]
       }
+    },
+    {
+      "name": "CameraAsset",
+      "source_files": "IDMFoundation/CameraAsset/**/*",
+      "dependencies": {
+        "SiFUtilities": [
+
+        ]
+      }
     }
   ]
 }

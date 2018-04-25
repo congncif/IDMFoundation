@@ -5,6 +5,7 @@ target 'IDMFoundation_Example' do
 #  pod 'IDMFoundation/MBProgressHUD', :path => '../'
   pod 'IDMFoundation/Reachability', :path => '../'
   pod 'IDMFoundation/Loading', :path => '../'
+  pod 'IDMFoundation/CameraAsset', :path => '../'
   pod 'Swinject'
   pod 'SwinjectAutoregistration'
 #  pod 'SwinjectPropertyLoader'

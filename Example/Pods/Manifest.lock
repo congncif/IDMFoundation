@@ -4,6 +4,8 @@ PODS:
   - IDMCore (2.6.6)
   - IDMFoundation (1.3.8):
     - IDMFoundation/Core (= 1.3.8)
+  - IDMFoundation/CameraAsset (1.3.8):
+    - SiFUtilities
   - IDMFoundation/Core (1.3.8):
     - Alamofire
     - IDMCore
@@ -31,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
+  - IDMFoundation/CameraAsset (from `../`)
   - IDMFoundation/Loading (from `../`)
   - IDMFoundation/Reachability (from `../`)
   - Swinject
@@ -59,7 +62,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
   IDMCore: 8d72158918b52ef9eb47ac3592a076a4ac9188ee
-  IDMFoundation: cd5999b018966b80f43118a74af97f431bf596f8
+  IDMFoundation: 5813fdd2cae80b4b821e040cd8246c4fc927a0d4
   JGProgressHUD: bf75da151936cfd3c9b674afb17e8a5df2e14a7d
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -69,6 +72,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
-PODFILE CHECKSUM: c2a52b11843f4798d7d074c02222ee6f9770ef8a
+PODFILE CHECKSUM: 523fa1529728e2bd46c2e899404d50bf8b28ceab
 
 COCOAPODS: 1.5.0

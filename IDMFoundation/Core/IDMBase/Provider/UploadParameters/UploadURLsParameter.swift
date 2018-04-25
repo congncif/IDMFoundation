@@ -26,31 +26,6 @@ open class URLUploadItem: URLUploadItemProtocol {
     }
 }
 
-open class AssetUploadItem: URLUploadItemProtocol {
-    open private(set) var uploadUrl: URL = URL(fileURLWithPath: "")
-    open var uploadName: String = ""
-    open var fileName: String?
-    open var mimeType: String?
-    
-    open var asset: CameraAsset
-    
-    public init(asset: CameraAsset, name: String, fileName: String? = nil, mimeType: String? = nil) {
-        self.asset = asset
-        self.uploadName = name
-        self.fileName = fileName
-        self.mimeType = mimeType
-    }
-    
-    open func saveTemporaryData() {
-        do {
-            let url = try asset.saveTemporary(name: fileName)
-            uploadUrl = url
-        } catch let ex {
-            print("Error in \(#function): \(String(describing: ex))")
-        }
-    }
-}
-
 open class ImageUploadItem: URLUploadItemProtocol {
     open private(set) var uploadUrl: URL = URL(fileURLWithPath: "")
     open var uploadName: String = ""
@@ -155,18 +130,6 @@ open class UploadURLsParameter {
     
     public convenience init<T: StringKeyValueProtocol>(imageData: [Data], name: String = "images", query: T) {
         self.init(imageData: imageData, name: name)
-        self.query = query
-    }
-    
-    public convenience init(assets: [CameraAsset], name: String = "assets") {
-        let items = assets.map { asset -> AssetUploadItem in
-            return AssetUploadItem(asset: asset, name: name)
-        }
-        self.init(items: items)
-    }
-    
-    public convenience init<T: StringKeyValueProtocol>(assets: [CameraAsset], name: String = "assets", query: T) {
-        self.init(assets: assets, name: name)
         self.query = query
     }
     

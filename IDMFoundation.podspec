@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.3.8'
+  s.version          = '1.4.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
 # This description is used to generate tags and improve search results.
@@ -71,6 +71,12 @@ Pod::Spec.new do |s|
       co.dependency 'JGProgressHUD'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
+  end
+  
+  s.subspec 'CameraAsset' do |co|
+      co.source_files = 'IDMFoundation/CameraAsset/**/*'
+      
+      co.dependency 'SiFUtilities'
   end
   
 end
