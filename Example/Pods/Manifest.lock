@@ -1,11 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
   - CWStatusBarNotification (2.3.5)
-  - DKImagePickerController (3.8.1):
-    - DKImagePickerController/Camera (= 3.8.1)
-    - DKImagePickerController/ImageManager (= 3.8.1)
-  - DKImagePickerController/Camera (3.8.1)
-  - DKImagePickerController/ImageManager (3.8.1)
   - IDMCore (2.6.6)
   - IDMFoundation (1.4.0):
     - IDMFoundation/Core (= 1.4.0)
@@ -18,10 +13,6 @@ PODS:
     - ObjectMapper
     - SiFUtilities
     - "UIImage+FixOrientation"
-  - IDMFoundation/DKAsset (1.4.0):
-    - DKImagePickerController
-    - IDMFoundation/Core
-    - SiFUtilities
   - IDMFoundation/Loading (1.4.0):
     - IDMCore
     - JGProgressHUD
@@ -44,7 +35,6 @@ PODS:
 DEPENDENCIES:
   - IDMFoundation (from `../`)
   - IDMFoundation/CameraAsset (from `../`)
-  - IDMFoundation/DKAsset (from `../`)
   - IDMFoundation/Loading (from `../`)
   - IDMFoundation/Reachability (from `../`)
   - Swinject
@@ -55,7 +45,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - CWStatusBarNotification
-    - DKImagePickerController
     - IDMCore
     - JGProgressHUD
     - ObjectMapper
@@ -73,9 +62,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
-  DKImagePickerController: 51ad6ee2ba05414bb741db54a72cd7f4fb178e34
   IDMCore: 8d72158918b52ef9eb47ac3592a076a4ac9188ee
-  IDMFoundation: acaffdcc800ec92fff2a0870929c86df8025177e
+  IDMFoundation: c3868f352443e22add3ec1d38ba911973e504faf
   JGProgressHUD: bf75da151936cfd3c9b674afb17e8a5df2e14a7d
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -85,6 +73,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
-PODFILE CHECKSUM: 966faeaa436df181c4ed016efafcfe3864502782
+PODFILE CHECKSUM: aaa4bd03871dfd67205954ec59affa0ad44d3d73
 
 COCOAPODS: 1.5.0

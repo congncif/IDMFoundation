@@ -2,6 +2,9 @@
   "name": "IDMFoundation",
   "version": "1.4.0",
   "summary": "Base classes for new project which follows IDMCore",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.1"
+  },
   "description": "To install IDM Xcode Template: clone this repo run install-template.sh",
   "homepage": "https://github.com/congncif/IDMFoundation",
   "license": {
@@ -96,21 +99,6 @@
       "name": "CameraAsset",
       "source_files": "IDMFoundation/CameraAsset/**/*",
       "dependencies": {
-        "SiFUtilities": [
-
-        ],
-        "IDMFoundation/Core": [
-
-        ]
-      }
-    },
-    {
-      "name": "DKAsset",
-      "source_files": "IDMFoundation/DKAsset/**/*",
-      "dependencies": {
-        "DKImagePickerController": [
-
-        ],
         "SiFUtilities": [
 
         ],
