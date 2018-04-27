@@ -58,7 +58,11 @@ extension ProgressLoadingProtocol where Self: UIView {
     public func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
             let hud = JGProgressHUD.allProgressHUDs(in: self).first
-            hud?.progress = Float(value)
+            if value == 1 {
+                hud?.indicatorView = JGProgressHUDSuccessIndicatorView()
+            } else {
+                hud?.progress = Float(value)
+            }
             hud?.textLabel.text = "Loading...".localized
             hud?.detailTextLabel.text = (value * 100).intValue.stringValue + "% " + "Complete".localized
         }
