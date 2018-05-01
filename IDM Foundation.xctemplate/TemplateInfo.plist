@@ -49,8 +49,6 @@
 			<array>
 				<string>BaseDataProviderSingleFlow</string>
 				<string>BaseUploadProviderSingleFlow</string>
-				<string>BaseDataProvider</string>
-				<string>BaseUploadProvider</string>
 			</array>
 		</dict>
 	</array>
