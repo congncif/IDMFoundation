@@ -104,7 +104,7 @@ open class UploadURLsParameter {
         })
     }
     
-    public convenience init<T: StringKeyValueProtocol>(items: [URLUploadItem], query: T) {
+    public convenience init<T: StringKeyValueProtocol>(items: [URLUploadItemProtocol], query: T) {
         self.init(items: items)
         self.query = query
     }
