@@ -25,8 +25,8 @@ extension LoadingProtocol where Self: UIView {
     }
 }
 
-extension ErrorHandlingProtocol where Self: UIViewController {
-    public func handle(error: Error?) {
+extension UIViewController: ErrorHandlingProtocol {
+    @objc open func handle(error: Error?) {
         guard let error = error else {
             return
         }
@@ -69,5 +69,4 @@ extension ProgressLoadingProtocol where Self: UIView {
     }
 }
 
-extension UIViewController: ErrorHandlingProtocol {}
 extension UIView: LoadingProtocol, ProgressLoadingProtocol {}
