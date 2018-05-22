@@ -17,16 +17,6 @@ class ErrorHandler: ErrorHandlingProtocol {
     }
 }
 
-extension UIViewController: LoadingProtocol {
-    public func beginLoading() {
-        view.beginLoading()
-    }
-    
-    public func finishLoading() {
-        view.finishLoading()
-    }
-}
-
 struct TestStringProtocolObject: StringKeyValueProtocol {
     var id: Int? = 123
     var name: String? = "name"

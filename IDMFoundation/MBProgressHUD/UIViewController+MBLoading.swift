@@ -61,3 +61,27 @@ extension ProgressLoadingProtocol where Self: UIView {
 }
 
 extension UIView: LoadingProtocol, ProgressLoadingProtocol {}
+
+extension UIViewController: LoadingProtocol {
+    @objc open func beginLoading() {
+        view.beginLoading()
+    }
+    
+    @objc open func finishLoading() {
+        view.hideLoading()
+    }
+}
+
+extension UIViewController: ProgressLoadingProtocol {
+    @objc open func beginProgressLoading() {
+        view.beginProgressLoading()
+    }
+    
+    @objc open func finishProgressLoading() {
+        view.finishProgressLoading()
+    }
+    
+    @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
+        view.loadingDidUpdateProgress(progress)
+    }
+}
