@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.4.4'
+  s.version          = '1.4.5'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }

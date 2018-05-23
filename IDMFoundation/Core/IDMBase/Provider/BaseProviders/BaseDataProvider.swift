@@ -25,6 +25,11 @@ open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<Param
             print("🌿 Parameters: \(param)")
         }
         
+        if let err = validate(parameters: parameters) {
+            completion(false, nil, err)
+            return nil
+        }
+        
         let request = Alamofire.request(requestPath(parameters: parameters),
                                         method: httpMethod(parameters: parameters),
                                         parameters: parameters?.parameters,

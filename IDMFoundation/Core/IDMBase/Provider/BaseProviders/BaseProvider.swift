@@ -36,6 +36,10 @@ open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
         fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
     }
     
+    open func validate(parameters: ParameterType?) -> Error? {
+        return nil
+    }
+    
     open func httpMethod(parameters: ParameterType?) -> HTTPMethod {
         return .post
     }

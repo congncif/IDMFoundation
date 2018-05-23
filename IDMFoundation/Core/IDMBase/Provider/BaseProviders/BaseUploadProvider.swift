@@ -32,7 +32,7 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         if trackingProgressEnabled {
             if let _ = uploader {
                 #if DEBUG
-                log("Tracking Progress is Enabled. You should begin only one upload request at the same time. Or consider to set Tracking Progress to disabled.")
+                    log("Tracking Progress is Enabled. You should begin only one upload request at the same time. Or consider to set Tracking Progress to disabled.")
                 #endif
                 completion(false, nil, nil)
                 return nil
@@ -47,6 +47,11 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
             print("📦 Upload: " + requestPath(parameters: parameters))
             let param = String(describing: parameters)
             print("🌿 Parameters: \(param)")
+        }
+        
+        if let err = validate(parameters: parameters) {
+            completion(false, nil, err)
+            return nil
         }
         
         Alamofire.upload(multipartFormData: { [weak self] multipart in
