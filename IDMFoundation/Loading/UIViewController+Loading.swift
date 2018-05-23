@@ -77,7 +77,7 @@ extension UIViewController: LoadingProtocol {
     }
     
     @objc open func finishLoading() {
-        view.hideLoading()
+        view.finishLoading()
     }
 }
 
