@@ -24,6 +24,11 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
             return nil
         }
         
+        if let err = validate(parameters: parameters) {
+            completion(false, nil, err)
+            return nil
+        }
+        
         if let data = testResponseData(parameters: parameters) {
             completion(data.0, data.1, data.2)
             return nil
@@ -47,11 +52,6 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
             print("📦 Upload: " + requestPath(parameters: parameters))
             let param = String(describing: parameters)
             print("🌿 Parameters: \(param)")
-        }
-        
-        if let err = validate(parameters: parameters) {
-            completion(false, nil, err)
-            return nil
         }
         
         Alamofire.upload(multipartFormData: { [weak self] multipart in

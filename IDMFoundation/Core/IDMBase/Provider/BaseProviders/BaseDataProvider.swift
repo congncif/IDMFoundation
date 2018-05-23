@@ -14,6 +14,11 @@ import UIKit
 open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<ParameterType> {
     open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        if let err = validate(parameters: parameters) {
+            completion(false, nil, err)
+            return nil
+        }
+        
         if let data = testResponseData(parameters: parameters) {
             completion(data.0, data.1, data.2)
             return nil
@@ -23,11 +28,6 @@ open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<Param
             print("📦 Request: " + requestPath(parameters: parameters))
             let param = String(describing: parameters?.parameters)
             print("🌿 Parameters: \(param)")
-        }
-        
-        if let err = validate(parameters: parameters) {
-            completion(false, nil, err)
-            return nil
         }
         
         let request = Alamofire.request(requestPath(parameters: parameters),
