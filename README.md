@@ -7,28 +7,50 @@
 
 ## Summary
 
-Base classes for new project which follows IDMCore
+**IDMFoundation** is a collection of what is needed to create a popular ios application that uses web services.
 
-## Example
+As part of the base project, **IDMFoundation** includes the foundation classes built into the **IDMVC** architecture (read more here https://github.com/congncif/IDMCore) and a standard error handling and loading mechanism. **IDMFoundation** is divided into several sub-specs, which means that it is designed quite flexibly, you can choose which really needed sub-spec to install for your project to not become redundant.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Components
 
-To install IDM Xcode Template for quickly generating an IDM Flow, clone this repo, and run `./install-template.sh`
+- **Core**: includes base classes of `Data Provider`. These providers use `Alamofire` to request data.
+  + `BaseDataProvider` handles data request.
+  + `BaseUploadProvider` handles upload request.
+  + `ConvertProvider`, `ForwardProvider` or `BridgeResponseProvider` are support providers. They help to create a sequence provider by connecting some providers together.
+  
+  To install it, simply add the following line to your Podfile: 
+  ```ruby
+  pod 'IDMFoundation/Core'
+  ```
+  
+- **Data Mapping**: Most of apps use JSON API, so *JSONMapper* is an integral part. We built some base models to parse JSON data to custom object which is more useful for real projects.
+
+ To install it, simply add the following line to your Podfile: 
+  ```ruby
+  pod 'IDMFoundation/JSONMapper'
+  ```
+
+- **Loading**: includes methods to handle loading, loading progress and presenting error. These methods are added to `UIView` and `UIViewController` by default. This help us use easily.
+
+There are two sub-specs for *Loading*, you can choose one of them for your project:
+```ruby
+pod 'IDMFoundation/JGProgressHUD'
+```
+
+or
+
+```ruby
+pod 'IDMFoundation/MBProgressHUD'
+```
+- Some other sub-specs you can look into:
+  + ```pod 'IDMFoundation/Reachability'```
+  + ```pod 'IDMFoundation/CameraAsset'```
 
 ## Requirements
 
-Xcode 9.2
+Xcode 9.3+
 
-Swift >= 3.2
-
-## Installation
-
-IDMFoundation is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'IDMFoundation'
-```
+Swift 4.1+
 
 ## Author
 
