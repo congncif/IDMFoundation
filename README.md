@@ -25,27 +25,32 @@ As part of the base project, **IDMFoundation** includes the foundation classes b
   
 - **Data Mapping**: Most of apps use JSON API, so *JSONMapper* is an integral part. We built some base models to parse JSON data to custom object which is more useful for real projects.
 
- To install it, simply add the following line to your Podfile: 
+  To install it, simply add the following line to your Podfile: 
   ```ruby
   pod 'IDMFoundation/JSONMapper'
   ```
 
+  To use XML or support SOAP API, please install *XMLMapper* sub-spec:
+  ```ruby
+  pod 'IDMFoundation/XMLMapper'
+  ```
+  
 - **Loading**: includes methods to handle loading, loading progress and presenting error. These methods are added to `UIView` and `UIViewController` by default. This help us use easily.
 
-There are two sub-specs for *Loading*, you can choose one of them for your project:
-```ruby
-pod 'IDMFoundation/JGProgressHUD'
-```
+  There are two sub-specs for *Loading*, you can choose one of them for your project:
+  ```ruby
+  pod 'IDMFoundation/JGProgressHUD'
+  ```
 
 or
 
-```ruby
-pod 'IDMFoundation/MBProgressHUD'
-```
+ ```ruby
+  pod 'IDMFoundation/MBProgressHUD'
+  ```
+  
 - Some other sub-specs you can look into:
   + ```pod 'IDMFoundation/Reachability'```
   + ```pod 'IDMFoundation/CameraAsset'```
-  
 
 ## Requirements
 
