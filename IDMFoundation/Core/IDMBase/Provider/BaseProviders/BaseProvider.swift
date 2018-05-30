@@ -120,4 +120,14 @@ open class BaseTaskProvider<ParameterType>: BaseProvider<ParameterType> {
             log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
         }
     }
+    
+    open func saveTemporary(parameters: ParameterType?) {
+        if let exData = parameters as? UploadURLsParameter {
+            for var item in exData.uploadItems {
+                item.saveTemporaryData()
+            }
+        } else {
+            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
+        }
+    }
 }

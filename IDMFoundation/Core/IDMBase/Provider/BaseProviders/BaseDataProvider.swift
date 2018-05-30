@@ -1,14 +1,13 @@
 //
-import Alamofire
-import IDMCore
-import SiFUtilities
 //  BaseDataProvider.swift
 //  IDMCommon
 //
 //  Created by NGUYEN CHI CONG on 1/23/17.
 //  Copyright © 2017 Julian Heissl. All rights reserved.
 //
-
+import Alamofire
+import IDMCore
+import SiFUtilities
 import UIKit
 
 open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<ParameterType> {

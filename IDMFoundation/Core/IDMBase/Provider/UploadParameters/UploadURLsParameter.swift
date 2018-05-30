@@ -85,7 +85,7 @@ open class UploadURLsParameter {
         var items = [URLUploadItem]()
         for url in urls {
             let item = URLUploadItem(url: url, name: name)
-            item.saveTemporaryData()
+//            item.saveTemporaryData()
             items.append(item)
         }
         self.uploadItems = items
@@ -98,8 +98,8 @@ open class UploadURLsParameter {
     
     public init(items: [URLUploadItemProtocol]) {
         self.uploadItems = items.map({ (item) -> URLUploadItemProtocol in
-            var newItem = item
-            newItem.saveTemporaryData()
+            let newItem = item
+//            newItem.saveTemporaryData()
             return newItem
         })
     }

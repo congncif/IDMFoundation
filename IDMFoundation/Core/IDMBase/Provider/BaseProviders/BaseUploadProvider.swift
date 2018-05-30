@@ -54,6 +54,8 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
             print("🌿 Parameters: \(param)")
         }
         
+        saveTemporary(parameters: parameters)
+        
         Alamofire.upload(multipartFormData: { [weak self] multipart in
             self?.buildFormData(multipart: multipart, with: parameters)
         }, to: path, method: method, headers: header) { [weak self] encodingResult in
