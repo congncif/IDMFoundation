@@ -7,6 +7,7 @@ target 'IDMFoundation_Example' do
   pod 'IDMFoundation/JGProgressHUD', :path => '../'
   pod 'IDMFoundation/CameraAsset', :path => '../'
   pod 'IDMFoundation/JSONMapper', :path => '../'
+  pod 'IDMFoundation/XMLMapper', :path => '../'
 #  pod 'IDMFoundation/DKAsset', :path => '../'
   pod 'Swinject'
   pod 'SwinjectAutoregistration'

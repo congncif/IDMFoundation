@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.5.0'
+  s.version          = '1.6.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
@@ -56,6 +56,16 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
       co.dependency 'ObjectMapper'
+  end
+  
+  s.subspec 'XMLMapper' do |co|
+      co.source_files = 'IDMFoundation/JSONMapper/**/*'
+      
+      co.dependency 'IDMFoundation/Core'
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
+      co.dependency 'XMLMapper'
+      co.dependency 'XMLMapper/Requests'
   end
   
   s.subspec 'MBProgressHUD' do |co|

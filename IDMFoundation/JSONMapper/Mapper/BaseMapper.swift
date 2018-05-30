@@ -1,6 +1,6 @@
 //
 //  BaseMapper.swift
-//  
+//
 //
 //  Created by NGUYEN CHI CONG on 11/24/16.
 //  Copyright © 2016 [iF] Solution. All rights reserved.
