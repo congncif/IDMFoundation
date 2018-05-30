@@ -2,10 +2,22 @@
 All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
+- `1.5.x` Releases  - [1.5.0](#150)
+- `1.4.x` Releases  - [1.4.0](#140)
 - `1.3.x` Releases  - [1.3.0](#130)
 - `1.2.x` Releases  - [1.2.0](#120) | [1.2.3](#123)  | [1.2.4](#124)
 - `1.1.x` Releases  - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112) | [1.1.3](#113) | [1.1.4](#114)  | [1.1.5](#115) | [1.1.6](#116) | [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) 
 
+---
+## [1.5.0](https://github.com/congncif/IDMFoundation/releases/tag/1.5.0)
+Released on 2018-5-30
+
+- Rename sub-spec `Loading` to `JGProgressHUD` to make sense
+- Add new sub-spec `JSONMapper` to remove couple links
+
+---
+## [1.4.0](https://github.com/congncif/IDMFoundation/releases/tag/1.4.0)
+Released on 2018-4-25
 ---
 ## [1.3.0](https://github.com/congncif/IDMFoundation/releases/tag/1.3.0)
 Released on 2018-4-19

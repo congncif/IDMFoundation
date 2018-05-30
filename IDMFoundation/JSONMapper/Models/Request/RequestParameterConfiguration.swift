@@ -21,7 +21,7 @@ public class RequestParameterConfiguration {
     public var pageSize: Int = 24
 }
 
-extension KeyValueProtocol {
+extension ParameterProtocol {
     public var parameters: [String: Any] {
         var query = RequestParameterConfiguration.shared.baseParameter
         for (key, value) in dictionary {

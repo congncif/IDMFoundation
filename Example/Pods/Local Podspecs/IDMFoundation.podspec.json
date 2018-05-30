@@ -1,6 +1,6 @@
 {
   "name": "IDMFoundation",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "summary": "Base classes for new project which follows IDMCore",
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "4.1"
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/congncif/IDMFoundation.git",
-    "tag": "1.4.0"
+    "tag": "1.5.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -42,10 +42,22 @@
         "Alamofire": [
 
         ],
-        "ObjectMapper": [
+        "UIImage+FixOrientation": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSONMapper",
+      "source_files": "IDMFoundation/JSONMapper/**/*",
+      "dependencies": {
+        "SiFUtilities": [
 
         ],
-        "UIImage+FixOrientation": [
+        "IDMCore": [
+
+        ],
+        "ObjectMapper": [
 
         ]
       }
@@ -81,8 +93,8 @@
       }
     },
     {
-      "name": "Loading",
-      "source_files": "IDMFoundation/Loading/**/*",
+      "name": "JGProgressHUD",
+      "source_files": "IDMFoundation/JGProgressHUD/**/*",
       "dependencies": {
         "JGProgressHUD": [
 

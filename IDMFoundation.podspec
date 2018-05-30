@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.4.8'
+  s.version          = '1.5.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
@@ -46,8 +46,15 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
       co.dependency 'Alamofire'
-      co.dependency 'ObjectMapper'
       co.dependency 'UIImage+FixOrientation'
+  end
+  
+  s.subspec 'JSONMapper' do |co|
+      co.source_files = 'IDMFoundation/JSONMapper/**/*'
+      
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
+      co.dependency 'ObjectMapper'
   end
   
   s.subspec 'MBProgressHUD' do |co|
@@ -66,8 +73,8 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
   end
   
-  s.subspec 'Loading' do |co|
-      co.source_files = 'IDMFoundation/Loading/**/*'
+  s.subspec 'JGProgressHUD' do |co|
+      co.source_files = 'IDMFoundation/JGProgressHUD/**/*'
       
       co.dependency 'JGProgressHUD'
       co.dependency 'SiFUtilities'

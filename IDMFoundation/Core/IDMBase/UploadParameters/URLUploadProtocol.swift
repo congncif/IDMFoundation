@@ -8,7 +8,7 @@
 import Foundation
 import SiFUtilities
 
-public protocol StringKeyValueProtocol: KeyValueProtocol {
+public protocol StringKeyValueProtocol: ParameterProtocol {
     var queryParameters: [(String, String)] { get }
 }
 

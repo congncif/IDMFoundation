@@ -10,7 +10,7 @@ import IDMCore
 import SiFUtilities
 import UIKit
 
-open class BaseDataProvider<ParameterType: KeyValueProtocol>: BaseProvider<ParameterType> {
+open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<ParameterType> {
     open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         if let err = validate(parameters: parameters) {
