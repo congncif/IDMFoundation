@@ -18,6 +18,7 @@ PODS:
     - SiFUtilities
   - IDMFoundation/JSONMapper (1.5.0):
     - IDMCore
+    - IDMFoundation/Core
     - ObjectMapper
     - SiFUtilities
   - IDMFoundation/Reachability (1.5.0):
@@ -67,7 +68,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
   IDMCore: f5c3cf6a0ca9993870b6e8c0e9d6b69b8f8dad84
-  IDMFoundation: d55ee5c8ea2e50cc5679b8f2ac72f1b0d43e06c0
+  IDMFoundation: 4599f4aa5ecf43dd65dbb5d9156330f67176f5a6
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96

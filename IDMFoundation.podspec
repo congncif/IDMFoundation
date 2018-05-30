@@ -52,6 +52,7 @@ Pod::Spec.new do |s|
   s.subspec 'JSONMapper' do |co|
       co.source_files = 'IDMFoundation/JSONMapper/**/*'
       
+      co.dependency 'IDMFoundation/Core'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
       co.dependency 'ObjectMapper'
@@ -84,8 +85,8 @@ Pod::Spec.new do |s|
   s.subspec 'CameraAsset' do |co|
       co.source_files = 'IDMFoundation/CameraAsset/**/*'
       
-      co.dependency 'SiFUtilities'
       co.dependency 'IDMFoundation/Core'
+      co.dependency 'SiFUtilities'
   end
   
   #  s.subspec 'DKAsset' do |co|

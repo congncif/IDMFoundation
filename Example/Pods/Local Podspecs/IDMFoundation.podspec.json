@@ -51,6 +51,9 @@
       "name": "JSONMapper",
       "source_files": "IDMFoundation/JSONMapper/**/*",
       "dependencies": {
+        "IDMFoundation/Core": [
+
+        ],
         "SiFUtilities": [
 
         ],
@@ -111,10 +114,10 @@
       "name": "CameraAsset",
       "source_files": "IDMFoundation/CameraAsset/**/*",
       "dependencies": {
-        "SiFUtilities": [
+        "IDMFoundation/Core": [
 
         ],
-        "IDMFoundation/Core": [
+        "SiFUtilities": [
 
         ]
       }
