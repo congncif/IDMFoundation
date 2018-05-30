@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'XMLMapper' do |co|
-      co.source_files = 'IDMFoundation/JSONMapper/**/*'
+      co.source_files = 'IDMFoundation/XMLMapper/**/*'
       
       co.dependency 'IDMFoundation/Core'
       co.dependency 'SiFUtilities'
