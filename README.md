@@ -45,12 +45,85 @@ pod 'IDMFoundation/MBProgressHUD'
 - Some other sub-specs you can look into:
   + ```pod 'IDMFoundation/Reachability'```
   + ```pod 'IDMFoundation/CameraAsset'```
+  
 
 ## Requirements
 
 Xcode 9.3+
 
 Swift 4.1+
+
+## [Bonus] Template
+
+**IDMFoundation** provides a template to help quicly create a data flow which follows **IDMCore**.
+
+To install template, clone this repo then go to the project directory, run command `./install-template.sh`.
+
+Once that's done, when you create a new file, you'll see IDMFoundation template appears.
+
+![alt text](https://i.imgur.com/6b7euWy.png "IDM Template")
+
+Create one with name of flow `GetData`, all of necessary classes will be created.
+
+```swift
+import Foundation
+import IDMCore
+import IDMFoundation
+import Alamofire
+
+class GetDataRequestParameter: RequestParameter {
+    
+}
+
+class GetDataResponseModel: DataResponseModel<<#GetDataModel#>>, ModelProtocol {
+    
+}
+
+typealias GetDataBaseProvider = RootAnyProvider<GetDataRequestParameter>
+typealias GetDataProvider = BaseDataProvider<GetDataRequestParameter>
+
+class GetDataDataProvider: GetDataProvider {
+    override func requestPath(parameters: GetDataRequestParameter?) -> String {
+        return <#code#>
+    }
+
+    override func httpMethod(parameters: GetDataRequestParameter?) -> HTTPMethod {
+        return <#.post#>
+    }
+}
+
+class GetDataService: MagicalIntegrator<GetDataBaseProvider, GetDataResponseModel> {
+    
+}
+
+extension GetDataService {
+	convenience init() {
+        self.init(dataProvider: GetDataDataProvider())
+    }
+}
+```
+
+Enter your configurations then you have been finished a new flow completely.
+
+Use easily in view controller or wherever you need a service to get data:
+
+```swift
+fileprivate let getDataService = GetDataService()
+
+[...]
+
+getDataService
+            .prepareCall(parameters: param)
+            .loading(monitor: self)
+            .error(handler: self)
+            .onSuccess { responseModel in
+                print(responseModel)
+            }
+            .call()
+
+```
+
+*Happy coding!*
 
 ## Author
 
