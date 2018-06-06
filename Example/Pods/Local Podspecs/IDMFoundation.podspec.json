@@ -1,6 +1,6 @@
 {
   "name": "IDMFoundation",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "summary": "Base classes for new project which follows IDMCore",
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "4.1"
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/congncif/IDMFoundation.git",
-    "tag": "1.5.2"
+    "tag": "1.6.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -48,8 +48,23 @@
       }
     },
     {
-      "name": "JSONMapper",
-      "source_files": "IDMFoundation/JSONMapper/**/*",
+      "name": "RequestParameter",
+      "source_files": "IDMFoundation/RequestParameter/**/*",
+      "dependencies": {
+        "IDMFoundation/Core": [
+
+        ],
+        "SiFUtilities": [
+
+        ],
+        "IDMCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ObjectMapper",
+      "source_files": "IDMFoundation/ObjectMapper/**/*",
       "dependencies": {
         "IDMFoundation/Core": [
 
@@ -114,7 +129,7 @@
       "name": "CameraAsset",
       "source_files": "IDMFoundation/CameraAsset/**/*",
       "dependencies": {
-        "IDMFoundation/Core": [
+        "IDMFoundation/RequestParameter": [
 
         ],
         "SiFUtilities": [

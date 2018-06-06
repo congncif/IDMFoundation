@@ -11,18 +11,7 @@ import IDMCore
 import ObjectMapper
 import SiFUtilities
 
-open class BaseResponseModel: NSObject, Mappable {
-    public override init() {
-        super.init()
-    }
-    
-    public required init?(map: Map) {}
-    
-    open func mapping(map: Map) {
-    }
-}
-
-open class ResponseModel: BaseResponseModel {
+open class ResponseModel: NSObject, ResponseModelProtocol, Mappable {
     open var status: Int?
     open var message: String?
     open var extra: Any?
@@ -32,11 +21,10 @@ open class ResponseModel: BaseResponseModel {
     }
     
     public required init?(map: Map) {
-        super.init(map: map)
+        
     }
     
-    open override func mapping(map: Map) {
-        super.mapping(map: map)
+    open func mapping(map: Map) {
         message <- map[messageKey]
         status <- map[statusKey]
         extra = extraMapping(map: map)

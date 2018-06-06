@@ -19,7 +19,7 @@ class ___VARIABLE_moduleName___ResponseModel: StandardProgressDataResponseModel<
 }
 
 typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<UploadURLsParameter>
-typealias ___VARIABLE_moduleName___Provider = BaseUploadProvider<UploadURLsParameter>
+typealias ___VARIABLE_moduleName___Provider = BaseURLUploadProvider
 
 class ___VARIABLE_moduleName___UploadProvider: ___VARIABLE_moduleName___Provider {
     override func requestPath(parameters: UploadURLsParameter?) -> String {

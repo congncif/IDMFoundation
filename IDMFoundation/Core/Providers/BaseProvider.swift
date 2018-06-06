@@ -106,28 +106,14 @@ open class BaseTaskProvider<ParameterType>: BaseProvider<ParameterType> {
     }
     
     open func buildFormData(multipart: MultipartFormData, with parameters: ParameterType?) {
-        if let exData = parameters as? UploadURLsParameter {
-            multipart.append(urlParameter: exData)
-        } else {
-            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
-        }
+        
     }
     
     open func cleanUp(parameters: ParameterType?) {
-        if let exData = parameters as? UploadURLsParameter {
-            try? exData.cleanUp()
-        } else {
-            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
-        }
+        
     }
     
     open func saveTemporary(parameters: ParameterType?) {
-        if let exData = parameters as? UploadURLsParameter {
-            for var item in exData.uploadItems {
-                item.saveTemporaryData()
-            }
-        } else {
-            log("You need custom \(#function) for request \(requestPath(parameters: parameters))")
-        }
+        
     }
 }
