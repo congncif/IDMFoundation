@@ -10,5 +10,4 @@ import Foundation
 public protocol ResponseModelProtocol {
     var status: Int? { get set }
     var message: String? { get set }
-    var extra: Any? { get set }
 }

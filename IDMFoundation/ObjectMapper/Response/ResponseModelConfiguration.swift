@@ -25,6 +25,12 @@ public class ResponseModelConfiguration {
     public var statusKey: String = SerializationKeys.status
     public var dataKey: String = SerializationKeys.data
     public var pageKey: String = SerializationKeys.page
-    public var validator: ((_ model: ResponseModel) -> Error?)?
+    public var validator: ((_ model: ResponseModelProtocol) -> Error?)?
     public var extraMapping: ((_ map: Map) -> Any?)?
+}
+
+extension ResponseModelProtocol {
+    public var invalidDataError: Error? {
+        return ResponseModelConfiguration.shared.validator?(self)
+    }
 }
