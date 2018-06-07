@@ -22,14 +22,20 @@ As part of the base project, **IDMFoundation** includes the foundation classes b
   ```ruby
   pod 'IDMFoundation/Core'
   ```
+- **Parameter**:Encode request parameters for `Data Provider`:
+
+To install it, simply add the following line to your Podfile: 
+  ```ruby
+  pod 'IDMFoundation/RequestParameter'
+  ```
   
-- **Data Mapping**: Most of apps use JSON API, so *JSONMapper* is an integral part. We built some base models to parse JSON data to custom object which is more useful for real projects.
+- **Data Mapping**: Most of apps use JSON API, so *ObjectMapper* is an integral part. We built some base models to parse JSON data to custom object which is more useful for real projects.
 
  To install it, simply add the following line to your Podfile: 
   ```ruby
-  pod 'IDMFoundation/JSONMapper'
+  pod 'IDMFoundation/ObjectMapper'
   ```
-
+  
 - **Loading**: includes methods to handle loading, loading progress and presenting error. These methods are added to `UIView` and `UIViewController` by default. This help us use easily.
 
 There are two sub-specs for *Loading*, you can choose one of them for your project:
