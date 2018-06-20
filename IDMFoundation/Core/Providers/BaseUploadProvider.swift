@@ -105,7 +105,10 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
     
     open var sessionManager: SessionManager {
         let id = "uploader." + String.random()
-        return SessionManager(configuration: URLSessionConfiguration.background(withIdentifier: id))
+        let configuration = URLSessionConfiguration.background(withIdentifier: id)
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        let session = SessionManager(configuration: configuration)
+        return session
     }
     
     open func customRequest(_ request: Request) {

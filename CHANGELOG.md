@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
-- `1.6.x` Releases  - [1.6.0](#160) | [1.6.1](#161) | [1.6.2](#162)
+- `1.6.x` Releases  - [1.6.0](#160) | [1.6.1](#161) | [1.6.2](#162)  | [1.6.3](#163)
 - `1.5.x` Releases  - [1.5.0](#150)
 - `1.4.x` Releases  - [1.4.0](#140)
 - `1.3.x` Releases  - [1.3.0](#130)
@@ -10,8 +10,14 @@ All notable changes to this project will be documented in this file.
 - `1.1.x` Releases  - [1.1.0](#110) | [1.1.1](#111) | [1.1.2](#112) | [1.1.3](#113) | [1.1.4](#114)  | [1.1.5](#115) | [1.1.6](#116) | [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) 
 
 ---
+## [1.6.3](https://github.com/congncif/IDMFoundation/releases/tag/1.6.3)
+Released on 2018-6-20
+
+- Added default header to session manager
+
+---
 ## [1.6.2](https://github.com/congncif/IDMFoundation/releases/tag/1.6.2)
-Released on 2018-6-6
+Released on 2018-6-20
 
 - Added more custom methods for data provider
 

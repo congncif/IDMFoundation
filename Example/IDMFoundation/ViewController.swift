@@ -108,7 +108,9 @@ class ViewController: UIViewController {
 //            print(err?.localizedDescription)
 //        }.call()
         
-        service.prepareCall().loading(monitor: self).error(handler: ErrorHandler.shared).call()
+//        service.prepareCall().loading(monitor: self).error(handler: ErrorHandler.shared).call()
+        
+        service2.prepareCall().call()
     }
 
     override func viewDidDisplay() {

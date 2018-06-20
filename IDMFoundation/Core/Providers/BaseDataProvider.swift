@@ -29,11 +29,7 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
             print("🌿 Parameters: \(param)")
         }
         
-        let request = sessionManager.request(requestPath(parameters: parameters),
-                                             method: httpMethod(parameters: parameters),
-                                             parameters: parameters?.parameters,
-                                             encoding: parameterEncoding(parameters: parameters),
-                                             headers: headers(parameters: parameters))
+        let request = buildRequest(parameters: parameters)
         customRequest(request)
         request.responseJSON { [weak self] response in
             guard let this = self else {
@@ -62,6 +58,15 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
     
     open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
         return URLEncoding.default
+    }
+    
+    open func buildRequest(parameters: ParameterType?) -> DataRequest {
+        let request = sessionManager.request(requestPath(parameters: parameters),
+                                             method: httpMethod(parameters: parameters),
+                                             parameters: parameters?.parameters,
+                                             encoding: parameterEncoding(parameters: parameters),
+                                             headers: headers(parameters: parameters))
+        return request
     }
     
     open func customRequest(_ request: Request) {
