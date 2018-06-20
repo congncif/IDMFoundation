@@ -56,18 +56,18 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         
         saveTemporary(parameters: parameters)
         
-        Alamofire.upload(multipartFormData: { [weak self] multipart in
+        sessionManager.upload(multipartFormData: { [weak self] multipart in
             self?.buildFormData(multipart: multipart, with: parameters)
         }, to: path, method: method, headers: header) { [weak self] encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
                 self?.customRequest(upload)
                 
-                upload.uploadProgress(closure: { [weak self] progress in
+                upload.uploadProgress { [weak self] progress in
                     if self?.trackingProgressEnabled == true {
                         completion(true, progress, nil)
                     }
-                })
+                }
                 
                 upload.responseJSON { [weak self] response in
                     guard let this = self else {
@@ -103,7 +103,12 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         }
     }
     
-    open func customRequest(_ request: DataRequest) {
+    open var sessionManager: SessionManager {
+        let id = "uploader." + String.random()
+        return SessionManager(configuration: URLSessionConfiguration.background(withIdentifier: id))
+    }
+    
+    open func customRequest(_ request: Request) {
         if let customClosure = ProviderConfiguration.shared.customRequest {
             customClosure(request)
         }

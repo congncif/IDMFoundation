@@ -16,5 +16,5 @@ public class ProviderConfiguration {
 
     public var headerFields: [String: String]?
     public var credential: URLCredential?
-    public var customRequest: ((DataRequest) -> Void)?
+    public var customRequest: ((Request) -> Void)?
 }

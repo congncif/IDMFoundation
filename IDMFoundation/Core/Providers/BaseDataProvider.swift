@@ -29,11 +29,11 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
             print("🌿 Parameters: \(param)")
         }
         
-        let request = Alamofire.request(requestPath(parameters: parameters),
-                                        method: httpMethod(parameters: parameters),
-                                        parameters: parameters?.parameters,
-                                        encoding: parameterEncoding(parameters: parameters),
-                                        headers: headers(parameters: parameters))
+        let request = sessionManager.request(requestPath(parameters: parameters),
+                                             method: httpMethod(parameters: parameters),
+                                             parameters: parameters?.parameters,
+                                             encoding: parameterEncoding(parameters: parameters),
+                                             headers: headers(parameters: parameters))
         customRequest(request)
         request.responseJSON { [weak self] response in
             guard let this = self else {
@@ -56,11 +56,15 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
         }
     }
     
+    open var sessionManager: SessionManager {
+        return SessionManager.default
+    }
+    
     open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
         return URLEncoding.default
     }
     
-    open func customRequest(_ request: DataRequest) {
+    open func customRequest(_ request: Request) {
         if let customClosure = ProviderConfiguration.shared.customRequest {
             customClosure(request)
         }
