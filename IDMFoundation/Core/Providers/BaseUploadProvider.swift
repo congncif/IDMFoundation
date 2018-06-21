@@ -13,6 +13,13 @@ import SiFUtilities
 
 open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
     private var uploader: Request?
+    open lazy var sessionManager: SessionManager = {
+        let id = "uploader." + String.random()
+        let configuration = URLSessionConfiguration.background(withIdentifier: id)
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        let session = SessionManager(configuration: configuration)
+        return session
+    }()
     
     open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
@@ -101,14 +108,6 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
             self?.uploader?.cancel()
             self?.uploader = nil
         }
-    }
-    
-    open var sessionManager: SessionManager {
-        let id = "uploader." + String.random()
-        let configuration = URLSessionConfiguration.background(withIdentifier: id)
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        let session = SessionManager(configuration: configuration)
-        return session
     }
     
     open func customRequest(_ request: Request) {

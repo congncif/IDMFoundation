@@ -52,9 +52,9 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
         }
     }
     
-    open var sessionManager: SessionManager {
+    open lazy var sessionManager: SessionManager = {
         return SessionManager.default
-    }
+    }()
     
     open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
         return URLEncoding.default
