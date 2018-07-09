@@ -5,11 +5,10 @@
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  ___COPYRIGHT___
 //
-
+import Alamofire
 import Foundation
 import IDMCore
 import IDMFoundation
-import Alamofire
 
 class ___VARIABLE_moduleName___RequestParameter: RequestParameter {
     

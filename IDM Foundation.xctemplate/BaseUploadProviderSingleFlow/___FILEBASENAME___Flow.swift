@@ -5,10 +5,9 @@
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  ___COPYRIGHT___
 //
-
 import Foundation
-import IDMFoundation
 import IDMCore
+import IDMFoundation
 
 class ___VARIABLE_moduleName___Model: ResponseModel, ModelProtocol {
     
