@@ -3,6 +3,7 @@ use_frameworks!
 target 'IDMFoundation_Example' do
   pod 'IDMFoundation', :path => '../'
 #  pod 'IDMFoundation/MBProgressHUD', :path => '../'
+pod 'IDMFoundation/Alamofire', :path => '../'
   pod 'IDMFoundation/Reachability', :path => '../'
   pod 'IDMFoundation/JGProgressHUD', :path => '../'
   pod 'IDMFoundation/CameraAsset', :path => '../'

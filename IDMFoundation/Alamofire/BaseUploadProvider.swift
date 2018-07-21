@@ -110,15 +110,6 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         }
     }
     
-    open func customRequest(_ request: Request) {
-        if let customClosure = ProviderConfiguration.shared.customRequest {
-            customClosure(request)
-        }
-        if let credential = ProviderConfiguration.shared.credential {
-            request.authenticate(usingCredential: credential)
-        }
-    }
-    
     deinit {
         uploader?.cancel()
         uploader = nil

@@ -1,39 +1,21 @@
 //
 //  BaseProvider.swift
-//  IDMCommon
+//  IDMFoundation
 //
-//  Created by NGUYEN CHI CONG on 8/29/17.
-//  Copyright © 2017 Julian Heissl. All rights reserved.
+//  Created by FOLY on 7/21/18.
 //
-
 import Alamofire
 import Foundation
 import IDMCore
 import SiFUtilities
 
-public typealias ProviderResponseAny = (Bool, Any?, Error?)
-
-open class RootProvider<ParameterType, DataType>: NSObject, DataProviderProtocol {
-    @discardableResult
-    open func request(parameters _: ParameterType?, completion _: @escaping (Bool, DataType?, Error?) -> Void) -> CancelHandler? {
-        fatalError("Please override \(#function) to get data")
-    }
-}
-
-open class RootAnyProvider<ParameterType>: RootProvider<ParameterType, Any> {
-    @discardableResult
-    open override func request(parameters _: ParameterType?, completion _: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        fatalError("Please override \(#function) to get data")
-    }
-}
-
 open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
     open override func request(parameters: ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
+        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
     }
     
     open func requestPath(parameters: ParameterType?) -> String {
-        fatalError("You need custom \(#function) for request \(requestPath(parameters: parameters))")
+        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
     }
     
     open func validate(parameters: ParameterType?) -> Error? {
@@ -62,10 +44,10 @@ open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
     open func testResponseData(parameters: ParameterType?) -> ProviderResponseAny? {
         if let filePath = testResponseFile(parameters: parameters) {
             let keeper = ValueKeeper<ProviderResponseAny>(getValueAsync: { fullfill in
-                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 3) {
                     let text = try? String(contentsOfFile: filePath)
                     fullfill((true, text, nil))
-                })
+                }
             })
             return keeper.syncValue
         } else {
@@ -76,23 +58,14 @@ open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
     open func testResponseFile(parameters: ParameterType?) -> String? {
         return nil
     }
-}
-
-open class BaseProviderWrapper<ProviderType: DataProviderProtocol>: RootAnyProvider<ProviderType.ParameterType> where ProviderType.DataType == Any {
-    public var provider: ProviderType?
     
-    public init(provider: ProviderType?) {
-        self.provider = provider
-    }
-    
-    open override func request(parameters: ProviderType.ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        return provider?.request(parameters: parameters, completion: completion)
-    }
-}
-
-extension DataProviderProtocol where DataType == Any {
-    public var wrapper: BaseProviderWrapper<Self> {
-        return BaseProviderWrapper(provider: self)
+    open func customRequest(_ request: Request) {
+        if let customClosure = ProviderConfiguration.shared.customRequest {
+            customClosure(request)
+        }
+        if let credential = ProviderConfiguration.shared.credential {
+            request.authenticate(usingCredential: credential)
+        }
     }
 }
 
@@ -106,14 +79,11 @@ open class BaseTaskProvider<ParameterType>: BaseProvider<ParameterType> {
     }
     
     open func buildFormData(multipart: MultipartFormData, with parameters: ParameterType?) {
-        
     }
     
     open func cleanUp(parameters: ParameterType?) {
-        
     }
     
     open func saveTemporary(parameters: ParameterType?) {
-        
     }
 }

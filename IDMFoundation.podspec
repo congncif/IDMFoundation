@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.6.4'
+  s.version          = '1.7.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
@@ -45,8 +45,15 @@ Pod::Spec.new do |s|
       
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
+  end
+  
+  s.subspec 'Alamofire' do |co|
+      co.source_files = 'IDMFoundation/Alamofire/**/*'
+      
+      co.dependency 'IDMFoundation/RequestParameter'
+      co.dependency 'SiFUtilities'
+      co.dependency 'IDMCore'
       co.dependency 'Alamofire'
-      co.dependency 'UIImage+FixOrientation'
   end
   
   s.subspec 'RequestParameter' do |co|
@@ -55,6 +62,7 @@ Pod::Spec.new do |s|
       co.dependency 'IDMFoundation/Core'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
+      co.dependency 'UIImage+FixOrientation'
   end
   
   s.subspec 'ObjectMapper' do |co|

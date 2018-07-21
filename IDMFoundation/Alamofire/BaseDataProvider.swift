@@ -53,7 +53,7 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
     }
     
     open lazy var sessionManager: SessionManager = {
-        return SessionManager.default
+        SessionManager.default
     }()
     
     open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
@@ -67,14 +67,5 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
                                              encoding: parameterEncoding(parameters: parameters),
                                              headers: headers(parameters: parameters))
         return request
-    }
-    
-    open func customRequest(_ request: Request) {
-        if let customClosure = ProviderConfiguration.shared.customRequest {
-            customClosure(request)
-        }
-        if let credential = ProviderConfiguration.shared.credential {
-            request.authenticate(usingCredential: credential)
-        }
     }
 }

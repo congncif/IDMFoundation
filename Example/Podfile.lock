@@ -1,36 +1,40 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.7.3)
   - CWStatusBarNotification (2.3.5)
-  - IDMCore (2.6.8)
-  - IDMFoundation (1.6.0):
-    - IDMFoundation/Core (= 1.6.0)
-  - IDMFoundation/CameraAsset (1.6.0):
-    - IDMFoundation/RequestParameter
-    - SiFUtilities
-  - IDMFoundation/Core (1.6.0):
+  - IDMCore (2.6.9)
+  - IDMFoundation (1.7.0):
+    - IDMFoundation/Core (= 1.7.0)
+  - IDMFoundation/Alamofire (1.7.0):
     - Alamofire
     - IDMCore
+    - IDMFoundation/RequestParameter
     - SiFUtilities
-    - "UIImage+FixOrientation"
-  - IDMFoundation/JGProgressHUD (1.6.0):
+  - IDMFoundation/CameraAsset (1.7.0):
+    - IDMFoundation/RequestParameter
+    - SiFUtilities
+  - IDMFoundation/Core (1.7.0):
+    - IDMCore
+    - SiFUtilities
+  - IDMFoundation/JGProgressHUD (1.7.0):
     - IDMCore
     - JGProgressHUD
     - SiFUtilities
-  - IDMFoundation/ObjectMapper (1.6.0):
+  - IDMFoundation/ObjectMapper (1.7.0):
     - IDMCore
     - IDMFoundation/Core
     - ObjectMapper
     - SiFUtilities
-  - IDMFoundation/Reachability (1.6.0):
+  - IDMFoundation/Reachability (1.7.0):
     - CWStatusBarNotification
     - Reachability
     - SiFUtilities
-  - IDMFoundation/RequestParameter (1.6.0):
+  - IDMFoundation/RequestParameter (1.7.0):
     - IDMCore
     - IDMFoundation/Core
     - SiFUtilities
+    - "UIImage+FixOrientation"
   - JGProgressHUD (2.0.3)
-  - ObjectMapper (3.2.0)
+  - ObjectMapper (3.3.0)
   - Reachability (3.2)
   - SiFUtilities (3.9.6)
   - Swinject (2.4.0)
@@ -42,6 +46,7 @@ PODS:
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
+  - IDMFoundation/Alamofire (from `../`)
   - IDMFoundation/CameraAsset (from `../`)
   - IDMFoundation/JGProgressHUD (from `../`)
   - IDMFoundation/ObjectMapper (from `../`)
@@ -69,12 +74,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
-  IDMCore: f5c3cf6a0ca9993870b6e8c0e9d6b69b8f8dad84
-  IDMFoundation: ddc4156b8b2b446949bf501a813590f3f48fda1a
+  IDMCore: f4994b1497408737b0a89d9e0b2a0ad95c6bf873
+  IDMFoundation: 48fe978b2886fe9179be9eba574a871c7c018d5b
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
-  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SiFUtilities: 34d65835fa4fde0b0b0ed9c867ff94da3596d746
   Swinject: a1364b0f66c2736bb03c1c7cab54809e16df25da
@@ -82,6 +87,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
-PODFILE CHECKSUM: 941bf29efe751e1800ac9a03a27b4f7376670373
+PODFILE CHECKSUM: 301fa186423dfa1ca7ff94771d29cb371af3b3d0
 
 COCOAPODS: 1.5.3
