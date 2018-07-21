@@ -13,15 +13,22 @@ As part of the base project, **IDMFoundation** includes the foundation classes b
 
 ## Components
 
-- **Core**: includes base classes of `Data Provider`. These providers use `Alamofire` to request data.
-  + `BaseDataProvider` handles data request.
-  + `BaseUploadProvider` handles upload request.
+- **Core**: includes base classes of `Data Provider`.
   + `ConvertProvider`, `ForwardProvider` or `BridgeResponseProvider` are support providers. They help to create a sequence provider by connecting some providers together.
   
   To install it, simply add the following line to your Podfile: 
   ```ruby
   pod 'IDMFoundation/Core'
   ```
+- **Alamofire**: Use `Alamofire` to request data.
+  + `BaseDataProvider` handles data request.
+  + `BaseUploadProvider` handles upload request.
+  
+  To install it, simply add the following line to your Podfile: 
+  ```ruby
+  pod 'IDMFoundation/Alamofire'
+  ```
+  
 - **Parameter**:Encode request parameters for `Data Provider`:
 
 To install it, simply add the following line to your Podfile: 
