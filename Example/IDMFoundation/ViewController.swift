@@ -83,9 +83,30 @@ class XAD: ResponseModel, ModelProtocol {
 class ViewController: UIViewController {
     var service: ExamService = ExamService()
     var service2: AnimalService = AnimalService(dataProvider: BetaExamProvider())
+    let downloadService = XAService()
+    let testService = TestService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ProviderConfiguration.shared.customURLRequest = {
+            request in
+            var newRequst = request
+            newRequst.timeoutInterval = 5
+            return newRequst
+        }
+        
+//        let parma = XARequestParameter(downloadPath: "http://st.phunuonline.com.vn/staticFile/Subject/2017/10/11/soi-cong-thuc-lam-dep-cua-hotgirl-viet_1_11183762.jpg")
+//
+//        downloadService.prepareCall(parameters: parma).onProgress { (res) in
+//            print(res?.progress?.fractionCompleted)
+//            }.onSuccess { (res) in
+//                print(res?.data?.destinationURL)
+//        }.call()
+//
+        testService.prepareCall().onSuccess { (res) in
+            
+        }.call()
         
 //        beginLoading()
 //
@@ -110,7 +131,7 @@ class ViewController: UIViewController {
         
 //        service.prepareCall().loading(monitor: self).error(handler: ErrorHandler.shared).call()
         
-        service2.prepareCall().call()
+//        service2.prepareCall().call()
     }
 
     override func viewDidDisplay() {
@@ -130,10 +151,10 @@ class ViewController: UIViewController {
 //            print(err)
 //        }.call()
         
-        let num = NSNumber(booleanLiteral: true)
-        let num2 = NSNumber(value: 111)
-        print(String(describing: num))
-        print(String(describing: num2))
+//        let num = NSNumber(booleanLiteral: true)
+//        let num2 = NSNumber(value: 111)
+//        print(String(describing: num))
+//        print(String(describing: num2))
     }
 }
 

@@ -3,7 +3,7 @@
 //  IDMCommon
 //
 //  Created by NGUYEN CHI CONG on 8/29/17.
-//  Copyright © 2017 Julian Heissl. All rights reserved.
+//  Copyright © 2017 NGUYEN CHI CONG. All rights reserved.
 //
 
 import Foundation

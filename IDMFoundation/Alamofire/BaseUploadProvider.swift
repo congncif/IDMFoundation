@@ -3,7 +3,7 @@
 //  IDMCommon
 //
 //  Created by NGUYEN CHI CONG on 8/29/17.
-//  Copyright © 2017 Julian Heissl. All rights reserved.
+//  Copyright © 2017 NGUYEN CHI CONG. All rights reserved.
 //
 
 import Alamofire
@@ -14,12 +14,16 @@ import SiFUtilities
 open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
     private var uploader: Request?
     open lazy var sessionManager: SessionManager = {
+        customSessionManager
+    }()
+    
+    open var customSessionManager: SessionManager {
         let id = "uploader." + String.random()
         let configuration = URLSessionConfiguration.background(withIdentifier: id)
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
         let session = SessionManager(configuration: configuration)
         return session
-    }()
+    }
     
     open override func request(parameters: ParameterType?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {

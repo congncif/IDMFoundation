@@ -3,7 +3,7 @@
 //  IDMCommon
 //
 //  Created by NGUYEN CHI CONG on 1/23/17.
-//  Copyright © 2017 Julian Heissl. All rights reserved.
+//  Copyright © 2017 NGUYEN CHI CONG. All rights reserved.
 //
 import Alamofire
 import IDMCore
@@ -29,7 +29,11 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
             print("🌿 Parameters: \(param)")
         }
         
-        let request = buildRequest(parameters: parameters)
+        guard let request = buildRequest(parameters: parameters) else {
+            let err = CommonError(title: "Encoding Error", message: "Cannot build request")
+            completion(false, nil, err)
+            return nil
+        }
         customRequest(request)
         request.responseJSON { [weak self] response in
             guard let this = self else {
@@ -52,20 +56,43 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
         }
     }
     
-    open lazy var sessionManager: SessionManager = {
-        SessionManager.default
+    public lazy var sessionManager: SessionManager = {
+        customSessionManager
     }()
+    
+    open var customSessionManager: SessionManager {
+        return SessionManager.default
+    }
     
     open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
         return URLEncoding.default
     }
     
-    open func buildRequest(parameters: ParameterType?) -> DataRequest {
-        let request = sessionManager.request(requestPath(parameters: parameters),
-                                             method: httpMethod(parameters: parameters),
-                                             parameters: parameters?.parameters,
-                                             encoding: parameterEncoding(parameters: parameters),
-                                             headers: headers(parameters: parameters))
-        return request
+    open var customURLRequest: ((URLRequest) -> URLRequest)? {
+        return ProviderConfiguration.shared.customURLRequest
+    }
+    
+    open func buildRequest(parameters: ParameterType?) -> DataRequest? {
+        if let customUrlRequest = customURLRequest {
+            var originalRequest: URLRequest?
+            do {
+                originalRequest = try URLRequest(url: requestPath(parameters: parameters), method: httpMethod(parameters: parameters), headers: headers(parameters: parameters))
+                
+                var encodedURLRequest = try parameterEncoding(parameters: parameters).encode(originalRequest!, with: parameters?.parameters)
+                
+                encodedURLRequest = customUrlRequest(encodedURLRequest)
+                
+                return sessionManager.request(encodedURLRequest)
+            } catch {
+                return nil
+            }
+        } else {
+            let request = sessionManager.request(requestPath(parameters: parameters),
+                                                 method: httpMethod(parameters: parameters),
+                                                 parameters: parameters?.parameters,
+                                                 encoding: parameterEncoding(parameters: parameters),
+                                                 headers: headers(parameters: parameters))
+            return request
+        }
     }
 }

@@ -44,11 +44,12 @@
 			<key>Type</key>
 			<string>popup</string>
 			<key>Default</key>
-			<string>BaseDataProviderSingleFlow</string>
+			<string>BaseDataFlow</string>
 			<key>Values</key>
 			<array>
-				<string>BaseDataProviderSingleFlow</string>
-				<string>BaseUploadProviderSingleFlow</string>
+				<string>BaseDataFlow</string>
+				<string>BaseUploadFlow</string>
+				<string>BaseDownloadFlow</string>
 			</array>
 		</dict>
 	</array>

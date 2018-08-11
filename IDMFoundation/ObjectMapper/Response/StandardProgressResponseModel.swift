@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
 import IDMCore
 
 open class StandardProgressResponseModel: ProgressModelProtocol {
