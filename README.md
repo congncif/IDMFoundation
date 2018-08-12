@@ -23,6 +23,7 @@ As part of the base project, **IDMFoundation** includes the foundation classes b
 - **Alamofire**: Use `Alamofire` to request data.
   + `BaseDataProvider` handles data request.
   + `BaseUploadProvider` handles upload request.
+  + `BaseDownloadProvider` handles download request.
   
   To install it, simply add the following line to your Podfile: 
   ```ruby
