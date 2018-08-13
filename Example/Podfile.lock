@@ -2,33 +2,33 @@ PODS:
   - Alamofire (4.7.3)
   - CWStatusBarNotification (2.3.5)
   - IDMCore (2.6.9)
-  - IDMFoundation (1.7.0):
-    - IDMFoundation/Core (= 1.7.0)
-  - IDMFoundation/Alamofire (1.7.0):
+  - IDMFoundation (1.8.0):
+    - IDMFoundation/Core (= 1.8.0)
+  - IDMFoundation/Alamofire (1.8.0):
     - Alamofire
     - IDMCore
     - IDMFoundation/RequestParameter
     - SiFUtilities
-  - IDMFoundation/CameraAsset (1.7.0):
+  - IDMFoundation/CameraAsset (1.8.0):
     - IDMFoundation/RequestParameter
     - SiFUtilities
-  - IDMFoundation/Core (1.7.0):
+  - IDMFoundation/Core (1.8.0):
     - IDMCore
     - SiFUtilities
-  - IDMFoundation/JGProgressHUD (1.7.0):
+  - IDMFoundation/JGProgressHUD (1.8.0):
     - IDMCore
     - JGProgressHUD
     - SiFUtilities
-  - IDMFoundation/ObjectMapper (1.7.0):
+  - IDMFoundation/ObjectMapper (1.8.0):
     - IDMCore
     - IDMFoundation/Core
     - ObjectMapper
     - SiFUtilities
-  - IDMFoundation/Reachability (1.7.0):
+  - IDMFoundation/Reachability (1.8.0):
     - CWStatusBarNotification
     - Reachability
     - SiFUtilities
-  - IDMFoundation/RequestParameter (1.7.0):
+  - IDMFoundation/RequestParameter (1.8.0):
     - IDMCore
     - IDMFoundation/Core
     - SiFUtilities
@@ -36,12 +36,12 @@ PODS:
   - JGProgressHUD (2.0.3)
   - ObjectMapper (3.3.0)
   - Reachability (3.2)
-  - SiFUtilities (3.9.6)
-  - Swinject (2.4.0)
+  - SiFUtilities (3.9.8)
+  - Swinject (2.4.1)
   - SwinjectAutoregistration (2.1.1):
     - Swinject (~> 2.1)
-  - SwinjectStoryboard (1.2.1):
-    - Swinject (~> 2.3)
+  - SwinjectStoryboard (2.0.2):
+    - Swinject (~> 2.4)
   - "UIImage+FixOrientation (1.0.0)"
 
 DEPENDENCIES:
@@ -77,14 +77,14 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
   IDMCore: f4994b1497408737b0a89d9e0b2a0ad95c6bf873
-  IDMFoundation: 48fe978b2886fe9179be9eba574a871c7c018d5b
+  IDMFoundation: 45bfbaa45ee7fd24fb3c23d7d2a4abb170d0445f
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SiFUtilities: 34d65835fa4fde0b0b0ed9c867ff94da3596d746
-  Swinject: a1364b0f66c2736bb03c1c7cab54809e16df25da
+  SiFUtilities: 9ef6b270fc57865cbffce9a4924e41328681a3c6
+  Swinject: f7f15a9672e99328c1f07f277091087917215700
   SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
-  SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
+  SwinjectStoryboard: 365698aec11b57c6b14a3c1f52d0308759d377bf
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
 
 PODFILE CHECKSUM: 301fa186423dfa1ca7ff94771d29cb371af3b3d0

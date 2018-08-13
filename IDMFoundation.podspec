@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
   s.version          = '1.8.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
+  s.swift_version    = '4.1'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
 # This description is used to generate tags and improve search results.
