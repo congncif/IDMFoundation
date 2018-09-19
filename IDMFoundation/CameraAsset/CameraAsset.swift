@@ -51,7 +51,7 @@ open class CameraAsset: NSObject {
         let asset: AVAsset = AVAsset(url: url)
         let assetImgGenerate: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
         assetImgGenerate.appliesPreferredTrackTransform = true
-        let time: CMTime = CMTimeMake(1, 30)
+        let time: CMTime = CMTimeMake(value: 1, timescale: 30)
         
         do {
             let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)

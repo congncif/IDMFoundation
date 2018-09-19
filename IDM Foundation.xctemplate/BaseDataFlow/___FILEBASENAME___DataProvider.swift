@@ -10,15 +10,6 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-class ___VARIABLE_moduleName___RequestParameter: RequestParameter {
-    
-}
-
-class ___VARIABLE_moduleName___ResponseModel: DataResponseModel<<#___VARIABLE_moduleName___Model#>>, ModelProtocol {
-    
-}
-
-typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<___VARIABLE_moduleName___RequestParameter>
 typealias ___VARIABLE_moduleName___Provider = BaseDataProvider<___VARIABLE_moduleName___RequestParameter>
 
 class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
@@ -28,15 +19,5 @@ class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
 
     override func httpMethod(parameters: ___VARIABLE_moduleName___RequestParameter?) -> HTTPMethod {
         return <#.post#>
-    }
-}
-
-class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
-    
-}
-
-extension ___VARIABLE_moduleName___Service {
-	convenience init() {
-        self.init(dataProvider: ___VARIABLE_moduleName___DataProvider())
     }
 }

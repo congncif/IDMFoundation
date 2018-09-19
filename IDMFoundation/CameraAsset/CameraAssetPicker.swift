@@ -13,7 +13,7 @@ import SiFUtilities
 import UIKit
 
 open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    open static let shared = CameraAssetPicker()
+    public static let shared = CameraAssetPicker()
     
     open var dismissOnFinished: Bool = true
     open var outputType: [AssetType] = [.photo]
@@ -21,7 +21,7 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
     open weak var picker: UIImagePickerController?
     private var handler: ((UIImagePickerController?, CameraAsset?, Error?) -> Void)?
     
-    open func showImagePicker(sourceType: UIImagePickerControllerSourceType,
+    open func showImagePicker(sourceType: UIImagePickerController.SourceType,
                               on viewController: UIViewController? = nil,
                               dismissOnFinished: Bool = true,
                               outputType: [AssetType] = [.photo],
@@ -38,9 +38,9 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
                                     confirmedTitle: "OK".localized,
                                     confirmedHandler: {
                                         if #available(iOS 10, *) {
-                                            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                                         } else {
-                                            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                                            UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
                                         }
             })
             handler?(nil, nil, nil)
@@ -67,12 +67,12 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - UIImagePickerControllerDelegate
     
-    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var asset: CameraAsset
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             asset = CameraAsset(type: .photo, image: pickedImage)
         } else {
-            let url = info[UIImagePickerControllerMediaURL] as? URL
+            let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL
             asset = CameraAsset(type: .video, url: url)
         }
         
@@ -88,7 +88,7 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    open func checkPermissions(sourceType: UIImagePickerControllerSourceType) -> Bool {
+    open func checkPermissions(sourceType: UIImagePickerController.SourceType) -> Bool {
         let photoPermission = PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.denied
         #if swift(>=4.0)
             let meidaType = AVMediaType.video

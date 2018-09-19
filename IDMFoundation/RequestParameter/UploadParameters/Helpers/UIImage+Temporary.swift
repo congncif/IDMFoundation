@@ -30,6 +30,6 @@ extension UIImage : TemporaryProtocol {
     }
     
     @objc open func transformImageToData(_ image: UIImage) -> Data? {
-        return UIImagePNGRepresentation(image)
+        return image.pngData()
     }
 }

@@ -18,6 +18,29 @@ public enum DownloadResponseSerializerType {
     case json
 }
 
+public protocol DownloadResponseDataStandard {
+    /// The URL request sent to the server.
+    var request: URLRequest? { get }
+    
+    /// The server's response to the URL request.
+    var response: HTTPURLResponse? { get }
+    
+    /// The temporary destination URL of the data returned from the server.
+    var temporaryURL: URL? { get }
+    
+    /// The final destination URL of the data returned from the server if it was moved.
+    var destinationURL: URL? { get }
+    
+    /// The resume data generated if the request was cancelled.
+    var resumeData: Data? { get }
+    
+    /// The error encountered while executing or validating the request.
+    var error: Error? { get }
+}
+
+extension DefaultDownloadResponse: DownloadResponseDataStandard {
+}
+
 open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseDataProvider<ParameterType> {
     open override var customSessionManager: SessionManager {
         let id = "download." + String.random()
