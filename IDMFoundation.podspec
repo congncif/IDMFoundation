@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.8.1'
+  s.version          = '1.8.2'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -39,7 +39,16 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'Photos', 'MobileCoreServices', 'AVFoundation'
   
-  s.default_subspec = 'Core'
+  s.default_subspec = 'Default'
+  
+  s.subspec 'Default' do |co|
+      co.dependency 'IDMFoundation/Core'
+      co.dependency 'IDMFoundation/Alamofire'
+      co.dependency 'IDMFoundation/RequestParameter'
+      co.dependency 'IDMFoundation/ObjectMapper'
+      co.dependency 'IDMFoundation/MBProgressHUD'
+      co.dependency 'IDMFoundation/CameraAsset'
+  end
   
   s.subspec 'Core' do |co|
       co.source_files = 'IDMFoundation/Core/**/*'
