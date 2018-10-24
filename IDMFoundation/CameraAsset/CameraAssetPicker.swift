@@ -103,7 +103,7 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
 }
 
 extension CameraAssetPicker {
-    func confirmShowAssetPicker(on vc: UIViewController?,
+    public func confirmShowAssetPicker(on vc: UIViewController?,
                                 completion: @escaping (UIImage?, Error?) -> Void) {
         let viewController = vc
         let confirmSheet = UIAlertController(title: "", message: "Choose photo from".localized, preferredStyle: .actionSheet)

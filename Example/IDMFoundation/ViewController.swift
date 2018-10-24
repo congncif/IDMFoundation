@@ -8,9 +8,8 @@ import SwinjectStoryboard
 import UIKit
 
 class ErrorHandler: ErrorHandlingProtocol {
-    
     static let shared = ErrorHandler()
-    
+
     func handle(error: Error?) {
         let vc = UIApplication.topViewController()
         vc?.handle(error: error)
@@ -39,9 +38,9 @@ class ExamProvider: BaseDataProvider<ExamParameter> {
 
     override func testResponseData(parameters: ExamParameter?) -> (Bool, Any?, Error?)? {
         let keeper = ValueKeeper<ProviderResponseAny> { fullfill in
-            DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: {
-                fullfill((false, "{ \"status\": 1 }", NSError(domain: "xxx", code: 1, userInfo: [NSLocalizedDescriptionKey : "XXX"])))
-            })
+            DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+                fullfill((false, "{ \"status\": 1 }", NSError(domain: "xxx", code: 1, userInfo: [NSLocalizedDescriptionKey: "XXX"])))
+            }
         }
         return keeper.syncValue
     }
@@ -77,7 +76,37 @@ class AnimalService: AmazingIntegrator<BetaExamProvider> {
 }
 
 class XAD: ResponseModel, ModelProtocol {
-   
+}
+
+open class BaseDataProcessor<ModelType>: NSObject, DataProcessingProtocol {
+    open func process(data: ModelType?) {
+        print("Need override function \(#function) to process data: \(String(describing: data))")
+    }
+}
+
+class ExamDataProcessor: BaseDataProcessor<XAD> {
+    weak var vc: ViewState?
+
+    public init(vc: ViewState?) {
+        super.init()
+        self.vc = vc
+    }
+    
+    override func process(data: XAD?) {
+        print(data)
+    }
+}
+
+protocol ExamInterface: LoadingProtocol, ErrorHandlingProtocol {
+    var examProcessor: BaseDataProcessor<XAD> { get }
+}
+
+extension ViewController: ExamInterface {
+    
+}
+
+class ViewState {
+    var name: String?
 }
 
 class ViewController: UIViewController {
@@ -85,10 +114,15 @@ class ViewController: UIViewController {
     var service2: AnimalService = AnimalService(dataProvider: BetaExamProvider())
     let downloadService = XAService()
     let testService = TestService()
+    var state = ViewState()
+    
+    lazy var examProcessor: BaseDataProcessor<XAD> = {
+        return ExamDataProcessor(vc: state)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         ProviderConfiguration.shared.customURLRequest = {
             request in
             var newRequst = request
@@ -96,6 +130,8 @@ class ViewController: UIViewController {
             return newRequst
         }
         
+        service.prepareCall().data(processor: examProcessor).call()
+
 //        let parma = XARequestParameter(downloadPath: "http://st.phunuonline.com.vn/staticFile/Subject/2017/10/11/soi-cong-thuc-lam-dep-cua-hotgirl-viet_1_11183762.jpg")
 //
 //        downloadService.prepareCall(parameters: parma).onProgress { (res) in
@@ -104,15 +140,15 @@ class ViewController: UIViewController {
 //                print(res?.data?.destinationURL)
 //        }.call()
 //
-        testService.prepareCall().onSuccess { (res) in
-            
+        testService.prepareCall().onSuccess { _ in
+
         }.call()
-        
+
 //        beginLoading()
 //
-////        let obj = TestStringProtocolObject(id: 123, name: "Name here")
-////        let param = obj.queryParameters
-////        print(param)
+        ////        let obj = TestStringProtocolObject(id: 123, name: "Name here")
+        ////        let param = obj.queryParameters
+        ////        print(param)
 //        ResponseModelConfiguration.shared.statusKey = "status"
 //        ResponseModelConfiguration.shared.validator =  { model in
 //            if model.status == 1 {
@@ -128,10 +164,14 @@ class ViewController: UIViewController {
 //            .onError { (err) in
 //            print(err?.localizedDescription)
 //        }.call()
-        
+
 //        service.prepareCall().loading(monitor: self).error(handler: ErrorHandler.shared).call()
-        
+
 //        service2.prepareCall().call()
+    }
+    
+    deinit {
+        print("XXXXX")
     }
 
     override func viewDidDisplay() {
@@ -150,7 +190,7 @@ class ViewController: UIViewController {
 //        }.onError { err in
 //            print(err)
 //        }.call()
-        
+
 //        let num = NSNumber(booleanLiteral: true)
 //        let num2 = NSNumber(value: 111)
 //        print(String(describing: num))
@@ -158,7 +198,7 @@ class ViewController: UIViewController {
     }
 }
 
-//extension SwinjectStoryboard {
+// extension SwinjectStoryboard {
 //    @objc class func setup() {
 //        defaultContainer.autoregister(BaseDataProvider<ExamParameter>.self, initializer: ExamProvider.init)
 //        defaultContainer.autoregister(ExamService.self, initializer: ExamService.init)
@@ -175,5 +215,4 @@ class ViewController: UIViewController {
 //            c.service2 = r.resolve(AnimalService.self)
 //        }
 //    }
-//}
-
+// }
