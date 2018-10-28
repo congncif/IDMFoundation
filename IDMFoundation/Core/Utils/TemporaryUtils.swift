@@ -10,7 +10,7 @@ import Foundation
 import SiFUtilities
 
 public struct TemporaryUtils {
-    public static func temporaryPath(fileName: String? = nil, fileExtension: String = "") -> String {
+    public static func temporaryPath(fileName: String? = nil, fileExtension: String = "file") -> String {
         let temp = NSTemporaryDirectory() as NSString
         var fname = fileName ?? String.random(length: 10)
         let dateText = Date().toString(format: "_yyyy_MM_dd_hh_mm_ss_SSSS")

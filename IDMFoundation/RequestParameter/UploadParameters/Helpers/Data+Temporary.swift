@@ -10,7 +10,7 @@ import SiFUtilities
 
 extension Data: TemporaryProtocol {
     public func saveTemporary(name: String? = nil) throws -> URL {
-        let url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "")
+        let url = TemporaryUtils.temporaryURL(fileName: name)
         do {
             try self.write(to: url)
         } catch let e {
@@ -18,5 +18,11 @@ extension Data: TemporaryProtocol {
             throw error
         }
         return url
+    }
+}
+
+extension Data {
+    public func image<CustomImage: UIImage>() -> CustomImage? {
+        return CustomImage(data: self)
     }
 }

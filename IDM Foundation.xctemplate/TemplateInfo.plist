@@ -49,6 +49,7 @@
 			<array>
 				<string>BaseDataFlow</string>
 				<string>BaseUploadFlow</string>
+				<string>BaseFileUploadFlow</string>
 				<string>BaseDownloadFlow</string>
 			</array>
 		</dict>

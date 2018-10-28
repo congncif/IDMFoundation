@@ -1,4 +1,5 @@
 //
+import Alamofire
 //  MultipartFormData+Parameter.swift
 //  IDMCommon
 //
@@ -7,7 +8,6 @@
 //
 
 import Foundation
-import Alamofire
 
 extension MultipartFormData {
     open func append(urlItem: URLUploadItemProtocol) {
@@ -30,6 +30,37 @@ extension MultipartFormData {
     }
     
     open func append(urlParameter: UploadURLsParameter) {
+        for item in urlParameter.uploadItems {
+            self.append(urlItem: item)
+        }
+        self.append(query: urlParameter.query)
+    }
+}
+
+extension MultipartFormData {
+    open func append(urlItem: UploadFileParameterProtocol) {
+        switch urlItem.type {
+        case .data(let data):
+            if let mime = urlItem.mimeType {
+                if let fileName = urlItem.fileName {
+                    self.append(data, withName: urlItem.name, fileName: fileName, mimeType: mime)
+                } else {
+                    self.append(data, withName: urlItem.name, mimeType: mime)
+                }
+            } else {
+                self.append(data, withName: urlItem.name)
+            }
+        case .fileUrl(let url):
+            if let mime = urlItem.mimeType, let fileName = urlItem.fileName {
+                self.append(url, withName: urlItem.name, fileName: fileName, mimeType: mime)
+                
+            } else {
+                self.append(url, withName: urlItem.name)
+            }
+        }
+    }
+    
+    open func append(urlParameter: UploadFilesParameter) {
         for item in urlParameter.uploadItems {
             self.append(urlItem: item)
         }

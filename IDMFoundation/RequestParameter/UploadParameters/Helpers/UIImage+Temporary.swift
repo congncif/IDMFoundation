@@ -1,4 +1,5 @@
 //
+import AVFoundation
 //  UIImage+Temporary.swift
 //  IDMFoundation
 //
@@ -6,19 +7,18 @@
 //
 
 import Foundation
-import AVFoundation
 import SiFUtilities
 import UIImage_FixOrientation
 
-extension UIImage : TemporaryProtocol {
+extension UIImage: TemporaryProtocol {
     @objc open func saveTemporary(name: String? = nil) throws -> URL {
         let url = TemporaryUtils.temporaryURL(fileName: name, fileExtension: "png")
-        
-        if let image = self.fixOrientation() {
-            let data = transformImageToData(image)
+
+        if let img = self.fixOrientation() {
+            let data = img.transformImageToData()
             do {
                 try data?.write(to: url)
-            }catch let e {
+            } catch let e {
                 let error = CommonError(title: "Can not save temporary image".localized, message: e.localizedDescription)
                 throw error
             }
@@ -28,8 +28,10 @@ extension UIImage : TemporaryProtocol {
         }
         return url
     }
-    
-    @objc open func transformImageToData(_ image: UIImage) -> Data? {
-        return image.pngData()
+}
+
+extension UIImage {
+    @objc open func transformImageToData() -> Data? {
+        return self.pngData()
     }
 }

@@ -97,11 +97,11 @@ open class UploadURLsParameter {
     }
     
     public init(items: [URLUploadItemProtocol]) {
-        self.uploadItems = items.map({ (item) -> URLUploadItemProtocol in
+        self.uploadItems = items.map { (item) -> URLUploadItemProtocol in
             let newItem = item
 //            newItem.saveTemporaryData()
             return newItem
-        })
+        }
     }
     
     public convenience init<T: StringKeyValueProtocol>(items: [URLUploadItemProtocol], query: T) {
@@ -139,4 +139,3 @@ open class UploadURLsParameter {
         }
     }
 }
-
