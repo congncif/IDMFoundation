@@ -31,7 +31,11 @@ public protocol ProviderLoggerProtocol {
 }
 
 open class ProviderLogger: ProviderLoggerProtocol {
-    public var isLoggerEnabled: Bool = true
+    public var isLoggerEnabled: Bool
+    
+    public init() {
+        isLoggerEnabled = true
+    }
 
     open func logDataResponse(_ response: DataResponse<Any>?) {
         print("🌷 Response: \(String(describing: response?.value))")
