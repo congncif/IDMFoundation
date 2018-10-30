@@ -60,9 +60,11 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
         let header = headers(parameters: parameters)
         
         if logEnabled(parameters: parameters) {
-            print("📦 Upload: " + requestPath(parameters: parameters))
-            let param = String(describing: parameters)
-            print("🌿 Parameters: \(param)")
+            var param: [String: Any]?
+            if let paramX = parameters as? ParameterProtocol {
+                param = paramX.parameters
+            }
+            ProviderConfiguration.shared.logger.logRequest(title: "Upload", path: requestPath(parameters: parameters), parameters: param)
         }
         
         saveTemporary(parameters: parameters)
@@ -89,10 +91,7 @@ open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
                     self?.cleanUp(parameters: parameters)
                     let result = this.preprocessResponse(response)
                     if this.logEnabled(parameters: parameters) {
-                        print("🌷 Response: \(String(describing: result.value))")
-                        if let error = result.error {
-                            print("🥀 Error: " + String(describing: error))
-                        }
+                        ProviderConfiguration.shared.logger.logDataResponse(response)
                     }
                     completion(result.success, result.value, result.error)
                     self?.uploader = nil

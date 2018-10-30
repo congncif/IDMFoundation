@@ -24,9 +24,7 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
         }
         
         if logEnabled(parameters: parameters) {
-            print("📦 Request: " + requestPath(parameters: parameters))
-            let param = String(describing: parameters?.parameters)
-            print("🌿 Parameters: \(param)")
+            ProviderConfiguration.shared.logger.logRequest(title: "Request", path: requestPath(parameters: parameters), parameters: parameters?.parameters)
         }
         
         guard let request = buildRequest(parameters: parameters) else {
@@ -43,10 +41,7 @@ open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<Para
             let result = this.preprocessResponse(response)
             
             if this.logEnabled(parameters: parameters) {
-                print("🌷 Response: \(String(describing: result.value))")
-                if let error = result.error {
-                    print("🥀 Error: " + String(describing: error))
-                }
+                ProviderConfiguration.shared.logger.logDataResponse(response)
             }
             completion(result.success, result.value, result.error)
         }

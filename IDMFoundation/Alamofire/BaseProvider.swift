@@ -31,7 +31,7 @@ open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
     }
     
     open func logEnabled(parameters: ParameterType?) -> Bool {
-        return false
+        return ProviderConfiguration.shared.logger.isLoggerEnabled
     }
     
     open func preprocessResponse(_ response: DataResponse<Any>) -> (success: Bool, value: Any?, error: Error?) {

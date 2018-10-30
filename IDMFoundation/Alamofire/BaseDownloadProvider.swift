@@ -72,9 +72,7 @@ open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseD
         let encoding = parameterEncoding(parameters: parameters)
         
         if logEnabled(parameters: parameters) {
-            print("📦 Download: " + requestPath(parameters: parameters))
-            let param = String(describing: parameters)
-            print("🌿 Parameters: \(param)")
+            ProviderConfiguration.shared.logger.logRequest(title: "Download", path: requestPath(parameters: parameters), parameters: parameters?.parameters)
         }
         
         let request = sessionManager.download(path, method: method, parameters: parameters?.parameters, encoding: encoding, headers: header) { (_, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
