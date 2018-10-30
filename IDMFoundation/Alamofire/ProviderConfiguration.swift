@@ -38,29 +38,29 @@ open class ProviderLogger: ProviderLoggerProtocol {
     }
 
     open func logDataResponse(_ response: DataResponse<Any>?) {
-        print("🌷 Response: \(String(describing: response?.value))")
+        log("🌷 Response: \(String(describing: response?.value))")
         if let error = response?.error {
-            print("🥀 Error: " + String(describing: error))
+            log("🥀 Error: " + String(describing: error))
         }
     }
 
     open func logRequest(title: String = "Request", path: String, parameters: [String: Any]?) {
-        print("📦 \(title): " + path)
+        log("📦 \(title): " + path)
         let param = String(describing: parameters)
-        print("🌿 Parameters: \(param)")
+        log("🌿 Parameters: \(param)")
     }
 
     open func logDownloadResponse<Value>(_ response: DownloadResponse<Value>?) {
-        print("🌷 Response: \(String(describing: response?.value))")
+        log("🌷 Response: \(String(describing: response?.value))")
         if let err = response?.error {
-            print("🥀 Error: " + String(describing: err))
+            log("🥀 Error: " + String(describing: err))
         }
     }
 
     open func logDownloadResponse(_ response: DefaultDownloadResponse?) {
-        print("🌷 Downloaded file: \(String(describing: response?.destinationURL))")
+        log("🌷 Downloaded file: \(String(describing: response?.destinationURL))")
         if let err = response?.error {
-            print("🥀 Error: " + String(describing: err))
+            log("🥀 Error: " + String(describing: err))
         }
     }
 }

@@ -105,6 +105,8 @@ open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseD
                 let error = response.error
                 
                 if this.logEnabled(parameters: parameters) {
+                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
+                    
                     print("🌷 Response: \(String(describing: value))")
                     if let err = error {
                         print("🥀 Error: " + String(describing: err))
@@ -123,10 +125,7 @@ open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseD
                 let error = response.error
                 
                 if this.logEnabled(parameters: parameters) {
-                    print("🌷 Response: \(String(describing: value))")
-                    if let err = error {
-                        print("🥀 Error: " + String(describing: err))
-                    }
+                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
                 }
                 completion(error == nil, value, error)
             }
@@ -141,10 +140,7 @@ open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseD
                 let error = response.error
                 
                 if this.logEnabled(parameters: parameters) {
-                    print("🌷 Response: \(String(describing: value))")
-                    if let err = error {
-                        print("🥀 Error: " + String(describing: err))
-                    }
+                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
                 }
                 completion(error == nil, value, error)
             }
@@ -158,10 +154,7 @@ open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseD
                 let error = response.error
                 
                 if this.logEnabled(parameters: parameters) {
-                    print("🌷 Downloaded file: \(String(describing: response.destinationURL))")
-                    if let err = error {
-                        print("🥀 Error: " + String(describing: err))
-                    }
+                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
                 }
                 completion(error == nil, response, error)
             }

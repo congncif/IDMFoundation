@@ -13,7 +13,7 @@ public enum LogLevel: String {
 }
 
 public class LogConfiguration {
-    static var level: LogLevel = .debug
+    public static var level: LogLevel = .debug
 }
 
 public func log(_ items: Any..., separator: String = " ", terminator: String = "❀") {

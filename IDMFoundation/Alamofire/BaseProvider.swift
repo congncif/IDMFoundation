@@ -15,7 +15,7 @@ open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
     }
     
     open func requestPath(parameters: ParameterType?) -> String {
-        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
+        fatalError("You need set the path for request by override function \(#function)")
     }
     
     open func validate(parameters: ParameterType?) -> Error? {
