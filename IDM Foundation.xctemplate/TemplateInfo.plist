@@ -42,15 +42,15 @@
 			<key>Description</key>
 			<string>The type of provider to use</string>
 			<key>Type</key>
-			<string>popup</string>
+			<string>combo</string>
 			<key>Default</key>
-			<string>BaseDataFlow</string>
+			<string>BaseDataProvider</string>
 			<key>Values</key>
 			<array>
-				<string>BaseDataFlow</string>
-				<string>BaseUploadFlow</string>
-				<string>BaseFileUploadFlow</string>
-				<string>BaseDownloadFlow</string>
+				<string>BaseDataProvider</string>
+				<string>BaseURLUploadProvider</string>
+				<string>BaseFileUploadProvider</string>
+				<string>BaseDownloadProvider</string>
 			</array>
 		</dict>
 	</array>

@@ -10,7 +10,7 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-typealias ___VARIABLE_moduleName___Provider = BaseDownloadProvider<___VARIABLE_moduleName___RequestParameter>
+typealias ___VARIABLE_moduleName___Provider = ___VARIABLE_providerType:identifier___<___VARIABLE_moduleName___RequestParameter>
 
 class ___VARIABLE_moduleName___DownloadProvider: ___VARIABLE_moduleName___Provider {
 }
