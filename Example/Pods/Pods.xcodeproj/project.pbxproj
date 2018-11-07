@@ -44,6 +44,7 @@
 		1BEEF2F9CA95CF005051F3D64EAF138E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938DCF7BA8542199998F0DE1EE705F93 /* UIKit.framework */; };
 		1CE15CA7A814235D123D906B11E6D377 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7C29BB714FFAA7F1D8617DC22BBFF5 /* Foundation.framework */; };
 		1F82C115DD28D2A42BEFF1E3F412D671 /* JGProgressHUDSuccessIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F7A000BAD945A56F24FE839BCB427A5 /* JGProgressHUDSuccessIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2007B94C2192F73600EE642B /* LoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007B94B2192F73600EE642B /* LoaderProtocol.swift */; };
 		206C997B2185762E00856352 /* UploadParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C997A2185762E00856352 /* UploadParameter.swift */; };
 		206C997D2185859400856352 /* BaseFileUploadProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C997C2185859400856352 /* BaseFileUploadProvider.swift */; };
 		20E5B70537C5E14C0E34431A44E2E92B /* CheckResolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D820EC0B10A2A6AFC29F4B66BECB9 /* CheckResolved.swift */; };
@@ -486,6 +487,7 @@
 		1EAB1C318FB71266471A0D319178E6D9 /* Reachability.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Reachability.modulemap; sourceTree = "<group>"; };
 		1F878A2229F967779BFD82C1BE5FA9C4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDAF9DF7AAD1ED89C009D4AF1CEFF0B /* Object++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Object++.swift"; path = "SiFUtilities/Classes/Object++.swift"; sourceTree = "<group>"; };
+		2007B94B2192F73600EE642B /* LoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderProtocol.swift; sourceTree = "<group>"; };
 		206C997A2185762E00856352 /* UploadParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadParameter.swift; sourceTree = "<group>"; };
 		206C997C2185859400856352 /* BaseFileUploadProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseFileUploadProvider.swift; path = IDMFoundation/Alamofire/BaseFileUploadProvider.swift; sourceTree = "<group>"; };
 		208CA326482D081152C6B5A53475242A /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
@@ -1522,6 +1524,7 @@
 			children = (
 				A0BA6961F02A11260CF1BA76ADDD7B3F /* ParameterProtocol.swift */,
 				0026CFFF1AA350E11662885B71E67C1D /* ResponseModelProtocol.swift */,
+				2007B94B2192F73600EE642B /* LoaderProtocol.swift */,
 			);
 			name = Protocols;
 			path = IDMFoundation/Core/Protocols;
@@ -2228,6 +2231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2007B94C2192F73600EE642B /* LoaderProtocol.swift in Sources */,
 				342C9D7D6173BA6A1817ADD3E1DB4CD5 /* AssetUploadItem.swift in Sources */,
 				7449D179DC3274052A6F6584B9229058 /* BaseDataProvider.swift in Sources */,
 				C28FCCAE0241333E00A5BBDBCB1694A5 /* BaseDownloadProvider.swift in Sources */,
