@@ -6,5 +6,6 @@
 //
 
 import Foundation
+import IDMCore
 
 public protocol LoaderProtocol: AnyObject, LoadingProtocol {}
