@@ -5,7 +5,7 @@ target 'IDMFoundation_Example' do
 #  pod 'IDMFoundation/MBProgressHUD', :path => '../'
 pod 'IDMFoundation/Alamofire', :path => '../'
   pod 'IDMFoundation/Reachability', :path => '../'
-  pod 'IDMFoundation/JGProgressHUD', :path => '../'
+#  pod 'IDMFoundation/JGProgressHUD', :path => '../'
   pod 'IDMFoundation/CameraAsset', :path => '../'
   pod 'IDMFoundation/ObjectMapper', :path => '../'
 #  pod 'IDMFoundation/RequestParameter', :path => '../'

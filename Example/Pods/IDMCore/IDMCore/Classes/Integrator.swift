@@ -140,14 +140,14 @@ open class Integrator<IntegrateProvider: DataProviderProtocol, IntegrateModel: M
             guard let this = self else {
                 return
             }
-            self?.finish(success: success, data: data, error: error, completion: { [weak this] s, d, e in
+            self?.finish(success: success, data: data, error: error) { [weak this] s, d, e in
                 // forward results
                 DispatchQueue.main.async {
                     task.completion?(s, d, e)
                 }
                 this?.mainTask = nil
                 this?.queueRunning = false
-            })
+            }
         }
         task.cancel = cancel
         mainTask = task
