@@ -9,10 +9,10 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-typealias ___VARIABLE_moduleName___Provider = ___VARIABLE_providerType:identifier___
+public typealias ___VARIABLE_moduleName___Provider = ___VARIABLE_providerType:identifier___
 
-class ___VARIABLE_moduleName___UploadProvider: ___VARIABLE_moduleName___Provider {
-    override func requestPath(parameters: UploadURLsParameter?) -> String {
+public class ___VARIABLE_moduleName___UploadProvider: ___VARIABLE_moduleName___Provider {
+    override public func requestPath(parameters: UploadURLsParameter?) -> String {
         return <#code#>
     }
 }

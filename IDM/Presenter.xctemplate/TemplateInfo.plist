@@ -42,7 +42,7 @@
 			<key>Name</key>
 			<string>Presenter:</string>
 			<key>Required</key>
-			<true/>
+			<false/>
 			<key>Type</key>
 			<string>static</string>
 		</dict>

@@ -10,7 +10,7 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-class ___VARIABLE_moduleName___RequestParameter: RequestParameter, DownloadParameterProtocol {
+public class ___VARIABLE_moduleName___RequestParameter: RequestParameter, DownloadParameterProtocol {
     var downloadPath: String?
     
     init(downloadPath: String?) {
@@ -18,7 +18,7 @@ class ___VARIABLE_moduleName___RequestParameter: RequestParameter, DownloadParam
     }
 }
 
-class ___VARIABLE_moduleName___ResponseModel: StandardProgressResponseModel, ModelProtocol {
+public class ___VARIABLE_moduleName___ResponseModel: StandardProgressResponseModel, ModelProtocol {
     var data: DownloadResponseDataStandard?
 
     public required init?(from data: Any?) {
@@ -29,7 +29,7 @@ class ___VARIABLE_moduleName___ResponseModel: StandardProgressResponseModel, Mod
     }
 }
 
-typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<___VARIABLE_moduleName___RequestParameter>
+public typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<___VARIABLE_moduleName___RequestParameter>
 
-class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
+public class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
 }

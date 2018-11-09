@@ -9,19 +9,20 @@
 import Foundation
 import IDMCore
 import IDMFoundation
+import ViewStateCore
 
-class ___VARIABLE_moduleName___ViewState {
-    
+public class ___VARIABLE_moduleName___ViewState: ViewState {
+    <#@objc public internal(set) dynamic var id: String?#>
 }
 
-class ___VARIABLE_moduleName___DataHandler: ___VARIABLE_moduleName___DataProcessor {
-    var state: ___VARIABLE_moduleName___ViewState
+internal class ___VARIABLE_moduleName___DataHandler: ___VARIABLE_moduleName___DataProcessor {
+    internal var state: ___VARIABLE_moduleName___ViewState
 
-    public init(state: ___VARIABLE_moduleName___ViewState) {
+    internal init(state: ___VARIABLE_moduleName___ViewState) {
         self.state = state
     }
 
-    override func process(data: ___VARIABLE_moduleName___ModelType?) {
-        <#code#>
+    internal override func process(data: ___VARIABLE_moduleName___ModelType?) {
+        <#Change state here#>
     }
 }
