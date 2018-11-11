@@ -24,10 +24,10 @@ public class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___Presen
     public private(set) var service: ___VARIABLE_moduleName___Service
     public private(set) var processor: ___VARIABLE_moduleName___DataProcessor
 
-    public init() {
+    public init(service: ___VARIABLE_moduleName___Service) {
     	let newState = ___VARIABLE_moduleName___ViewState()
     	state = newState
-        service = ___VARIABLE_moduleName___Service()
+        self.service = service
         processor = ___VARIABLE_moduleName___DataHandler(state: newState)
     }
 }

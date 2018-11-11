@@ -1,9 +1,9 @@
 //
 //  RouterProtocol.swift
-//  MyViettelPost
+//  IDMFoundation
 //
 //  Created by FOLY on 11/8/18.
-//  Copyright © 2018 ViettelPost. All rights reserved.
+//  Copyright © 2018 [iF] Solution. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ public protocol Closable: class {
 }
 
 public protocol RouterProtocol: class {
-    var sourceViewController: UIViewController? { get }
+    var sourceModule: ModuleInterface? { get }
     
-    func open(_ desinationViewController: UIViewController, transition: TransitionProtocol)
+    func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol)
 }

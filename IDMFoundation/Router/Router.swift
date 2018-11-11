@@ -1,36 +1,32 @@
 //
 //  Router.swift
-//  MyViettelPost
+//  IDMFoundation
 //
 //  Created by FOLY on 11/8/18.
-//  Copyright © 2018 ViettelPost. All rights reserved.
+//  Copyright © 2018 [iF] Solution. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
 open class Router: RouterProtocol, Closable {
-    public weak var sourceViewController: UIViewController?
+    public weak var sourceModule: ModuleInterface?
     public private(set) var openTransition: TransitionProtocol?
-    
-    public init(sourceViewController: UIViewController?) {
-        self.sourceViewController = sourceViewController
-    }
-    
+
     public init() {}
-    
-    open func open(_ desinationViewController: UIViewController, transition: TransitionProtocol) {
-        transition.sourceViewController = self.sourceViewController
+
+    open func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol) {
+        transition.sourceViewController = self.sourceModule?.viewController
         self.openTransition = transition
-        transition.open(desinationViewController)
+        transition.open(desinationModule.viewController)
     }
-    
+
     open func close() {
         guard let openTransition = openTransition else {
             print("Router: No transition")
             return
         }
-        guard let viewController = sourceViewController else {
+        guard let viewController = self.sourceModule?.viewController else {
             print("Router: No thing to close")
             return
         }

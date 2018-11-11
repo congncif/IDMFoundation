@@ -66,7 +66,7 @@ class Exam: Mappable {
 class ExamModel: DataResponseModel<Exam>, ModelProtocol {
 }
 
-class ExamService: MagicalIntegrator<RootAnyProvider<ExamParameter>, XAD> {
+public class ExamService: MagicalIntegrator<RootAnyProvider<ExamParameter>, XAD> {
     convenience init() {
         self.init(dataProvider: ExamProvider())
     }
@@ -84,28 +84,12 @@ open class BaseDataProcessor<ModelType>: NSObject, DataProcessingProtocol {
     }
 }
 
-class ExamDataProcessor: BaseDataProcessor<XAD> {
-    weak var vc: ViewState?
-
-    public init(vc: ViewState?) {
-        super.init()
-        self.vc = vc
-    }
-    
-    override func process(data: XAD?) {
-        print(data)
-    }
-}
 
 protocol ExamInterface: LoadingProtocol, ErrorHandlingProtocol {
     var examProcessor: BaseDataProcessor<XAD> { get }
 }
 
-extension ViewController: ExamInterface {
-    
-}
-
-class ViewState {
+class ViewStateX {
     var name: String?
 }
 
@@ -114,11 +98,7 @@ class ViewController: UIViewController {
     var service2: AnimalService = AnimalService(dataProvider: BetaExamProvider())
     let downloadService = XAService()
     let testService = TestService()
-    var state = ViewState()
-    
-    lazy var examProcessor: BaseDataProcessor<XAD> = {
-        return ExamDataProcessor(vc: state)
-    }()
+    var state = ViewStateX()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,8 +109,6 @@ class ViewController: UIViewController {
             newRequst.timeoutInterval = 5
             return newRequst
         }
-        
-        service.prepareCall().data(processor: examProcessor).call()
 
 //        let parma = XARequestParameter(downloadPath: "http://st.phunuonline.com.vn/staticFile/Subject/2017/10/11/soi-cong-thuc-lam-dep-cua-hotgirl-viet_1_11183762.jpg")
 //

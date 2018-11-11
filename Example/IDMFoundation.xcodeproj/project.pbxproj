@@ -15,6 +15,8 @@
 		206C99822185870E00856352 /* ZXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C997F2185870E00856352 /* ZXService.swift */; };
 		206C99832185870E00856352 /* ZXService+Integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C99802185870E00856352 /* ZXService+Integration.swift */; };
 		208D3F6E21942B6700E431AC /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D3F6D21942B6700E431AC /* MainRouter.swift */; };
+		209D46C32197EA7C00656747 /* ExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209D46C12197EA7C00656747 /* ExamPresenter.swift */; };
+		209D46C42197EA7C00656747 /* ExamViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209D46C22197EA7C00656747 /* ExamViewState.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		206C997F2185870E00856352 /* ZXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXService.swift; sourceTree = "<group>"; };
 		206C99802185870E00856352 /* ZXService+Integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZXService+Integration.swift"; sourceTree = "<group>"; };
 		208D3F6D21942B6700E431AC /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		209D46C12197EA7C00656747 /* ExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPresenter.swift; sourceTree = "<group>"; };
+		209D46C22197EA7C00656747 /* ExamViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewState.swift; sourceTree = "<group>"; };
 		588B65499C6F61B26096D3E8 /* Pods-IDMFoundation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IDMFoundation_Tests/Pods-IDMFoundation_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* IDMFoundation_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDMFoundation_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				206C997F2185870E00856352 /* ZXService.swift */,
 				206C99802185870E00856352 /* ZXService+Integration.swift */,
 				208D3F6D21942B6700E431AC /* MainRouter.swift */,
+				209D46C12197EA7C00656747 /* ExamPresenter.swift */,
+				209D46C22197EA7C00656747 /* ExamViewState.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -300,11 +306,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				206C99812185870E00856352 /* ZXDataProvider.swift in Sources */,
+				209D46C32197EA7C00656747 /* ExamPresenter.swift in Sources */,
 				208D3F6E21942B6700E431AC /* MainRouter.swift in Sources */,
 				203077CA211F2C2D00E67ED5 /* XAFlow.swift in Sources */,
 				205F0BF1211F4E750000FC84 /* TestFlow.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				209D46C42197EA7C00656747 /* ExamViewState.swift in Sources */,
 				206C99832185870E00856352 /* ZXService+Integration.swift in Sources */,
 				206C99822185870E00856352 /* ZXService.swift in Sources */,
 			);
