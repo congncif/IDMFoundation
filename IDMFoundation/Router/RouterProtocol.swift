@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Closable: class {
-    func close()
+    func close(transition: TransitionProtocol?)
 }
 
 public protocol RouterProtocol: class {

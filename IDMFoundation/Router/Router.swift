@@ -21,8 +21,9 @@ open class Router: RouterProtocol, Closable {
         transition.open(desinationModule.viewController)
     }
 
-    open func close() {
-        guard let openTransition = openTransition else {
+    open func close(transition: TransitionProtocol? = nil) {
+        let closeTransition = transition ?? openTransition
+        guard let activeTransition = closeTransition else {
             print("Router: No transition")
             return
         }
@@ -30,6 +31,6 @@ open class Router: RouterProtocol, Closable {
             print("Router: No thing to close")
             return
         }
-        openTransition.close(viewController)
+        activeTransition.close(viewController)
     }
 }
