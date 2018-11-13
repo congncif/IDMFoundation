@@ -37,7 +37,7 @@ class MainRouter: Router, MainRouterProtocol {
             return
         }
 
-        if let destination = nextModule.viewController as? NextSubject,
+        if let destination = nextModule as? NextSubject,
             let source = sourceModule as? NextObserver {
             destination.delegate = source
         }

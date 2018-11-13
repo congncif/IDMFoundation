@@ -13,11 +13,11 @@ import IDMFoundation
 public typealias ___VARIABLE_moduleName___Provider = ___VARIABLE_providerType:identifier___<___VARIABLE_moduleName___RequestParameter>
 
 public class ___VARIABLE_moduleName___DataProvider: ___VARIABLE_moduleName___Provider {
-    override public func requestPath(parameters: ___VARIABLE_moduleName___RequestParameter?) -> String {
+    public override func requestPath(parameters: ___VARIABLE_moduleName___RequestParameter?) -> String {
         return <#code#>
     }
 
-    override public func httpMethod(parameters: ___VARIABLE_moduleName___RequestParameter?) -> HTTPMethod {
+    public override func httpMethod(parameters: ___VARIABLE_moduleName___RequestParameter?) -> HTTPMethod {
         return <#.post#>
     }
 }
