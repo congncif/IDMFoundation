@@ -19,21 +19,29 @@ protocol NextObserver: class {
 }
 
 protocol MainRouterProtocol: RouterProtocol {
-    func openModuleNext()
+    func openModuleNext(x: String)
 }
 
 protocol NextRouterProtocol: RouterProtocol {
 }
 
 class MainRouter: Router, MainRouterProtocol {
-    func openModuleNext() {
-        let nextModule = NextModuleBuidler().build()
-        
+    var nextBuilder: NextModuleBuilder?
+
+    public init(nextBuilder: NextModuleBuilder?) {
+        self.nextBuilder = nextBuilder
+    }
+
+    func openModuleNext(x: String) {
+        guard let nextModule = nextBuilder?.config(x: x).build() else {
+            return
+        }
+
         if let destination = nextModule.viewController as? NextSubject,
             let source = sourceModule as? NextObserver {
             destination.delegate = source
         }
-        
+
         self.open(nextModule, transition: ModalTransition())
     }
 }
@@ -46,11 +54,10 @@ class MainVC: UIViewController, ModuleInterface, NextObserver {
     var router: MainRouterProtocol?
 
     func next() {
-        self.router?.openModuleNext()
+        self.router?.openModuleNext(x: "A")
     }
-    
+
     func nextChange() {
-        
     }
 }
 
@@ -59,7 +66,18 @@ class NextVC: UIViewController, ModuleInterface {
     var presenter: ExamPresenterProtocol?
 }
 
-struct NextModuleBuidler: ModuleBuilder {
+protocol NextModuleBuilder: ModuleBuilder {
+    mutating func config(x: String) -> Self
+}
+
+struct NextModuleBuidler: NextModuleBuilder {
+    var x: String?
+
+    mutating func config(x: String) -> NextModuleBuidler {
+        self.x = x
+        return self
+    }
+
     func build() -> ModuleInterface {
         let vc = NextVC()
         vc.presenter = ExamPresenter(service: ExamService())
@@ -68,4 +86,31 @@ struct NextModuleBuidler: ModuleBuilder {
         vc.router = router
         return vc
     }
+}
+
+struct MainModuleBuilder: ModuleBuilder {
+    func build() -> ModuleInterface {
+        let router = MainRouter(nextBuilder: NextModuleBuidler())
+//        let service =
+//        let presenter
+        let vc = MainVC()
+//        vc.presenter =
+        vc.router = router
+        return vc
+    }
+}
+
+struct RootRouter: RootRouterProtocol {
+    var window: UIWindow?
+
+    public init(window: UIWindow?) {
+        self.window = window
+    }
+}
+
+func appLaunch() {
+    let vc = MainModuleBuilder().build()
+    
+    let root = RootRouter(window: UIApplication.shared.keyWindow)
+    root.launch(vc)
 }
