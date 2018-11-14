@@ -59,6 +59,10 @@ class MainVC: UIViewController, ModuleInterface, NextObserver {
 
     func nextChange() {
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 
 class NextVC: UIViewController, ModuleInterface {

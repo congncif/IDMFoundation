@@ -32,38 +32,6 @@
 			<key>Type</key>
 			<string>static</string>
 		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName:identifier___Presenter</string>
-			<key>Description</key>
-			<string>Presenter name</string>
-			<key>Identifier</key>
-			<string>presenterName</string>
-			<key>Name</key>
-			<string>Presenter:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-			<key>NotPersisted</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_moduleName:identifier___ViewState</string>
-			<key>Description</key>
-			<string>View State Name</string>
-			<key>Identifier</key>
-			<string>viewStateName</string>
-			<key>Name</key>
-			<string>View State:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-			<key>NotPersisted</key>
-			<false/>
-		</dict>
 	</array>
 	<key>Platforms</key>
 	<array>
