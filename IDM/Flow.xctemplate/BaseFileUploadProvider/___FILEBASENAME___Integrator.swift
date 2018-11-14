@@ -15,8 +15,8 @@ public class ___VARIABLE_moduleName___Model: ResponseModel, ModelProtocol {
 public class ___VARIABLE_moduleName___ResponseModel: StandardProgressDataResponseModel<___VARIABLE_moduleName___Model>, ModelProtocol {
 }
 
-public typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<UploadURLsParameter>
+public typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<UploadFilesParameter>
 
-public class ___VARIABLE_moduleName___Service: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
+public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
 }
 
