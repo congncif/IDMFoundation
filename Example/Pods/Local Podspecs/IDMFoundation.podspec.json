@@ -1,6 +1,6 @@
 {
   "name": "IDMFoundation",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "summary": "Base classes for new project which follows IDMCore",
   "swift_version": "4.2",
   "pod_target_xcconfig": {
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/congncif/IDMFoundation.git",
-    "tag": "1.9.4"
+    "tag": "1.9.5"
   },
   "platforms": {
     "ios": "8.0"
@@ -50,12 +50,6 @@
         ],
         "IDMFoundation/CameraAsset": [
 
-        ],
-        "IDMFoundation/Router": [
-
-        ],
-        "IDMFoundation/ViewState": [
-
         ]
       }
     },
@@ -67,18 +61,6 @@
 
         ],
         "IDMCore": [
-
-        ]
-      }
-    },
-    {
-      "name": "Router",
-      "source_files": "IDMFoundation/Router/**/*"
-    },
-    {
-      "name": "ViewState",
-      "dependencies": {
-        "ViewStateCore": [
 
         ]
       }
