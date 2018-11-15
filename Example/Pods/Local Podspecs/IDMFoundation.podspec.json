@@ -50,6 +50,12 @@
         ],
         "IDMFoundation/CameraAsset": [
 
+        ],
+        "IDMFoundation/ViewState": [
+
+        ],
+        "IDMFoundation/ModuleX": [
+
         ]
       }
     },
@@ -61,6 +67,22 @@
 
         ],
         "IDMCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ViewState",
+      "dependencies": {
+        "ViewStateCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ModuleX",
+      "dependencies": {
+        "ModuleX": [
 
         ]
       }

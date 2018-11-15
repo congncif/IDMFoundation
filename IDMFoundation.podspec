@@ -48,6 +48,8 @@ Pod::Spec.new do |s|
       co.dependency 'IDMFoundation/ObjectMapper'
       co.dependency 'IDMFoundation/MBProgressHUD'
       co.dependency 'IDMFoundation/CameraAsset'
+      co.dependency 'IDMFoundation/ViewState'
+      co.dependency 'IDMFoundation/ModuleX'
   end
   
   s.subspec 'Core' do |co|
@@ -56,7 +58,15 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
   end
-  
+
+  s.subspec 'ViewState' do |co|
+    co.dependency 'ViewStateCore'
+  end
+
+  s.subspec 'ModuleX' do |co|
+    co.dependency 'ModuleX'
+  end
+
   s.subspec 'Alamofire' do |co|
       co.source_files = 'IDMFoundation/Alamofire/**/*'
       
