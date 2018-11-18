@@ -12,8 +12,10 @@ public protocol Closable: class {
     func close(transition: TransitionProtocol?)
 }
 
+public protocol Openable: class {
+    func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol)
+}
+
 public protocol RouterProtocol: class {
     var sourceModule: ModuleInterface? { get }
-    
-    func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol)
 }

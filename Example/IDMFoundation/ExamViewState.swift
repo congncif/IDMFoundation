@@ -11,18 +11,18 @@ import IDMCore
 import IDMFoundation
 import ViewStateCore
 
-public class ExamViewState: ViewState {
-    
-}
-
-internal class ExamDataHandler: ExamDataProcessor {
-    internal var state: ExamViewState
-
-    internal init(state: ExamViewState) {
-        self.state = state
-    }
-
-    internal override func process(data: ExamModelType?) {
-        
-    }
-}
+//public class ExamViewState: ViewState {
+//    
+//}
+//
+//internal class ExamDataHandler: ExamDataProcessor {
+//    internal var state: ExamViewState
+//
+//    internal init(state: ExamViewState) {
+//        self.state = state
+//    }
+//
+//    internal override func process(data: ExamModelType?) {
+//        
+//    }
+//}

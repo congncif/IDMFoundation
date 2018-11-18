@@ -13,20 +13,20 @@ import IDMFoundation
 public protocol ExamPresenterProtocol {
 	
 }
-
-public typealias ExamModelType = ExamService.ResultType
-public typealias ExamDataProcessor = DataProcessor<ExamModelType>
-
-public class ExamPresenter: ExamPresenterProtocol {
-	public private(set) var state: ExamViewState
-
-    public private(set) var service: ExamService
-    public private(set) var processor: ExamDataProcessor
-
-    public init(service: ExamService) {
-    	let newState = ExamViewState()
-    	state = newState
-        self.service = service
-        processor = ExamDataHandler(state: newState)
-    }
-}
+//
+//public typealias ExamModelType = ExamService.ResultType
+//public typealias ExamDataProcessor = DataProcessor<ExamModelType>
+//
+//public class ExamPresenter: ExamPresenterProtocol {
+//    public private(set) var state: ExamViewState
+//
+//    public private(set) var service: ExamService
+//    public private(set) var processor: ExamDataProcessor
+//
+//    public init(service: ExamService) {
+//        let newState = ExamViewState()
+//        state = newState
+//        self.service = service
+//        processor = ExamDataHandler(state: newState)
+//    }
+//}

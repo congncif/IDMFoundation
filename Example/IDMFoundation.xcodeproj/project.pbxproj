@@ -8,12 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		027C9F7E523BA0CACC239C36 /* Pods_IDMFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37133D3F734187A8CC32175 /* Pods_IDMFoundation_Example.framework */; };
-		203077CA211F2C2D00E67ED5 /* XAFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203077C9211F2C2D00E67ED5 /* XAFlow.swift */; };
 		203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 203487B72077D8CB0033D4FA /* CHANGELOG.md */; };
-		205F0BF1211F4E750000FC84 /* TestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F0BF0211F4E750000FC84 /* TestFlow.swift */; };
-		206C99812185870E00856352 /* ZXDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C997E2185870E00856352 /* ZXDataProvider.swift */; };
-		206C99822185870E00856352 /* ZXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C997F2185870E00856352 /* ZXService.swift */; };
-		206C99832185870E00856352 /* ZXService+Integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C99802185870E00856352 /* ZXService+Integration.swift */; };
 		20AB6C84219D5F6C001A7FD2 /* ExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6C81219D5F6B001A7FD2 /* ExamPresenter.swift */; };
 		20AB6C85219D5F6C001A7FD2 /* ExamViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6C82219D5F6B001A7FD2 /* ExamViewState.swift */; };
 		20AB6C86219D5F6C001A7FD2 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6C83219D5F6B001A7FD2 /* MainRouter.swift */; };
@@ -25,12 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		203077C9211F2C2D00E67ED5 /* XAFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAFlow.swift; sourceTree = "<group>"; };
 		203487B72077D8CB0033D4FA /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
-		205F0BF0211F4E750000FC84 /* TestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlow.swift; sourceTree = "<group>"; };
-		206C997E2185870E00856352 /* ZXDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXDataProvider.swift; sourceTree = "<group>"; };
-		206C997F2185870E00856352 /* ZXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXService.swift; sourceTree = "<group>"; };
-		206C99802185870E00856352 /* ZXService+Integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZXService+Integration.swift"; sourceTree = "<group>"; };
 		20AB6C81219D5F6B001A7FD2 /* ExamPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamPresenter.swift; sourceTree = "<group>"; };
 		20AB6C82219D5F6B001A7FD2 /* ExamViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamViewState.swift; sourceTree = "<group>"; };
 		20AB6C83219D5F6B001A7FD2 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -89,16 +79,11 @@
 		607FACD21AFB9204008FA782 /* Example for IDMFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				20AB6C81219D5F6B001A7FD2 /* ExamPresenter.swift */,
 				20AB6C82219D5F6B001A7FD2 /* ExamViewState.swift */,
 				20AB6C83219D5F6B001A7FD2 /* MainRouter.swift */,
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				203077C9211F2C2D00E67ED5 /* XAFlow.swift */,
-				205F0BF0211F4E750000FC84 /* TestFlow.swift */,
-				206C997E2185870E00856352 /* ZXDataProvider.swift */,
-				206C997F2185870E00856352 /* ZXService.swift */,
-				206C99802185870E00856352 /* ZXService+Integration.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -262,14 +247,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CWStatusBarNotification/CWStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMCore/IDMCore.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMFoundation/IDMFoundation.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ModuleX/ModuleX.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SiFUtilities/SiFUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework",
@@ -280,14 +263,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CWStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMFoundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ModuleX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SiFUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectAutoregistration.framework",
@@ -307,16 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				206C99812185870E00856352 /* ZXDataProvider.swift in Sources */,
 				20AB6C84219D5F6C001A7FD2 /* ExamPresenter.swift in Sources */,
-				203077CA211F2C2D00E67ED5 /* XAFlow.swift in Sources */,
-				205F0BF1211F4E750000FC84 /* TestFlow.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				20AB6C86219D5F6C001A7FD2 /* MainRouter.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				206C99832185870E00856352 /* ZXService+Integration.swift in Sources */,
 				20AB6C85219D5F6C001A7FD2 /* ExamViewState.swift in Sources */,
-				206C99822185870E00856352 /* ZXService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,8 @@
 //
 import Foundation
 
-extension ZXService {
-	convenience init() {
-        self.init(dataProvider: ZXUploadProvider())
-    }
-}
+//extension ZXService {
+//    convenience init() {
+//        self.init(dataProvider: ZXUploadProvider())
+//    }
+//}

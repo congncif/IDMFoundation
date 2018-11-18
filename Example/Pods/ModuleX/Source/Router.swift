@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-open class Router: RouterProtocol, Closable {
-    public weak var sourceModule: ModuleInterface?
+open class Router: RouterProtocol, Closable, Openable {
+    open weak var sourceModule: ModuleInterface?
     public private(set) var openTransition: TransitionProtocol?
 
     public init() {}

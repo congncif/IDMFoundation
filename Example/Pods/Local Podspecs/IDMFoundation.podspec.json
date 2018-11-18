@@ -1,6 +1,6 @@
 {
   "name": "IDMFoundation",
-  "version": "1.9.5",
+  "version": "1.10.0",
   "summary": "Base classes for new project which follows IDMCore",
   "swift_version": "4.2",
   "pod_target_xcconfig": {
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/congncif/IDMFoundation.git",
-    "tag": "1.9.5"
+    "tag": "1.10.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -42,7 +42,7 @@
         "IDMFoundation/RequestParameter": [
 
         ],
-        "IDMFoundation/ObjectMapper": [
+        "IDMFoundation/Codable": [
 
         ],
         "IDMFoundation/MBProgressHUD": [
@@ -125,18 +125,33 @@
     },
     {
       "name": "ObjectMapper",
-      "source_files": "IDMFoundation/ObjectMapper/**/*",
+      "source_files": [
+        "IDMFoundation/Response/Shared/*.swift",
+        "IDMFoundation/Response/ObjectMapper/*.swift"
+      ],
       "dependencies": {
         "IDMFoundation/Core": [
-
-        ],
-        "SiFUtilities": [
 
         ],
         "IDMCore": [
 
         ],
         "ObjectMapper": [
+
+        ]
+      }
+    },
+    {
+      "name": "Codable",
+      "source_files": [
+        "IDMFoundation/Response/Shared/*.swift",
+        "IDMFoundation/Response/Codable/*.swift"
+      ],
+      "dependencies": {
+        "IDMFoundation/Core": [
+
+        ],
+        "IDMCore": [
 
         ]
       }

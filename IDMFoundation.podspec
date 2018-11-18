@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.9.5'
+  s.version          = '1.10.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
       co.dependency 'IDMFoundation/Core'
       co.dependency 'IDMFoundation/Alamofire'
       co.dependency 'IDMFoundation/RequestParameter'
-      co.dependency 'IDMFoundation/ObjectMapper'
+      co.dependency 'IDMFoundation/Codable'
       co.dependency 'IDMFoundation/MBProgressHUD'
       co.dependency 'IDMFoundation/CameraAsset'
       co.dependency 'IDMFoundation/ViewState'
@@ -86,12 +86,18 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'ObjectMapper' do |co|
-      co.source_files = 'IDMFoundation/ObjectMapper/**/*'
+      co.source_files = 'IDMFoundation/Response/Shared/*.swift', 'IDMFoundation/Response/ObjectMapper/*.swift'
       
       co.dependency 'IDMFoundation/Core'
-      co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
       co.dependency 'ObjectMapper'
+  end
+  
+  s.subspec 'Codable' do |co|
+      co.source_files = 'IDMFoundation/Response/Shared/*.swift', 'IDMFoundation/Response/Codable/*.swift'
+      
+      co.dependency 'IDMFoundation/Core'
+      co.dependency 'IDMCore'
   end
   
   s.subspec 'MBProgressHUD' do |co|

@@ -12,7 +12,7 @@ import IDMFoundation
 
 class XARequestParameter: DownloadParameterProtocol {
     var downloadPath: String?
-    
+
     init(downloadPath: String?) {
         self.downloadPath = downloadPath
     }
@@ -20,11 +20,15 @@ class XARequestParameter: DownloadParameterProtocol {
 
 class XAResponseModel: StandardProgressResponseModel, ModelProtocol {
     var data: DefaultDownloadResponse?
-    
-    public required init?(from data: Any?) {
-        super.init(from: data)
-        if let res = data as? DefaultDownloadResponse {
-            self.data = res
+
+    public required init?(from data: Any?) throws {
+        do {
+            try super.init(from: data)
+            if let res = data as? DefaultDownloadResponse {
+                self.data = res
+            }
+        } catch let ex {
+            throw ex
         }
     }
 }
@@ -39,12 +43,10 @@ class XADownloadProvider: XAProvider {
 }
 
 class XAService: MagicalIntegrator<XABaseProvider, XAResponseModel> {
-
-	
 }
 
 extension XAService {
-	convenience init() {
+    convenience init() {
         self.init(dataProvider: XADownloadProvider())
     }
 }
