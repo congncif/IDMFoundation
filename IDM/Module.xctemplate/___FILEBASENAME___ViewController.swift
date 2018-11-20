@@ -16,7 +16,17 @@ public class ___VARIABLE_moduleName___ViewController: UIViewController, ModuleIn
 	public var router: ___VARIABLE_moduleName___RouterProtocol?
 	public var presenter: ___VARIABLE_moduleName___PresenterProtocol?
 
-	override func viewDidLoad() {
+	public override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    public override func viewDidFinishLayout() {
+        presenter.state.subscribe(for: self)
+    }
+}
+
+extension ___VARIABLE_moduleName___ViewController: ViewStateSubscriber, ViewStateRenderable {
+    public func render(state: ViewState) {
+        <#render UI here#>
     }
 }

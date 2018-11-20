@@ -8,6 +8,7 @@
 
 import Foundation
 import IDMFoundation
+import ModuleX
 
 public protocol ___VARIABLE_moduleName___RouterProtocol: RouterProtocol {}
 
