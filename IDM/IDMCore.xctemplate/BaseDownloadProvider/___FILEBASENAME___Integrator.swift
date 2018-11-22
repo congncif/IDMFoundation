@@ -10,14 +10,6 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-public class ___VARIABLE_moduleName___RequestParameter: RequestParameter, DownloadParameterProtocol {
-    var downloadPath: String?
-    
-    init(downloadPath: String?) {
-        self.downloadPath = downloadPath
-    }
-}
-
 public class ___VARIABLE_moduleName___ResponseModel: StandardProgressResponseModel, ModelProtocol {
     var data: DownloadResponseDataStandard?
 

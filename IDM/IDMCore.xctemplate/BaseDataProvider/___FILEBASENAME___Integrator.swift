@@ -10,9 +10,6 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-public class ___VARIABLE_moduleName___RequestParameter: RequestParameter {
-}
-
 public class ___VARIABLE_moduleName___ResponseModel: DataResponseModel<<#___VARIABLE_moduleName___Model#>>, ModelProtocol {
 }
 
