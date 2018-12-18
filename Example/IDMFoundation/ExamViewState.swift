@@ -9,7 +9,6 @@
 import Foundation
 import IDMCore
 import IDMFoundation
-import ViewStateCore
 
 //public class ExamViewState: ViewState {
 //    
