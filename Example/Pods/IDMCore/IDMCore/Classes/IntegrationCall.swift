@@ -65,10 +65,10 @@ public class IntegrationCall<ModelType> {
     internal var retryErrorBlock: ((Error?) -> ())? // retryErrorBlock is higher priority than retryBlock
     internal var retryBlock: (() -> ())?
     
-    fileprivate(set) var callQueue: DispatchQueue = DispatchQueue.global()
+    fileprivate(set) var callQueue: DispatchQueue = DispatchQueue.main
     fileprivate(set) var callDelay: Double = 0
     
-    public internal(set) weak var integrator: AnyObject?
+    public internal(set) var integratorIndentifier: String = String()
     
     init() {
         idenitifier = ProcessInfo.processInfo.globallyUniqueString
@@ -187,7 +187,10 @@ public class IntegrationCall<ModelType> {
     
     @discardableResult
     public func onSuccess(_ handler: ((ModelType?) -> ())?) -> Self {
-        doSuccess = { [unowned self] result in
+        doSuccess = { [weak self] result in
+            guard let self = self else {
+                return
+            }
             self.retryErrorBlock = nil
             self.retryBlock = nil
             handler?(result)
@@ -207,7 +210,7 @@ public class IntegrationCall<ModelType> {
         return self
     }
     
-    public func call(queue: DispatchQueue = DispatchQueue.global(), delay: Double = 0) {
+    public func call(queue: DispatchQueue = DispatchQueue.main, delay: Double = 0) {
         callQueue = queue
         callDelay = delay
         queue.asyncAfter(deadline: .now() + delay) {
@@ -215,7 +218,10 @@ public class IntegrationCall<ModelType> {
         }
     }
     
-    public func call<Result>(dependOn requiredCall: IntegrationCall<Result>, with state: NextState = .completion, queue: DispatchQueue = DispatchQueue.global(), delay: Double = 0) {
+    public func call<Result>(dependOn requiredCall: IntegrationCall<Result>,
+                             with state: NextState = .completion,
+                             queue: DispatchQueue = DispatchQueue.main,
+                             delay: Double = 0) {
         callQueue = queue
         callDelay = delay
         requiredCall.next(state: state, integrationCall: self).call(queue: queue, delay: delay)
@@ -252,10 +258,10 @@ public class IntegrationCall<ModelType> {
         
         switch state {
         case .error, .success:
-            newCall.next(state: .completion, nextBlock: { [weak self] _ in
+            newCall.next(state: .completion) { [weak self] _ in
                 self?.retryErrorBlock = nil
                 self?.retryBlock = nil
-            })
+            }
         default:
             break
         }
@@ -284,10 +290,10 @@ public class IntegrationCall<ModelType> {
             
             switch state {
             case .error, .success:
-                newCall.next(state: .completion, nextBlock: { [weak self] _ in
+                newCall.next(state: .completion) { [weak self] _ in
                     self?.retryErrorBlock = nil
                     self?.retryBlock = nil
-                })
+                }
             default:
                 break
             }
@@ -734,9 +740,6 @@ public func == <R>(lhs: IntegrationCall<R>, rhs: IntegrationCall<R>) -> Bool {
 
 extension IntegrationCall {
     public func isSameIntegrator<R>(with other: IntegrationCall<R>) -> Bool {
-        if let checked = integrator?.isEqual(other.integrator) {
-            return checked
-        }
-        return false
+        return integratorIndentifier == other.integratorIndentifier
     }
 }

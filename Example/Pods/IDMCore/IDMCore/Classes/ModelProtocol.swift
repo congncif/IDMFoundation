@@ -30,22 +30,6 @@
 
 import Foundation
 
-public struct IDMError: LocalizedError {
-    public static let modelCannotInitialize = IDMError(message: NSLocalizedString("Model cannot initialize", comment: ""))
-    
-    public var message: String
-    public var failureReason: String?
-    
-    public init(message: String, reason: String? = nil) {
-        self.message = message
-        self.failureReason = reason
-    }
-    
-    public var errorDescription: String? {
-        return message
-    }
-}
-
 public protocol ModelProtocol {
     associatedtype DataType
     
@@ -69,9 +53,11 @@ extension SelfModelProtocol {
 extension ModelProtocol {
     public func getData<ReturnType>() throws -> ReturnType {
         if ReturnType.self == Self.self {
-            return self as! ReturnType
+            if let result = self as? ReturnType {
+                return result
+            }
         }
-        throw IDMError(message: "Result Type only accept type \(Self.self)")
+        throw IDMError(message: "*** Cannot getData of type \(Self.self) ***")
     }
     
     public var invalidDataError: Error? {
@@ -87,11 +73,15 @@ public struct AutoWrapModel<Type>: ModelProtocol {
     
     public func getData<ReturnType>() throws -> ReturnType {
         if ReturnType.self == Type.self {
-            return data as! ReturnType
+            if let result = data as? ReturnType {
+                return result
+            }
         }
         if ReturnType.self == AutoWrapModel<Type>.self {
-            return self as! ReturnType
+            if let result = self as? ReturnType {
+                return result
+            }
         }
-        throw IDMError(message: "Result Type only accept type \(Type.self) or \(AutoWrapModel<Type>.self)")
+        throw IDMError(message: "*** Cannot getData of type \(Type.self) or \(AutoWrapModel<Type>.self) ***")
     }
 }
