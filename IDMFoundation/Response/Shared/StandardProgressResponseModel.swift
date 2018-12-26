@@ -20,6 +20,10 @@ open class StandardProgressResponseModel: ProgressModelProtocol {
             isDelaying = false
         }
     }
+    
+    open var invalidDataError: Error? {
+        return nil
+    }
 }
 
 open class StandardProgressDataResponseModel<D: ModelProtocol>: StandardProgressResponseModel where D.DataType == Any {
@@ -34,7 +38,7 @@ open class StandardProgressDataResponseModel<D: ModelProtocol>: StandardProgress
         }
     }
 
-    open var invalidDataError: Error? {
+    open override var invalidDataError: Error? {
         return data?.invalidDataError
     }
 }
