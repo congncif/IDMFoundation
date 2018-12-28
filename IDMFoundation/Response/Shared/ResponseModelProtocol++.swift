@@ -8,12 +8,6 @@
 import Foundation
 import IDMCore
 
-public protocol ProgressDataModelProtocol: ProgressModelProtocol {
-    associatedtype D
-
-    var data: D? { get set }
-}
-
 extension ModelProtocol where Self: NSObject, Self: ProgressModelProtocol, Self.DataType == Any {
     public init(fromData data: Any?) throws {
         self.init()
