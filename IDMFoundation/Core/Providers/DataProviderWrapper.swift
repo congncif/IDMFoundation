@@ -8,7 +8,7 @@
 import Foundation
 import IDMCore
 
-open class BaseProviderWrapper<ProviderType: DataProviderProtocol>: RootAnyProvider<ProviderType.ParameterType> where ProviderType.DataType == Any {
+open class DataProviderWrapper<ProviderType: DataProviderProtocol>: AnyResultDataProvider<ProviderType.ParameterType> where ProviderType.DataType == Any {
     public var provider: ProviderType?
 
     public init(provider: ProviderType?) {
@@ -22,7 +22,7 @@ open class BaseProviderWrapper<ProviderType: DataProviderProtocol>: RootAnyProvi
 
 // Use to connect a custom validator provider with an api provider
 extension DataProviderProtocol where DataType == Any {
-    public var wrapper: BaseProviderWrapper<Self> {
-        return BaseProviderWrapper(provider: self)
+    public var wrapper: DataProviderWrapper<Self> {
+        return DataProviderWrapper(provider: self)
     }
 }

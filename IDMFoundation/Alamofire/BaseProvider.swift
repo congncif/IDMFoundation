@@ -9,7 +9,7 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BaseProvider<ParameterType>: RootAnyProvider<ParameterType> {
+open class BaseProvider<ParameterType>: AnyResultDataProvider<ParameterType> {
     open override func request(parameters: ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
     }

@@ -10,18 +10,9 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-public class ___VARIABLE_moduleName___ResponseModel: StandardProgressResponseModel, ModelProtocol {
-    var data: DownloadResponseDataStandard?
+extension ___VARIABLE_moduleName___ResponseModel: ModelProtocol {}
 
-    public required init?(from data: Any?) {
-        super.init(from: data)
-        if let res = data as? DownloadResponseDataStandard {
-            self.data = res
-        }
-    }
-}
-
-public typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<___VARIABLE_moduleName___RequestParameter>
+public typealias ___VARIABLE_moduleName___BaseProvider = AnyResultDataProvider<___VARIABLE_moduleName___RequestParameter>
 
 public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
 }

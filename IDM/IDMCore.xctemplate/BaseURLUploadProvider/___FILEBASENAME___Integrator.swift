@@ -9,14 +9,10 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-public class ___VARIABLE_moduleName___Model: ResponseModel, ModelProtocol {
-}
+extension ___VARIABLE_moduleName___DataModel: ModelProtocol {}
+extension ___VARIABLE_moduleName___ResponseModel: ModelProtocol {}
 
-public class ___VARIABLE_moduleName___ResponseModel: StandardProgressDataResponseModel<___VARIABLE_moduleName___Model>, ModelProtocol {
-}
+public typealias ___VARIABLE_moduleName___BaseProvider = AnyResultDataProvider<UploadURLsParameter>
 
-public typealias ___VARIABLE_moduleName___BaseProvider = RootAnyProvider<UploadURLsParameter>
-
-public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
-}
+public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {}
 

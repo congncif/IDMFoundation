@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
-- `1.8.x` Releases  - [1.9.0](#190)
+- `1.9.x` Releases  - [1.9.0](#190)
 - `1.8.x` Releases  - [1.8.0](#180) | [1.8.1](#181)
 - `1.7.x` Releases  - [1.7.0](#170)
 - `1.6.x` Releases  - [1.6.0](#160) | [1.6.1](#161) | [1.6.2](#162)  | [1.6.3](#163)
