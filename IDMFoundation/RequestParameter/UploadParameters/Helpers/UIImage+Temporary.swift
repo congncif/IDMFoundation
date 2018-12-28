@@ -1,11 +1,10 @@
 //
-import AVFoundation
 //  UIImage+Temporary.swift
 //  IDMFoundation
 //
 //  Created by FOLY on 3/9/18.
 //
-
+import AVFoundation
 import Foundation
 import SiFUtilities
 import UIImage_FixOrientation

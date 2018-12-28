@@ -11,8 +11,7 @@ import SiFUtilities
 public class RequestParameterConfiguration {
     public static let shared = RequestParameterConfiguration()
 
-    private init() {
-    }
+    private init() {}
 
     public var baseParameter: [String: Any] = [:] // parameter will be extended from baseParameter
     public var ignoreKeys: [String] = []
