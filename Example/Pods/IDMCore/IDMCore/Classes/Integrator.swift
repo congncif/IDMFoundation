@@ -47,7 +47,7 @@ open class AbstractIntegrator<Parameter, Result>: IntegratorProtocol, Equatable 
     }
 
     open func cancel() {}
-    
+
     public static func == (lhs: AbstractIntegrator, rhs: AbstractIntegrator) -> Bool {
         return lhs.idenitifier == rhs.idenitifier
     }
