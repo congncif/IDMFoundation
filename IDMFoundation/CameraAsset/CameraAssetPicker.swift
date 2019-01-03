@@ -58,16 +58,16 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
         
-        imagePicker.mediaTypes = self.outputType.map({ (type) -> String in
+        imagePicker.mediaTypes = self.outputType.map { (type) -> String in
             type.key
-        })
+        }
         picker = imagePicker
         viewController?.present(imagePicker, animated: true, completion: nil)
     }
     
     // MARK: - UIImagePickerControllerDelegate
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         var asset: CameraAsset
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             asset = CameraAsset(type: .photo, image: pickedImage)
@@ -103,8 +103,8 @@ open class CameraAssetPicker: NSObject, UIImagePickerControllerDelegate, UINavig
 }
 
 extension CameraAssetPicker {
-    public func confirmShowAssetPicker(on vc: UIViewController?,
-                                completion: @escaping (UIImage?, Error?) -> Void) {
+    public func confirmShowImagePicker(on vc: UIViewController?,
+                                       completion: @escaping (UIImage?, Error?) -> Void) {
         let viewController = vc
         let confirmSheet = UIAlertController(title: "", message: "Choose photo from".localized, preferredStyle: .actionSheet)
         confirmSheet.addAction(UIAlertAction(title: "Camera".localized, style: .destructive, handler: { _ in
@@ -116,6 +116,26 @@ extension CameraAssetPicker {
         confirmSheet.addAction(UIAlertAction(title: "Photo Library".localized, style: .default, handler: { _ in
             CameraAssetPicker.shared.showImagePicker(sourceType: .photoLibrary, on: viewController) { _, asset, error in
                 completion(asset?.image, error)
+            }
+        }))
+        
+        confirmSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        viewController?.present(confirmSheet, animated: true, completion: nil)
+    }
+    
+    public func confirmShowAssetPicker(on vc: UIViewController?,
+                                       completion: @escaping (CameraAsset?, Error?) -> Void) {
+        let viewController = vc
+        let confirmSheet = UIAlertController(title: "", message: "Choose asset from".localized, preferredStyle: .actionSheet)
+        confirmSheet.addAction(UIAlertAction(title: "Camera".localized, style: .destructive, handler: { _ in
+            CameraAssetPicker.shared.showImagePicker(sourceType: .camera, on: viewController, outputType: [.photo, .video]) { _, asset, error in
+                completion(asset, error)
+            }
+        }))
+        
+        confirmSheet.addAction(UIAlertAction(title: "Photo Library".localized, style: .default, handler: { _ in
+            CameraAssetPicker.shared.showImagePicker(sourceType: .photoLibrary, on: viewController, outputType: [.photo, .video]) { _, asset, error in
+                completion(asset, error)
             }
         }))
         

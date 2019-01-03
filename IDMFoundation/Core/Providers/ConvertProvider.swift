@@ -10,6 +10,7 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
+@available(*, deprecated, message: "Use ConvertDataProvider class instead")
 open class ConvertProvider<P1, P2>: NSObject, DataProviderProtocol {
     open func request(parameters: P1?,
                       completion: @escaping (Bool, P2?, Error?) -> Void) -> CancelHandler? {
@@ -28,12 +29,14 @@ open class ConvertProvider<P1, P2>: NSObject, DataProviderProtocol {
     }
 }
 
+@available(*, deprecated, message: "Use ForwardDataProvider class instead")
 open class ForwardProvider<P>: ConvertProvider<P, P> {
     open override func convert(parameter: P?) throws -> P? {
         return parameter
     }
 }
 
+@available(*, deprecated, message: "Use BridgeDataProvider class instead")
 open class BridgeResponseProvider<R: ModelProtocol>: ConvertProvider<Any, R> where R.DataType == Any {
     open override func convert(parameter: Any?) throws -> R? {
         do {
