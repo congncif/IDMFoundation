@@ -7,6 +7,22 @@
 
 import Foundation
 
+extension DataProviderProtocol {
+    public func convertToIntegrator<M>(modelType: M.Type,
+                                       executingType: IntegrationType = .default) -> MagicalIntegrator<Self, M>
+        where M: ModelProtocol, Self.DataType == M.DataType {
+            return MagicalIntegrator(dataProvider: self, modelType: M.self, executingType: executingType)
+    }
+    
+    public func convertToIntegrator(executingType: IntegrationType = .default) -> AmazingIntegrator<Self> {
+        return AmazingIntegrator(dataProvider: self, executingType: executingType)
+    }
+    
+    public var integrator: AmazingIntegrator<Self> {
+        return convertToIntegrator()
+    }
+}
+
 open class IntegratingDataProvider<I: IntegratorProtocol>: DataProviderProtocol {
     public private(set) var internalIntegrator: I
     public private(set) var queue: IntegrationCallQueue
@@ -45,7 +61,7 @@ extension IntegratorProtocol {
     }
 }
 
-open class ConvertDataProvider<P1, P2>: NSObject, DataProviderProtocol {
+open class ConvertDataProvider<P1, P2>: DataProviderProtocol {
     private var converter: ((P1?) throws -> P2?)?
 
     public convenience init(converter: ((P1?) throws -> P2?)?) {
@@ -53,9 +69,7 @@ open class ConvertDataProvider<P1, P2>: NSObject, DataProviderProtocol {
         self.converter = converter
     }
 
-    public override init() {
-        super.init()
-    }
+    public init() {}
 
     open func request(parameters: P1?,
                       completion: @escaping (Bool, P2?, Error?) -> Void) -> CancelHandler? {
@@ -105,12 +119,12 @@ open class ForwardDataProvider<P>: ConvertDataProvider<P, P> {
     }
 }
 
-open class BridgeDataProvider<R: ModelProtocol>: ConvertDataProvider<Any, R> where R.DataType == Any {
+open class BridgeDataProvider<P, R: ModelProtocol>: ConvertDataProvider<P, R> where R.DataType == P {
     public override init() {
         super.init()
     }
 
-    open override func convert(parameter: Any?) throws -> R? {
+    open override func convert(parameter: P?) throws -> R? {
         do {
             let data: R? = try R(fromData: parameter)
             return data
