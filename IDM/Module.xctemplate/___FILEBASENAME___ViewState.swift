@@ -12,5 +12,5 @@ import IDMFoundation
 import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewState: ViewState {
-    <#@objc public internal(set) dynamic var id: String?#>
+//    <#@objc public internal(set) dynamic var id: String?#>
 }
