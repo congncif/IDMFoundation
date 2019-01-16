@@ -16,8 +16,9 @@ public protocol ___VARIABLE_moduleName___PresenterProtocol {
 }
 
 public class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProtocol {
-	public private(set) var state: ___VARIABLE_moduleName___ViewState
 	public var router: ___VARIABLE_moduleName___RouterProtocol
+
+	public private(set) var state: ___VARIABLE_moduleName___ViewState
 
     public init(router: ___VARIABLE_moduleName___RouterProtocol) {
     	self.router = router
