@@ -13,4 +13,12 @@ import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewState: ViewState {
 //    <#@objc public internal(set) dynamic var id: String?#>
+
+/*
+	public struct Keys {
+        public static var id: String {
+            return #keyPath(___VARIABLE_moduleName___ViewState.id)
+        }
+    }
+*/
 }
