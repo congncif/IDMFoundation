@@ -8,6 +8,27 @@
 
 import Foundation
 
+public protocol URLUploadItemProtocol {
+    var uploadUrl: URL { get }
+    var uploadName: String { get }
+    var fileName: String? { get }
+    var mimeType: String? { get }
+    
+    mutating func saveTemporaryData() // change URL
+    func cleanTemporaryData()
+}
+
+extension URLUploadItemProtocol {
+    public func cleanTemporaryData() {
+        do {
+            try FileManager.default.removeItem(at: uploadUrl)
+            log("Removed temporary file: \(uploadUrl.path)")
+        } catch let ex {
+            print("Can't delete temporary file: \(uploadUrl.path) - \(ex)")
+        }
+    }
+}
+
 open class URLUploadItem: URLUploadItemProtocol {
     open var uploadUrl: URL
     open var uploadName: String
