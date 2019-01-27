@@ -11,6 +11,6 @@ import IDMFoundation
 import UIKit
 import ModuleX
 
-extension UIViewController: LoaderProtocol, ErrorHandlerProtocol {}
+extension UIViewController: LoadAndErrorHandlerProtocol {}
 
 extension UINavigationController: ModuleInterface {}

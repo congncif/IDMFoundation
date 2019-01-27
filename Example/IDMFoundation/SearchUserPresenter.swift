@@ -16,7 +16,7 @@ public protocol SearchUserPresenterProtocol {
     var state: SearchUserViewState { get }
 
     func start(with query: String)
-    func search<Loader: LoaderProtocol>(loader: Loader)
+    func search(loader: LoadAndErrorHandlerProtocol)
     func selectUser(id: String)
 }
 
@@ -38,10 +38,10 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
         state.query = query
     }
 
-    public func search<Loader>(loader: Loader) where Loader: LoaderProtocol {
+    public func search(loader: LoadAndErrorHandlerProtocol) {
         let param = SearchUserParameter(q: state.query)
         searchUserIntegrator?.prepareCall(parameters: param)
-            .loading(monitor: loader)
+            .loader(loader)
             .onSuccess { [unowned self] model in
                 let result = model?.items ?? []
                 self.state.users = result.map({ (item) -> SearchUserModel in
