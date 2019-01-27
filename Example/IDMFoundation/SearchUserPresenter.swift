@@ -57,6 +57,6 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
     }
 
     public func selectUser(id: String) {
-        router.back(with: id)
+        router.userDidSelect(id)
     }
 }
