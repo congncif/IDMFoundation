@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import IDMFoundation
 
 public class ___VARIABLE_moduleName___IntegratorFactory {
 	public static func getIntegrator() -> ___VARIABLE_moduleName___AbstractIntegrator {
-		return ___VARIABLE_moduleName___Integrator(dataProvider: ___VARIABLE_moduleName___DownloadProvider())
+		return ___VARIABLE_moduleName___Integrator(dataProvider: ___VARIABLE_moduleName___DownloadProvider(route: <#NetworkRoute#>))
 	}
 }

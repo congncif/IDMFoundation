@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '1.11.1'
+  s.version          = '2.0.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
   s.subspec 'Default' do |co|
       co.dependency 'IDMFoundation/Core'
       co.dependency 'IDMFoundation/Alamofire'
-      co.dependency 'IDMFoundation/RequestParameter'
+      co.dependency 'IDMFoundation/Networking'
       co.dependency 'IDMFoundation/ObjectMapper'
       co.dependency 'IDMFoundation/MBProgressHUD'
       co.dependency 'IDMFoundation/CameraAsset'
@@ -70,14 +70,14 @@ Pod::Spec.new do |s|
   s.subspec 'Alamofire' do |co|
       co.source_files = 'IDMFoundation/Alamofire/**/*'
       
-      co.dependency 'IDMFoundation/RequestParameter'
+      co.dependency 'IDMFoundation/Networking'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
       co.dependency 'Alamofire'
   end
   
-  s.subspec 'RequestParameter' do |co|
-      co.source_files = 'IDMFoundation/RequestParameter/**/*'
+  s.subspec 'Networking' do |co|
+      co.source_files = 'IDMFoundation/Networking/**/*'
       
       co.dependency 'IDMFoundation/Core'
       co.dependency 'SiFUtilities'
@@ -127,7 +127,7 @@ Pod::Spec.new do |s|
   s.subspec 'CameraAsset' do |co|
       co.source_files = 'IDMFoundation/CameraAsset/**/*'
       
-      co.dependency 'IDMFoundation/RequestParameter'
+      co.dependency 'IDMFoundation/Networking'
       co.dependency 'SiFUtilities'
   end
   

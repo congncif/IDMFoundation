@@ -9,81 +9,32 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BaseProvider<ParameterType>: AnyResultDataProvider<ParameterType> {
-    open override func request(parameters: ParameterType?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        fatalError("You need custom \(#function) for request \(self.requestPath(parameters: parameters))")
-    }
+open class BaseNetworkProvider<P>: AnyResultDataProvider<P>, NetworkRequestRouteBuildable, AlamofireNetworkRequestable where P: URLBuildable {
+    public typealias Parameters = P
+    public typealias ParameterType = P
     
-    open func requestPath(parameters: ParameterType?) -> String {
-        fatalError("You need set the path for request by override function \(#function)")
-    }
+    open var adapters: [NetworkRequestAdapting]
+    open var route: NetworkRequestRoutable
     
-    open func validate(parameters: ParameterType?) -> Error? {
-        return nil
-    }
+    open var sessionManager: SessionManager
     
-    open func httpMethod(parameters: ParameterType?) -> HTTPMethod {
-        return .post
-    }
-    
-    open func headers(parameters: ParameterType?) -> [String: String]? {
-        return ProviderConfiguration.shared.headerFields
-    }
-    
-    open func logEnabled(parameters: ParameterType?) -> Bool {
-        return ProviderConfiguration.shared.logger.isLoggerEnabled
-    }
-    
-    open func preprocessResponse(_ response: DataResponse<Any>) -> (success: Bool, value: Any?, error: Error?) {
-        let value = response.value
-        let error = response.error
-        let success = error == nil
-        return (success, value, error)
-    }
-    
-    open func testResponseData(parameters: ParameterType?) -> ProviderResponseAny? {
-        if let filePath = testResponseFile(parameters: parameters) {
-            let keeper = ValueKeeper<ProviderResponseAny>(getValueAsync: { fullfill in
-                DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 3) {
-                    let text = try? String(contentsOfFile: filePath)
-                    fullfill((true, text, nil))
-                }
-            })
-            return keeper.syncValue
-        } else {
-            return nil
-        }
-    }
-    
-    open func testResponseFile(parameters: ParameterType?) -> String? {
-        return nil
-    }
-    
-    open func customRequest(_ request: Request) {
-        if let customClosure = ProviderConfiguration.shared.customRequest {
-            customClosure(request)
-        }
-        if let credential = ProviderConfiguration.shared.credential {
-            request.authenticate(usingCredential: credential)
-        }
+    public init(route: NetworkRequestRoutable,
+                adapters: [NetworkRequestAdapting],
+                sessionManager: SessionManager) {
+        self.route = route
+        self.adapters = adapters
+        self.sessionManager = sessionManager
     }
 }
 
-open class BaseTaskProvider<ParameterType>: BaseProvider<ParameterType> {
-    public override init() {
-        super.init()
-    }
+open class BaseEncodeNetworkProvider<P>: BaseNetworkProvider<P> where P: URLBuildable {
+    open var encoder: ParameterEncoding
     
-    open var trackingProgressEnabled: Bool {
-        return true
-    }
-    
-    open func buildFormData(multipart: MultipartFormData, with parameters: ParameterType?) {
-    }
-    
-    open func cleanUp(parameters: ParameterType?) {
-    }
-    
-    open func saveTemporary(parameters: ParameterType?) {
+    public init(route: NetworkRequestRoutable,
+                encoder: ParameterEncoding = URLEncoding.default,
+                adapters: [NetworkRequestAdapting] = [],
+                sessionManager: SessionManager = .background) {
+        self.encoder = encoder
+        super.init(route: route, adapters: adapters, sessionManager: sessionManager)
     }
 }

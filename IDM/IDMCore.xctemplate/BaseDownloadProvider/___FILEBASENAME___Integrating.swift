@@ -12,7 +12,6 @@ import IDMFoundation
 
 extension ___VARIABLE_moduleName___ResponseModel: ModelProtocol {}
 
-public typealias ___VARIABLE_moduleName___BaseProvider = AnyResultDataProvider<___VARIABLE_moduleName___RequestParameter>
+public typealias ___VARIABLE_moduleName___BaseProvider = AnyResultDataProvider<___VARIABLE_moduleName___Parameter>
 
-public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {
-}
+public class ___VARIABLE_moduleName___Integrator: MagicalIntegrator<___VARIABLE_moduleName___BaseProvider, ___VARIABLE_moduleName___ResponseModel> {}

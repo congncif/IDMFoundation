@@ -11,172 +11,64 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-public enum DownloadResponseSerializerType {
-    case `default`
-    case data
-    case string
-    case json
-}
-
-public protocol DownloadResponseDataStandard {
-    /// The URL request sent to the server.
-    var request: URLRequest? { get }
+open class BaseDownloadProvider<P>: BaseEncodeNetworkProvider<P> where P: DownloadParameterProtocol {
+    open var customRequest: (DownloadRequest) -> Void
     
-    /// The server's response to the URL request.
-    var response: HTTPURLResponse? { get }
-    
-    /// The temporary destination URL of the data returned from the server.
-    var temporaryURL: URL? { get }
-    
-    /// The final destination URL of the data returned from the server if it was moved.
-    var destinationURL: URL? { get }
-    
-    /// The resume data generated if the request was cancelled.
-    var resumeData: Data? { get }
-    
-    /// The error encountered while executing or validating the request.
-    var error: Error? { get }
-}
-
-extension DefaultDownloadResponse: DownloadResponseDataStandard {
-}
-
-open class BaseDownloadProvider<ParameterType: DownloadParameterProtocol>: BaseDataProvider<ParameterType> {
-    open override var customSessionManager: SessionManager {
-        let id = "download." + String.random()
-        let configuration = URLSessionConfiguration.background(withIdentifier: id)
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        let session = SessionManager(configuration: configuration)
-        return session
+    public init(route: NetworkRequestRoutable,
+                encoder: ParameterEncoding = URLEncoding.default,
+                adapters: [NetworkRequestAdapting] = [],
+                customRequest: @escaping (DownloadRequest) -> Void = { $0.validate() },
+                sessionManager: SessionManager = .background) {
+        self.customRequest = customRequest
+        super.init(route: route, encoder: encoder, adapters: adapters, sessionManager: sessionManager)
     }
     
-    open var trackingProgressEnabled: Bool {
-        return true
-    }
-    
-    open override func request(parameters: ParameterType?,
+    open override func request(parameters: P?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        if let err = validate(parameters: parameters) {
-            completion(false, nil, err)
-            return nil
-        }
-        
-        if let data = testResponseData(parameters: parameters) {
-            completion(data.0, data.1, data.2)
-            return nil
-        }
-        
-        let path = requestPath(parameters: parameters)
-        let method = httpMethod(parameters: parameters)
-        let header = headers(parameters: parameters)
-        let encoding = parameterEncoding(parameters: parameters)
-        
-        if logEnabled(parameters: parameters) {
-            ProviderConfiguration.shared.logger.logRequest(title: "Download", path: requestPath(parameters: parameters), parameters: parameters?.parameters)
-        }
-        
-        let request = sessionManager.download(path, method: method, parameters: parameters?.parameters, encoding: encoding, headers: header) { (_, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
-            if let desUrl = parameters?.destinationUrl(suggestedFilename: response.suggestedFilename) {
-                return (desUrl, [.removePreviousFile, .createIntermediateDirectories])
-            } else {
-                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename ?? String.random())
-                return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        var cancelHandler: CancelHandler?
+        do {
+            var newRequest = try buildRequest(with: parameters)
+            newRequest = try encoder.encode(newRequest, with: parameters?.payload)
+            
+            log(url: newRequest.url, title: "🚦", data: parameters?.payload)
+            
+            let dataRequest = sessionManager.download(newRequest) { (_, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
+                if let desUrl = parameters?.destinationUrl(suggestedFilename: response.suggestedFilename) {
+                    return (desUrl, [.removePreviousFile, .createIntermediateDirectories])
+                } else {
+                    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                    let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename ?? String.random())
+                    return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+                }
             }
-        }
-        
-        customRequest(request)
-        
-        request.downloadProgress { [weak self] progress in
-            if self?.trackingProgressEnabled == true {
+            
+            customRequest(dataRequest)
+            
+            dataRequest.downloadProgress { progress in
                 completion(true, progress, nil)
             }
+            
+            process(dataRequest, completion: completion)
+            
+            cancelHandler = dataRequest.cancel
+        } catch let exception {
+            completion(false, nil, exception)
         }
-        
-        switch responseSerializerType(parameters: parameters) {
-        case .string:
-            request.responseString { [weak self] response in
-                guard let this = self else {
-                    completion(false, nil, nil)
-                    return
-                }
-                
-                let value = response.value
-                let error = response.error
-                
-                if this.logEnabled(parameters: parameters) {
-                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
-                    
-                    print("🌷 Response: \(String(describing: value))")
-                    if let err = error {
-                        print("🥀 Error: " + String(describing: err))
-                    }
-                }
-                completion(error == nil, value, error)
-            }
-        case .data:
-            request.responseData { [weak self] response in
-                guard let this = self else {
-                    completion(false, nil, nil)
-                    return
-                }
-                
-                let value = response.value
-                let error = response.error
-                
-                if this.logEnabled(parameters: parameters) {
-                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
-                }
-                completion(error == nil, value, error)
-            }
-        case .json:
-            request.responseJSON { [weak self] response in
-                guard let this = self else {
-                    completion(false, nil, nil)
-                    return
-                }
-                
-                let value = response.value
-                let error = response.error
-                
-                if this.logEnabled(parameters: parameters) {
-                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
-                }
-                completion(error == nil, value, error)
-            }
-        default:
-            request.response { [weak self] response in
-                guard let this = self else {
-                    completion(false, nil, nil)
-                    return
-                }
-                
-                let error = response.error
-                
-                if this.logEnabled(parameters: parameters) {
-                    ProviderConfiguration.shared.logger.logDownloadResponse(response)
-                }
-                completion(error == nil, response, error)
-            }
-        }
-        
-        return {
-            request.cancel()
-        }
+        return cancelHandler
     }
     
-    open override func httpMethod(parameters: ParameterType?) -> HTTPMethod {
-        return .get
-    }
-    
-    open func responseSerializerType(parameters: ParameterType?) -> DownloadResponseSerializerType {
-        return .default
-    }
-    
-    open override func requestPath(parameters: ParameterType?) -> String {
-        if let path = parameters?.downloadPath {
-            return path
+    open func process(_ dataRequest: DownloadRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
+        dataRequest.response { response in
+            let error = response.error
+            
+            let isSuccess = error == nil
+            if isSuccess {
+                log(url: response.response?.url, title: "🌸", data: response.destinationURL)
+            } else {
+                log(url: response.response?.url, title: "🥀", data: response.error)
+            }
+            
+            completion(isSuccess, response, error)
         }
-        fatalError("Must set download path")
     }
 }

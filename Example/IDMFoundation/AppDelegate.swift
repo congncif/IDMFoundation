@@ -68,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var simpleCreator: PlaceholderBuilderProtocol? = PlaceholderBuilder(placeholder: AbstractIntegrator<Any, String>())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        ProviderConfiguration.shared.logger = XXXLogger()
         
         let text = "{\"status\":0,\"data\":{\"full_name\":\"Cong\",\"age\":18,\"gender\":\"male\"}}"
         
@@ -90,16 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
-    }
-    
-    class XXXLogger: ProviderLogger {
-        override init() {
-//            super.init()
-        }
-        
-        override func logDataResponse(_ response: DataResponse<Any>?) {
-            super.logDataResponse(response)
-            print("DCM ---=====.....")
-        }
     }
 }

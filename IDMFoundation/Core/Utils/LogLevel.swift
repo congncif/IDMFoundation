@@ -25,4 +25,8 @@ public func log(_ items: Any..., separator: String = " ", terminator: String = "
     }
 }
 
-
+public func log(url: URL?, title: String, data: Any?) {
+    log("🚀 " + String(describing: url))
+    let param = String(describing: data)
+    log("\(title) \(param)")
+}

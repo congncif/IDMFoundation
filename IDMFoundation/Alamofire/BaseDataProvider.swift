@@ -10,84 +10,48 @@ import IDMCore
 import SiFUtilities
 import UIKit
 
-open class BaseDataProvider<ParameterType: ParameterProtocol>: BaseProvider<ParameterType> {
-    open override func request(parameters: ParameterType?,
+open class BaseDataProvider<P>: BaseEncodeNetworkProvider<P> where P: ParameterProtocol {
+    open var customRequest: (DataRequest) -> Void
+    
+    public init(route: NetworkRequestRoutable,
+                encoder: ParameterEncoding = URLEncoding.default,
+                adapters: [NetworkRequestAdapting] = [],
+                customRequest: @escaping (DataRequest) -> Void = { $0.validate() },
+                sessionManager: SessionManager = .background) {
+        self.customRequest = customRequest
+        super.init(route: route, encoder: encoder, adapters: adapters, sessionManager: sessionManager)
+    }
+    
+    open override func request(parameters: P?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        if let err = validate(parameters: parameters) {
-            completion(false, nil, err)
-            return nil
-        }
-        
-        if let data = testResponseData(parameters: parameters) {
-            completion(data.0, data.1, data.2)
-            return nil
-        }
-        
-        if logEnabled(parameters: parameters) {
-            ProviderConfiguration.shared.logger.logRequest(title: "Request", path: requestPath(parameters: parameters), parameters: parameters?.parameters)
-        }
-        
-        guard let request = buildRequest(parameters: parameters) else {
-            let err = CommonError(title: "Encoding Error", message: "Cannot build request")
-            completion(false, nil, err)
-            return nil
-        }
-        customRequest(request)
-        request.responseJSON { [weak self] response in
-            guard let this = self else {
-                completion(false, nil, nil)
-                return
-            }
-            let result = this.preprocessResponse(response)
+        var cancelHandler: CancelHandler?
+        do {
+            var newRequest = try buildRequest(with: parameters)
+            newRequest = try encoder.encode(newRequest, with: parameters?.payload)
             
-            if this.logEnabled(parameters: parameters) {
-                ProviderConfiguration.shared.logger.logDataResponse(response)
-            }
-            completion(result.success, result.value, result.error)
+            log(url: newRequest.url, title: "🚦", data: parameters?.payload)
+            
+            let dataRequest = sessionManager.request(newRequest)
+            customRequest(dataRequest)
+            process(dataRequest, completion: completion)
+            
+            cancelHandler = dataRequest.cancel
+        } catch let exception {
+            completion(false, nil, exception)
         }
-        
-        return {
-            request.cancel()
-        }
+        return cancelHandler
     }
     
-    public lazy var sessionManager: SessionManager = {
-        customSessionManager
-    }()
-    
-    open var customSessionManager: SessionManager {
-        return SessionManager.default
-    }
-    
-    open func parameterEncoding(parameters: ParameterType?) -> ParameterEncoding {
-        return URLEncoding.default
-    }
-    
-    open var customURLRequest: ((URLRequest) -> URLRequest)? {
-        return ProviderConfiguration.shared.customURLRequest
-    }
-    
-    open func buildRequest(parameters: ParameterType?) -> DataRequest? {
-        if let customUrlRequest = customURLRequest {
-            var originalRequest: URLRequest?
-            do {
-                originalRequest = try URLRequest(url: requestPath(parameters: parameters), method: httpMethod(parameters: parameters), headers: headers(parameters: parameters))
-                
-                var encodedURLRequest = try parameterEncoding(parameters: parameters).encode(originalRequest!, with: parameters?.parameters)
-                
-                encodedURLRequest = customUrlRequest(encodedURLRequest)
-                
-                return sessionManager.request(encodedURLRequest)
-            } catch {
-                return nil
+    open func process(_ dataRequest: DataRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
+        dataRequest.responseJSON { response in
+            let isSuccess = response.result.isSuccess
+            if isSuccess {
+                log(url: response.response?.url, title: "🌸", data: response.value)
+            } else {
+                log(url: response.response?.url, title: "🥀", data: response.error)
             }
-        } else {
-            let request = sessionManager.request(requestPath(parameters: parameters),
-                                                 method: httpMethod(parameters: parameters),
-                                                 parameters: parameters?.parameters,
-                                                 encoding: parameterEncoding(parameters: parameters),
-                                                 headers: headers(parameters: parameters))
-            return request
+            
+            completion(response.result.isSuccess, response.value, response.error)
         }
     }
 }

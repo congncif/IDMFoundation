@@ -9,18 +9,11 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-public class ___VARIABLE_moduleName___RequestParameter: DownloadParameterProtocol {
-    public var downloadPath: String?
-    
-    public init(downloadPath: String?) {
-        self.downloadPath = downloadPath
-    }
-}
+public struct ___VARIABLE_moduleName___Parameter: DownloadParameterProtocol {}
 
-public class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressDataModelProtocol {
+public class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressModelProtocol {
     public var progress: Progress?
     public var isDelaying: Bool = false
-    public var data: DownloadResponseDataStandard?
 }
 
-public typealias ___VARIABLE_moduleName___AbstractIntegrator = AbstractIntegrator<___VARIABLE_moduleName___RequestParameter, ___VARIABLE_moduleName___ResponseModel>
+public typealias ___VARIABLE_moduleName___AbstractIntegrator = AbstractIntegrator<___VARIABLE_moduleName___Parameter, ___VARIABLE_moduleName___ResponseModel>

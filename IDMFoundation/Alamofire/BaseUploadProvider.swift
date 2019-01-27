@@ -11,105 +11,68 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BaseUploadProvider<ParameterType>: BaseTaskProvider<ParameterType> {
-    private var uploader: Request?
-    open lazy var sessionManager: SessionManager = {
-        customSessionManager
-    }()
+open class BaseUploadProvider<P>: BaseNetworkProvider<P> where P: UploadFilesParameterProtocol, P: URLBuildable {
+    open var encoder: (MultipartFormData, P?) -> Void
+    open var customRequest: (UploadRequest) -> Void
     
-    open var customSessionManager: SessionManager {
-        let id = "uploader." + String.random()
-        let configuration = URLSessionConfiguration.background(withIdentifier: id)
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        let session = SessionManager(configuration: configuration)
-        return session
+    private var uploader: Request?
+    
+    public init(route: NetworkRequestRoutable,
+                encoder: @escaping (MultipartFormData, P?) -> Void = {
+                    guard let param = $1 else { return }
+                    $0.append(fileParameter: param)
+                },
+                customRequest: @escaping (UploadRequest) -> Void = { $0.validate() },
+                adapters: [NetworkRequestAdapting] = [],
+                sessionManager: SessionManager = .background) {
+        self.encoder = encoder
+        self.customRequest = customRequest
+        super.init(route: route, adapters: adapters, sessionManager: sessionManager)
     }
     
-    open override func request(parameters: ParameterType?,
-                               completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
-        guard let parameters = parameters else {
-            #if DEBUG
-                log("Upload provider don't accept no-parameters")
-            #endif
-            completion(false, nil, nil)
-            return nil
-        }
-        
-        if let err = validate(parameters: parameters) {
-            completion(false, nil, err)
-            return nil
-        }
-        
-        if let data = testResponseData(parameters: parameters) {
-            completion(data.0, data.1, data.2)
-            return nil
-        }
-        
-        if trackingProgressEnabled {
-            if let _ = uploader {
-                #if DEBUG
-                    log("Tracking Progress is Enabled. You should begin only one upload request at the same time. Or consider to set Tracking Progress to disabled.")
-                #endif
-                completion(false, nil, nil)
-                return nil
-            }
-        }
-        
-        let path = requestPath(parameters: parameters)
-        let method = httpMethod(parameters: parameters)
-        let header = headers(parameters: parameters)
-        
-        if logEnabled(parameters: parameters) {
-            var param: [String: Any]?
-            if let paramX = parameters as? ParameterProtocol {
-                param = paramX.parameters
-            }
-            ProviderConfiguration.shared.logger.logRequest(title: "Upload", path: requestPath(parameters: parameters), parameters: param)
-        }
-        
-        saveTemporary(parameters: parameters)
-        
-        sessionManager.upload(multipartFormData: { [weak self] multipart in
-            self?.buildFormData(multipart: multipart, with: parameters)
-        }, to: path, method: method, headers: header) { [weak self] encodingResult in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                self?.customRequest(upload)
-                
-                upload.uploadProgress { [weak self] progress in
-                    if self?.trackingProgressEnabled == true {
+    open override func request(parameters: P?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        do {
+            let newRequest = try buildRequest(with: parameters)
+            
+            log(url: newRequest.url, title: "🚦", data: parameters)
+            
+            sessionManager.upload(multipartFormData: { [weak self] in self?.encoder($0, parameters) },
+                                  with: newRequest) { [weak self] encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    self?.customRequest(upload)
+                    
+                    upload.uploadProgress { progress in
                         completion(true, progress, nil)
                     }
-                }
-                
-                upload.responseJSON { [weak self] response in
-                    guard let this = self else {
-                        completion(false, nil, nil)
-                        return
-                    }
+                    self?.process(upload, completion: completion)
                     
-                    self?.cleanUp(parameters: parameters)
-                    let result = this.preprocessResponse(response)
-                    if this.logEnabled(parameters: parameters) {
-                        ProviderConfiguration.shared.logger.logDataResponse(response)
-                    }
-                    completion(result.success, result.value, result.error)
+                    self?.uploader = upload
+                case .failure(let encodingError):
+                    completion(false, nil, encodingError)
+                    
                     self?.uploader = nil
                 }
-                
-                self?.uploader = upload
-                
-            case .failure(let encodingError):
-                print(encodingError)
-                completion(false, nil, encodingError)
-                
-                self?.uploader = nil
             }
+        } catch let exception {
+            completion(false, nil, exception)
         }
         
         return { [weak self] in
             self?.uploader?.cancel()
             self?.uploader = nil
+        }
+    }
+    
+    open func process(_ dataRequest: UploadRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
+        dataRequest.responseJSON { response in
+            let isSuccess = response.result.isSuccess
+            if isSuccess {
+                log(url: response.response?.url, title: "🌸", data: response.value)
+            } else {
+                log(url: response.response?.url, title: "🥀", data: response.error)
+            }
+            completion(response.result.isSuccess, response.value, response.error)
         }
     }
     

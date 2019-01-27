@@ -48,8 +48,7 @@
 			<key>Values</key>
 			<array>
 				<string>BaseDataProvider</string>
-				<string>BaseURLUploadProvider</string>
-				<string>BaseFileUploadProvider</string>
+				<string>BaseUploadProvider</string>
 				<string>BaseDownloadProvider</string>
 			</array>
 		</dict>
