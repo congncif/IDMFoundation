@@ -15,4 +15,7 @@ target 'IDMFoundation_Example' do
 #  pod 'SwinjectPropertyLoader'
   pod 'SwinjectStoryboard'
   pod 'ObjectMapper'
+  pod 'ModuleX'
+  pod 'ViewStateCore'
+  pod 'SDWebImage'
 end

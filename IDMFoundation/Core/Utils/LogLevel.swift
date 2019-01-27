@@ -21,7 +21,9 @@ public func log(_ items: Any..., separator: String = " ", terminator: String = "
     case .none:
         break
     case .debug:
+        print("\n")
         print(items, separator: separator, terminator: terminator)
+        print("\n")
     }
 }
 

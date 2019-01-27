@@ -44,49 +44,22 @@ public class CLGT: ModelProtocol {
 //    var data: Person?
 // }
 
-public protocol PlaceholderBuilderProtocol {
-    func getInstance<Type>() -> Type?
-}
-
-public struct PlaceholderBuilder<Type>: PlaceholderBuilderProtocol {
-    public func getInstance<Type>() -> Type? {
-        return placeholder as? Type
-    }
-    
-    public var placeholder: Type
-    
-    init(placeholder: Type) {
-        self.placeholder = placeholder
-    }
-}
+import ModuleX
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
     var window: UIWindow?
-    
-    var simpleIntegrator = AbstractIntegrator<Any, String>()
-    var simpleCreator: PlaceholderBuilderProtocol? = PlaceholderBuilder(placeholder: AbstractIntegrator<Any, String>())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         
-        let text = "{\"status\":0,\"data\":{\"full_name\":\"Cong\",\"age\":18,\"gender\":\"male\"}}"
+        window = UIWindow(frame: UIScreen.main.bounds)
         
-        print(text)
+        let mainBuilder = MainBuilder()
+        let mainModule = mainBuilder.build()
         
-        ResponseModelConfiguration.shared.validator = { _ in
-            IDMError(message: "XX")
-        }
+        launch(mainModule)
         
-//        let res = try? XResponse(fromData: text)
-//        let er = res?.invalidDataError
-//
-//        print(er?.localizedDescription)
-        
-//        simpleIntegrator.prepareCall().call()
-        
-        if let creator = simpleCreator, let simple2: AbstractIntegrator<Any, String> = creator.getInstance() {
-            simple2.prepareCall().call()
-        }
+        window?.makeKeyAndVisible()
         
         return true
     }
