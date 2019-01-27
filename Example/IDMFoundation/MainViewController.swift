@@ -15,17 +15,6 @@ import ViewStateCore
 
 public class MainViewController: UIViewController, MainModuleInterface {
     public var presenter: MainPresenterProtocol?
-
-    var state: MainViewState {
-        var _state: MainViewState
-        if let currentState = presenter?.state {
-            _state = currentState
-        } else {
-            assertionFailure()
-            _state = MainViewState()
-        }
-        return _state
-    }
     
     var mainView: MainView {
         return view as! MainView
@@ -38,10 +27,6 @@ public class MainViewController: UIViewController, MainModuleInterface {
 
         // Keep this at end of viewDidLoad
         state.subscribe(for: self)
-    }
-    
-    public func selectUser(id: String) {
-        presenter?.selectUser(id: id)
     }
 }
 

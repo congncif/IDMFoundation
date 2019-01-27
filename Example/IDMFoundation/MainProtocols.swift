@@ -10,7 +10,20 @@ import Foundation
 import ModuleX
 
 public protocol MainModuleInterface: ModuleInterface {
-    func selectUser(id: String)
+    var presenter: MainPresenterProtocol? { get }
+}
+
+extension MainModuleInterface {
+    public var state: MainViewState {
+        var _state: MainViewState
+        if let currentState = presenter?.state {
+            _state = currentState
+        } else {
+            assertionFailure()
+            _state = MainViewState()
+        }
+        return _state
+    }
 }
 
 public protocol MainBuilderProtocol: ModuleBuilderProtocol {

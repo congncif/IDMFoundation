@@ -14,21 +14,10 @@ import UIKit
 import ViewStateCore
 import SDWebImage
 
-public class SearchUserViewController: UIViewController, ModuleInterface {
+public class SearchUserViewController: UIViewController, SearchUserModuleInterface {
     public var presenter: SearchUserPresenterProtocol?
 
     @IBOutlet weak var tableView: UITableView!
-
-    var state: SearchUserViewState {
-        var _state: SearchUserViewState
-        if let currentState = presenter?.state {
-            _state = currentState
-        } else {
-            assertionFailure()
-            _state = SearchUserViewState()
-        }
-        return _state
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()

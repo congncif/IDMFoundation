@@ -11,7 +11,7 @@ import ModuleX
 import SiFUtilities
 
 struct SearchUserBuilder: SearchUserBuilderProtocol {
-    func build(with query: String) -> ModuleInterface {
+    func build() -> SearchUserModuleInterface {
         let viewController = SearchUserViewController.instantiateFromStoryboard()
         
         let router = SearchUserRouter()
@@ -22,8 +22,6 @@ struct SearchUserBuilder: SearchUserBuilderProtocol {
         viewController.presenter = presenter
         
         presenter.searchUserIntegrator = SearchUserIntegratorFactory.getIntegrator()
-        
-        presenter.start(with: query)
         
         return viewController
     }

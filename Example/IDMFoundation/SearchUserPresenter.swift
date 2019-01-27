@@ -9,35 +9,36 @@
 import Foundation
 import IDMCore
 import IDMFoundation
+import ModuleX
 import ViewStateCore
 
 public protocol SearchUserPresenterProtocol {
-	var state: SearchUserViewState { get }
-    
+    var state: SearchUserViewState { get }
+
     func start(with query: String)
     func search<Loader: LoaderProtocol>(loader: Loader)
     func selectUser(id: String)
 }
 
 public class SearchUserPresenter: SearchUserPresenterProtocol {
-	public var router: SearchUserRouterProtocol
+    public var router: SearchUserRouterProtocol
 
-	public private(set) var state: SearchUserViewState
-    
+    public private(set) var state: SearchUserViewState
+
     public var searchUserIntegrator: SearchUserAbstractIntegrator?
 
     public init(router: SearchUserRouterProtocol) {
-    	self.router = router
-    	
-    	let newState = SearchUserViewState()
-    	state = newState
+        self.router = router
+
+        let newState = SearchUserViewState()
+        state = newState
     }
-    
+
     public func start(with query: String) {
         state.query = query
     }
-    
-    public func search<Loader>(loader: Loader) where Loader : LoaderProtocol {
+
+    public func search<Loader>(loader: Loader) where Loader: LoaderProtocol {
         let param = SearchUserParameter(q: state.query)
         searchUserIntegrator?.prepareCall(parameters: param)
             .loading(monitor: loader)
@@ -54,7 +55,7 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
             }
             .call()
     }
-    
+
     public func selectUser(id: String) {
         router.back(with: id)
     }

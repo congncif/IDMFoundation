@@ -21,7 +21,7 @@ public class SearchUserRouter: Router, SearchUserRouterProtocol {
         guard let source = sourceModule,
             let destination = mainBuilder?.find(from: source) else { return }
 
-        destination.selectUser(id: selectedId)
+        destination.presenter?.selectUser(id: selectedId)
         source.viewController.navigationController?.popToViewController(destination.viewController,
                                                                         animated: true)
     }

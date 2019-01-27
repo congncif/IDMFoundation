@@ -34,7 +34,7 @@ open class BaseUploadProvider<P>: BaseNetworkProvider<P> where P: UploadFilesPar
         do {
             let newRequest = try buildRequest(with: parameters)
             
-            log(url: newRequest.url, title: "🚦", data: parameters)
+            log(url: newRequest.url, mark: "📦", data: parameters)
             
             sessionManager.upload(multipartFormData: { [weak self] in self?.encoder($0, parameters) },
                                   with: newRequest) { [weak self] encodingResult in
@@ -68,9 +68,9 @@ open class BaseUploadProvider<P>: BaseNetworkProvider<P> where P: UploadFilesPar
         dataRequest.responseJSON { response in
             let isSuccess = response.result.isSuccess
             if isSuccess {
-                log(url: response.response?.url, title: "🌸", data: response.value)
+                log(url: response.response?.url, mark: "🌸", data: response.value)
             } else {
-                log(url: response.response?.url, title: "🥀", data: response.error)
+                log(url: response.response?.url, mark: "🥀", data: response.error)
             }
             completion(response.result.isSuccess, response.value, response.error)
         }

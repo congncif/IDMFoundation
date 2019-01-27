@@ -30,7 +30,7 @@ open class BaseDownloadProvider<P>: BaseEncodeNetworkProvider<P> where P: Downlo
             var newRequest = try buildRequest(with: parameters)
             newRequest = try encoder.encode(newRequest, with: parameters?.payload)
             
-            log(url: newRequest.url, title: "🚦", data: parameters?.payload)
+            log(url: newRequest.url, mark: "📦", data: parameters?.payload)
             
             let dataRequest = sessionManager.download(newRequest) { (_, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
                 if let desUrl = parameters?.destinationUrl(suggestedFilename: response.suggestedFilename) {
@@ -63,9 +63,9 @@ open class BaseDownloadProvider<P>: BaseEncodeNetworkProvider<P> where P: Downlo
             
             let isSuccess = error == nil
             if isSuccess {
-                log(url: response.response?.url, title: "🌸", data: response.destinationURL)
+                log(url: response.response?.url, mark: "🌸", data: response.destinationURL?.absoluteString)
             } else {
-                log(url: response.response?.url, title: "🥀", data: response.error)
+                log(url: response.response?.url, mark: "🥀", data: response.error)
             }
             
             completion(isSuccess, response, error)

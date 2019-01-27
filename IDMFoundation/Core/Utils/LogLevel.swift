@@ -16,19 +16,20 @@ public class LogConfiguration {
     public static var level: LogLevel = .debug
 }
 
-public func log(_ items: Any..., separator: String = " ", terminator: String = "❀") {
+func log(url: URL?, mark: String, data: Any?) {
     switch LogConfiguration.level {
     case .none:
         break
     case .debug:
-        print("\n")
-        print(items, separator: separator, terminator: terminator)
-        print("\n")
-    }
-}
+        print("🚀🚀🚀")
+        print(url ?? URL(fileURLWithPath: ""))
 
-public func log(url: URL?, title: String, data: Any?) {
-    log("🚀 " + String(describing: url))
-    let param = String(describing: data)
-    log("\(title) \(param)")
+        print(mark + mark + mark)
+        if let message = data as? [String: Any] {
+            let output = message as NSDictionary
+            print(output)
+        } else {
+            print(String(describing: data))
+        }
+    }
 }

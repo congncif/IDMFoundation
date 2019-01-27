@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         
+        LogConfiguration.level = .debug
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let mainBuilder = MainBuilder()

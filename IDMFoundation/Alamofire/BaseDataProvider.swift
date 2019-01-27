@@ -29,7 +29,7 @@ open class BaseDataProvider<P>: BaseEncodeNetworkProvider<P> where P: ParameterP
             var newRequest = try buildRequest(with: parameters)
             newRequest = try encoder.encode(newRequest, with: parameters?.payload)
             
-            log(url: newRequest.url, title: "🚦", data: parameters?.payload)
+            log(url: newRequest.url, mark: "📦", data: parameters?.payload)
             
             let dataRequest = sessionManager.request(newRequest)
             customRequest(dataRequest)
@@ -46,9 +46,9 @@ open class BaseDataProvider<P>: BaseEncodeNetworkProvider<P> where P: ParameterP
         dataRequest.responseJSON { response in
             let isSuccess = response.result.isSuccess
             if isSuccess {
-                log(url: response.response?.url, title: "🌸", data: response.value)
+                log(url: response.response?.url, mark: "🌸", data: response.value)
             } else {
-                log(url: response.response?.url, title: "🥀", data: response.error)
+                log(url: response.response?.url, mark: "🥀", data: response.error)
             }
             
             completion(response.result.isSuccess, response.value, response.error)
