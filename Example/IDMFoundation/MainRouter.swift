@@ -18,8 +18,7 @@ public class MainRouter: Router, MainRouterProtocol {
     var searchUserBuilder: SearchUserBuilderProtocol?
     
     public func openSearchModule(with query: String) {
-        let transition = PushTransition(animator: nil, isAnimated: true)
         guard let nextModule = searchUserBuilder?.build(with: query) else { return }
-        self.open(nextModule, transition: transition)
+        sourceModule?.viewController.navigationController?.pushViewController(nextModule.viewController, animated: true)
     }
 }
