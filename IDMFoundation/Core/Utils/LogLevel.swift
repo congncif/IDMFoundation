@@ -7,13 +7,22 @@
 
 import Foundation
 
-public enum LogLevel: String {
-    case debug
-    case none
+public class LogConfiguration {
+    public enum LogLevel: String {
+        case debug
+        case none
+    }
+
+    public static var level: LogLevel = .debug
 }
 
-public class LogConfiguration {
-    public static var level: LogLevel = .debug
+public func log(_ items: Any...) {
+    switch LogConfiguration.level {
+    case .none:
+        break
+    case .debug:
+        print(items)
+    }
 }
 
 func log(url: URL?, mark: String, data: Any?) {
