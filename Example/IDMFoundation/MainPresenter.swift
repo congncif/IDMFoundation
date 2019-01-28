@@ -20,9 +20,8 @@ public protocol MainPresenterProtocol {
 }
 
 public class MainPresenter: MainPresenterProtocol {
-    public var router: MainRouterProtocol
-
     public private(set) var state: MainViewState
+    private var router: MainRouterProtocol
 
     public init(router: MainRouterProtocol) {
         self.router = router

@@ -21,14 +21,15 @@ public protocol SearchUserPresenterProtocol {
 }
 
 public class SearchUserPresenter: SearchUserPresenterProtocol {
-    public var router: SearchUserRouterProtocol
-
     public private(set) var state: SearchUserViewState
+    
+    private var router: SearchUserRouterProtocol
+    private var searchUserIntegrator: SearchUserAbstractIntegrator
 
-    public var searchUserIntegrator: SearchUserAbstractIntegrator?
-
-    public init(router: SearchUserRouterProtocol) {
+    public init(router: SearchUserRouterProtocol,
+                searchUserIntegrator: SearchUserAbstractIntegrator) {
         self.router = router
+        self.searchUserIntegrator = searchUserIntegrator
 
         let newState = SearchUserViewState()
         state = newState
@@ -40,7 +41,7 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
 
     public func search(loader: LoadAndErrorHandlerProtocol) {
         let param = SearchUserParameter(q: state.query)
-        searchUserIntegrator?.prepareCall(parameters: param)
+        searchUserIntegrator.prepareCall(parameters: param)
             .loader(loader)
             .onSuccess { [unowned self] model in
                 let result = model?.items ?? []
@@ -53,6 +54,9 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
                     return newUser
                 })
             }
+            .next(state: .completion, nextBlock: { _ in
+                print("Xong API")
+            })
             .call()
     }
 

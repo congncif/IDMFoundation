@@ -18,10 +18,9 @@ struct SearchUserBuilder: SearchUserBuilderProtocol {
         router.sourceModule = viewController
         router.mainBuilder = MainBuilder()
         
-        let presenter = SearchUserPresenter(router: router)
+        let presenter = SearchUserPresenter(router: router,
+                                            searchUserIntegrator: SearchUserIntegratorFactory.getIntegrator())
         viewController.presenter = presenter
-        
-        presenter.searchUserIntegrator = SearchUserIntegratorFactory.getIntegrator()
         
         return viewController
     }
