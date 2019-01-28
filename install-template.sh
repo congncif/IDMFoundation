@@ -25,7 +25,7 @@ then
 	echo "Updating Presenter template exists..."
 fi
 
-cp -R IDM/Module.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+cp -R Templates/Module.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/IDMCore.xctemplate
 if [ -d "$temp_dir" ] 
@@ -34,6 +34,6 @@ then
 	echo "Updating Flow template exists..."
 fi
 
-cp -R IDM/IDMCore.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+cp -R Templates/IDMCore.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 echo "${green}Installed IDM-Foundation.xctemplate successfully${reset}"
