@@ -11,61 +11,73 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BaseUploadProvider<P>: BaseNetworkProvider<P> where P: UploadFilesParameterProtocol, P: URLBuildable {
-    open var encoder: (MultipartFormData, P?) -> Void
-    open var customRequest: (UploadRequest) -> Void
+open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Parameter>
+    where Parameter: UploadFilesParameterProtocol, Parameter: URLBuildable {
+    public typealias RequestApdapterType = RequestAdapter<UploadRequest, Parameter>
+    public typealias RequestType = UploadRequest
     
-    private var uploader: Request?
+    public var encoding: (MultipartFormData, Parameter?) -> Void
     
     public init(route: NetworkRequestRoutable,
-                encoder: @escaping (MultipartFormData, P?) -> Void = {
+                parameterEncoder: ParameterEncoding = URLEncoding.default,
+                urlRequestAdapters: [URLRequestAdapting] = [],
+                encoding: @escaping (MultipartFormData, Parameter?) -> Void = {
                     guard let param = $1 else { return }
                     $0.append(fileParameter: param)
                 },
-                customRequest: @escaping (UploadRequest) -> Void = { $0.validate() },
-                adapters: [NetworkRequestAdapting] = [],
+                requestAdapter: RequestApdapterType? = nil,
                 sessionManager: SessionManager = .background) {
-        self.encoder = encoder
-        self.customRequest = customRequest
-        super.init(route: route, adapters: adapters, sessionManager: sessionManager)
+        self.encoding = encoding
+        super.init(route: route,
+                   parameterEncoder: parameterEncoder,
+                   urlRequestAdapters: urlRequestAdapters,
+                   requestAdapter: requestAdapter,
+                   sessionManager: sessionManager)
     }
     
-    open override func request(parameters: P?, completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+    open override func buildRequest(with parameters: Parameter?) throws -> UploadRequest {
+        var request: UploadRequest?
+        var error: Error?
+        let group = DispatchGroup()
+        group.enter()
+        
         do {
-            let newRequest = try buildRequest(with: parameters)
-            
+            let newRequest = try buildURLRequest(with: parameters)
             log(url: newRequest.url, mark: "📦", data: parameters)
-            
-            sessionManager.upload(multipartFormData: { [weak self] in self?.encoder($0, parameters) },
-                                  with: newRequest) { [weak self] encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    self?.customRequest(upload)
-                    
-                    upload.uploadProgress { progress in
-                        completion(true, progress, nil)
-                    }
-                    self?.process(upload, completion: completion)
-                    
-                    self?.uploader = upload
-                case .failure(let encodingError):
-                    completion(false, nil, encodingError)
-                    
-                    self?.uploader = nil
-                }
+            sessionManager.upload(multipartFormData: { [weak self] in self?.encoding($0, parameters) },
+                                  with: newRequest) { encodingResult in
+                                    switch encodingResult {
+                                    case .success(let upload, _, _):
+                                        request = upload
+                                        group.leave()
+                                    case .failure(let encodingError):
+                                        error = encodingError
+                                        group.leave()
+                                    }
             }
         } catch let exception {
-            completion(false, nil, exception)
+            error = exception
+            group.leave()
         }
         
-        return { [weak self] in
-            self?.uploader?.cancel()
-            self?.uploader = nil
+        group.wait()
+        
+        guard let _request = request else {
+            throw error ?? CommonError(message: "Unknown")
         }
+        return _request
     }
     
-    open func process(_ dataRequest: UploadRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
-        dataRequest.responseJSON { response in
+    open override func cancelRequest(_ request: UploadRequest) {
+        request.cancel()
+    }
+    
+    open override func processRequest(_ request: UploadRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
+        request.uploadProgress { progress in
+            completion(true, progress, nil)
+        }
+        
+        request.responseJSON { response in
             let isSuccess = response.result.isSuccess
             if isSuccess {
                 log(url: response.response?.url, mark: "🌸", data: response.value)
@@ -74,10 +86,5 @@ open class BaseUploadProvider<P>: BaseNetworkProvider<P> where P: UploadFilesPar
             }
             completion(response.result.isSuccess, response.value, response.error)
         }
-    }
-    
-    deinit {
-        uploader?.cancel()
-        uploader = nil
     }
 }

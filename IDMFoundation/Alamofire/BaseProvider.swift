@@ -4,37 +4,58 @@
 //
 //  Created by FOLY on 7/21/18.
 //
+
 import Alamofire
-import Foundation
 import IDMCore
 import SiFUtilities
+import UIKit
 
-open class BaseNetworkProvider<P>: AnyResultDataProvider<P>, NetworkRequestRouteBuildable, AlamofireNetworkRequestable where P: URLBuildable {
-    public typealias Parameters = P
-    public typealias ParameterType = P
+open class NetworkDataProvider<Request, Parameter>: AnyResultDataProvider<Parameter>, AlamofireRequestProtocol {
+    public typealias RequestApdapterType = RequestAdapter<Request, Parameter>
+    public typealias RequestType = Request
     
-    open var adapters: [NetworkRequestAdapting]
-    open var route: NetworkRequestRoutable
-    
-    open var sessionManager: SessionManager
+    public var route: NetworkRequestRoutable
+    public var parameterEncoder: ParameterEncoding
+    public var urlRequestAdapters: [URLRequestAdapting]
+    public var requestAdapter: RequestApdapterType?
+    public var sessionManager: SessionManager
     
     public init(route: NetworkRequestRoutable,
-                adapters: [NetworkRequestAdapting],
-                sessionManager: SessionManager) {
+                parameterEncoder: ParameterEncoding = URLEncoding.default,
+                urlRequestAdapters: [URLRequestAdapting] = [],
+                requestAdapter: RequestApdapterType? = nil,
+                sessionManager: SessionManager = .background) {
         self.route = route
-        self.adapters = adapters
+        self.parameterEncoder = parameterEncoder
+        self.urlRequestAdapters = urlRequestAdapters
+        self.requestAdapter = requestAdapter
         self.sessionManager = sessionManager
     }
-}
-
-open class BaseEncodeNetworkProvider<P>: BaseNetworkProvider<P> where P: URLBuildable {
-    open var encoder: ParameterEncoding
     
-    public init(route: NetworkRequestRoutable,
-                encoder: ParameterEncoding = URLEncoding.default,
-                adapters: [NetworkRequestAdapting] = [],
-                sessionManager: SessionManager = .background) {
-        self.encoder = encoder
-        super.init(route: route, adapters: adapters, sessionManager: sessionManager)
+    open override func request(parameters: Parameter?,
+                               completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
+        var cancelHandler: CancelHandler?
+        do {
+            let dataRequest = try buildAdaptiveRequest(with: parameters)
+            processRequest(dataRequest, completion: completion)
+            
+            cancelHandler = { [weak self] in self?.cancelRequest(dataRequest) }
+        } catch let exception {
+            completion(false, nil, exception)
+        }
+        return cancelHandler
+    }
+    
+    // Abstract methods, must override in subclass
+    open func buildRequest(with parameters: Parameter?) throws -> Request {
+        fatalError("Abstract methods, must override in subclass")
+    }
+    
+    open func cancelRequest(_ request: Request) {
+        fatalError("Abstract methods, must override in subclass")
+    }
+    
+    open func processRequest(_ request: Request, completion: @escaping (Bool, Any?, Error?) -> Void) {
+        fatalError("Abstract methods, must override in subclass")
     }
 }

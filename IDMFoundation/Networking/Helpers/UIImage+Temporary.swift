@@ -22,7 +22,7 @@ extension UIImage: TemporaryProtocol {
                 throw error
             }
         } else {
-            let err = CommonError(title: "Image not found".localized)
+            let err = CommonError(message: "Image not found".localized)
             throw err
         }
         return url
