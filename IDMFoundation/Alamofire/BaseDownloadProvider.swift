@@ -14,7 +14,6 @@ import SiFUtilities
 open class BaseDownloadProvider<Parameter>: NetworkDataProvider<DownloadRequest, Parameter>, SimpleAlamofireRequestBuildable where Parameter: DownloadParameterProtocol {
     open override func buildRequest(with parameters: Parameter?) throws -> DownloadRequest {
         var newRequest = try buildEncodedRequest(with: parameters)
-        newRequest = try parameterEncoder.encode(newRequest, with: parameters?.payload)
         
         let dataRequest = sessionManager.download(newRequest) { (_, response) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
             if let desUrl = parameters?.destinationUrl(suggestedFilename: response.suggestedFilename) {

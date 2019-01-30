@@ -13,7 +13,6 @@ import UIKit
 open class BaseDataProvider<Parameter>: NetworkDataProvider<DataRequest, Parameter>, SimpleAlamofireRequestBuildable where Parameter: ParameterProtocol {
     open override func buildRequest(with parameters: Parameter?) throws -> DataRequest {
         var newRequest = try buildEncodedRequest(with: parameters)
-        newRequest = try parameterEncoder.encode(newRequest, with: parameters?.payload)
         
         let dataRequest = sessionManager.request(newRequest)
         

@@ -55,7 +55,7 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
                 })
             }
             .next(state: .completion, nextBlock: { _ in
-                print("Xong API")
+                print("Done API")
             })
             .call()
     }

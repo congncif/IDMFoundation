@@ -46,14 +46,14 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
             log(url: newRequest.url, mark: "📦", data: parameters)
             sessionManager.upload(multipartFormData: { [weak self] in self?.encoding($0, parameters) },
                                   with: newRequest) { encodingResult in
-                                    switch encodingResult {
-                                    case .success(let upload, _, _):
-                                        request = upload
-                                        group.leave()
-                                    case .failure(let encodingError):
-                                        error = encodingError
-                                        group.leave()
-                                    }
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    request = upload
+                    group.leave()
+                case .failure(let encodingError):
+                    error = encodingError
+                    group.leave()
+                }
             }
         } catch let exception {
             error = exception
