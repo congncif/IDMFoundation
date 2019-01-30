@@ -84,8 +84,6 @@ extension SearchUserViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = users[indexPath.row]
-        if let id = model.id {
-            presenter?.selectUser(id: id)
-        }
+        presenter?.selectUser(model)
     }
 }

@@ -13,7 +13,7 @@ import ViewStateCore
 
 public class MainViewState: ViewState {
     @objc public internal(set) dynamic var query: String?
-    @objc public internal(set) dynamic var selectedUser: String?
+    @objc public internal(set) dynamic var selectedUser: SearchUserModel?
 
 	public struct Keys {
         public static var query: String {

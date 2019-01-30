@@ -16,7 +16,7 @@ public protocol MainPresenterProtocol {
     var state: MainViewState { get }
 
     func searchUser(query: String)
-    func selectUser(id: String)
+    func selectUser(_ user: SearchUserModel)
 }
 
 public class MainPresenter: MainPresenterProtocol {
@@ -34,7 +34,7 @@ public class MainPresenter: MainPresenterProtocol {
         router.openSearchModule(with: query)
     }
 
-    public func selectUser(id: String) {
-        state.selectedUser = id
+    public func selectUser(_ user: SearchUserModel) {
+        state.selectedUser = user
     }
 }

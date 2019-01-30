@@ -17,7 +17,7 @@ public protocol SearchUserPresenterProtocol {
 
     func start(with query: String)
     func search(loader: LoadAndErrorHandlerProtocol)
-    func selectUser(id: String)
+    func selectUser(_ user: SearchUserModel)
 }
 
 public class SearchUserPresenter: SearchUserPresenterProtocol {
@@ -60,7 +60,7 @@ public class SearchUserPresenter: SearchUserPresenterProtocol {
             .call()
     }
 
-    public func selectUser(id: String) {
-        router.userDidSelect(id)
+    public func selectUser(_ user: SearchUserModel) {
+        router.userDidSelect(user)
     }
 }

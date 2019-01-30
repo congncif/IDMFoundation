@@ -44,6 +44,6 @@ extension MainViewController: ViewStateSubscriber, ViewStateRenderable {
     public func render(state: ViewState) {
         mainView.searchField.text = self.state.query
         mainView.searchButton.isEnabled = !self.state.query.isNoValue
-        mainView.selectedUserLabel.text = self.state.selectedUser ?? "--"
+        mainView.selectedUserLabel.text = self.state.selectedUser?.name
     }
 }

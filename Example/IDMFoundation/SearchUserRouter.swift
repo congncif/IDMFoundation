@@ -11,17 +11,17 @@ import IDMFoundation
 import ModuleX
 
 public protocol SearchUserRouterProtocol: RouterProtocol {
-    func userDidSelect(_ userId: String)
+    func userDidSelect(_ user: SearchUserModel)
 }
 
 public class SearchUserRouter: Router, SearchUserRouterProtocol {
     var mainBuilder: MainBuilderProtocol?
     
-    public func userDidSelect(_ userId: String) {
+    public func userDidSelect(_ user: SearchUserModel) {
         guard let source = sourceModule,
             let destination = mainBuilder?.find(from: source) else { return }
         
-        destination.presenter?.selectUser(id: userId)
+        destination.presenter?.selectUser(user)
         source.viewController.navigationController?.popToViewController(destination.viewController,
                                                                         animated: true)
     }
