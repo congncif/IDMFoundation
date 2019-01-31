@@ -11,6 +11,8 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
+public typealias DownloadRequestAdapter = BaseRequestAdapter<DownloadRequest>
+
 open class BaseDownloadProvider<Parameter>: NetworkDataProvider<DownloadRequest, Parameter>, SimpleAlamofireRequestBuildable where Parameter: DownloadParameterProtocol {
     open override func buildRequest(with parameters: Parameter?) throws -> DownloadRequest {
         var newRequest = try buildEncodedRequest(with: parameters)

@@ -16,7 +16,7 @@ public protocol URLRequestBuildable: RequestBuildable {
 }
 
 extension URLRequestBuildable {
-    public func buildURLAdaptiveRequest(with parameters: ParameterType?) throws -> URLRequest {
+    public func buildAdaptiveURLRequest(with parameters: ParameterType?) throws -> URLRequest {
         var newRequest = try buildURLRequest(with: parameters)
 
         // Adapt URLRequest with config timeout, cachePolicy, etc...

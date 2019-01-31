@@ -11,10 +11,10 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
+public typealias UploadRequestAdapter = BaseRequestAdapter<UploadRequest>
+
 open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Parameter>
     where Parameter: UploadFilesParameterProtocol, Parameter: URLBuildable {
-    public typealias RequestApdapterType = RequestAdapter<UploadRequest, Parameter>
-    public typealias RequestType = UploadRequest
     
     public var encoding: (MultipartFormData, Parameter?) -> Void
     
@@ -84,7 +84,7 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
             } else {
                 log(url: response.response?.url, mark: "🥀", data: response.error)
             }
-            completion(response.result.isSuccess, response.value, response.error)
+            completion(isSuccess, response.value, response.error)
         }
     }
 }

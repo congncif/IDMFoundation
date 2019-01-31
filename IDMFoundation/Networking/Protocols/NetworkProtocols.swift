@@ -10,9 +10,8 @@ import SiFUtilities
 
 public protocol RequestAdapting {
     associatedtype RequestType
-    associatedtype ParameterType
 
-    func adapt(request: RequestType, with parameters: ParameterType?) throws -> RequestType
+    func adapt(request: RequestType) throws -> RequestType
 }
 
 public protocol Requestable {
@@ -65,9 +64,7 @@ extension RouteRequestBuildable {
 // #2
 
 public protocol FlexibleRequestable: Requestable {
-    associatedtype RequestApdapterType: RequestAdapting where
-        RequestApdapterType.ParameterType == ParameterType,
-        RequestApdapterType.RequestType == RequestType
+    associatedtype RequestApdapterType: RequestAdapting where RequestApdapterType.RequestType == RequestType
 
     func requestAdapter(_ parameters: ParameterType?) -> RequestApdapterType?
 }
@@ -77,7 +74,7 @@ extension FlexibleRequestable {
         var newRequest = try buildRequest(with: parameters)
 
         if let adapter = requestAdapter(parameters) {
-            newRequest = try adapter.adapt(request: newRequest, with: parameters)
+            newRequest = try adapter.adapt(request: newRequest)
         }
 
         return newRequest

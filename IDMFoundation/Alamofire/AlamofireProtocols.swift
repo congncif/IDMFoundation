@@ -78,7 +78,7 @@ public protocol AlamofireRequestBuildable: SimpleURLRequestBuildable {
 
 extension AlamofireRequestBuildable where ParameterType: ParameterProtocol {
     public func buildEncodedRequest(with parameters: ParameterType?) throws -> URLRequest {
-        var newRequest = try buildURLAdaptiveRequest(with: parameters)
+        var newRequest = try buildAdaptiveURLRequest(with: parameters)
 
         let encoder = parameterEncoder(parameters)
         newRequest = try encoder.encode(newRequest, with: parameters?.payload)
@@ -94,15 +94,6 @@ public protocol SimpleAlamofireRequestBuildable: AlamofireRequestBuildable {
 extension SimpleAlamofireRequestBuildable {
     public func parameterEncoder(_ parameters: ParameterType?) -> ParameterEncoding {
         return parameterEncoder
-    }
-}
-
-open class RequestAdapter<Request, Parameter>: RequestAdapting {
-    public typealias RequestType = Request
-    public typealias ParameterType = Parameter
-
-    open func adapt(request: Request, with parameters: Parameter?) throws -> Request {
-        return request
     }
 }
 

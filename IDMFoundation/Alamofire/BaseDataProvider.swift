@@ -10,6 +10,8 @@ import IDMCore
 import SiFUtilities
 import UIKit
 
+public typealias DataRequestAdapter = BaseRequestAdapter<DataRequest>
+
 open class BaseDataProvider<Parameter>: NetworkDataProvider<DataRequest, Parameter>, SimpleAlamofireRequestBuildable where Parameter: ParameterProtocol {
     open override func buildRequest(with parameters: Parameter?) throws -> DataRequest {
         var newRequest = try buildEncodedRequest(with: parameters)
@@ -34,7 +36,7 @@ open class BaseDataProvider<Parameter>: NetworkDataProvider<DataRequest, Paramet
                 log(url: response.response?.url, mark: "🥀", data: response.error)
             }
             
-            completion(response.result.isSuccess, response.value, response.error)
+            completion(isSuccess, response.value, response.error)
         }
     }
 }

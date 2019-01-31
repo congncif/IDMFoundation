@@ -11,7 +11,7 @@ import SiFUtilities
 import UIKit
 
 open class NetworkDataProvider<Request, Parameter>: AnyResultDataProvider<Parameter>, AlamofireRequestProtocol {
-    public typealias RequestApdapterType = RequestAdapter<Request, Parameter>
+    public typealias RequestApdapterType = BaseRequestAdapter<Request>
     public typealias RequestType = Request
     
     public var route: NetworkRequestRoutable
@@ -38,7 +38,6 @@ open class NetworkDataProvider<Request, Parameter>: AnyResultDataProvider<Parame
         do {
             let dataRequest = try buildAdaptiveRequest(with: parameters)
             processRequest(dataRequest, completion: completion)
-            
             cancelHandler = { [weak self] in self?.cancelRequest(dataRequest) }
         } catch let exception {
             completion(false, nil, exception)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		027C9F7E523BA0CACC239C36 /* Pods_IDMFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37133D3F734187A8CC32175 /* Pods_IDMFoundation_Example.framework */; };
+		0A1A27D322028C71000C264D /* Network++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A27D222028C71000C264D /* Network++.swift */; };
 		0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */; };
 		0A5A08B121FDA7BA009D7309 /* NetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */; };
 		0A5A08B721FDA847009D7309 /* SearchUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1A27D222028C71000C264D /* Network++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network++.swift"; sourceTree = "<group>"; };
 		0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
 		0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoutes.swift; sourceTree = "<group>"; };
 		0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserMapper.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */,
 				0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */,
 				0A5A08EA21FDB876009D7309 /* UIViewController++.swift */,
+				0A1A27D222028C71000C264D /* Network++.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				0A5A08C321FDAADC009D7309 /* SearchUserPresenter.swift in Sources */,
 				0A5A08B821FDA847009D7309 /* SearchUserIntegrating.swift in Sources */,
 				0A5A08D821FDAC6C009D7309 /* MainPresenter.swift in Sources */,
+				0A1A27D322028C71000C264D /* Network++.swift in Sources */,
 				0A5A08E021FDAD90009D7309 /* SearchUserBuilder.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				0A5A08ED21FDBDEF009D7309 /* MainProtocols.swift in Sources */,

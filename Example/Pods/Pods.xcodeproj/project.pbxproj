@@ -21,6 +21,7 @@
 		07E40B31BC08E67AD730C3AB3E668475 /* SiFUtilities-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7684DE5AAD37D0F34DB39BCF7C5EF385 /* SiFUtilities-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		097575BBD65BC15271BF90B640943C0A /* String+LocalizeBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231A560BED79ED3A4F2CB68D974ECA5 /* String+LocalizeBundle.swift */; };
 		09800C95658F58AF2D8B3F1B34D38DA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A13D48D51ED8C883011D26916C32C1 /* Foundation.framework */; };
+		0ACF88BF220286EE000F5CAB /* BaseRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACF88BE220286EE000F5CAB /* BaseRequestAdapter.swift */; };
 		0AD0ABBF2201588B00A64663 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0ABBE2201588B00A64663 /* NetworkProtocols.swift */; };
 		0AD0ABC1220159CC00A64663 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0ABC0220159CC00A64663 /* String+URL.swift */; };
 		0AD0ABC32201611300A64663 /* NetworkComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0ABC22201611300A64663 /* NetworkComponents.swift */; };
@@ -258,7 +259,7 @@
 		BE264DC30535BEF3B15487655A60D632 /* UINavigationBar++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E319F916A4F004FE5D8F99B4F6CC0 /* UINavigationBar++.swift */; };
 		BE4BA1EDE444A770F834605F4B65348E /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583A40F82AA54D277871363CC42B2B8 /* AFError.swift */; };
 		BE5C97899716A34294AD89CE7359A2A7 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A05B463FC73D33C0EBBB63B721796 /* UIView+WebCache.m */; };
-		BE730A80726750108AC8C69318939C43 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4E762BF04BE3356FAA3FF984F1076F /* BaseProvider.swift */; };
+		BE730A80726750108AC8C69318939C43 /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4E762BF04BE3356FAA3FF984F1076F /* NetworkDataProvider.swift */; };
 		BF00ECB00FF987E849CFD427BC415FDD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855570D5B37CDC40FA2F7E8BF3FC71DB /* AVFoundation.framework */; };
 		BF3F1C82D48CC828C1F7FB19F4BD3C51 /* ViewStateCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F79F37E5FB86565D3A1F85F057A641D /* ViewStateCore-dummy.m */; };
 		BF435B832E7487220CAB1B92CC495BDF /* FunctionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF1030444BF6C3E64FA8891700DCB /* FunctionType.swift */; };
@@ -533,6 +534,7 @@
 		08D017BB7D2B11D2C36B3A6349CCA703 /* SDWebImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDWebImage-Info.plist"; sourceTree = "<group>"; };
 		098347E7CCEBB4A7A868978B8106E9DF /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		0985F04D301E88190FA1F0DE02016626 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		0ACF88BE220286EE000F5CAB /* BaseRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestAdapter.swift; sourceTree = "<group>"; };
 		0AD0ABBE2201588B00A64663 /* NetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocols.swift; sourceTree = "<group>"; };
 		0AD0ABC0220159CC00A64663 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		0AD0ABC22201611300A64663 /* NetworkComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkComponents.swift; sourceTree = "<group>"; };
@@ -666,7 +668,7 @@
 		59A346350E38FE1A86BDD02ED4E5C0F2 /* Container.Logging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.Logging.swift; path = Sources/Container.Logging.swift; sourceTree = "<group>"; };
 		59B111B92488F395E4B989AC599263B5 /* StandardProgressResponseModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StandardProgressResponseModel.swift; sourceTree = "<group>"; };
 		5A7E784591E6A63E6851CE29444DB23B /* IntegerOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegerOperators.swift; path = Sources/IntegerOperators.swift; sourceTree = "<group>"; };
-		5B4E762BF04BE3356FAA3FF984F1076F /* BaseProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseProvider.swift; path = IDMFoundation/Alamofire/BaseProvider.swift; sourceTree = "<group>"; };
+		5B4E762BF04BE3356FAA3FF984F1076F /* NetworkDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkDataProvider.swift; path = IDMFoundation/Alamofire/NetworkDataProvider.swift; sourceTree = "<group>"; };
 		5BA0DE0793722514C77026F5012C43AD /* MBProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MBProgressHUD.modulemap; sourceTree = "<group>"; };
 		5BACE16558483ABB33FA9CAA1B5F5F8C /* Foundation++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Foundation++.swift"; path = "Core/Foundation++.swift"; sourceTree = "<group>"; };
 		5BD75B40412EEBF0DF76979F154F7B0D /* UIViewController+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Utils.swift"; path = "Show/UIViewController+Utils.swift"; sourceTree = "<group>"; };
@@ -1805,12 +1807,12 @@
 		B0AB12A33162A3467BF0DE2A6745F2D2 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
+				CDCFF353F525B138E368DB5E79A1034E /* AlamofireProtocols.swift */,
 				6DBA74D3989A1B5D66FEE2099D626E99 /* BaseDataProvider.swift */,
 				01DA954074857D5CF6C2EBE4C4A7BD2A /* BaseDownloadProvider.swift */,
 				B5F5C02996656FF5502F29B9B98DA2FA /* BaseUploadProvider.swift */,
-				5B4E762BF04BE3356FAA3FF984F1076F /* BaseProvider.swift */,
 				9E9B4FC7A48AC7B7800C124821B95A8C /* MultipartFormData+Parameter.swift */,
-				CDCFF353F525B138E368DB5E79A1034E /* AlamofireProtocols.swift */,
+				5B4E762BF04BE3356FAA3FF984F1076F /* NetworkDataProvider.swift */,
 				111A9B9C50E704DDF304186E685F4234 /* SessionManager+Background.swift */,
 			);
 			name = Alamofire;
@@ -1978,6 +1980,7 @@
 			isa = PBXGroup;
 			children = (
 				8CBE25EBD3AC4888ED7C9828372449B1 /* UploadParameter.swift */,
+				0ACF88BE220286EE000F5CAB /* BaseRequestAdapter.swift */,
 			);
 			name = Base;
 			path = IDMFoundation/Networking/Base;
@@ -2826,7 +2829,7 @@
 				A254E803D501B59EF56EE694618FFD03 /* BaseDownloadProvider.swift in Sources */,
 				0AD0ABBF2201588B00A64663 /* NetworkProtocols.swift in Sources */,
 				B7C3CEEB127F9FD61DDFDECEF4208757 /* BaseMapper.swift in Sources */,
-				BE730A80726750108AC8C69318939C43 /* BaseProvider.swift in Sources */,
+				BE730A80726750108AC8C69318939C43 /* NetworkDataProvider.swift in Sources */,
 				23BF7F2CA8C00378F6436F05B72ADC68 /* BaseUploadProvider.swift in Sources */,
 				30E827076843B9A872540DEC80C9797C /* CameraAsset+Temporary.swift in Sources */,
 				B6F5B347E32D9BAEC912E023CD44AE8D /* CameraAsset+Upload.swift in Sources */,
@@ -2848,6 +2851,7 @@
 				54A3B487142CA7DC437739EA5E410471 /* ResponseModelConfiguration.swift in Sources */,
 				D117D83F1A36B3CBE44C3C90BE5C4BC8 /* ResponseModelProtocol++.swift in Sources */,
 				1C27630C3D9BE6CE773250B6600A5026 /* ResponseModelProtocol.swift in Sources */,
+				0ACF88BF220286EE000F5CAB /* BaseRequestAdapter.swift in Sources */,
 				0AD0ABC1220159CC00A64663 /* String+URL.swift in Sources */,
 				F12A9F78BAE9D7F701EF8652FBD2623E /* SessionManager+Background.swift in Sources */,
 				4F8494B396BFBBF1693E56D6F924CAF4 /* StandardProgressResponseModel.swift in Sources */,
