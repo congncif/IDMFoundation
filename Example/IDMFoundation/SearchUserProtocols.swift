@@ -7,10 +7,27 @@
 //
 
 import Foundation
+import IDMFoundation
 import ModuleX
 
 public protocol SearchUserModuleInterface: ModuleInterface {
     var presenter: SearchUserPresenterProtocol? { get }
+}
+
+public protocol SearchUserPresenterProtocol {
+    var state: SearchUserViewState { get }
+
+    func start(with query: String)
+    func search(loader: LoadAndErrorHandlerProtocol)
+    func selectUser(_ user: SearchUserModel)
+}
+
+public protocol SearchUserBuilderProtocol {
+    func build() -> SearchUserModuleInterface
+}
+
+public protocol SearchUserRouterProtocol: RouterProtocol {
+    func userDidSelect(_ user: SearchUserModel)
 }
 
 extension SearchUserModuleInterface {
@@ -24,8 +41,4 @@ extension SearchUserModuleInterface {
         }
         return _state
     }
-}
-
-public protocol SearchUserBuilderProtocol {
-    func build() -> SearchUserModuleInterface
 }

@@ -125,7 +125,35 @@
 			name = Business;
 			sourceTree = "<group>";
 		};
-		0A5A08BC21FDAA8D009D7309 /* Integrators */ = {
+		0A1A27E122034176000C264D /* InOut */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */,
+				0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */,
+			);
+			name = InOut;
+			sourceTree = "<group>";
+		};
+		0A1A27E22203417F000C264D /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */,
+				0A5A08C821FDAB9D009D7309 /* SearchUserViewController.storyboard */,
+				0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		0A1A27E322034186000C264D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
+				0A5A08C221FDAADC009D7309 /* SearchUserViewState.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		0A1A27E42203422C000C264D /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
 				0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */,
@@ -133,6 +161,14 @@
 				0A5A08B421FDA847009D7309 /* SearchUserDefinitions.swift */,
 				0A5A08B521FDA847009D7309 /* SearchUserDataProvider.swift */,
 				0A5A08B621FDA847009D7309 /* SearchUserIntegratorFactory.swift */,
+			);
+			name = SearchUser;
+			sourceTree = "<group>";
+		};
+		0A5A08BC21FDAA8D009D7309 /* Integrators */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A27E42203422C000C264D /* SearchUser */,
 			);
 			name = Integrators;
 			sourceTree = "<group>";
@@ -160,12 +196,9 @@
 		0A5A08CA21FDABFD009D7309 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
-				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
-				0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */,
-				0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */,
-				0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */,
-				0A5A08C821FDAB9D009D7309 /* SearchUserViewController.storyboard */,
-				0A5A08C221FDAADC009D7309 /* SearchUserViewState.swift */,
+				0A1A27E22203417F000C264D /* Business */,
+				0A1A27E122034176000C264D /* InOut */,
+				0A1A27E322034186000C264D /* Interface */,
 			);
 			name = SearchUser;
 			sourceTree = "<group>";
@@ -174,18 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				0A1A27D622033CC7000C264D /* Business */,
-				0A1A27D522033CB3000C264D /* Interface */,
 				0A1A27D422033BD1000C264D /* InOut */,
+				0A1A27D522033CB3000C264D /* Interface */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		0A5A08DC21FDACEA009D7309 /* Builders */ = {
-			isa = PBXGroup;
-			children = (
-				0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */,
-			);
-			name = Builders;
 			sourceTree = "<group>";
 		};
 		0A5A08EE21FDC23C009D7309 /* Models */ = {
@@ -222,7 +247,6 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				0A5A08BE21FDAAB3009D7309 /* Shared */,
 				0A5A08EE21FDC23C009D7309 /* Models */,
-				0A5A08DC21FDACEA009D7309 /* Builders */,
 				0A5A08C721FDAB05009D7309 /* Modules */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
