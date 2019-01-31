@@ -15,11 +15,11 @@ public class MainViewState: ViewState {
     @objc public internal(set) dynamic var query: String?
     @objc public internal(set) dynamic var selectedUser: SearchUserModel?
 
-	public struct Keys {
+    public struct Keys {
         public static var query: String {
             return #keyPath(MainViewState.query)
         }
-        
+
         public static var selectedUser: String {
             return #keyPath(MainViewState.selectedUser)
         }

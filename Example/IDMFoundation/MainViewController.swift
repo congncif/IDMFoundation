@@ -26,7 +26,7 @@ public class MainViewController: UIViewController, MainModuleInterface {
         view.backgroundColor = .white
 
         // Keep this at end of viewDidLoad
-        state.subscribe(for: self)
+        subscribeStateChange(state)
     }
 }
 

@@ -23,7 +23,7 @@ public class SearchUserViewController: UIViewController, SearchUserModuleInterfa
         super.viewDidLoad()
 
         // Keep this at end of viewDidLoad
-        state.subscribe(for: self)
+        subscribeStateChange(state)
     }
 
     public override func viewDidFinishLayout() {

@@ -12,13 +12,6 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-public protocol MainPresenterProtocol {
-    var state: MainViewState { get }
-
-    func searchUser(query: String)
-    func selectUser(_ user: SearchUserModel)
-}
-
 public class MainPresenter: MainPresenterProtocol {
     public private(set) var state: MainViewState
     private var router: MainRouterProtocol

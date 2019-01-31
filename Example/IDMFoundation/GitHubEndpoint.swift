@@ -18,5 +18,5 @@ extension GitHubEndpointProtocol {
 public enum GitHubEndpoint: String, GitHubEndpointProtocol {
     public static var root: String { return "" }
     
-    case searchUsers = "search/users1"
+    case searchUsers = "search/users"
 }

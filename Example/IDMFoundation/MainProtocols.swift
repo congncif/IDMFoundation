@@ -13,6 +13,27 @@ public protocol MainModuleInterface: ModuleInterface {
     var presenter: MainPresenterProtocol? { get }
 }
 
+public protocol MainPresenterProtocol {
+    var state: MainViewState { get }
+
+    func searchUser(query: String)
+    func selectUser(_ user: SearchUserModel)
+}
+
+// Go in module
+
+public protocol MainBuilderProtocol: ModuleBuilderProtocol {
+    func find(from source: ModuleInterface) -> MainModuleInterface?
+}
+
+// Go out module
+
+public protocol MainRouterProtocol: RouterProtocol {
+    func openSearchModule(with query: String)
+}
+
+// Extensions
+
 extension MainModuleInterface {
     public var state: MainViewState {
         var _state: MainViewState
@@ -24,8 +45,4 @@ extension MainModuleInterface {
         }
         return _state
     }
-}
-
-public protocol MainBuilderProtocol: ModuleBuilderProtocol {
-    func find(from source: ModuleInterface) -> MainModuleInterface?
 }

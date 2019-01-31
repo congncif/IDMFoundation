@@ -20,7 +20,7 @@ public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIA
         super.viewDidLoad()
 
         // Keep this at end of viewDidLoad
-		state.subscribe(for: self)
+        subscribeStateChange(state)
     }
 }
 

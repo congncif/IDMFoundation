@@ -96,6 +96,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1A27D422033BD1000C264D /* InOut */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08D521FDAC6C009D7309 /* MainRouter.swift */,
+				0A5A08DD21FDACF7009D7309 /* MainBuilder.swift */,
+			);
+			name = InOut;
+			sourceTree = "<group>";
+		};
+		0A1A27D522033CB3000C264D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08EC21FDBDEF009D7309 /* MainProtocols.swift */,
+				0A5A08D721FDAC6C009D7309 /* MainViewState.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		0A1A27D622033CC7000C264D /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08D421FDAC6C009D7309 /* MainPresenter.swift */,
+				0A5A08D621FDAC6C009D7309 /* MainViewController.swift */,
+				0A5A08E121FDAF45009D7309 /* MainViewController.storyboard */,
+				0A5A08E321FDAFD8009D7309 /* MainView.swift */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
 		0A5A08BC21FDAA8D009D7309 /* Integrators */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,13 +173,9 @@
 		0A5A08CB21FDAC05009D7309 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0A5A08EC21FDBDEF009D7309 /* MainProtocols.swift */,
-				0A5A08D421FDAC6C009D7309 /* MainPresenter.swift */,
-				0A5A08D521FDAC6C009D7309 /* MainRouter.swift */,
-				0A5A08D621FDAC6C009D7309 /* MainViewController.swift */,
-				0A5A08E121FDAF45009D7309 /* MainViewController.storyboard */,
-				0A5A08D721FDAC6C009D7309 /* MainViewState.swift */,
-				0A5A08E321FDAFD8009D7309 /* MainView.swift */,
+				0A1A27D622033CC7000C264D /* Business */,
+				0A1A27D522033CB3000C264D /* Interface */,
+				0A1A27D422033BD1000C264D /* InOut */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -158,7 +183,6 @@
 		0A5A08DC21FDACEA009D7309 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
-				0A5A08DD21FDACF7009D7309 /* MainBuilder.swift */,
 				0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */,
 			);
 			name = Builders;

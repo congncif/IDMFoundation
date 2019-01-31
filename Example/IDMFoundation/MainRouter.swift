@@ -10,10 +10,6 @@ import Foundation
 import IDMFoundation
 import ModuleX
 
-public protocol MainRouterProtocol: RouterProtocol {
-    func openSearchModule(with query: String)
-}
-
 public class MainRouter: Router, MainRouterProtocol {
     var searchUserBuilder: SearchUserBuilderProtocol?
 
