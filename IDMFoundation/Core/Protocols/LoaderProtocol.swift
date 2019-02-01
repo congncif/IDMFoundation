@@ -10,24 +10,24 @@ import IDMCore
 
 public protocol LoaderProtocol: AnyObject, LoadingProtocol {}
 public protocol ErrorHandlerProtocol: AnyObject, ErrorHandlingProtocol {}
-public protocol LoadAndErrorHandlerProtocol: LoaderProtocol, ErrorHandlerProtocol {}
+public protocol DisplayHandlerProtocol: LoaderProtocol, ErrorHandlerProtocol {}
 
 extension IntegrationCall {
     @discardableResult
-    public func loading(monitor: LoaderProtocol) -> Self {
-        onBeginning { [weak monitor] in
-            monitor?.beginLoading()
+    public func loadingHandler(_ hanlder: LoaderProtocol) -> Self {
+        onBeginning { [weak hanlder] in
+            hanlder?.beginLoading()
         }
         
-        onCompletion { [weak monitor] in
-            monitor?.finishLoading()
+        onCompletion { [weak hanlder] in
+            hanlder?.finishLoading()
         }
         
         return self
     }
     
     @discardableResult
-    public func error(handler: ErrorHandlerProtocol) -> Self {
+    public func errorHandler(_ handler: ErrorHandlerProtocol) -> Self {
         onError { [weak handler] err in
             handler?.handle(error: err)
         }
@@ -36,8 +36,8 @@ extension IntegrationCall {
     }
     
     @discardableResult
-    public func loader(_ handler: LoadAndErrorHandlerProtocol) -> Self {
-        loading(monitor: handler).error(handler: handler)
+    public func display(on handler: DisplayHandlerProtocol) -> Self {
+        loadingHandler(handler).errorHandler(handler)
         return self
     }
 }

@@ -14,7 +14,8 @@ import UIKit
 import ViewStateCore
 
 public class MainViewController: UIViewController, MainModuleInterface {
-    public var presenter: MainPresenterProtocol?
+    public var router: MainRouterProtocol!
+    public var presenter: MainPresenterProtocol!
     
     var mainView: MainView {
         return view as! MainView
@@ -26,24 +27,17 @@ public class MainViewController: UIViewController, MainModuleInterface {
         view.backgroundColor = .white
 
         // Keep this at end of viewDidLoad
-        subscribeStateChange(state)
+        mainView.subscribeStateChange(state)
     }
 }
 
 extension MainViewController {
     @IBAction func searchButtonDidTap() {
-        presenter?.searchUser(query: self.state.query ?? "")
+        let query = state.currentQuery
+        router.openSearchModule(with: query)
     }
     
     @IBAction func textFieldDidChange(_ textField: UITextField) {
-        self.state.query = mainView.searchField.text
-    }
-}
-
-extension MainViewController: ViewStateSubscriber, ViewStateRenderable {
-    public func render(state: ViewState) {
-        mainView.searchField.text = self.state.query
-        mainView.searchButton.isEnabled = !self.state.query.isNoValue
-        mainView.selectedUserLabel.text = self.state.selectedUser?.name
+        presenter.setQuery(textField.text)
     }
 }

@@ -1,27 +1,39 @@
 //
 //  MainViewState.swift
-//  IDMFoundation
+//  IDMFoundation_Example
 //
-//  Created by NGUYEN CHI CONG on 1/27/19.
+//  Created by NGUYEN CHI CONG on 2/1/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Foundation
-import IDMCore
-import IDMFoundation
 import ViewStateCore
 
 public class MainViewState: ViewState {
-    @objc public internal(set) dynamic var query: String?
-    @objc public internal(set) dynamic var selectedUser: SearchUserModel?
+    public class QueryState: ViewState {
+        @objc public fileprivate(set) dynamic var query: String?
+    }
+    
+    public class SelectionState: ViewState {
+        @objc public fileprivate(set) dynamic var selectedUser: SearchUserModel?
+    }
+    
+    @objc public fileprivate(set) dynamic var queryState = QueryState()
+    @objc public fileprivate(set) dynamic var selectionState = SelectionState()
+}
 
-    public struct Keys {
-        public static var query: String {
-            return #keyPath(MainViewState.query)
-        }
+extension MainViewState {
+    public var currentQuery: String {
+        return queryState.query ?? ""
+    }
+}
 
-        public static var selectedUser: String {
-            return #keyPath(MainViewState.selectedUser)
-        }
+extension MainPresenterProtocol {
+    public func selectUser(_ user: SearchUserModel) {
+        state.selectionState.selectedUser = user
+    }
+    
+    public func setQuery(_ query: String?) {
+        state.queryState.query = query
     }
 }

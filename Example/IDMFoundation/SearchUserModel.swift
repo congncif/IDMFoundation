@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SearchUserModel: NSObject {
+public final class SearchUserModel: NSObject {
     var id: String?
     var name: String?
     var avatar: String?

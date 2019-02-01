@@ -14,16 +14,24 @@ import ViewStateCore
 
 // Business
 
-public protocol ___VARIABLE_moduleName___ModuleInterface {
-	var presenter: ___VARIABLE_moduleName___PresenterProtocol? { get }
+public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface {
+	var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
+
+    // Once you use Storyboard segue, you might not need a router.
+    var router: ___VARIABLE_moduleName___RouterProtocol! { get }
+
+    var inregrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
 }
 
 public protocol ___VARIABLE_moduleName___PresenterProtocol {
     var state: ___VARIABLE_moduleName___ViewState { get }
+
+    var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 }
 
 // Go in module
 
+// Once you have a Storyboard, you might use it as a builder alternatively.
 public protocol ___VARIABLE_moduleName___BuilderProtocol {
     func build() -> ___VARIABLE_moduleName___ModuleInterface
 }
@@ -32,17 +40,3 @@ public protocol ___VARIABLE_moduleName___BuilderProtocol {
 
 public protocol ___VARIABLE_moduleName___RouterProtocol: RouterProtocol {}
 
-// Extensions
-
-extension ___VARIABLE_moduleName___ModuleInterface {
-    public var state: ___VARIABLE_moduleName___ViewState {
-        var _state: ___VARIABLE_moduleName___ViewState
-        if let currentState = presenter?.state {
-            _state = currentState
-        } else {
-            assertionFailure()
-            _state = ___VARIABLE_moduleName___ViewState()
-        }
-        return _state
-    }
-}

@@ -7,18 +7,16 @@
 //
 
 import Foundation
-import IDMCore
-import IDMFoundation
 import ViewStateCore
 
-public class ___VARIABLE_moduleName___ViewState: ViewState {
-//    <#@objc public internal(set) dynamic var id: String?#>
+// Properties of ViewState should be protected from outside.
 
-/*
-	public struct Keys {
-        public static var id: String {
-            return #keyPath(___VARIABLE_moduleName___ViewState.id)
-        }
-    }
-*/
+public class ___VARIABLE_moduleName___ViewState: ViewState {
+//    <#@objc public fileprivate(set) dynamic var id: String?#>
+}
+
+// Only change state here.
+
+extension ___VARIABLE_moduleName___PresenterProtocol {
+	
 }

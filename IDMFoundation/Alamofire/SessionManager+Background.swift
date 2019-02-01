@@ -12,7 +12,7 @@ extension SessionManager {
     public static let background: SessionManager = _sharedBackground
 
     private static var _sharedBackground: SessionManager {
-        let id = "BackgroundSessionManager"
+        let id = ProcessInfo.processInfo.globallyUniqueString
         let configuration = URLSessionConfiguration.background(withIdentifier: id)
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
         let session = SessionManager(configuration: configuration)

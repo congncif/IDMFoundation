@@ -14,20 +14,9 @@ import ViewStateCore
 
 public class MainPresenter: MainPresenterProtocol {
     public private(set) var state: MainViewState
-    private var router: MainRouterProtocol
 
-    public init(router: MainRouterProtocol) {
-        self.router = router
-
+    public init() {
         let newState = MainViewState()
         state = newState
-    }
-
-    public func searchUser(query: String) {
-        router.openSearchModule(with: query)
-    }
-
-    public func selectUser(_ user: SearchUserModel) {
-        state.selectedUser = user
     }
 }

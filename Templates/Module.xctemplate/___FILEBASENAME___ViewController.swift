@@ -14,18 +14,14 @@ import UIKit
 import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ModuleInterface {
-	public var presenter: ___VARIABLE_moduleName___PresenterProtocol?
+	public var presenter: ___VARIABLE_moduleName___PresenterProtocol!
+	public var router: ___VARIABLE_moduleName___RouterProtocol!
+
+	public var inregrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
 	public override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Keep this at end of viewDidLoad
-        subscribeStateChange(state)
-    }
-}
-
-extension ___VARIABLE_moduleName___ViewController: ViewStateSubscriber, ViewStateRenderable {
-    public func render(state: ViewState) {
-//        <#render UI here#>
+        // Subscribe view state change here
     }
 }

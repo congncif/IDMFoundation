@@ -26,10 +26,13 @@ struct MainBuilder: MainBuilderProtocol {
         router.sourceModule = viewController
         router.searchUserBuilder = SearchUserBuilder()
         
-        let presenter = MainPresenter(router: router)
+        let presenter = MainPresenter()
+        
         viewController.presenter = presenter
+        viewController.router = router
         
         let navigation = UINavigationController(rootViewController: viewController)
+        
         return navigation
     }
 }

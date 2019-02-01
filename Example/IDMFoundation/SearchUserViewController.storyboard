@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="86" id="0hr-Za-g0n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchUserTableViewCell" rowHeight="86" id="0hr-Za-g0n" customClass="SearchUserTableViewCell" customModule="IDMFoundation_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0hr-Za-g0n" id="PcK-ls-ZOs">
@@ -64,10 +64,15 @@
                                                 <constraint firstItem="C9I-tO-900" firstAttribute="leading" secondItem="hD2-pw-j6m" secondAttribute="leading" id="xuR-cK-0w3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="homePageLabel" destination="C9I-tO-900" id="iad-Ke-0ZG"/>
+                                            <outlet property="thumbImageView" destination="6iw-F5-f5V" id="eK4-XO-Vkq"/>
+                                            <outlet property="titleLabel" destination="hD2-pw-j6m" id="SIq-gS-q4L"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="sP1-EO-L9v" id="lEN-X3-oOp"/>
+                                    <outlet property="dataSource" destination="J14-Ir-8Ak" id="tOC-o9-bsf"/>
                                     <outlet property="delegate" destination="sP1-EO-L9v" id="uve-co-Dpj"/>
                                 </connections>
                             </tableView>
@@ -90,10 +95,15 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="wWE-HY-c5l" id="ZGv-8D-hxO"/>
+                        <outlet property="usersArrayController" destination="J14-Ir-8Ak" id="3t4-T4-o8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXH-1x-WW0" sceneMemberID="firstResponder"/>
+                <customObject id="J14-Ir-8Ak" customClass="SearchUserArrayController" customModule="IDMFoundation_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="tableView" destination="wWE-HY-c5l" id="BbO-G2-QbF"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1588" y="221.73913043478262"/>
         </scene>

@@ -17,14 +17,23 @@ public struct Subscriber: Equatable {
     }
 }
 
-public protocol ViewStateRenderable {
+public protocol ViewStateRenderable: ViewStateSubscriber {
     func render(state: ViewState)
 }
 
 public protocol ViewStateSubscriber: AnyObject {
     func viewStateDidChange(newState: ViewState)
+    
+    // Optional
+    
+    // Useful to show animation
     func viewStateDidChange(newState: ViewState, keyPath: String, oldValue: Any?, newValue: Any?)
     
+    // Subscribing
+    func subscribeStateChange(_ state: ViewState)
+    func unsubscribeStateChange(_ state: ViewState)
+    
+    // Listening subscribing
     func viewStateDidSubscribe(_ state: ViewState)
     func viewStateWillUnsubscribe(_ state: ViewState)
 }
@@ -32,6 +41,10 @@ public protocol ViewStateSubscriber: AnyObject {
 extension ViewStateSubscriber {
     public func subscribeStateChange(_ state: ViewState) {
         state.register(subscriber: self)
+    }
+    
+    public func unsubscribeStateChange(_ state: ViewState) {
+        state.unregister(subscriber: self)
     }
 }
 
@@ -49,7 +62,7 @@ public extension ViewStateSubscriber {
     }
 }
 
-public extension ViewStateSubscriber where Self: ViewStateRenderable {
+public extension ViewStateRenderable {
     public func viewStateDidChange(newState: ViewState) {
         render(state: newState)
     }

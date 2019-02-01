@@ -12,47 +12,32 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-public class SearchUserPresenter: SearchUserPresenterProtocol {
+public class SearchUserPresenter: NSObject, SearchUserPresenterProtocol {
+    public var searchUserHandler: DataProcessor<SearchUserResponseModel>
     public private(set) var state: SearchUserViewState
-    
-    private var router: SearchUserRouterProtocol
-    private var searchUserIntegrator: SearchUserAbstractIntegrator
 
-    public init(router: SearchUserRouterProtocol,
-                searchUserIntegrator: SearchUserAbstractIntegrator) {
-        self.router = router
-        self.searchUserIntegrator = searchUserIntegrator
-
-        let newState = SearchUserViewState()
-        state = newState
+    public override init() {
+        state = SearchUserViewState()
+        let processor = SearchUserDataProcessor()
+        searchUserHandler = processor
+        super.init()
+        processor.presenter = self
     }
+}
 
-    public func start(with query: String) {
-        state.query = query
-    }
+class SearchUserDataProcessor: DataProcessor<SearchUserResponseModel> {
+    weak var presenter: SearchUserPresenter?
 
-    public func search(loader: LoadAndErrorHandlerProtocol) {
-        let param = SearchUserParameter(q: state.query)
-        searchUserIntegrator.prepareCall(parameters: param)
-            .loader(loader)
-            .onSuccess { [unowned self] model in
-                let result = model?.items ?? []
-                self.state.users = result.map({ (item) -> SearchUserModel in
-                    let newUser = SearchUserModel()
-                    newUser.id = item.id?.stringValue
-                    newUser.name = item.login
-                    newUser.avatar = item.avatarUrl
-                    newUser.profileUrl = item.htmlUrl
-                    return newUser
-                })
-            }
-            .next(state: .completion, nextBlock: { _ in
-                print("Done API")
-            })
-            .call()
-    }
-
-    public func selectUser(_ user: SearchUserModel) {
-        router.userDidSelect(user)
+    override func process(data: SearchUserResponseModel?) {
+        let originItems = data?.items ?? []
+        let items: [SearchUserModel] = originItems.map { item in
+            let newUser = SearchUserModel()
+            newUser.id = item.id?.stringValue
+            newUser.name = item.login
+            newUser.avatar = item.avatarUrl
+            newUser.profileUrl = item.htmlUrl
+            return newUser
+        }
+        presenter?.setUsers(items)
     }
 }

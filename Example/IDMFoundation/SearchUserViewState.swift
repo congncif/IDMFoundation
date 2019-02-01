@@ -1,17 +1,31 @@
 //
 //  SearchUserViewState.swift
-//  IDMFoundation
+//  IDMFoundation_Example
 //
-//  Created by NGUYEN CHI CONG on 1/27/19.
+//  Created by NGUYEN CHI CONG on 2/1/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Foundation
-import IDMCore
-import IDMFoundation
 import ViewStateCore
 
 public class SearchUserViewState: ViewState {
-    @objc public internal(set) dynamic var query: String?
-    @objc public internal(set) dynamic var users: [SearchUserModel] = []
+    @objc public fileprivate(set) dynamic var query: String?
+    @objc public fileprivate(set) dynamic var users: [SearchUserModel] = []
+}
+
+extension SearchUserViewState {
+    public var currentQuery: String {
+        return query ?? ""
+    }
+}
+
+extension SearchUserPresenterProtocol {
+    public func start(with query: String) {
+        state.query = query
+    }
+
+    public func setUsers(_ users: [SearchUserModel]) {
+        state.users = users
+    }
 }

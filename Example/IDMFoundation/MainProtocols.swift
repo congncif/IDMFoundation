@@ -8,16 +8,19 @@
 
 import Foundation
 import ModuleX
+import ViewStateCore
+import IDMCore
 
 public protocol MainModuleInterface: ModuleInterface {
-    var presenter: MainPresenterProtocol? { get }
+    var presenter: MainPresenterProtocol! { get }
+    var router: MainRouterProtocol! { get }
 }
 
 public protocol MainPresenterProtocol {
     var state: MainViewState { get }
-
-    func searchUser(query: String)
+    
     func selectUser(_ user: SearchUserModel)
+    func setQuery(_ query: String?)
 }
 
 // Go in module
@@ -32,17 +35,3 @@ public protocol MainRouterProtocol: RouterProtocol {
     func openSearchModule(with query: String)
 }
 
-// Extensions
-
-extension MainModuleInterface {
-    public var state: MainViewState {
-        var _state: MainViewState
-        if let currentState = presenter?.state {
-            _state = currentState
-        } else {
-            assertionFailure()
-            _state = MainViewState()
-        }
-        return _state
-    }
-}
