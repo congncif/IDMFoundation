@@ -9,23 +9,6 @@ import Alamofire
 import Foundation
 import SiFUtilities
 
-// #1
-
-extension URLBuildable {
-    public func build(from endpoint: EndpointProtocol) throws -> URL {
-        return try endpoint.path().asURL()
-    }
-}
-
-extension RouteRequestBuildable where ParameterType: URLBuildable {
-    public func url(_ parameters: ParameterType?) throws -> URL {
-        if let param = parameters {
-            return try param.build(from: route.endpoint)
-        }
-        return try route.endpoint.path().asURL()
-    }
-}
-
 // #2
 
 public protocol AlamofireSessionManagable: NetworkSessionManagable {
