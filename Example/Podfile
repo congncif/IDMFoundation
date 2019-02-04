@@ -1,4 +1,5 @@
 use_frameworks!
+inhibit_all_warnings!
 
 target 'IDMFoundation_Example' do
   pod 'IDMFoundation', :path => '../'
@@ -15,4 +16,7 @@ target 'IDMFoundation_Example' do
 #  pod 'SwinjectPropertyLoader'
   pod 'SwinjectStoryboard'
   pod 'ObjectMapper'
+  pod 'ModuleX'
+  pod 'ViewStateCore'
+  pod 'SDWebImage'
 end

@@ -1,15 +1,15 @@
 //
 //  CameraAsset.swift
-//  
+//
 //
 //  Created by NGUYEN CHI CONG on 4/7/17.
 //  Copyright © 2017 [iF] Solution Co., Ltd. All rights reserved.
 //
 
-import Foundation
-import UIKit
-import MobileCoreServices
 import AVFoundation
+import Foundation
+import MobileCoreServices
+import UIKit
 
 public enum AssetType: String {
     case photo
@@ -47,7 +47,7 @@ open class CameraAsset: NSObject {
         self.url = url
     }
     
-    private func generateThumbImage(url : URL) -> UIImage? {
+    private func generateThumbImage(url: URL) -> UIImage? {
         let asset: AVAsset = AVAsset(url: url)
         let assetImgGenerate: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
         assetImgGenerate.appliesPreferredTrackTransform = true
