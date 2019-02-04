@@ -10,8 +10,8 @@ import Foundation
 import ModuleX
 import SiFUtilities
 
-struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {    
-    func build() -> ___VARIABLE_moduleName___ModuleInterface {
+public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {    
+    public func build() -> ___VARIABLE_moduleName___ModuleInterface {
         let viewController = ___VARIABLE_moduleName___ViewController() // FIXME: - Init view controller
         
         let router = ___VARIABLE_moduleName___Router()

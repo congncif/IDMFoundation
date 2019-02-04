@@ -10,8 +10,8 @@ import Foundation
 
 // Extensions
 
-extension MainModuleInterface {
-    public var state: MainViewState {
+extension MainControllerProtocol {
+    var state: MainViewState {
         return presenter.state
     }
 }

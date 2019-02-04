@@ -10,6 +10,6 @@ import Foundation
 import IDMFoundation
 import ModuleX
 
-public class ___VARIABLE_moduleName___Router: Router, ___VARIABLE_moduleName___RouterProtocol {
+class ___VARIABLE_moduleName___Router: Router, ___VARIABLE_moduleName___RouterProtocol {
 //	<#var nextBuilder: NextModuleBuilderProtocol?#>
 }

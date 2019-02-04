@@ -9,23 +9,23 @@
 import Foundation
 import ViewStateCore
 
-public class SearchUserViewState: ViewState {
-    @objc public fileprivate(set) dynamic var query: String?
-    @objc public fileprivate(set) dynamic var users: [SearchUserModel] = []
+class SearchUserViewState: ViewState {
+    @objc fileprivate(set) dynamic var query: String?
+    @objc fileprivate(set) dynamic var users: [SearchUserModel] = []
 }
 
 extension SearchUserViewState {
-    public var currentQuery: String {
+    var currentQuery: String {
         return query ?? ""
     }
 }
 
 extension SearchUserPresenterProtocol {
-    public func start(with query: String) {
+    func start(with query: String) {
         state.query = query
     }
 
-    public func setUsers(_ users: [SearchUserModel]) {
+    func setUsers(_ users: [SearchUserModel]) {
         state.users = users
     }
 }

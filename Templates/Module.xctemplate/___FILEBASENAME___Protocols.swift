@@ -12,9 +12,12 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
+public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface {
+}
+
 // Business
 
-public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface {
+protocol ___VARIABLE_moduleName___ControllerProtocol {
 	var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
 
     // Once you use Storyboard segue, you might not need a router.
@@ -23,7 +26,7 @@ public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface {
     var inregrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
 }
 
-public protocol ___VARIABLE_moduleName___PresenterProtocol {
+protocol ___VARIABLE_moduleName___PresenterProtocol {
     var state: ___VARIABLE_moduleName___ViewState { get }
 
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
@@ -38,5 +41,5 @@ public protocol ___VARIABLE_moduleName___BuilderProtocol {
 
 // Go out module
 
-public protocol ___VARIABLE_moduleName___RouterProtocol: RouterProtocol {}
+protocol ___VARIABLE_moduleName___RouterProtocol: RouterProtocol {}
 

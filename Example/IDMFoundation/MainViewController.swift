@@ -13,10 +13,10 @@ import ModuleX
 import UIKit
 import ViewStateCore
 
-public class MainViewController: UIViewController, MainModuleInterface {
-    public var router: MainRouterProtocol!
-    public var presenter: MainPresenterProtocol!
-    
+public class MainViewController: UIViewController, MainControllerProtocol, MainModuleInterface {
+    var router: MainRouterProtocol!
+    var presenter: MainPresenterProtocol!
+
     var mainView: MainView {
         return view as! MainView
     }
@@ -29,6 +29,10 @@ public class MainViewController: UIViewController, MainModuleInterface {
         // Keep this at end of viewDidLoad
         mainView.subscribeStateChange(state)
     }
+    
+    public func selectUser(_ user: SearchUserModel) {
+        presenter.selectUser(user)
+    }
 }
 
 extension MainViewController {
@@ -36,7 +40,7 @@ extension MainViewController {
         let query = state.currentQuery
         router.openSearchModule(with: query)
     }
-    
+
     @IBAction func textFieldDidChange(_ textField: UITextField) {
         presenter.setQuery(textField.text)
     }

@@ -11,11 +11,11 @@ import IDMCore
 import IDMFoundation
 import ViewStateCore
 
-public class ___VARIABLE_moduleName___Presenter: NSObject, ___VARIABLE_moduleName___PresenterProtocol {
-	public private(set) var state: ___VARIABLE_moduleName___ViewState
-	public var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel>
+class ___VARIABLE_moduleName___Presenter: NSObject, ___VARIABLE_moduleName___PresenterProtocol {
+	private(set) var state: ___VARIABLE_moduleName___ViewState
+	var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel>
 
-    public override init() {    	
+    override init() {    	
     	let newState = ___VARIABLE_moduleName___ViewState()
     	state = newState
     	let _dataProcessor = ___VARIABLE_moduleName___DataProcessor()

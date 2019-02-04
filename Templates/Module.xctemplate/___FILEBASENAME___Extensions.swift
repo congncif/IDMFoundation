@@ -12,8 +12,8 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-extension ___VARIABLE_moduleName___ModuleInterface {
-    public var state: ___VARIABLE_moduleName___ViewState {
+extension ___VARIABLE_moduleName___ControllerProtocol {
+    var state: ___VARIABLE_moduleName___ViewState {
         return presenter.state
     }
 }

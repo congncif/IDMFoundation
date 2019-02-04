@@ -7,18 +7,22 @@
 //
 
 import Foundation
+import IDMCore
 import ModuleX
 import ViewStateCore
-import IDMCore
 
 public protocol MainModuleInterface: ModuleInterface {
+    func selectUser(_ user: SearchUserModel)
+}
+
+protocol MainControllerProtocol {
     var presenter: MainPresenterProtocol! { get }
     var router: MainRouterProtocol! { get }
 }
 
-public protocol MainPresenterProtocol {
+protocol MainPresenterProtocol {
     var state: MainViewState { get }
-    
+
     func selectUser(_ user: SearchUserModel)
     func setQuery(_ query: String?)
 }
@@ -26,12 +30,11 @@ public protocol MainPresenterProtocol {
 // Go in module
 
 public protocol MainBuilderProtocol: ModuleBuilderProtocol {
-    func find(from source: ModuleInterface) -> MainModuleInterface?
+    func findInNavigationContainer(from source: ModuleInterface) -> MainModuleInterface?
 }
 
 // Go out module
 
-public protocol MainRouterProtocol: RouterProtocol {
+protocol MainRouterProtocol: RouterProtocol {
     func openSearchModule(with query: String)
 }
-

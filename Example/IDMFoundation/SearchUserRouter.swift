@@ -10,14 +10,14 @@ import Foundation
 import IDMFoundation
 import ModuleX
 
-public class SearchUserRouter: Router, SearchUserRouterProtocol {
+class SearchUserRouter: Router, SearchUserRouterProtocol {
     var mainBuilder: MainBuilderProtocol?
     
-    public func userDidSelect(_ user: SearchUserModel) {
+    func userDidSelect(_ user: SearchUserModel) {
         guard let source = sourceModule,
-            let destination = mainBuilder?.find(from: source) else { return }
+            let destination = mainBuilder?.findInNavigationContainer(from: source) else { return }
         
-        destination.presenter?.selectUser(user)
+        destination.selectUser(user)
         source.viewController.navigationController?.popToViewController(destination.viewController,
                                                                         animated: true)
     }

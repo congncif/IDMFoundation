@@ -9,31 +9,31 @@
 import Foundation
 import ViewStateCore
 
-public class MainViewState: ViewState {
-    public class QueryState: ViewState {
-        @objc public fileprivate(set) dynamic var query: String?
+class MainViewState: ViewState {
+    class QueryState: ViewState {
+        @objc fileprivate(set) dynamic var query: String?
     }
     
-    public class SelectionState: ViewState {
-        @objc public fileprivate(set) dynamic var selectedUser: SearchUserModel?
+    class SelectionState: ViewState {
+        @objc fileprivate(set) dynamic var selectedUser: SearchUserModel?
     }
     
-    @objc public fileprivate(set) dynamic var queryState = QueryState()
-    @objc public fileprivate(set) dynamic var selectionState = SelectionState()
+    @objc fileprivate(set) dynamic var queryState = QueryState()
+    @objc fileprivate(set) dynamic var selectionState = SelectionState()
 }
 
 extension MainViewState {
-    public var currentQuery: String {
+    var currentQuery: String {
         return queryState.query ?? ""
     }
 }
 
 extension MainPresenterProtocol {
-    public func selectUser(_ user: SearchUserModel) {
+    func selectUser(_ user: SearchUserModel) {
         state.selectionState.selectedUser = user
     }
     
-    public func setQuery(_ query: String?) {
+    func setQuery(_ query: String?) {
         state.queryState.query = query
     }
 }

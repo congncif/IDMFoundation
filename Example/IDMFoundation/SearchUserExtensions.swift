@@ -10,14 +10,14 @@ import Foundation
 import IDMFoundation
 import ViewStateCore
 
-extension SearchUserModuleInterface {
-    public var state: SearchUserViewState {
+extension SearchUserControllerProtocol {
+    var state: SearchUserViewState {
         return presenter.state
     }
 }
 
-extension SearchUserModuleInterface {
-    public func performSearch(query: String, displayer: DisplayHandlerProtocol) {
+extension SearchUserControllerProtocol {
+    func performSearch(query: String, displayer: DisplayHandlerProtocol) {
         let param = SearchUserParameter(q: query)
         searchUserIntegrator.prepareCall(parameters: param)
             .display(on: displayer)

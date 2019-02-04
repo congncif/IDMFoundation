@@ -11,7 +11,7 @@ import ViewStateCore
 
 // Properties of ViewState should be protected from outside.
 
-public class ___VARIABLE_moduleName___ViewState: ViewState {
+class ___VARIABLE_moduleName___ViewState: ViewState {
 //    <#@objc public fileprivate(set) dynamic var id: String?#>
 }
 

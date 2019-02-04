@@ -12,9 +12,9 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-public class SearchUserPresenter: NSObject, SearchUserPresenterProtocol {
-    public var searchUserHandler: DataProcessor<SearchUserResponseModel>
-    public private(set) var state: SearchUserViewState
+class SearchUserPresenter: NSObject, SearchUserPresenterProtocol {
+    var searchUserHandler: DataProcessor<SearchUserResponseModel>
+    private(set) var state: SearchUserViewState
 
     public override init() {
         state = SearchUserViewState()

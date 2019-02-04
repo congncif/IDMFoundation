@@ -14,9 +14,9 @@ import SDWebImage
 import UIKit
 import ViewStateCore
 
-public class SearchUserViewController: UIViewController, SearchUserModuleInterface {
-    public var router: SearchUserRouterProtocol!
-    public var presenter: SearchUserPresenterProtocol!
+public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
+    var router: SearchUserRouterProtocol!
+    var presenter: SearchUserPresenterProtocol!
 
     public var searchUserIntegrator: SearchUserAbstractIntegrator!
 
@@ -31,6 +31,10 @@ public class SearchUserViewController: UIViewController, SearchUserModuleInterfa
 
     public override func viewDidFinishLayout() {
         performSearch(query: state.currentQuery, displayer: self)
+    }
+    
+    public func start(with query: String) {
+        presenter.start(with: query)
     }
 }
 
