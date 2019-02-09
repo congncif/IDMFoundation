@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import IDMCore
 import IDMFoundation
 import ViewStateCore
 
@@ -23,5 +24,22 @@ extension SearchUserControllerProtocol {
             .display(on: displayer)
             .dataProcessor(presenter.searchUserHandler)
             .call()
+    }
+}
+
+extension SearchUserPresenterProtocol {
+    var searchUserHandler: DataProcessor<SearchUserResponseModel> {
+        return DataProcessor<SearchUserResponseModel>(dataProcessing: { data in
+            let originItems = data?.items ?? []
+            let items: [SearchUserModel] = originItems.map { item in
+                let newUser = SearchUserModel()
+                newUser.id = item.id?.stringValue
+                newUser.name = item.login
+                newUser.avatar = item.avatarUrl
+                newUser.profileUrl = item.htmlUrl
+                return newUser
+            }
+            self.setUsers(items)
+        })
     }
 }

@@ -13,31 +13,10 @@ import ModuleX
 import ViewStateCore
 
 class SearchUserPresenter: NSObject, SearchUserPresenterProtocol {
-    var searchUserHandler: DataProcessor<SearchUserResponseModel>
     private(set) var state: SearchUserViewState
 
     public override init() {
         state = SearchUserViewState()
-        let processor = SearchUserDataProcessor()
-        searchUserHandler = processor
         super.init()
-        processor.presenter = self
-    }
-}
-
-class SearchUserDataProcessor: DataProcessor<SearchUserResponseModel> {
-    weak var presenter: SearchUserPresenter?
-
-    override func process(data: SearchUserResponseModel?) {
-        let originItems = data?.items ?? []
-        let items: [SearchUserModel] = originItems.map { item in
-            let newUser = SearchUserModel()
-            newUser.id = item.id?.stringValue
-            newUser.name = item.login
-            newUser.avatar = item.avatarUrl
-            newUser.profileUrl = item.htmlUrl
-            return newUser
-        }
-        presenter?.setUsers(items)
     }
 }

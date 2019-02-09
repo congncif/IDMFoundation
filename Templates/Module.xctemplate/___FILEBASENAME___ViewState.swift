@@ -15,8 +15,6 @@ class ___VARIABLE_moduleName___ViewState: ViewState {
 //    <#@objc public fileprivate(set) dynamic var id: String?#>
 }
 
-// Only change state here.
-
 extension ___VARIABLE_moduleName___PresenterProtocol {
-	
+	// <#Only change state here#>
 }

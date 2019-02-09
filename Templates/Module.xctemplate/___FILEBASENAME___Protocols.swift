@@ -12,10 +12,13 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
+// Come from outside
+
 public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface {
+	// Declare methods to call from outside module scope
 }
 
-// Business
+// Internal
 
 protocol ___VARIABLE_moduleName___ControllerProtocol {
 	var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
@@ -24,6 +27,8 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
     var router: ___VARIABLE_moduleName___RouterProtocol! { get }
 
     var inregrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
+
+    // Declare methods to work internal module
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {

@@ -11,5 +11,5 @@ import IDMFoundation
 import ModuleX
 
 class ___VARIABLE_moduleName___Router: Router, ___VARIABLE_moduleName___RouterProtocol {
-//	<#var nextBuilder: NextModuleBuilderProtocol?#>
+	// <#var nextBuilder: NextModuleBuilderProtocol?#>
 }

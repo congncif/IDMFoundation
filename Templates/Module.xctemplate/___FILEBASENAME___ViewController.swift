@@ -22,6 +22,6 @@ public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIA
 	public override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Subscribe view state change here
+        // <#Subscribe ViewState changes here#>
     }
 }

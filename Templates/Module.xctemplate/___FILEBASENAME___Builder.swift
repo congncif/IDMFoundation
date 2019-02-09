@@ -16,7 +16,7 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
         
         let router = ___VARIABLE_moduleName___Router()
         router.sourceModule = viewController
-        //router.nextBuilder = NextBuilder()
+        // <#router.nextBuilder = NextBuilder()#>
         
         let presenter = ___VARIABLE_moduleName___Presenter()
         
