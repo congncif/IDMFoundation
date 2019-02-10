@@ -13,4 +13,8 @@ class ___VARIABLE_moduleName___Segue: UIStoryboardSegue, ___VARIABLE_moduleName_
 	var target: ___VARIABLE_targetModuleName___InputProtocol? {
 		return destination as? ___VARIABLE_targetModuleName___InputProtocol
     }
+
+    override var identifier: String? {
+        return self.typeName
+    }
 }

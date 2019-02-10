@@ -16,15 +16,17 @@ import IDMFoundation
 /// In ___VARIABLE_moduleName___ViewController, replace ___VARIABLE_moduleName___ControllerProtocol by ___VARIABLE_moduleName___ControllerBridgeProtocol.
 
 class ___VARIABLE_moduleName___DependencyBridge: NSObject {
+	var router: ___VARIABLE_moduleName___RouterProtocol?
     var presenter: ___VARIABLE_moduleName___PresenterProtocol!
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 }
 
 protocol ___VARIABLE_moduleName___ControllerBridgeProtocol: ___VARIABLE_moduleName___ControllerProtocol {
-    var bridge: SearchUserDependencyBridge! { get }
+    var bridge: ___VARIABLE_moduleName___DependencyBridge! { get }
 }
 
 extension ___VARIABLE_moduleName___ControllerBridgeProtocol {
+	var router: ___VARIABLE_moduleName___RouterProtocol? { return bridge.router }
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return bridge.presenter }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { return bridge.integrator }
 }

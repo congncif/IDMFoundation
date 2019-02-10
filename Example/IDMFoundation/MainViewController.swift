@@ -14,7 +14,7 @@ import UIKit
 import ViewStateCore
 
 public class MainViewController: UIViewController, MainControllerProtocol, MainModuleInterface {
-    var router: MainRouterProtocol!
+    var router: MainRouterProtocol?
     var presenter: MainPresenterProtocol!
 
     var mainView: MainView {
@@ -38,7 +38,7 @@ public class MainViewController: UIViewController, MainControllerProtocol, MainM
 extension MainViewController {
     @IBAction func searchButtonDidTap() {
         let query = state.currentQuery
-        router.openSearchModule(with: query)
+        router?.openSearchModule(with: query)
     }
 
     @IBAction func textFieldDidChange(_ textField: UITextField) {

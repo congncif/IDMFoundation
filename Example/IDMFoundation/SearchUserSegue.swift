@@ -14,7 +14,11 @@ class SearchUserSegue: UIStoryboardSegue, SearchUserOutputProtocol {
         target?.selectUser(user)
     }
     
-	var target: MainInputProtocol? {
-		return destination as? MainInputProtocol
+    var target: MainInputProtocol? {
+        return destination as? MainInputProtocol
+    }
+    
+    override var identifier: String? {
+        return typeName
     }
 }

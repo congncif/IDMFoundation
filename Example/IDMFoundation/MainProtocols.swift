@@ -15,7 +15,7 @@ public protocol MainModuleInterface: ModuleInterface, MainInputProtocol {}
 
 protocol MainControllerProtocol {
     var presenter: MainPresenterProtocol! { get }
-    var router: MainRouterProtocol! { get }
+    var router: MainRouterProtocol? { get }
 }
 
 protocol MainPresenterProtocol {

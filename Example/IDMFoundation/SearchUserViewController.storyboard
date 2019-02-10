@@ -104,7 +104,6 @@
                         <outlet property="tableView" destination="wWE-HY-c5l" id="BbO-G2-QbF"/>
                     </connections>
                 </customObject>
-                <customObject id="00k-yB-nQf" customClass="SearchUserBridge" customModule="IDMFoundation_Example" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1588" y="221.73913043478262"/>
         </scene>

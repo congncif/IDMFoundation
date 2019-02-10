@@ -15,7 +15,7 @@ import ViewStateCore
 public protocol SearchUserModuleInterface: ModuleInterface, SearchUserInputProtocol {}
 
 protocol SearchUserControllerProtocol {
-    var router: SearchUserRouterProtocol! { get }
+    var router: SearchUserRouterProtocol? { get }
 
     var presenter: SearchUserPresenterProtocol! { get }
     var integrator: SearchUserAbstractIntegrator! { get }

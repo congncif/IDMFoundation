@@ -17,8 +17,7 @@ import ViewStateCore
 public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!
-    
-    var router: SearchUserRouterProtocol!
+    var router: SearchUserRouterProtocol?
     
     @IBOutlet var usersArrayController: SearchUserArrayController!
 
@@ -55,6 +54,6 @@ extension SearchUserViewController {
 extension SearchUserViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = users[indexPath.row]
-        router.userDidSelect(model)
+        router?.userDidSelect(model)
     }
 }

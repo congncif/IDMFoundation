@@ -22,7 +22,7 @@ public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VA
 
 protocol ___VARIABLE_moduleName___ControllerProtocol {
     // Once you use Storyboard segue, you might not need a router.
-    var router: ___VARIABLE_moduleName___RouterProtocol! { get }
+    var router: ___VARIABLE_moduleName___RouterProtocol? { get }
 
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }

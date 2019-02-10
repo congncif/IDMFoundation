@@ -9,10 +9,16 @@
 import Foundation
 import UIKit
 
-class MainSegue: UIStoryboardSegue, MainRouterProtocol {
+class MainSegue: UIStoryboardSegue, MainOutputProtocol {
     func openSearchModule(with query: String) {
-        if let target = destination as? SearchUserModuleInterface {
-            target.start(with: query)
-        }
+        target?.start(with: query)
+    }
+    
+	var target: SearchUserInputProtocol? {
+		return destination as? SearchUserInputProtocol
+    }
+
+    override var identifier: String? {
+        return self.typeName
     }
 }
