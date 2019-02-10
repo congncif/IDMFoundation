@@ -20,15 +20,15 @@ extension SearchUserControllerProtocol {
 extension SearchUserControllerProtocol {
     func performSearch(query: String, displayer: DisplayHandlerProtocol) {
         let param = SearchUserParameter(q: query)
-        searchUserIntegrator.prepareCall(parameters: param)
+        integrator.prepareCall(parameters: param)
             .display(on: displayer)
-            .dataProcessor(presenter.searchUserHandler)
+            .dataProcessor(presenter.dataProcessor)
             .call()
     }
 }
 
 extension SearchUserPresenterProtocol {
-    var searchUserHandler: DataProcessor<SearchUserResponseModel> {
+    var dataProcessor: DataProcessor<SearchUserResponseModel> {
         return DataProcessor<SearchUserResponseModel>(dataProcessing: { data in
             let originItems = data?.items ?? []
             let items: [SearchUserModel] = originItems.map { item in

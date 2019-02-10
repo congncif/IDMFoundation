@@ -14,10 +14,10 @@ import UIKit
 import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
-	var presenter: ___VARIABLE_moduleName___PresenterProtocol!
 	var router: ___VARIABLE_moduleName___RouterProtocol!
 
-	var inregrator: ___VARIABLE_moduleName___AbstractIntegrator!
+	var presenter: ___VARIABLE_moduleName___PresenterProtocol!
+	var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
 	public override func viewDidLoad() {
         super.viewDidLoad()

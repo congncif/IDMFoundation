@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		027C9F7E523BA0CACC239C36 /* Pods_IDMFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37133D3F734187A8CC32175 /* Pods_IDMFoundation_Example.framework */; };
+		0A15857322103955002B123B /* SearchUserDependencyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15857122103955002B123B /* SearchUserDependencyBridge.swift */; };
+		0A15857422103955002B123B /* SearchUserBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15857222103955002B123B /* SearchUserBridge.swift */; };
+		0A15857A22104287002B123B /* MainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15857922104287002B123B /* MainSegue.swift */; };
+		0A15858C22104E6B002B123B /* SearchUserSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15858B22104E6B002B123B /* SearchUserSegue.swift */; };
 		0A1A27D322028C71000C264D /* Network++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A27D222028C71000C264D /* Network++.swift */; };
 		0A1A28252203E3BF000C264D /* SearchUserArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */; };
 		0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */; };
@@ -44,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A15857122103955002B123B /* SearchUserDependencyBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserDependencyBridge.swift; sourceTree = "<group>"; };
+		0A15857222103955002B123B /* SearchUserBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserBridge.swift; sourceTree = "<group>"; };
+		0A15857922104287002B123B /* MainSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSegue.swift; sourceTree = "<group>"; };
+		0A15858B22104E6B002B123B /* SearchUserSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserSegue.swift; sourceTree = "<group>"; };
 		0A1A27D222028C71000C264D /* Network++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network++.swift"; sourceTree = "<group>"; };
 		0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserArrayController.swift; sourceTree = "<group>"; };
 		0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 			children = (
 				0A5A08D521FDAC6C009D7309 /* MainRouter.swift */,
 				0A5A08DD21FDACF7009D7309 /* MainBuilder.swift */,
+				0A15857922104287002B123B /* MainSegue.swift */,
 			);
 			name = InOut;
 			sourceTree = "<group>";
@@ -139,6 +148,8 @@
 			children = (
 				0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */,
 				0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */,
+				0A15857222103955002B123B /* SearchUserBridge.swift */,
+				0A15858B22104E6B002B123B /* SearchUserSegue.swift */,
 			);
 			name = InOut;
 			sourceTree = "<group>";
@@ -156,8 +167,9 @@
 		0A1A27E322034186000C264D /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
+				0A15857122103955002B123B /* SearchUserDependencyBridge.swift */,
 				0A1A282B2204814D000C264D /* SearchUserExtensions.swift */,
+				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
 				0A1A284722049F9D000C264D /* SearchUserViewState.swift */,
 			);
 			name = Interface;
@@ -483,7 +495,9 @@
 				0A5A08BA21FDA847009D7309 /* SearchUserDataProvider.swift in Sources */,
 				0A5A08E421FDAFD8009D7309 /* MainView.swift in Sources */,
 				0A5A08C321FDAADC009D7309 /* SearchUserPresenter.swift in Sources */,
+				0A15857A22104287002B123B /* MainSegue.swift in Sources */,
 				0A5A08B821FDA847009D7309 /* SearchUserIntegrating.swift in Sources */,
+				0A15857322103955002B123B /* SearchUserDependencyBridge.swift in Sources */,
 				0A5A08D821FDAC6C009D7309 /* MainPresenter.swift in Sources */,
 				0A1A27D322028C71000C264D /* Network++.swift in Sources */,
 				0A5A08E021FDAD90009D7309 /* SearchUserBuilder.swift in Sources */,
@@ -493,6 +507,7 @@
 				0A1A284A22049FE3000C264D /* MainViewState.swift in Sources */,
 				0A5A08DA21FDAC6C009D7309 /* MainViewController.swift in Sources */,
 				0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */,
+				0A15857422103955002B123B /* SearchUserBridge.swift in Sources */,
 				0A5A08B721FDA847009D7309 /* SearchUserMapper.swift in Sources */,
 				0A5A08C421FDAADC009D7309 /* SearchUserRouter.swift in Sources */,
 				0A1A282C2204814D000C264D /* SearchUserExtensions.swift in Sources */,
@@ -502,6 +517,7 @@
 				0A5A08BB21FDA847009D7309 /* SearchUserIntegratorFactory.swift in Sources */,
 				0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */,
 				0A5A08B921FDA847009D7309 /* SearchUserDefinitions.swift in Sources */,
+				0A15858C22104E6B002B123B /* SearchUserSegue.swift in Sources */,
 				0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

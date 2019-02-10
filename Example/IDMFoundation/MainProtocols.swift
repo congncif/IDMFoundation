@@ -11,9 +11,7 @@ import IDMCore
 import ModuleX
 import ViewStateCore
 
-public protocol MainModuleInterface: ModuleInterface {
-    func selectUser(_ user: SearchUserModel)
-}
+public protocol MainModuleInterface: ModuleInterface, MainInputProtocol {}
 
 protocol MainControllerProtocol {
     var presenter: MainPresenterProtocol! { get }
@@ -35,6 +33,14 @@ public protocol MainBuilderProtocol: ModuleBuilderProtocol {
 
 // Go out module
 
-protocol MainRouterProtocol: RouterProtocol {
+protocol MainRouterProtocol: MainOutputProtocol {}
+
+// In/Out
+
+public protocol MainInputProtocol {
+    func selectUser(_ user: SearchUserModel)
+}
+
+protocol MainOutputProtocol {
     func openSearchModule(with query: String)
 }

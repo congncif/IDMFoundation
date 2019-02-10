@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="osK-Ve-4Av"/>
                         <viewControllerLayoutGuide type="bottom" id="8Q0-sX-CZ8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xtc-3U-flk" customClass="SearchUserView" customModule="IDMFoundation_Example" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="xtc-3U-flk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -104,6 +104,7 @@
                         <outlet property="tableView" destination="wWE-HY-c5l" id="BbO-G2-QbF"/>
                     </connections>
                 </customObject>
+                <customObject id="00k-yB-nQf" customClass="SearchUserBridge" customModule="IDMFoundation_Example" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1588" y="221.73913043478262"/>
         </scene>

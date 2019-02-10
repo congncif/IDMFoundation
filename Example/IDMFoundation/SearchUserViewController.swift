@@ -15,11 +15,11 @@ import UIKit
 import ViewStateCore
 
 public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
-    var router: SearchUserRouterProtocol!
     var presenter: SearchUserPresenterProtocol!
-
-    public var searchUserIntegrator: SearchUserAbstractIntegrator!
-
+    var integrator: SearchUserAbstractIntegrator!
+    
+    var router: SearchUserRouterProtocol!
+    
     @IBOutlet var usersArrayController: SearchUserArrayController!
 
     public override func viewDidLoad() {

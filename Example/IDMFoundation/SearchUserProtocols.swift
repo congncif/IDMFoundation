@@ -12,15 +12,13 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-public protocol SearchUserModuleInterface: ModuleInterface {
-    func start(with query: String)
-}
+public protocol SearchUserModuleInterface: ModuleInterface, SearchUserInputProtocol {}
 
 protocol SearchUserControllerProtocol {
-    var presenter: SearchUserPresenterProtocol! { get }
     var router: SearchUserRouterProtocol! { get }
 
-    var searchUserIntegrator: SearchUserAbstractIntegrator! { get }
+    var presenter: SearchUserPresenterProtocol! { get }
+    var integrator: SearchUserAbstractIntegrator! { get }
 
     func performSearch(query: String, displayer: DisplayHandlerProtocol)
 }
@@ -28,7 +26,7 @@ protocol SearchUserControllerProtocol {
 protocol SearchUserPresenterProtocol {
     var state: SearchUserViewState { get }
 
-    var searchUserHandler: DataProcessor<SearchUserResponseModel> { get }
+    var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 
     func start(with query: String)
     func setUsers(_ users: [SearchUserModel])
@@ -38,6 +36,14 @@ public protocol SearchUserBuilderProtocol {
     func build() -> SearchUserModuleInterface
 }
 
-protocol SearchUserRouterProtocol: RouterProtocol {
+protocol SearchUserRouterProtocol: SearchUserOutputProtocol {}
+
+// In/Out
+
+public protocol SearchUserInputProtocol {
+    func start(with query: String)
+}
+
+protocol SearchUserOutputProtocol {
     func userDidSelect(_ user: SearchUserModel)
 }

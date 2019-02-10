@@ -18,6 +18,8 @@ then
 	echo "Removed deprecated version of IDM xctemplate"
 fi
 
+
+
 temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/Module.xctemplate
 if [ -d "$temp_dir" ] 
 then
@@ -27,6 +29,8 @@ fi
 
 cp -R Templates/Module.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
+
+
 temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/IDMCore.xctemplate
 if [ -d "$temp_dir" ] 
 then
@@ -35,5 +39,29 @@ then
 fi
 
 cp -R Templates/IDMCore.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+
+
+
+temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/Dependency\ Bridge.xctemplate
+if [ -d "$temp_dir" ] 
+then
+	rm -rf "$temp_dir"
+	echo "Updating Dependency Bridge template exists..."
+fi
+
+cp -R Templates/Dependency\ Bridge.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+
+
+
+temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/Segue\ Router.xctemplate
+if [ -d "$temp_dir" ] 
+then
+	rm -rf "$temp_dir"
+	echo "Updating Segue Router template exists..."
+fi
+
+cp -R Templates/Segue\ Router.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+
+
 
 echo "${green}Installed IDM-Foundation.xctemplate successfully${reset}"
