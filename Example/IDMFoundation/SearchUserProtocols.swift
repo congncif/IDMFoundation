@@ -15,12 +15,17 @@ import ViewStateCore
 public protocol SearchUserModuleInterface: ModuleInterface, SearchUserInputProtocol {}
 
 protocol SearchUserControllerProtocol {
+    // optional
     var router: SearchUserRouterProtocol? { get }
 
     var presenter: SearchUserPresenterProtocol! { get }
     var integrator: SearchUserAbstractIntegrator! { get }
 
     func performSearch(query: String, displayer: DisplayHandlerProtocol)
+}
+
+extension SearchUserControllerProtocol {
+    var router: SearchUserRouterProtocol? { return nil }
 }
 
 protocol SearchUserPresenterProtocol {
@@ -31,6 +36,8 @@ protocol SearchUserPresenterProtocol {
     func start(with query: String)
     func setUsers(_ users: [SearchUserModel])
 }
+
+// Optionals
 
 public protocol SearchUserBuilderProtocol {
     func build() -> SearchUserModuleInterface
