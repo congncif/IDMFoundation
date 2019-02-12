@@ -59,7 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
         let mainBuilder = MainBuilder()
         let mainModule = mainBuilder.build()
         
-        launch(mainModule)
+        // build navigation module
+        let nav = UINavigationController(rootViewController: mainModule.viewController)
+        
+        launch(nav)
         
         window?.makeKeyAndVisible()
         

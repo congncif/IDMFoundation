@@ -37,12 +37,6 @@ protocol SearchUserPresenterProtocol {
     func setUsers(_ users: [SearchUserModel])
 }
 
-// Optionals
-
-public protocol SearchUserBuilderProtocol {
-    func build() -> SearchUserModuleInterface
-}
-
 protocol SearchUserRouterProtocol: SearchUserOutputProtocol {}
 
 // In/Out

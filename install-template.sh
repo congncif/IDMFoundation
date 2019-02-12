@@ -24,10 +24,10 @@ temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/
 if [ -d "$temp_dir" ] 
 then
 	rm -rf "$temp_dir"
-	echo "Updating Presenter template exists..."
+	echo "Updating Module template exists..."
 fi
 
-cp -R Templates/Module.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+# cp -R Templates/Module.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 
 
@@ -61,6 +61,17 @@ then
 fi
 
 cp -R Templates/Segue\ Router.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+
+
+
+temp_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application/ModuleX.xctemplate
+if [ -d "$temp_dir" ] 
+then
+	rm -rf "$temp_dir"
+	echo "Updating ModuleX template exists..."
+fi
+
+cp -R Templates/ModuleX.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 
 

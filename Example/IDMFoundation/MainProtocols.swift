@@ -25,12 +25,6 @@ protocol MainPresenterProtocol {
     func setQuery(_ query: String?)
 }
 
-// Go in module
-
-public protocol MainBuilderProtocol: ModuleBuilderProtocol {
-    func findInNavigationContainer(from source: ModuleInterface) -> MainModuleInterface?
-}
-
 // Go out module
 
 protocol MainRouterProtocol: MainOutputProtocol {}

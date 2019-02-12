@@ -10,13 +10,16 @@ import Foundation
 import ModuleX
 import SiFUtilities
 
+public protocol SearchUserBuilderProtocol {
+    func build() -> SearchUserModuleInterface
+}
+
 public struct SearchUserBuilder: SearchUserBuilderProtocol {
     public func build() -> SearchUserModuleInterface {
         let viewController = SearchUserViewController.instantiateFromStoryboard()
         
-        let router = SearchUserRouter()
+        let router = SearchUserRouter(mainBuilder: MainBuilder())
         router.sourceModule = viewController
-        router.mainBuilder = MainBuilder()
         
         viewController.router = router
         

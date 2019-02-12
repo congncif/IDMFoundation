@@ -10,6 +10,11 @@ import Foundation
 import ModuleX
 import SiFUtilities
 
+public protocol MainBuilderProtocol {
+    func build() -> MainModuleInterface
+    func findInNavigationContainer(from source: ModuleInterface) -> MainModuleInterface?
+}
+
 public struct MainBuilder: MainBuilderProtocol {
     public func findInNavigationContainer(from source: ModuleInterface) -> MainModuleInterface? {
         guard let navigation = source.viewController.navigationController,
@@ -19,20 +24,17 @@ public struct MainBuilder: MainBuilderProtocol {
         return result
     }
     
-    public func build() -> ModuleInterface {
+    public func build() -> MainModuleInterface {
         let viewController = MainViewController.instantiateFromStoryboard()
         
-        let router = MainRouter()
+        let router = MainRouter(searchUserBuilder: SearchUserBuilder())
         router.sourceModule = viewController
-        router.searchUserBuilder = SearchUserBuilder()
         
         let presenter = MainPresenter()
         
         viewController.presenter = presenter
         viewController.router = router
         
-        let navigation = UINavigationController(rootViewController: viewController)
-        
-        return navigation
+        return viewController
     }
 }

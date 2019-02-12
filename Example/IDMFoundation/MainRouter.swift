@@ -11,10 +11,15 @@ import IDMFoundation
 import ModuleX
 
 class MainRouter: Router, MainRouterProtocol {
-    var searchUserBuilder: SearchUserBuilderProtocol?
+    private var searchUserBuilder: SearchUserBuilderProtocol
 
+    init(searchUserBuilder: SearchUserBuilderProtocol) {
+        self.searchUserBuilder = searchUserBuilder
+        super.init()
+    }
+    
     func openSearchModule(with query: String) {
-        guard let nextModule = searchUserBuilder?.build() else { return }
+        let nextModule = searchUserBuilder.build()
         nextModule.start(with: query)
         sourceModule?.viewController.navigationController?.pushViewController(nextModule.viewController, animated: true)
     }
