@@ -38,15 +38,15 @@
 			<key>Required</key>
 			<string>true</string>
 			<key>Name</key>
-			<string>Use Dependency Bridge</string>
+			<string>Use Dependency Bridge &amp; Segue</string>
 			<key>Description</key>
-			<string>Use Dependency Bridge</string>
+			<string>Use Dependency Bridge &amp; Segue</string>
 			<key>Type</key>
 			<string>checkbox</string>
 			<key>Default</key>
-			<string>true</string>
+			<string>false</string>
 			<key>NotPersisted</key>
-			<string>true</string>
+			<string>false</string>
 		</dict>
 	</array>
 	<key>Platforms</key>
