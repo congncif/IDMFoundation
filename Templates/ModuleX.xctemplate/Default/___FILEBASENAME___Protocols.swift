@@ -10,7 +10,6 @@ import Foundation
 import IDMCore
 import IDMFoundation
 import ModuleX
-import ViewStateCore
 
 /// Come from outside
 

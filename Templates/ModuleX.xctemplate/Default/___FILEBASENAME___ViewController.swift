@@ -7,11 +7,7 @@
 //
 
 import Foundation
-import IDMCore
-import IDMFoundation
-import ModuleX
 import UIKit
-import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
 	var router: ___VARIABLE_moduleName___RouterProtocol!

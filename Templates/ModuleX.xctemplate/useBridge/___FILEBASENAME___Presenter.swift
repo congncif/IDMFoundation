@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import IDMCore
-import IDMFoundation
-import ViewStateCore
 
 class ___VARIABLE_moduleName___Presenter: NSObject, ___VARIABLE_moduleName___PresenterProtocol {
 	private(set) var state: ___VARIABLE_moduleName___ViewState

@@ -9,8 +9,6 @@
 import Foundation
 import IDMCore
 import IDMFoundation
-import ModuleX
-import ViewStateCore
 
 /*Always put every application logic in extensions of protocols*/
 
