@@ -49,7 +49,7 @@ then
 	echo "Updating Dependency Bridge template exists..."
 fi
 
-cp -R Templates/Dependency\ Bridge.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+# cp -R Templates/Dependency\ Bridge.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 
 
@@ -60,7 +60,7 @@ then
 	echo "Updating Segue Router template exists..."
 fi
 
-cp -R Templates/Segue\ Router.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
+# cp -R Templates/Segue\ Router.xctemplate ~/Library/Developer/Xcode/Templates/Project\ Templates/iOS/Application
 
 
 
