@@ -12,7 +12,7 @@ import ViewStateCore
 // Properties of ViewState should be protected from outside.
 
 class ___VARIABLE_moduleName___ViewState: ViewState {
-//    <#@objc public fileprivate(set) dynamic var id: String?#>
+//    <#@objc fileprivate(set) dynamic var id: String?#>
 }
 
 extension ___VARIABLE_moduleName___PresenterProtocol {
