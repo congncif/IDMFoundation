@@ -14,6 +14,8 @@ import UIKit
 import ViewStateCore
 
 public class MainViewController: UIViewController, MainControllerProtocol, MainModuleInterface {
+    public weak var output: MainOutputProtocol?
+
     var router: MainRouterProtocol?
     var presenter: MainPresenterProtocol!
 
@@ -29,10 +31,6 @@ public class MainViewController: UIViewController, MainControllerProtocol, MainM
         // Keep this at end of viewDidLoad
         mainView.subscribeStateChange(state)
     }
-    
-    public func selectUser(_ user: SearchUserModel) {
-        presenter.selectUser(user)
-    }
 }
 
 extension MainViewController {
@@ -43,5 +41,11 @@ extension MainViewController {
 
     @IBAction func textFieldDidChange(_ textField: UITextField) {
         presenter.setQuery(textField.text)
+    }
+}
+
+extension MainViewController: SearchUserOutputProtocol {
+    public func userDidSelect(_ user: SearchUserModel) {
+        presenter.selectUser(user)
     }
 }

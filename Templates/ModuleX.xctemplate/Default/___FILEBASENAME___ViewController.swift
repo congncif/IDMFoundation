@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
+	public weak var output: ___VARIABLE_moduleName___OutputProtocol?
+
 	var router: ___VARIABLE_moduleName___RouterProtocol!
 
 	var presenter: ___VARIABLE_moduleName___PresenterProtocol!

@@ -11,19 +11,8 @@ import IDMFoundation
 import ModuleX
 
 class SearchUserRouter: Router, SearchUserRouterProtocol {
-    private var mainBuilder: MainBuilderProtocol
-    
-    init(mainBuilder: MainBuilderProtocol) {
-        self.mainBuilder = mainBuilder
-        super.init()
-    }
-    
-    func userDidSelect(_ user: SearchUserModel) {
-        guard let source = sourceModule,
-            let destination = mainBuilder.findInNavigationContainer(from: source) else { return }
-        
-        destination.selectUser(user)
-        source.viewController.navigationController?.popToViewController(destination.viewController,
-                                                                        animated: true)
+    func closeSearchUserModule() {
+        sourceModule?.viewController
+            .navigationController?.popViewController(animated: true)
     }
 }

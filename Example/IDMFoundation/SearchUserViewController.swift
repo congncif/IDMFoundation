@@ -15,10 +15,13 @@ import UIKit
 import ViewStateCore
 
 public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
+    public var output: SearchUserOutputProtocol?
+
+    var router: SearchUserRouterProtocol?
+
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!
-    var router: SearchUserRouterProtocol?
-    
+
     @IBOutlet var usersArrayController: SearchUserArrayController!
 
     public override func viewDidLoad() {
@@ -31,9 +34,13 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
     public override func viewDidFinishLayout() {
         performSearch(query: state.currentQuery, displayer: self)
     }
-    
+
     public func start(with query: String) {
         presenter.start(with: query)
+    }
+    
+    deinit {
+        print("Search dealloced")
     }
 }
 
@@ -54,6 +61,7 @@ extension SearchUserViewController {
 extension SearchUserViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = users[indexPath.row]
-        router?.userDidSelect(model)
+        output?.userDidSelect(model)
+        router?.closeSearchUserModule()
     }
 }

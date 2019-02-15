@@ -14,7 +14,7 @@ import ModuleX
 /// Come from outside
 
 public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VARIABLE_moduleName___InputProtocol {
-	// Declare methods to call from outside module scope
+	var output: ___VARIABLE_moduleName___OutputProtocol? { get set }
 }
 
 /// Internal
@@ -34,18 +34,15 @@ protocol ___VARIABLE_moduleName___PresenterProtocol {
 
 /// Optionals
 
-// Go out module
-protocol ___VARIABLE_moduleName___RouterProtocol: ___VARIABLE_moduleName___OutputProtocol {
-	// RouterProtocol as a composite protocol of the output
-}
+protocol ___VARIABLE_moduleName___RouterProtocol {}
 
 /// In/Out
 /// Each of methods to go in or go out module is declared as a protocol. This promotes Interface Segregation Principle.
 
 public protocol ___VARIABLE_moduleName___InputProtocol {
-	// Declare method to come in from outside module, equivalent to a medhod of ___VARIABLE_moduleName___ModuleInterface
+	// Declare method to come in from outside module
 }
 
-protocol ___VARIABLE_moduleName___OutputProtocol {
-	// Declare method to go out module, equivalent to a medhod of ___VARIABLE_moduleName___RouterProtocol
+public protocol ___VARIABLE_moduleName___OutputProtocol: class {
+	// Declare method to go out module
 }

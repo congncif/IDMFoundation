@@ -18,7 +18,7 @@ public protocol MainBuilderProtocol {
 public struct MainBuilder: MainBuilderProtocol {
     public func findInNavigationContainer(from source: ModuleInterface) -> MainModuleInterface? {
         guard let navigation = source.viewController.navigationController,
-            let viewController = navigation.viewControllers.first(where: { $0 is MainViewController }),
+            let viewController = navigation.viewControllers.last(where: { $0 is MainViewController }),
             let result = viewController as? MainViewController else { return nil }
         
         return result

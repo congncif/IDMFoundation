@@ -9,18 +9,24 @@
 import Foundation
 import IDMFoundation
 import ModuleX
+import SiFUtilities
 
-class MainRouter: Router, MainRouterProtocol {
+class MainRouter: MainRouterProtocol {
+    weak var sourceModule: MainModuleInterface?
+    
     private var searchUserBuilder: SearchUserBuilderProtocol
-
+    
     init(searchUserBuilder: SearchUserBuilderProtocol) {
         self.searchUserBuilder = searchUserBuilder
-        super.init()
     }
     
     func openSearchModule(with query: String) {
         let nextModule = searchUserBuilder.build()
+        nextModule.output = sourceModule
         nextModule.start(with: query)
-        sourceModule?.viewController.navigationController?.pushViewController(nextModule.viewController, animated: true)
+        sourceModule?.viewController
+            .navigationController?
+            .pushViewController(nextModule.viewController,
+                                animated: true)
     }
 }

@@ -18,7 +18,7 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
     public func build() -> SearchUserModuleInterface {
         let viewController = SearchUserViewController.instantiateFromStoryboard()
         
-        let router = SearchUserRouter(mainBuilder: MainBuilder())
+        let router = SearchUserRouter()
         router.sourceModule = viewController
         
         viewController.router = router

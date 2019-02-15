@@ -9,6 +9,8 @@
 import Foundation
 import ModuleX
 
-class ___VARIABLE_moduleName___Router: Router, ___VARIABLE_moduleName___RouterProtocol {
+class ___VARIABLE_moduleName___Router: ___VARIABLE_moduleName___RouterProtocol {
+	weak var sourceModule: ___VARIABLE_moduleName___ModuleInterface?
+
 	// <#var nextBuilder: NextModuleBuilderProtocol?#>
 }
