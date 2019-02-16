@@ -17,7 +17,7 @@ import ViewStateCore
 public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
     public var output: SearchUserOutputProtocol?
 
-    var router: SearchUserRouterProtocol?
+    var router: SearchUserRouterProtocol!
 
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!

@@ -16,7 +16,7 @@ import ViewStateCore
 public class MainViewController: UIViewController, MainControllerProtocol, MainModuleInterface {
     public var output: MainOutputProtocol?
 
-    var router: MainRouterProtocol?
+    var router: MainRouterProtocol!
     var presenter: MainPresenterProtocol!
 
     var mainView: MainView {

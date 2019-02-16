@@ -15,8 +15,22 @@ public protocol MainModuleInterface: ModuleInterface, MainInputProtocol {
     var output: MainOutputProtocol? { get set }
 }
 
+public protocol MainBuilderProtocol {
+    func build() -> MainModuleInterface
+}
+
+// In/Out
+
+public protocol MainInputProtocol {
+    func selectUser(_ user: SearchUserModel)
+}
+
+public protocol MainOutputProtocol {}
+
+// Internal
+
 protocol MainControllerProtocol {
-    var router: MainRouterProtocol? { get }
+    var router: MainRouterProtocol! { get }
 
     var presenter: MainPresenterProtocol! { get }
 }
@@ -28,16 +42,6 @@ protocol MainPresenterProtocol {
     func setQuery(_ query: String?)
 }
 
-// Go out module
-
 protocol MainRouterProtocol {
     func openSearchModule(with query: String)
 }
-
-// In/Out
-
-public protocol MainInputProtocol {
-    func selectUser(_ user: SearchUserModel)
-}
-
-public protocol MainOutputProtocol {}

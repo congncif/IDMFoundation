@@ -17,6 +17,16 @@ public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VA
 	var output: ___VARIABLE_moduleName___OutputProtocol? { get set }
 }
 
+/// In/Out
+
+public protocol ___VARIABLE_moduleName___InputProtocol {
+	// Declare method to come in from outside module
+}
+
+public protocol ___VARIABLE_moduleName___OutputProtocol {
+	// Declare method to go out module
+}
+
 /// Internal
 
 protocol ___VARIABLE_moduleName___ControllerProtocol {
@@ -33,14 +43,3 @@ protocol ___VARIABLE_moduleName___PresenterProtocol {
 }
 
 protocol ___VARIABLE_moduleName___RouterProtocol {}
-
-/// In/Out
-/// Each of methods to go in or go out module is declared as a protocol. This promotes Interface Segregation Principle.
-
-public protocol ___VARIABLE_moduleName___InputProtocol {
-	// Declare method to come in from outside module
-}
-
-public protocol ___VARIABLE_moduleName___OutputProtocol {
-	// Declare method to go out module
-}

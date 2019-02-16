@@ -10,10 +10,6 @@ import Foundation
 import ModuleX
 import SiFUtilities
 
-public protocol SearchUserBuilderProtocol {
-    func build() -> SearchUserModuleInterface
-}
-
 public struct SearchUserBuilder: SearchUserBuilderProtocol {
     public func build() -> SearchUserModuleInterface {
         let viewController = SearchUserViewController.instantiateFromStoryboard()

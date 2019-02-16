@@ -16,18 +16,29 @@ public protocol SearchUserModuleInterface: ModuleInterface, SearchUserInputProto
     var output: SearchUserOutputProtocol? { get set }
 }
 
+public protocol SearchUserBuilderProtocol {
+    func build() -> SearchUserModuleInterface
+}
+
+// In/Out
+
+public protocol SearchUserInputProtocol {
+    func start(with query: String)
+}
+
+public protocol SearchUserOutputProtocol {
+    func userDidSelect(_ user: SearchUserModel)
+}
+
+// Internal
+
 protocol SearchUserControllerProtocol {
-    // optional
-    var router: SearchUserRouterProtocol? { get }
+    var router: SearchUserRouterProtocol! { get }
 
     var presenter: SearchUserPresenterProtocol! { get }
     var integrator: SearchUserAbstractIntegrator! { get }
 
     func performSearch(query: String, displayer: DisplayHandlerProtocol)
-}
-
-extension SearchUserControllerProtocol {
-    var router: SearchUserRouterProtocol? { return nil }
 }
 
 protocol SearchUserPresenterProtocol {
@@ -41,14 +52,4 @@ protocol SearchUserPresenterProtocol {
 
 protocol SearchUserRouterProtocol {
     func closeSearchUserModule()
-}
-
-// In/Out
-
-public protocol SearchUserInputProtocol {
-    func start(with query: String)
-}
-
-public protocol SearchUserOutputProtocol {
-    func userDidSelect(_ user: SearchUserModel)
 }
