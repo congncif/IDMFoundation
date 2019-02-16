@@ -20,18 +20,12 @@ public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VA
 /// Internal
 
 protocol ___VARIABLE_moduleName___ControllerProtocol {
-    // Optional: Once you use Storyboard segue, you might not need a router.
-    var router: ___VARIABLE_moduleName___RouterProtocol? { get }
+    var router: ___VARIABLE_moduleName___RouterProtocol! { get }
 
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
 
     // Declare methods to work internal module
-}
-
-// Default optionals
-extension ___VARIABLE_moduleName___ControllerProtocol {
-    var router: ___VARIABLE_moduleName___RouterProtocol? { return nil }
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
@@ -51,6 +45,6 @@ public protocol ___VARIABLE_moduleName___InputProtocol {
 	// Declare method to come in from outside module
 }
 
-public protocol ___VARIABLE_moduleName___OutputProtocol: class {
+public protocol ___VARIABLE_moduleName___OutputProtocol {
 	// Declare method to go out module
 }

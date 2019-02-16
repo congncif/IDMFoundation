@@ -14,7 +14,7 @@ import UIKit
 import ViewStateCore
 
 public class MainViewController: UIViewController, MainControllerProtocol, MainModuleInterface {
-    public weak var output: MainOutputProtocol?
+    public var output: MainOutputProtocol?
 
     var router: MainRouterProtocol?
     var presenter: MainPresenterProtocol!
@@ -44,8 +44,8 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: SearchUserOutputProtocol {
-    public func userDidSelect(_ user: SearchUserModel) {
+extension MainViewController: MainInputProtocol {
+    public func selectUser(_ user: SearchUserModel) {
         presenter.selectUser(user)
     }
 }

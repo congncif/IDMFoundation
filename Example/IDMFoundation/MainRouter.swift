@@ -16,13 +16,21 @@ class MainRouter: MainRouterProtocol {
     
     private var searchUserBuilder: SearchUserBuilderProtocol
     
+    private struct SearchUserOutputProxy: SearchUserOutputProtocol {
+        weak var output: MainModuleInterface?
+        
+        func userDidSelect(_ user: SearchUserModel) {
+            output?.selectUser(user)
+        }
+    }
+    
     init(searchUserBuilder: SearchUserBuilderProtocol) {
         self.searchUserBuilder = searchUserBuilder
     }
     
     func openSearchModule(with query: String) {
         let nextModule = searchUserBuilder.build()
-        nextModule.output = sourceModule
+        nextModule.output = SearchUserOutputProxy(output: sourceModule)
         nextModule.start(with: query)
         sourceModule?.viewController
             .navigationController?

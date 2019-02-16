@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ModuleInterface {
-	public weak var output: ___VARIABLE_moduleName___OutputProtocol?
+	public var output: ___VARIABLE_moduleName___OutputProtocol?
 
 	@IBOutlet var bridge: ___VARIABLE_moduleName___DependencyBridge!
 

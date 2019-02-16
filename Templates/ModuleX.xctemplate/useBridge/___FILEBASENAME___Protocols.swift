@@ -43,6 +43,6 @@ public protocol ___VARIABLE_moduleName___InputProtocol {
 	// Declare method to come in from outside module
 }
 
-public protocol ___VARIABLE_moduleName___OutputProtocol: class {
+public protocol ___VARIABLE_moduleName___OutputProtocol {
 	// Declare method to go out module
 }
