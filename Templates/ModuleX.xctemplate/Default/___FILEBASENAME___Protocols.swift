@@ -34,8 +34,6 @@ protocol ___VARIABLE_moduleName___PresenterProtocol {
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 }
 
-/// Optionals
-
 protocol ___VARIABLE_moduleName___RouterProtocol {}
 
 /// In/Out
