@@ -18,17 +18,16 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
     public var encoding: (MultipartFormData, Parameter?) -> Void
     
     public init(route: NetworkRequestRoutable,
-                parameterEncoder: ParameterEncoding = URLEncoding.default,
-                urlRequestAdapters: [URLRequestAdapting] = [],
-                encoding: @escaping (MultipartFormData, Parameter?) -> Void = {
+                parameterEncoding: @escaping (MultipartFormData, Parameter?) -> Void = {
                     guard let param = $1 else { return }
                     $0.append(fileParameter: param)
                 },
+                urlRequestAdapters: [URLRequestAdapting] = [],
                 requestAdapter: RequestApdapterType? = nil,
                 sessionManager: SessionManager = .background) {
-        self.encoding = encoding
+        self.encoding = parameterEncoding
         super.init(route: route,
-                   parameterEncoder: parameterEncoder,
+                   parameterEncoder: URLEncoding.default,
                    urlRequestAdapters: urlRequestAdapters,
                    requestAdapter: requestAdapter,
                    sessionManager: sessionManager)
