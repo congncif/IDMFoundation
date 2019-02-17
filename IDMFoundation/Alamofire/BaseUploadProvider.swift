@@ -15,7 +15,6 @@ public typealias UploadRequestAdapter = BaseRequestAdapter<UploadRequest>
 
 open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Parameter>
     where Parameter: UploadFilesParameterProtocol, Parameter: URLBuildable {
-    
     public var encoding: (MultipartFormData, Parameter?) -> Void
     
     public init(route: NetworkRequestRoutable,
@@ -35,37 +34,45 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
                    sessionManager: sessionManager)
     }
     
-    open override func buildRequest(with parameters: Parameter?) throws -> UploadRequest {
-        var request: UploadRequest?
-        var error: Error?
-        let group = DispatchGroup()
-        group.enter()
-        
+    private var request: UploadRequest? // hack to buildRequest
+    
+    open override func request(parameters: Parameter?,
+                               completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         do {
-            let newRequest = try buildURLRequest(with: parameters)
+            let newRequest = try self.buildAdaptiveURLRequest(with: parameters) // don't encode parameters
             log(url: newRequest.url, mark: "📦", data: parameters)
-            sessionManager.upload(multipartFormData: { [weak self] in self?.encoding($0, parameters) },
-                                  with: newRequest) { encodingResult in
+            self.sessionManager.upload(multipartFormData: { [weak self] in self?.encoding($0, parameters) },
+                                       with: newRequest) { [weak self] encodingResult in
+                guard let self = self else { return }
                 switch encodingResult {
                 case .success(let upload, _, _):
-                    request = upload
-                    group.leave()
+                    self.request = upload
+                    self.request = try? self.buildAdaptiveRequest(with: parameters)
+                    if let _request = self.request {
+                        self.processRequest(_request, completion: completion)
+                    } else {
+                        completion(false, nil, nil)
+                    }
                 case .failure(let encodingError):
-                    error = encodingError
-                    group.leave()
+                    completion(false, nil, encodingError)
                 }
             }
         } catch let exception {
-            error = exception
-            group.leave()
+            completion(false, nil, exception)
         }
         
-        group.wait()
-        
-        guard let _request = request else {
-            throw error ?? CommonError(message: "Unknown")
+        let cancelHandler: CancelHandler? = { [weak self] in
+            guard let self = self, let _request = self.request else { return }
+            self.cancelRequest(_request)
         }
-        return _request
+        return cancelHandler
+    }
+    
+    open override func buildRequest(with parameters: Parameter?) throws -> UploadRequest {
+        if let _request = request {
+            return _request
+        }
+        throw CommonError(message: "Cannot buildRequest".localized())
     }
     
     open override func cancelRequest(_ request: UploadRequest) {
