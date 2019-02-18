@@ -33,7 +33,7 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
                    sessionManager: sessionManager)
     }
     
-    private var request: UploadRequest? // hack to buildRequest
+    private weak var request: UploadRequest? // hack to buildRequest, just refer don't keep alive
     
     open override func request(parameters: Parameter?,
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
