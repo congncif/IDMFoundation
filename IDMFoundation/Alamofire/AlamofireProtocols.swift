@@ -56,11 +56,11 @@ public struct NetworkRoute: AlamofireNetworkRequestRoutable {
 // #4
 
 public protocol AlamofireRequestBuildable: SimpleURLRequestBuildable {
-    func parameterEncoder(_ parameters: ParameterType?) -> ParameterEncoding
+    func parameterEncoder(_ parameters: RequestParameterType?) -> ParameterEncoding
 }
 
-extension AlamofireRequestBuildable where ParameterType: ParameterProtocol {
-    public func buildEncodedRequest(with parameters: ParameterType?) throws -> URLRequest {
+extension AlamofireRequestBuildable where RequestParameterType: ParameterProtocol {
+    public func buildEncodedRequest(with parameters: RequestParameterType?) throws -> URLRequest {
         var newRequest = try buildAdaptiveURLRequest(with: parameters)
 
         let encoder = parameterEncoder(parameters)
@@ -75,13 +75,13 @@ public protocol SimpleAlamofireRequestBuildable: AlamofireRequestBuildable {
 }
 
 extension SimpleAlamofireRequestBuildable {
-    public func parameterEncoder(_ parameters: ParameterType?) -> ParameterEncoding {
+    public func parameterEncoder(_ parameters: RequestParameterType?) -> ParameterEncoding {
         return parameterEncoder
     }
 }
 
 public protocol AlamofireDataRequestProtocol: RouteRequestBuildable, SimpleFlexibleRequestable,
-    SimpleAlamofireRequestBuildable, AlamofireSessionManagable {}
+    SimpleAlamofireRequestBuildable, HandleableRequestable, AlamofireSessionManagable {}
 
 public protocol AlamofireRequestProtocol: RouteRequestBuildable, SimpleFlexibleRequestable,
-    SimpleURLRequestBuildable, AlamofireSessionManagable {}
+    SimpleURLRequestBuildable, HandleableRequestable, AlamofireSessionManagable {}

@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
         
         window?.makeKeyAndVisible()
         
+//        String.localizedStringWithFormat(NSLocalizedString("%d x", comment: ""))
+        
         return true
     }
 }

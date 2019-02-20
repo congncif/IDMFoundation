@@ -11,7 +11,25 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-public typealias UploadRequestAdapter = BaseRequestAdapter<UploadRequest>
+public typealias UploadRequestAdapter = NetworkRequestAdapter<UploadRequest>
+
+extension NetworkResponseHandler where BaseRequest == UploadRequest {
+    public static let `default` = NetworkResponseHandler<UploadRequest>(handler: { request, completion in
+        request.uploadProgress { progress in
+            completion(true, progress, nil)
+        }
+        
+        request.responseJSON { response in
+            let isSuccess = response.result.isSuccess
+            if isSuccess {
+                log(url: response.response?.url, mark: "🌸", data: response.value)
+            } else {
+                log(url: response.response?.url, mark: "🥀", data: response.error)
+            }
+            completion(isSuccess, response.value, response.error)
+        }
+    })
+}
 
 open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Parameter>
     where Parameter: UploadFilesParameterProtocol, Parameter: URLBuildable {
@@ -24,12 +42,14 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
                 },
                 urlRequestAdapters: [URLRequestAdapting] = [],
                 requestAdapter: RequestApdapterType? = nil,
+                responseHandler: ResponseHandlerType = NetworkResponseHandler<UploadRequest>.default,
                 sessionManager: SessionManager = .background) {
         self.encoding = parameterEncoding
         super.init(route: route,
                    parameterEncoder: URLEncoding.default,
                    urlRequestAdapters: urlRequestAdapters,
                    requestAdapter: requestAdapter,
+                   responseHandler: responseHandler,
                    sessionManager: sessionManager)
     }
     
@@ -46,7 +66,7 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
                 switch encodingResult {
                 case .success(let upload, _, _):
                     self.request = upload
-                    self.request = try? self.buildAdaptiveRequest(with: parameters)
+                    self.request = try? self.buildFinalRequest(with: parameters)
                     if let _request = self.request {
                         self.processRequest(_request, completion: completion)
                     } else {
@@ -76,21 +96,5 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
     
     open override func cancelRequest(_ request: UploadRequest) {
         request.cancel()
-    }
-    
-    open override func processRequest(_ request: UploadRequest, completion: @escaping (Bool, Any?, Error?) -> Void) {
-        request.uploadProgress { progress in
-            completion(true, progress, nil)
-        }
-        
-        request.responseJSON { response in
-            let isSuccess = response.result.isSuccess
-            if isSuccess {
-                log(url: response.response?.url, mark: "🌸", data: response.value)
-            } else {
-                log(url: response.response?.url, mark: "🥀", data: response.error)
-            }
-            completion(isSuccess, response.value, response.error)
-        }
     }
 }

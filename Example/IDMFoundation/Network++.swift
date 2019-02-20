@@ -12,7 +12,7 @@ import IDMFoundation
 
 extension BaseDataProvider {
     public convenience init(route: NetworkRequestRoutable) {
-        let adapter = BaseRequestAdapter<DataRequest> { $0.validate() }
+        let adapter = NetworkRequestAdapter<DataRequest> { $0.validate() }
         self.init(route: route,
                   parameterEncoder: URLEncoding.default,
                   urlRequestAdapters: [],
