@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 import SiFUtilities
 
-// #2
+// MARK: - #1 SessionManager / Networking
 
 public protocol AlamofireSessionManagable: NetworkSessionManagable {
     var sessionManager: SessionManager { get }
@@ -29,7 +29,7 @@ extension AlamofireSessionManagable {
     }
 }
 
-// #3
+// MARK: - #2 Routable
 
 public protocol AlamofireNetworkRequestRoutable: NetworkRequestRoutable {
     var httpMethod: HTTPMethod { get }
@@ -53,7 +53,7 @@ public struct NetworkRoute: AlamofireNetworkRequestRoutable {
     }
 }
 
-// #4
+// MARK: - #3 URL Request
 
 public protocol AlamofireRequestBuildable: SimpleURLRequestBuildable {
     func parameterEncoder(_ parameters: RequestParameterType?) -> ParameterEncoding
@@ -80,8 +80,8 @@ extension SimpleAlamofireRequestBuildable {
     }
 }
 
-public protocol AlamofireDataRequestProtocol: RouteRequestBuildable, SimpleFlexibleRequestable,
-    SimpleAlamofireRequestBuildable, HandleableRequestable, AlamofireSessionManagable {}
+// MARK: - #4 Base Protocols
 
-public protocol AlamofireRequestProtocol: RouteRequestBuildable, SimpleFlexibleRequestable,
-    SimpleURLRequestBuildable, HandleableRequestable, AlamofireSessionManagable {}
+public protocol AlamofireDataRequestProtocol: NetworkRequestable, SimpleAlamofireRequestBuildable, AlamofireSessionManagable {}
+
+public protocol AlamofireRequestProtocol: NetworkRequestable, SimpleURLRequestBuildable, AlamofireSessionManagable {}

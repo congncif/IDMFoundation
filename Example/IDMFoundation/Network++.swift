@@ -15,8 +15,6 @@ extension BaseDataProvider {
         let adapter = NetworkRequestAdapter<DataRequest> { $0.validate() }
         self.init(route: route,
                   parameterEncoder: URLEncoding.default,
-                  urlRequestAdapters: [],
-                  requestAdapter: adapter,
-                  sessionManager: .background)
+                  requestAdapter: adapter)
     }
 }

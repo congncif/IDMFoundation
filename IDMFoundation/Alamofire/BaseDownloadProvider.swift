@@ -32,7 +32,7 @@ extension NetworkResponseHandler where BaseRequest == DownloadRequest {
     })
 }
 
-open class BaseDownloadProvider<Parameter>: NetworkDataProvider<DownloadRequest, Parameter>, SimpleAlamofireRequestBuildable where Parameter: DownloadParameterProtocol {
+open class BaseDownloadProvider<Parameter>: NetworkDataProvider<DownloadRequest, Parameter>, AlamofireDataRequestProtocol where Parameter: DownloadParameterProtocol {
     public override init(route: NetworkRequestRoutable,
                          parameterEncoder: ParameterEncoding = URLEncoding.default,
                          urlRequestAdapters: [URLRequestAdapting] = [],

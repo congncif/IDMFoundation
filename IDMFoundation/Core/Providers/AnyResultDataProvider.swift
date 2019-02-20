@@ -20,5 +20,7 @@ open class AnyResultDataProvider<ParameterType>: AbstractDataProvider<ParameterT
     }
 }
 
+// -------------------------------------------------------------------------
+
 @available(*, deprecated, message: "Use AnyResultDataProvider class instead")
 public typealias RootAnyProvider = AnyResultDataProvider

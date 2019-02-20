@@ -59,7 +59,7 @@ open class BaseUploadProvider<Parameter>: NetworkDataProvider<UploadRequest, Par
                                completion: @escaping (Bool, Any?, Error?) -> Void) -> CancelHandler? {
         do {
             let newRequest = try self.buildAdaptiveURLRequest(with: parameters) // don't encode parameters
-            log(url: newRequest.url, mark: "📦", data: parameters)
+            log(url: newRequest.url, mark: "📦", data: parameters?.query?.queryParameters)
             self.sessionManager.upload(multipartFormData: { [weak self] in self?.encoding($0, parameters) },
                                        with: newRequest) { [weak self] encodingResult in
                 guard let self = self else { return }

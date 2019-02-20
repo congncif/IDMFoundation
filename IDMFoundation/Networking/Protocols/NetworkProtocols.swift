@@ -8,6 +8,8 @@
 import Foundation
 import SiFUtilities
 
+// MARK: - #1 Definitions
+
 public typealias AnyResultCompletionHandler = (Bool, Any?, Error?) -> Void
 
 public protocol RequestAdapting {
@@ -22,12 +24,15 @@ public protocol ResponseHandling {
     func processRequest(_ request: RequestType, completion: @escaping AnyResultCompletionHandler)
 }
 
+// MARK: - #2 Requestable
+
 public protocol Requestable {
     associatedtype RequestParameterType
     associatedtype RequestType
 
     func buildRequest(with parameters: RequestParameterType?) throws -> RequestType
     func buildFinalRequest(with parameters: RequestParameterType?) throws -> RequestType
+
     func processRequest(_ request: RequestType, completion: @escaping AnyResultCompletionHandler)
     func cancelRequest(_ request: RequestType)
 }
@@ -38,7 +43,7 @@ extension Requestable {
     }
 }
 
-// #1
+// MARK: - #3 Buildable
 
 public protocol RequestBuildable: Requestable {
     func url(_ parameters: RequestParameterType?) throws -> URL
@@ -60,6 +65,8 @@ extension RequestBuildable {
     }
 }
 
+// MARK: - #4 Routable
+
 public protocol RouteRequestBuildable: RequestBuildable {
     var route: NetworkRequestRoutable { get }
 }
@@ -78,7 +85,7 @@ extension RouteRequestBuildable {
     }
 }
 
-// #2
+// MARK: - #5 Request Adaptable
 
 public protocol FlexibleRequestable: Requestable {
     associatedtype RequestApdapterType: RequestAdapting where RequestApdapterType.RequestType == RequestType
@@ -112,6 +119,8 @@ extension SimpleFlexibleRequestable {
     }
 }
 
+// MARK: - #6 Hanleable
+
 public protocol HandleableRequestable: Requestable {
     associatedtype ResponseHandlerType: ResponseHandling where ResponseHandlerType.RequestType == RequestType
 
@@ -123,3 +132,7 @@ extension HandleableRequestable {
         responseHandler.processRequest(request, completion: completion)
     }
 }
+
+// MARK: - #7 Base Network Protocol
+
+public protocol NetworkRequestable: RouteRequestBuildable, SimpleFlexibleRequestable, HandleableRequestable {}
