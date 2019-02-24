@@ -10,7 +10,6 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-extension ___VARIABLE_moduleName___Parameter: ParameterProtocol {}
 extension ___VARIABLE_moduleName___ResponseModel: ModelProtocol {}
 
 public typealias ___VARIABLE_moduleName___BaseProvider = AnyResultDataProvider<___VARIABLE_moduleName___Parameter>
