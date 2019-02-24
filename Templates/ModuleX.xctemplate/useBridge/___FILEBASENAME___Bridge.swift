@@ -14,6 +14,6 @@ class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___DependencyBridge
     override init() {
     	super.init()
         presenter = ___VARIABLE_moduleName___Presenter()
-        // integrator = ___VARIABLE_moduleName___IntegratorFactory.getIntegrator()
+        // integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
     }
 }
