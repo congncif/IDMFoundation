@@ -10,16 +10,7 @@ import Foundation
 import IDMCore
 import SiFUtilities
 
-open class BridgeResponseProvider<R: ModelProtocol>: BridgeDataProvider<Any, R> where R.DataType == Any {
-    open override func convert(parameter: Any?) throws -> R? {
-        do {
-            let data: R? = try R(fromData: parameter)
-            return data
-        } catch let ex {
-            throw ex
-        }
-    }
-}
+public typealias BridgeResponseProvider<R: ModelProtocol> = BridgeDataProvider<Any, R> where R.DataType == Any
 
 // -------------------------------------------------------------------------
 
@@ -48,3 +39,8 @@ open class ForwardProvider<P>: ConvertProvider<P, P> {
         return parameter
     }
 }
+
+// -------------------------------------------------------------------------
+
+@available(*, deprecated, message: "Use AnyResultDataProvider class instead")
+public typealias RootAnyProvider = AnyResultDataProvider

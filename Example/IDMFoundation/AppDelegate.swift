@@ -44,6 +44,8 @@ public class CLGT: ModelProtocol {
 //    var data: Person?
 // }
 
+import IDMCore
+import IDMFoundation
 import ModuleX
 
 @UIApplicationMain
@@ -51,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
         LogConfiguration.level = .debug
         
         window = UIWindow(frame: UIScreen.main.bounds)
