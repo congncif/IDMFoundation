@@ -48,8 +48,10 @@ import IDMCore
 import IDMFoundation
 import ModuleX
 
+
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, RootRouterProtocol {
+class AppDelegate: UIResponder, UIApplicationDelegate, LaunchRouterProtocol {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {

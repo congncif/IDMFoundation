@@ -36,15 +36,15 @@ PODS:
     - ObjectMapper
   - Localize-Swift (2.0.0)
   - MBProgressHUD (1.1.0)
-  - ModuleX (1.0.1)
+  - ModuleX (1.0.2)
   - ObjectMapper (3.4.2)
-  - SDWebImage (4.4.5):
-    - SDWebImage/Core (= 4.4.5)
-  - SDWebImage/Core (4.4.5)
-  - SiFUtilities (4.1.3):
-    - SiFUtilities/Default (= 4.1.3)
-  - SiFUtilities/Core (4.1.3)
-  - SiFUtilities/Default (4.1.3):
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - SiFUtilities (4.1.5):
+    - SiFUtilities/Default (= 4.1.5)
+  - SiFUtilities/Core (4.1.5)
+  - SiFUtilities/Default (4.1.5):
     - SiFUtilities/Core
     - SiFUtilities/Endpoint
     - SiFUtilities/Helpers
@@ -56,30 +56,30 @@ PODS:
     - SiFUtilities/Runtime
     - SiFUtilities/Show
     - SiFUtilities/WeakObject
-  - SiFUtilities/Endpoint (4.1.3)
-  - SiFUtilities/Helpers (4.1.3)
-  - SiFUtilities/IBDesignable (4.1.3):
+  - SiFUtilities/Endpoint (4.1.5)
+  - SiFUtilities/Helpers (4.1.5)
+  - SiFUtilities/IBDesignable (4.1.5):
     - SiFUtilities/Core
-  - SiFUtilities/KeyValue (4.1.3)
-  - SiFUtilities/Loading (4.1.3)
-  - SiFUtilities/Localize (4.1.3):
+  - SiFUtilities/KeyValue (4.1.5)
+  - SiFUtilities/Loading (4.1.5)
+  - SiFUtilities/Localize (4.1.5):
     - Localize-Swift
     - SiFUtilities/Core
     - SiFUtilities/Runtime
-  - SiFUtilities/Nib (4.1.3):
+  - SiFUtilities/Nib (4.1.5):
     - SiFUtilities/Core
-  - SiFUtilities/Runtime (4.1.3)
-  - SiFUtilities/Show (4.1.3):
+  - SiFUtilities/Runtime (4.1.5)
+  - SiFUtilities/Show (4.1.5):
     - SiFUtilities/Core
     - SiFUtilities/Localize
-  - SiFUtilities/WeakObject (4.1.3)
+  - SiFUtilities/WeakObject (4.1.5)
   - Swinject (2.5.0)
   - SwinjectAutoregistration (2.5.1):
     - Swinject (~> 2.5)
   - SwinjectStoryboard (2.1.0):
     - Swinject (~> 2.5)
   - "UIImage+FixOrientation (1.0.0)"
-  - ViewStateCore (1.2.2)
+  - ViewStateCore (1.2.3)
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
@@ -117,16 +117,16 @@ SPEC CHECKSUMS:
   IDMFoundation: 003b4b3c60543d2ba0df3377b456a00f5a74d47e
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  ModuleX: 6143a0848b5586c2d1b2cad0cfacddff046b6d64
+  ModuleX: c6965f347d31836ddf40b0d803c8ef6571313b1c
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
-  SiFUtilities: 60deeceaa4c5ad9f27d18fd593c8faa1852ee86f
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  SiFUtilities: ccf9f7c1eac2ae14fd71ad2a38075110b2e0305f
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
-  ViewStateCore: b080a6506a24ef2f8a9731252d6704dae105ce92
+  ViewStateCore: 1d508dcbe1a52efb92c2e3647db681faab730154
 
 PODFILE CHECKSUM: c8ac09efbb01df41a0e4a8311b21d11e96e02c22
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1

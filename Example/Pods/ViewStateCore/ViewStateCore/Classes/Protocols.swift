@@ -182,3 +182,13 @@ public extension ViewStateRenderable {
         render(state: state)
     }
 }
+
+// Convinience to connect ViewStateSubscriber via Interface Builder
+@objc
+public protocol ViewSubscriberHolderProtocol {}
+
+extension ViewSubscriberHolderProtocol where Self: ViewStateSubscriber {
+    public var subscriber: ViewStateSubscriber {
+        return self
+    }
+}

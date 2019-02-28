@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="osK-Ve-4Av"/>
                         <viewControllerLayoutGuide type="bottom" id="8Q0-sX-CZ8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xtc-3U-flk">
+                    <view key="view" contentMode="scaleToFill" id="xtc-3U-flk" customClass="SearchUserView" customModule="IDMFoundation_Example" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -72,7 +72,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="J14-Ir-8Ak" id="tOC-o9-bsf"/>
                                     <outlet property="delegate" destination="sP1-EO-L9v" id="uve-co-Dpj"/>
                                 </connections>
                             </tableView>
@@ -85,6 +84,9 @@
                             <constraint firstItem="wWE-HY-c5l" firstAttribute="top" secondItem="osK-Ve-4Av" secondAttribute="bottom" id="vlU-bg-oLj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8qg-ns-Fto"/>
+                        <connections>
+                            <outlet property="tableView" destination="wWE-HY-c5l" id="1hn-1Y-Fxa"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="GNb-j0-yZg">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="aiL-lA-SAk">
@@ -94,18 +96,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="usersArrayController" destination="J14-Ir-8Ak" id="3t4-T4-o8f"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXH-1x-WW0" sceneMemberID="firstResponder"/>
-                <customObject id="J14-Ir-8Ak" customClass="SearchUserArrayController" customModule="IDMFoundation_Example" customModuleProvider="target">
-                    <connections>
-                        <outlet property="tableView" destination="wWE-HY-c5l" id="BbO-G2-QbF"/>
-                    </connections>
-                </customObject>
+                <customObject id="J14-Ir-8Ak" customClass="SearchUserArrayController" customModule="IDMFoundation_Example" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="221.73913043478262"/>
+            <point key="canvasLocation" x="1423" y="220"/>
         </scene>
     </scenes>
 </document>

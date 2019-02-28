@@ -10,16 +10,8 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-@IBDesignable
 class SearchUserArrayController: NSObject, UITableViewDataSource {
-    @IBOutlet
-    weak var tableView: UITableView?
-    
-    var users: [SearchUserModel] = [] {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+    var users: [SearchUserModel] = []
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -45,14 +37,5 @@ class SearchUserArrayController: NSObject, UITableViewDataSource {
         }
         
         return dequeueCell
-    }
-}
-
-extension SearchUserArrayController: ViewStateRenderable {
-    func render(state: ViewState) {
-        guard let state = state as? SearchUserViewState else {
-            return
-        }
-        users = state.users
     }
 }

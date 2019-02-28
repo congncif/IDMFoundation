@@ -33,11 +33,13 @@ public protocol SearchUserOutputProtocol {
 // Internal
 
 protocol SearchUserControllerProtocol {
-    var router: SearchUserRouterProtocol! { get }
+    var router: SearchUserRouterProtocol! { get set }
+    var presenter: SearchUserPresenterProtocol! { get set }
+    var integrator: SearchUserAbstractIntegrator! { get set }
 
-    var presenter: SearchUserPresenterProtocol! { get }
-    var integrator: SearchUserAbstractIntegrator! { get }
+    var viewports: [ViewStateSubscriber] { get }
 
+    func startView()
     func performSearch(query: String, displayer: DisplayHandlerProtocol)
 }
 

@@ -10,6 +10,7 @@ import Foundation
 import IDMCore
 import IDMFoundation
 import ModuleX
+import ViewStateCore
 
 /// Come from outside
 
@@ -32,8 +33,10 @@ public protocol ___VARIABLE_moduleName___OutputProtocol {
 protocol ___VARIABLE_moduleName___ControllerProtocol {
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
+    var viewports: [ViewStateSubscriber] { get }
 
     // Declare methods to work internal module
+    func startView()
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {

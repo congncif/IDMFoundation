@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-public protocol RootRouterProtocol {
+public protocol LaunchRouterProtocol {
     var window: UIWindow? { get }
 
     func launch(_ desinationModule: ModuleInterface, animationOptions: UIView.AnimationOptions, duration: TimeInterval)
 }
 
-extension RootRouterProtocol {
+extension LaunchRouterProtocol {
     public func launch(_ desinationModule: ModuleInterface, animationOptions: UIView.AnimationOptions = .curveEaseInOut, duration: TimeInterval = 0.3) {
         guard let window = self.window else {
             return

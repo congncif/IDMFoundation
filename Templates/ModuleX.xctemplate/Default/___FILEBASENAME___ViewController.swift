@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ViewStateCore
 
 public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
 	public var output: ___VARIABLE_moduleName___OutputProtocol?
@@ -17,9 +18,16 @@ public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIA
 	var presenter: ___VARIABLE_moduleName___PresenterProtocol!
 	var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
+	var viewports: [ViewStateSubscriber] = []
+
 	public override func viewDidLoad() {
         super.viewDidLoad()
 
-        // <#Subscribe ViewState changes here#>
+        // Hack to use Interface Builder
+        if let viewport = view as? ViewStateSubscriber {
+            viewports.append(viewport)
+        }
+
+        startView()
     }
 }

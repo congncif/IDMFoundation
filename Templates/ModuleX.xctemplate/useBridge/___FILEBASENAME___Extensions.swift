@@ -16,6 +16,12 @@ extension ___VARIABLE_moduleName___ControllerProtocol {
     var state: ___VARIABLE_moduleName___ViewState {
         return presenter.state
     }
+
+    func startView() {
+        for view in viewports {
+            view.subscribeStateChange(state)
+        }
+    }
 }
 
 extension ___VARIABLE_moduleName___PresenterProtocol {

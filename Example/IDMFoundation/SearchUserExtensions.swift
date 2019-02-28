@@ -18,6 +18,12 @@ extension SearchUserControllerProtocol {
 }
 
 extension SearchUserControllerProtocol {
+    func startView() {
+        for view in viewports {
+            view.subscribeStateChange(state)
+        }
+    }
+
     func performSearch(query: String, displayer: DisplayHandlerProtocol) {
         let param = SearchUserParameter(q: query)
         integrator.prepareCall(parameters: param)

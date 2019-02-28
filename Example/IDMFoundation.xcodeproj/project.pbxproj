@@ -15,6 +15,7 @@
 		0A1A284622049E8F000C264D /* MainExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284522049E8F000C264D /* MainExtensions.swift */; };
 		0A1A284822049F9D000C264D /* SearchUserViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284722049F9D000C264D /* SearchUserViewState.swift */; };
 		0A1A284A22049FE3000C264D /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284922049FE3000C264D /* MainViewState.swift */; };
+		0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A113A222843220007C0EE /* SearchUserView.swift */; };
 		0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */; };
 		0A5A08B121FDA7BA009D7309 /* NetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */; };
 		0A5A08B721FDA847009D7309 /* SearchUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */; };
@@ -51,6 +52,7 @@
 		0A1A284522049E8F000C264D /* MainExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExtensions.swift; sourceTree = "<group>"; };
 		0A1A284722049F9D000C264D /* SearchUserViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewState.swift; sourceTree = "<group>"; };
 		0A1A284922049FE3000C264D /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		0A3A113A222843220007C0EE /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
 		0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoutes.swift; sourceTree = "<group>"; };
 		0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserMapper.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */,
 				0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */,
+				0A3A113A222843220007C0EE /* SearchUserView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 		0A5A08C721FDAB05009D7309 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0AB6A61E2212D2990080F035 /* Root */,
 				0A5A08CB21FDAC05009D7309 /* Main */,
 				0A5A08CA21FDABFD009D7309 /* SearchUser */,
 			);
@@ -240,13 +242,6 @@
 				0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		0AB6A61E2212D2990080F035 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Root;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -504,6 +499,7 @@
 				0A5A08B721FDA847009D7309 /* SearchUserMapper.swift in Sources */,
 				0A5A08C421FDAADC009D7309 /* SearchUserRouter.swift in Sources */,
 				0A1A282C2204814D000C264D /* SearchUserExtensions.swift in Sources */,
+				0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */,
 				0A5A08DE21FDACF7009D7309 /* MainBuilder.swift in Sources */,
 				0A1A284622049E8F000C264D /* MainExtensions.swift in Sources */,
 				0A5A08F021FDC256009D7309 /* SearchUserModel.swift in Sources */,

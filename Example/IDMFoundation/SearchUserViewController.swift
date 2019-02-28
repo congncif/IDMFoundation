@@ -22,13 +22,18 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!
 
-    @IBOutlet var usersArrayController: SearchUserArrayController!
+    var viewports: [ViewStateSubscriber] = []
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         // Keep this at end of viewDidLoad
-        usersArrayController.subscribeStateChange(state)
+
+        if let viewport = view as? ViewStateSubscriber {
+            viewports.append(viewport)
+        }
+        
+        startView()
     }
 
     public override func viewDidFinishLayout() {
@@ -38,7 +43,7 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
     public func start(with query: String) {
         presenter.start(with: query)
     }
-    
+
     deinit {
         print("Search dealloced")
     }

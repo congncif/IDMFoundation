@@ -13,7 +13,7 @@
         <scene sceneID="GzV-lN-fg7">
             <objects>
                 <viewController id="vKn-9P-Ny8" customClass="___VARIABLE_productName___ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BNZ-bO-rhc">
+                    <view key="view" contentMode="scaleToFill" customClass="___VARIABLE_productName___View" customModuleProvider="target" id="BNZ-bO-rhc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -21,6 +21,7 @@
                     </view>
                     <connections>
                         <outlet property="bridge" destination="axh-Bd-Vxu" id="tMd-in-6Wj"/>
+                        <outletCollection property="viewportHolders" destination="BNZ-bO-rhc" collectionClass="NSMutableArray" id="Axu-ni-2Dr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
