@@ -1,43 +1,61 @@
 //
-//  MainBuilderProtocol.swift
-//  IDMFoundation_Example
+//  MainProtocols.swift
+//  IDMFoundation
 //
-//  Created by NGUYEN CHI CONG on 1/27/19.
+//  Created by NGUYEN CHI CONG on 3/2/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Foundation
 import IDMCore
+import IDMFoundation
 import ModuleX
 import ViewStateCore
 
+/// Come from outside
+
 public protocol MainModuleInterface: ModuleInterface, MainInputProtocol {
-    var output: MainOutputProtocol? { get set }
+	var output: MainOutputProtocol? { get set }
 }
 
 public protocol MainBuilderProtocol {
     func build() -> MainModuleInterface
 }
 
-// In/Out
+/// In/Out
 
 public protocol MainInputProtocol {
+	// Declare method to come in from outside module
     func selectUser(_ user: SearchUserModel)
 }
 
-public protocol MainOutputProtocol {}
+public protocol MainOutputProtocol {
+	// Declare method to go out module
+}
 
-// Internal
+/// Internal
+
+protocol MainViewActionDelegate: class {
+    func viewReady()
+    
+    func searchQueryDidChange(_ query: String)
+    func search()
+}
+
+protocol MainViewProtocol: ViewStateSubscriber {
+    var actionDelegate: MainViewActionDelegate? { get }
+}
 
 protocol MainControllerProtocol {
     var router: MainRouterProtocol! { get }
-
     var presenter: MainPresenterProtocol! { get }
+
+    // Declare methods to work internal module
 }
 
 protocol MainPresenterProtocol {
     var state: MainViewState { get }
-
+    
     func selectUser(_ user: SearchUserModel)
     func setQuery(_ query: String?)
 }

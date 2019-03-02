@@ -1,13 +1,15 @@
 //
 //  MainViewState.swift
-//  IDMFoundation_Example
+//  IDMFoundation
 //
-//  Created by NGUYEN CHI CONG on 2/1/19.
+//  Created by NGUYEN CHI CONG on 3/2/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Foundation
 import ViewStateCore
+
+// Properties of ViewState should be protected from outside.
 
 class MainViewState: ViewState {
     class QueryState: ViewState {

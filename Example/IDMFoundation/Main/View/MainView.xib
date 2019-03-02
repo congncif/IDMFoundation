@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="kwR-6X-Eeq" customClass="MainView" customModule="IDMFoundation_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="query" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fej-ev-XWb">
+                    <rect key="frame" x="20" y="40" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <connections>
+                        <action selector="searchFieldDidChange:" destination="kwR-6X-Eeq" eventType="editingChanged" id="wcc-Od-gqy"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxR-V6-3ig">
+                    <rect key="frame" x="136.5" y="91" width="102" height="30"/>
+                    <state key="normal" title="SEARCH USER"/>
+                    <connections>
+                        <action selector="searchButtonDidTap" destination="kwR-6X-Eeq" eventType="touchUpInside" id="U8S-eP-CgI"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmZ-FV-4S0">
+                    <rect key="frame" x="20" y="141" width="108" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukE-ZO-3cj">
+                    <rect key="frame" x="138" y="151.5" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fej-ev-XWb" firstAttribute="top" secondItem="ynN-2e-TsO" secondAttribute="top" constant="20" id="9gJ-to-db8"/>
+                <constraint firstItem="ukE-ZO-3cj" firstAttribute="leading" secondItem="GmZ-FV-4S0" secondAttribute="trailing" constant="10" id="DFU-Wt-vJC"/>
+                <constraint firstItem="fej-ev-XWb" firstAttribute="leading" secondItem="ynN-2e-TsO" secondAttribute="leading" constant="20" id="Hef-a8-CgA"/>
+                <constraint firstItem="DxR-V6-3ig" firstAttribute="centerX" secondItem="fej-ev-XWb" secondAttribute="centerX" id="JcW-rC-z9c"/>
+                <constraint firstItem="DxR-V6-3ig" firstAttribute="top" secondItem="fej-ev-XWb" secondAttribute="bottom" constant="21" id="PIH-41-xac"/>
+                <constraint firstItem="GmZ-FV-4S0" firstAttribute="top" secondItem="fej-ev-XWb" secondAttribute="bottom" constant="71" id="a7W-Nj-buO"/>
+                <constraint firstItem="ynN-2e-TsO" firstAttribute="trailing" secondItem="fej-ev-XWb" secondAttribute="trailing" constant="20" id="q8c-y6-Git"/>
+                <constraint firstItem="ukE-ZO-3cj" firstAttribute="centerY" secondItem="GmZ-FV-4S0" secondAttribute="centerY" id="sZu-80-R3D"/>
+                <constraint firstItem="GmZ-FV-4S0" firstAttribute="leading" secondItem="ynN-2e-TsO" secondAttribute="leading" constant="20" id="yra-6n-hqK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ynN-2e-TsO"/>
+            <connections>
+                <outlet property="searchButton" destination="DxR-V6-3ig" id="sTW-DV-u8i"/>
+                <outlet property="searchField" destination="fej-ev-XWb" id="qLE-Kk-zri"/>
+                <outlet property="selectedUserLabel" destination="ukE-ZO-3cj" id="oay-oE-cdc"/>
+            </connections>
+        </view>
+    </objects>
+</document>

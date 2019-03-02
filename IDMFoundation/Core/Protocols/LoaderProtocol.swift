@@ -11,9 +11,9 @@ import IDMCore
 public protocol LoaderProtocol: AnyObject, LoadingProtocol {}
 public protocol ErrorHandlerProtocol: AnyObject, ErrorHandlingProtocol {}
 public protocol LoadingMonitorProtocol: LoaderProtocol, ErrorHandlerProtocol {}
+public protocol ProgressTrackerProtocol: AnyObject, ProgressLoadingProtocol {}
 
 extension IntegrationCall {
-    @discardableResult
     public func setLoader(_ loader: LoaderProtocol?) -> Self {
         onBeginning { [weak loader] in
             loader?.beginLoading()
@@ -26,7 +26,6 @@ extension IntegrationCall {
         return self
     }
     
-    @discardableResult
     public func setErrorHandler(_ handler: ErrorHandlerProtocol?) -> Self {
         onError { [weak handler] err in
             handler?.handle(error: err)
@@ -35,9 +34,25 @@ extension IntegrationCall {
         return self
     }
     
-    @discardableResult
     public func setLoadingMonitor(_ monitor: LoadingMonitorProtocol?) -> Self {
         setLoader(monitor).setErrorHandler(monitor)
+        return self
+    }
+}
+
+extension IntegrationCall where ModelType: ProgressModelProtocol {
+    public func setProgressTracker(_ tracker: ProgressTrackerProtocol?) -> Self {
+        onBeginning { [weak tracker] in
+            tracker?.beginProgressLoading()
+        }
+        
+        onCompletion { [weak tracker] in
+            tracker?.finishProgressLoading()
+        }
+        
+        onProgress { [weak tracker] model in
+            tracker?.loadingDidUpdateProgress(model?.progress)
+        }
         return self
     }
 }

@@ -44,7 +44,7 @@ class SearchUserView: UIView, SearchViewViewProtocol {
     }
 
     @objc func refreshButtonDidTap() {
-        actionDelegate?.refreshButtonDidTap()
+        actionDelegate?.refresh()
     }
 }
 

@@ -36,7 +36,7 @@ extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol,
 }
 
 extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol {
-    func refreshButtonDidTap() {
+    func refresh() {
         performSearch()
     }
 

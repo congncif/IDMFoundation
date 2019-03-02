@@ -1,18 +1,28 @@
 //
 //  MainView.swift
-//  IDMFoundation_Example
+//  IDMFoundation
 //
-//  Created by NGUYEN CHI CONG on 1/27/19.
+//  Created by NGUYEN CHI CONG on 3/2/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import ViewStateCore
 
-class MainView: UIView {
+class MainView: UIView, MainViewProtocol {
+    weak var actionDelegate: MainViewActionDelegate?
+
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var selectedUserLabel: UILabel!
+
+    @IBAction func searchButtonDidTap() {
+        actionDelegate?.search()
+    }
+
+    @IBAction func searchFieldDidChange(_ textField: UITextField) {
+        actionDelegate?.searchQueryDidChange(textField.text!)
+    }
 }
 
 extension MainView: ViewStateRenderable {
