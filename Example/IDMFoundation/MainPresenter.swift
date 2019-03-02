@@ -12,10 +12,10 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-class MainPresenter: NSObject, MainPresenterProtocol {
+class MainPresenter: MainPresenterProtocol {
     private(set) var state: MainViewState
 
-    override init() {
+    init() {
         let newState = MainViewState()
         state = newState
     }

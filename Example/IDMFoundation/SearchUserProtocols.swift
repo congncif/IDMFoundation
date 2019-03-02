@@ -32,20 +32,27 @@ public protocol SearchUserOutputProtocol {
 
 // Internal
 
+// Be class to work weak reference
+protocol SearchUserViewActionDelegate: class {
+    func viewReady()
+    func listItemDidSelect(at index: Int)
+    func refreshButtonDidTap()
+}
+
+protocol SearchViewViewProtocol: ViewStateSubscriber {
+    var actionDelegate: SearchUserViewActionDelegate? { get }
+}
+
 protocol SearchUserControllerProtocol {
     var router: SearchUserRouterProtocol! { get set }
     var presenter: SearchUserPresenterProtocol! { get set }
     var integrator: SearchUserAbstractIntegrator! { get set }
-
-    var viewports: [ViewStateSubscriber] { get }
-
-    func startView()
-    func performSearch(query: String, displayer: DisplayHandlerProtocol)
 }
 
 protocol SearchUserPresenterProtocol {
     var state: SearchUserViewState { get }
 
+    var dataLoadingMonitor: LoadingMonitorProtocol? { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 
     func start(with query: String)

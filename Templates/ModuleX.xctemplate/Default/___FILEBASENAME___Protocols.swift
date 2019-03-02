@@ -34,19 +34,26 @@ public protocol ___VARIABLE_moduleName___OutputProtocol {
 
 /// Internal
 
+protocol ___VARIABLE_moduleName___ViewActionDelegate: class {
+    func viewReady()
+}
+
+protocol ___VARIABLE_moduleName___ViewProtocol: ViewStateSubscriber {
+    var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate? { get }
+}
+
 protocol ___VARIABLE_moduleName___ControllerProtocol {
     var router: ___VARIABLE_moduleName___RouterProtocol! { get }
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
-    var viewports: [ViewStateSubscriber] { get }
 
     // Declare methods to work internal module
-    func startView()
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
     var state: ___VARIABLE_moduleName___ViewState { get }
 
+    var dataLoadingMonitor: LoadingMonitorProtocol? { get }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 }
 

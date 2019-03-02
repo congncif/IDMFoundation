@@ -11,6 +11,6 @@ import IDMFoundation
 import UIKit
 import ModuleX
 
-extension UIViewController: DisplayHandlerProtocol {}
+extension UIViewController: LoadingMonitorProtocol {}
 
 extension UINavigationController: ModuleInterface {}

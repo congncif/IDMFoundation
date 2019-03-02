@@ -79,7 +79,7 @@ PODS:
   - SwinjectStoryboard (2.1.0):
     - Swinject (~> 2.5)
   - "UIImage+FixOrientation (1.0.0)"
-  - ViewStateCore (1.2.3)
+  - ViewStateCore (1.2.5)
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
@@ -125,7 +125,7 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
   "UIImage+FixOrientation": 6889ce14a2761462c22d6f92d26685db79a0c9b2
-  ViewStateCore: 1d508dcbe1a52efb92c2e3647db681faab730154
+  ViewStateCore: 0978cf1970699368ffe6f8ffdf1452e44e15fa3f
 
 PODFILE CHECKSUM: c8ac09efbb01df41a0e4a8311b21d11e96e02c22
 

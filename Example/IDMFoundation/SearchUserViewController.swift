@@ -14,7 +14,7 @@ import SDWebImage
 import UIKit
 import ViewStateCore
 
-public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface {
+public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface, SearchUserViewActionDelegate {
     public var output: SearchUserOutputProtocol?
 
     var router: SearchUserRouterProtocol!
@@ -22,22 +22,31 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!
 
-    var viewports: [ViewStateSubscriber] = []
+    private var customView: UIView?
+
+    init(customView: UIView) {
+        self.customView = customView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    public override func loadView() {
+        if let customView = customView {
+            view = customView
+        } else {
+            super.loadView()
+        }
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Keep this at end of viewDidLoad
-
-        if let viewport = view as? ViewStateSubscriber {
-            viewports.append(viewport)
-        }
-        
-        startView()
     }
 
     public override func viewDidFinishLayout() {
-        performSearch(query: state.currentQuery, displayer: self)
+        viewReady()
     }
 
     public func start(with query: String) {
@@ -46,27 +55,5 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
 
     deinit {
         print("Search dealloced")
-    }
-}
-
-extension SearchUserViewController {
-    @IBAction func refreshButtonDidTap() {
-        performSearch(query: state.currentQuery, displayer: self)
-    }
-}
-
-extension SearchUserViewController {
-    var users: [SearchUserModel] {
-        return state.users
-    }
-}
-
-// MARK: - TableView
-
-extension SearchUserViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = users[indexPath.row]
-        output?.userDidSelect(model)
-        router?.closeSearchUserModule()
     }
 }

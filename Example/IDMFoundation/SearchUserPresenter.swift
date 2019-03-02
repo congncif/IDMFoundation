@@ -12,11 +12,12 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-class SearchUserPresenter: NSObject, SearchUserPresenterProtocol {
-    private(set) var state: SearchUserViewState
+class SearchUserPresenter: SearchUserPresenterProtocol {
+    weak var dataLoadingMonitor: LoadingMonitorProtocol?
 
-    public override init() {
-        state = SearchUserViewState()
-        super.init()
+    let state: SearchUserViewState
+
+    public init(state: SearchUserViewState = SearchUserViewState()) {
+        self.state = state
     }
 }

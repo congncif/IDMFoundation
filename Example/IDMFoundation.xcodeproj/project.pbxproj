@@ -16,6 +16,7 @@
 		0A1A284822049F9D000C264D /* SearchUserViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284722049F9D000C264D /* SearchUserViewState.swift */; };
 		0A1A284A22049FE3000C264D /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284922049FE3000C264D /* MainViewState.swift */; };
 		0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A113A222843220007C0EE /* SearchUserView.swift */; };
+		0A3A113D2228EF850007C0EE /* SearchUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A113C2228EF850007C0EE /* SearchUserView.xib */; };
 		0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */; };
 		0A5A08B121FDA7BA009D7309 /* NetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */; };
 		0A5A08B721FDA847009D7309 /* SearchUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */; };
@@ -26,7 +27,6 @@
 		0A5A08C321FDAADC009D7309 /* SearchUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */; };
 		0A5A08C421FDAADC009D7309 /* SearchUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */; };
 		0A5A08C521FDAADC009D7309 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */; };
-		0A5A08C921FDAB9D009D7309 /* SearchUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5A08C821FDAB9D009D7309 /* SearchUserViewController.storyboard */; };
 		0A5A08D821FDAC6C009D7309 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08D421FDAC6C009D7309 /* MainPresenter.swift */; };
 		0A5A08D921FDAC6C009D7309 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08D521FDAC6C009D7309 /* MainRouter.swift */; };
 		0A5A08DA21FDAC6C009D7309 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08D621FDAC6C009D7309 /* MainViewController.swift */; };
@@ -38,6 +38,8 @@
 		0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08EA21FDB876009D7309 /* UIViewController++.swift */; };
 		0A5A08ED21FDBDEF009D7309 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08EC21FDBDEF009D7309 /* MainProtocols.swift */; };
 		0A5A08F021FDC256009D7309 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */; };
+		0A75EF82222A80150062D85A /* SearchUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */; };
+		0A75EF95222A8A520062D85A /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75EF94222A8A520062D85A /* Services.swift */; };
 		203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 203487B72077D8CB0033D4FA /* CHANGELOG.md */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -53,6 +55,7 @@
 		0A1A284722049F9D000C264D /* SearchUserViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewState.swift; sourceTree = "<group>"; };
 		0A1A284922049FE3000C264D /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		0A3A113A222843220007C0EE /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		0A3A113C2228EF850007C0EE /* SearchUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchUserView.xib; sourceTree = "<group>"; };
 		0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
 		0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoutes.swift; sourceTree = "<group>"; };
 		0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserMapper.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserPresenter.swift; sourceTree = "<group>"; };
 		0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRouter.swift; sourceTree = "<group>"; };
 		0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
-		0A5A08C821FDAB9D009D7309 /* SearchUserViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchUserViewController.storyboard; sourceTree = "<group>"; };
 		0A5A08D421FDAC6C009D7309 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		0A5A08D521FDAC6C009D7309 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		0A5A08D621FDAC6C009D7309 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 		0A5A08EA21FDB876009D7309 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
 		0A5A08EC21FDBDEF009D7309 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
+		0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchUserTableViewCell.xib; sourceTree = "<group>"; };
+		0A75EF94222A8A520062D85A /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		203487B72077D8CB0033D4FA /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		588B65499C6F61B26096D3E8 /* Pods-IDMFoundation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IDMFoundation_Tests/Pods-IDMFoundation_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* IDMFoundation_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDMFoundation_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */,
-				0A5A08C821FDAB9D009D7309 /* SearchUserViewController.storyboard */,
 				0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */,
 			);
 			name = Business;
@@ -182,7 +185,9 @@
 			children = (
 				0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */,
 				0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */,
+				0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */,
 				0A3A113A222843220007C0EE /* SearchUserView.swift */,
+				0A3A113C2228EF850007C0EE /* SearchUserView.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -244,6 +249,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		0A75EF83222A89AD0062D85A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0A75EF94222A8A520062D85A /* Services.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 		607FACD21AFB9204008FA782 /* Example for IDMFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				0A75EF83222A89AD0062D85A /* Test */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				0A5A08BE21FDAAB3009D7309 /* Shared */,
 				0A5A08EE21FDC23C009D7309 /* Models */,
@@ -401,7 +415,8 @@
 				0A5A08E221FDAF45009D7309 /* MainViewController.storyboard in Resources */,
 				203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				0A5A08C921FDAB9D009D7309 /* SearchUserViewController.storyboard in Resources */,
+				0A75EF82222A80150062D85A /* SearchUserTableViewCell.xib in Resources */,
+				0A3A113D2228EF850007C0EE /* SearchUserView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +503,7 @@
 				0A5A08C321FDAADC009D7309 /* SearchUserPresenter.swift in Sources */,
 				0A5A08B821FDA847009D7309 /* SearchUserIntegrating.swift in Sources */,
 				0A5A08D821FDAC6C009D7309 /* MainPresenter.swift in Sources */,
+				0A75EF95222A8A520062D85A /* Services.swift in Sources */,
 				0A1A27D322028C71000C264D /* Network++.swift in Sources */,
 				0A5A08E021FDAD90009D7309 /* SearchUserBuilder.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

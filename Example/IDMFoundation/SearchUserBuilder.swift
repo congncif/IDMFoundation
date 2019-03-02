@@ -12,16 +12,29 @@ import SiFUtilities
 
 public struct SearchUserBuilder: SearchUserBuilderProtocol {
     public func build() -> SearchUserModuleInterface {
-        let viewController = SearchUserViewController.instantiateFromStoryboard()
+        let customView = SearchUserView(frame: UIScreen.main.bounds)
+        customView.backgroundColor = UIColor.red
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: customView, action: #selector(customView.refreshButtonDidTap))
+        
+        let viewController = SearchUserViewController(customView: customView)
+        viewController.title = "Search"
+        viewController.navigationItem.rightBarButtonItem = refreshButton
         
         let router = SearchUserRouter()
-        router.sourceModule = viewController
-        
-        viewController.router = router
         
         let presenter = SearchUserPresenter()
+        
+        customView.actionDelegate = viewController
+        
+        viewController.router = router
         viewController.presenter = presenter
         viewController.integrator = SearchUserIntegratorFactory.getIntegrator()
+        
+        presenter.dataLoadingMonitor = viewController
+        presenter.state.register(subscriber: customView)
+        
+        router.sourceModule = viewController
         
         return viewController
     }

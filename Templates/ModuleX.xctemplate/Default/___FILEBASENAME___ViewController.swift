@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
+public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
 	public var output: ___VARIABLE_moduleName___OutputProtocol?
 
 	var router: ___VARIABLE_moduleName___RouterProtocol!
@@ -18,16 +18,27 @@ public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIA
 	var presenter: ___VARIABLE_moduleName___PresenterProtocol!
 	var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
-	var viewports: [ViewStateSubscriber] = []
+    private var customView: UIView?
+
+    init(customView: UIView) {
+        self.customView = customView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    public override func loadView() {
+        if let customView = customView {
+            view = customView
+        } else {
+            super.loadView()
+        }
+    }
 
 	public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Hack to use Interface Builder
-        if let viewport = view as? ViewStateSubscriber {
-            viewports.append(viewport)
-        }
-
-        startView()
+        viewReady()
     }
 }

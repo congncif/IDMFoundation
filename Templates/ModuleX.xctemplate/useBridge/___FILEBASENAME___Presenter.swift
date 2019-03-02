@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import IDMFoundation
 
-class ___VARIABLE_moduleName___Presenter: NSObject, ___VARIABLE_moduleName___PresenterProtocol {
-	private(set) var state: ___VARIABLE_moduleName___ViewState
+class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProtocol {
+    weak var dataLoadingMonitor: LoadingMonitorProtocol?
 
-    override init() {    	
-    	let newState = ___VARIABLE_moduleName___ViewState()
-    	state = newState
-        super.init()
+    let state: ___VARIABLE_moduleName___ViewState
+
+    public init(state: ___VARIABLE_moduleName___ViewState = ___VARIABLE_moduleName___ViewState()) {
+        self.state = state
     }
 }

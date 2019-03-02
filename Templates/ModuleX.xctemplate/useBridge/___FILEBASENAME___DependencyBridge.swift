@@ -7,15 +7,19 @@
 //
 
 import Foundation
-
-/// Use DependencyBridge to inject abstract `presenter` and `integrator`. 
-/// They are Swift types so cannot declare as Objective C types.
-/// Use this if you want to use UIStoryboard as Builder. Then connect Bridge to ViewController via Storyboard.
-/// In ___VARIABLE_moduleName___ViewController, replace ___VARIABLE_moduleName___ControllerProtocol by ___VARIABLE_moduleName___ControllerBridgeProtocol.
+import ViewStateCore
 
 class ___VARIABLE_moduleName___DependencyBridge: NSObject {
     var presenter: ___VARIABLE_moduleName___PresenterProtocol!
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
+
+    @IBOutlet weak var viewBridge: AnyObject? {
+        didSet {
+            if let subscriber = viewBridge as? ViewStateSubscriber {
+                presenter.state.register(subscriber: subscriber)
+            }
+        }
+    }
 }
 
 protocol ___VARIABLE_moduleName___ControllerBridgeProtocol: ___VARIABLE_moduleName___ControllerProtocol {

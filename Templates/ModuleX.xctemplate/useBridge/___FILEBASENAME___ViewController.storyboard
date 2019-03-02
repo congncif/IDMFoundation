@@ -18,14 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
+                        <connections>
+                            <outlet property="actionDelegateBridge" destination="vKn-9P-Ny8" id="K0o-50-RHA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bridge" destination="axh-Bd-Vxu" id="tMd-in-6Wj"/>
-                        <outletCollection property="viewportHolders" destination="BNZ-bO-rhc" collectionClass="NSMutableArray" id="Axu-ni-2Dr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target"/>
+                <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewBridge" destination="BNZ-bO-rhc" id="70d-RM-Qwd"/>
+                    </connections>
+                 </customObject>   
             </objects>
             <point key="canvasLocation" x="244" y="205"/>
         </scene>

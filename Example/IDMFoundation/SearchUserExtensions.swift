@@ -18,18 +18,30 @@ extension SearchUserControllerProtocol {
 }
 
 extension SearchUserControllerProtocol {
-    func startView() {
-        for view in viewports {
-            view.subscribeStateChange(state)
-        }
-    }
-
-    func performSearch(query: String, displayer: DisplayHandlerProtocol) {
-        let param = SearchUserParameter(q: query)
+    func performSearch() {
+        let param = SearchUserParameter(q: state.query.unwrapped())
         integrator.prepareCall(parameters: param)
-            .display(on: displayer)
+            .setLoadingMonitor(presenter.dataLoadingMonitor)
             .dataProcessor(presenter.dataProcessor)
             .call()
+    }
+}
+
+extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol, Self: SearchUserModuleInterface {
+    func listItemDidSelect(at index: Int) {
+        let model = state.users[index]
+        output?.userDidSelect(model)
+        router?.closeSearchUserModule()
+    }
+}
+
+extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol {
+    func refreshButtonDidTap() {
+        performSearch()
+    }
+
+    func viewReady() {
+        performSearch()
     }
 }
 

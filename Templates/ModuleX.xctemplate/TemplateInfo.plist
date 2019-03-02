@@ -38,9 +38,9 @@
 			<key>Required</key>
 			<string>true</string>
 			<key>Name</key>
-			<string>Use Dependency Bridge &amp; Segue</string>
+			<string>Use Storyboard &amp; Dependency Bridge</string>
 			<key>Description</key>
-			<string>Use Dependency Bridge &amp; Segue</string>
+			<string>Use Storyboard &amp; Dependency Bridge</string>
 			<key>Type</key>
 			<string>checkbox</string>
 			<key>Default</key>

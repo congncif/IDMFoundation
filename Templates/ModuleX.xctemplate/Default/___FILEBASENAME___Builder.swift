@@ -12,18 +12,25 @@ import SiFUtilities
 
 public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {    
     public func build() -> ___VARIABLE_moduleName___ModuleInterface {
-        let viewController = ___VARIABLE_moduleName___ViewController() // FIXME: - Init view controller
-        
+        let view = ___VARIABLE_moduleName___View(frame: UIScreen.main.bounds)
+
+        let viewController = ___VARIABLE_moduleName___ViewController(customView: view)
+
         let router = ___VARIABLE_moduleName___Router()
-        router.sourceModule = viewController
-        // <#router.nextBuilder = NextBuilder()#>
-        
+
         let presenter = ___VARIABLE_moduleName___Presenter()
         
+        view.actionDelegate = viewController
+
         viewController.presenter = presenter
         viewController.router = router
-        
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
+
+        presenter.dataLoadingMonitor = viewController
+        presenter.state.register(subscriber: view)
+
+        router.sourceModule = viewController
+        // <#router.nextBuilder = NextBuilder()#>
 
         return viewController
     }
