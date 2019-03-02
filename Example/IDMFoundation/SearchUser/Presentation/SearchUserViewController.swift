@@ -52,8 +52,4 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
     public func start(with query: String) {
         presenter.start(with: query)
     }
-
-    deinit {
-        print("Search dealloced")
-    }
 }
