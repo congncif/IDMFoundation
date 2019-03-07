@@ -12,12 +12,39 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
+class SearchUserViewState: ViewState {
+    @objc fileprivate(set) dynamic var query: String?
+    @objc fileprivate(set) dynamic var users: [SearchUserModel] = []
+}
+
 class SearchUserPresenter: SearchUserPresenterProtocol {
     weak var dataLoadingMonitor: LoadingMonitorProtocol?
 
-    let state: SearchUserViewState
+    fileprivate let state: SearchUserViewState
 
-    public init(state: SearchUserViewState = SearchUserViewState()) {
+    init(state: SearchUserViewState = SearchUserViewState()) {
         self.state = state
+    }
+
+    func register(view: SearchViewViewProtocol) {
+        state.register(subscriber: view)
+    }
+
+    func currentQuery() -> String {
+        return state.query.unwrapped()
+    }
+
+    func user(at index: Int) -> SearchUserModel {
+        return state.users[index]
+    }
+}
+
+extension SearchUserPresenter {
+    func start(with query: String) {
+        state.query = query
+    }
+    
+    func setUsers(_ users: [SearchUserModel]) {
+        state.users = users
     }
 }

@@ -32,7 +32,7 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         viewController.integrator = SearchUserIntegratorFactory.getIntegrator()
         
         presenter.dataLoadingMonitor = viewController
-        presenter.state.register(subscriber: customView)
+        presenter.register(view: customView)
         
         router.sourceModule = viewController
         

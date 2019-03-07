@@ -27,7 +27,7 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
 
         presenter.dataLoadingMonitor = viewController
-        presenter.state.register(subscriber: view)
+        presenter.register(view: view)
 
         router.sourceModule = viewController
         // <#router.nextBuilder = NextBuilder()#>

@@ -12,10 +12,6 @@ import IDMFoundation
 
 /* Always put every application logic in extensions of protocols */
 
-extension MainControllerProtocol {
-    var state: MainViewState { return presenter.state }
-}
-
 extension MainViewActionDelegate where Self: MainControllerProtocol {
     func viewReady() {
         // <#code here#>
@@ -26,7 +22,7 @@ extension MainViewActionDelegate where Self: MainControllerProtocol {
     }
 
     func search() {
-        let query = state.currentQuery
+        let query = presenter.currentQuery()
         router?.openSearchModule(with: query)
     }
 }

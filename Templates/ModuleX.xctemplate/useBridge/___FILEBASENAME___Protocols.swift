@@ -46,10 +46,10 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
-    var state: ___VARIABLE_moduleName___ViewState { get }
-
     var dataLoadingMonitor: LoadingMonitorProtocol? { get set }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
+
+    func register(view: ___VARIABLE_moduleName___ViewProtocol)
 }
 
 protocol ___VARIABLE_moduleName___RouterProtocol {}

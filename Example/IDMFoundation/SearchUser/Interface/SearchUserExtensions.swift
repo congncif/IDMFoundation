@@ -12,14 +12,8 @@ import IDMFoundation
 import ViewStateCore
 
 extension SearchUserControllerProtocol {
-    var state: SearchUserViewState {
-        return presenter.state
-    }
-}
-
-extension SearchUserControllerProtocol {
     func performSearch() {
-        let param = SearchUserParameter(q: state.query.unwrapped())
+        let param = SearchUserParameter(q: presenter.currentQuery())
         integrator.prepareCall(parameters: param)
             .setLoadingMonitor(presenter.dataLoadingMonitor)
             .dataProcessor(presenter.dataProcessor)
@@ -29,7 +23,7 @@ extension SearchUserControllerProtocol {
 
 extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol, Self: SearchUserModuleInterface {
     func listItemDidSelect(at index: Int) {
-        let model = state.users[index]
+        let model = presenter.user(at: index)
         output?.userDidSelect(model)
         router?.closeSearchUserModule()
     }

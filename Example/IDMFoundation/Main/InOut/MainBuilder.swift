@@ -27,7 +27,7 @@ public struct MainBuilder: MainBuilderProtocol {
         viewController.router = router
 
         presenter.dataLoadingMonitor = viewController
-        presenter.state.register(subscriber: view)
+        presenter.register(view: view)
 
         router.sourceModule = viewController
         router.searchUserBuilder = SearchUserBuilder()

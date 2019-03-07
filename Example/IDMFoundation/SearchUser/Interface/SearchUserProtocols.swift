@@ -44,19 +44,21 @@ protocol SearchViewViewProtocol: ViewStateSubscriber {
 }
 
 protocol SearchUserControllerProtocol {
-    var router: SearchUserRouterProtocol! { get set }
-    var presenter: SearchUserPresenterProtocol! { get set }
-    var integrator: SearchUserAbstractIntegrator! { get set }
+    var router: SearchUserRouterProtocol! { get }
+    var presenter: SearchUserPresenterProtocol! { get }
+    var integrator: SearchUserAbstractIntegrator! { get }
 }
 
 protocol SearchUserPresenterProtocol {
-    var state: SearchUserViewState { get }
-
     var dataLoadingMonitor: LoadingMonitorProtocol? { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 
+    func register(view: SearchViewViewProtocol)
+    
     func start(with query: String)
+    func currentQuery() -> String
     func setUsers(_ users: [SearchUserModel])
+    func user(at index: Int) -> SearchUserModel
 }
 
 protocol SearchUserRouterProtocol {

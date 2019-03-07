@@ -12,10 +12,6 @@ import IDMFoundation
 
 /*Always put every application logic in extensions of protocols*/
 
-extension ___VARIABLE_moduleName___ControllerProtocol {
-    var state: ___VARIABLE_moduleName___ViewState { return presenter.state }
-}
-
 extension ___VARIABLE_moduleName___ViewActionDelegate where Self: ___VARIABLE_moduleName___ControllerProtocol {
     func viewReady() {
         // <#code here#>

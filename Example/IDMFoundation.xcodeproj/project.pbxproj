@@ -11,7 +11,6 @@
 		0A1A28252203E3BF000C264D /* SearchUserArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */; };
 		0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */; };
 		0A1A282C2204814D000C264D /* SearchUserExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A282B2204814D000C264D /* SearchUserExtensions.swift */; };
-		0A1A284822049F9D000C264D /* SearchUserViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A284722049F9D000C264D /* SearchUserViewState.swift */; };
 		0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A113A222843220007C0EE /* SearchUserView.swift */; };
 		0A3A113D2228EF850007C0EE /* SearchUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A113C2228EF850007C0EE /* SearchUserView.xib */; };
 		0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */; };
@@ -37,7 +36,6 @@
 		0A75F08C222AD48F0062D85A /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F084222AD48F0062D85A /* MainBuilder.swift */; };
 		0A75F08D222AD48F0062D85A /* MainExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F085222AD48F0062D85A /* MainExtensions.swift */; };
 		0A75F08E222AD48F0062D85A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F086222AD48F0062D85A /* MainView.swift */; };
-		0A75F08F222AD48F0062D85A /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F087222AD48F0062D85A /* MainViewState.swift */; };
 		0A75F095222AD5B20062D85A /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A75F094222AD5B20062D85A /* MainView.xib */; };
 		203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 203487B72077D8CB0033D4FA /* CHANGELOG.md */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -51,7 +49,6 @@
 		0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserArrayController.swift; sourceTree = "<group>"; };
 		0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		0A1A282B2204814D000C264D /* SearchUserExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserExtensions.swift; sourceTree = "<group>"; };
-		0A1A284722049F9D000C264D /* SearchUserViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewState.swift; sourceTree = "<group>"; };
 		0A3A113A222843220007C0EE /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		0A3A113C2228EF850007C0EE /* SearchUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchUserView.xib; sourceTree = "<group>"; };
 		0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		0A75F084222AD48F0062D85A /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		0A75F085222AD48F0062D85A /* MainExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExtensions.swift; sourceTree = "<group>"; };
 		0A75F086222AD48F0062D85A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		0A75F087222AD48F0062D85A /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		0A75F094222AD5B20062D85A /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		203487B72077D8CB0033D4FA /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		2110C647574A8E665A44A819 /* Pods-IDMFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Example.release.xcconfig"; path = "Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,7 +202,6 @@
 			children = (
 				0A75F083222AD48F0062D85A /* MainProtocols.swift */,
 				0A75F085222AD48F0062D85A /* MainExtensions.swift */,
-				0A75F087222AD48F0062D85A /* MainViewState.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -257,7 +252,6 @@
 			children = (
 				0A1A282B2204814D000C264D /* SearchUserExtensions.swift */,
 				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
-				0A1A284722049F9D000C264D /* SearchUserViewState.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -349,7 +343,6 @@
 				461D6D91D16FEB4BF94A18B1 /* Pods-IDMFoundation_Example.debug.xcconfig */,
 				2110C647574A8E665A44A819 /* Pods-IDMFoundation_Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -519,7 +512,6 @@
 				0A5A08E021FDAD90009D7309 /* SearchUserBuilder.swift in Sources */,
 				0A75F08D222AD48F0062D85A /* MainExtensions.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				0A1A284822049F9D000C264D /* SearchUserViewState.swift in Sources */,
 				0A75F089222AD48F0062D85A /* MainRouter.swift in Sources */,
 				0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */,
 				0A75F08E222AD48F0062D85A /* MainView.swift in Sources */,
@@ -533,7 +525,6 @@
 				0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */,
 				0A5A08B921FDA847009D7309 /* SearchUserDefinitions.swift in Sources */,
 				0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */,
-				0A75F08F222AD48F0062D85A /* MainViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

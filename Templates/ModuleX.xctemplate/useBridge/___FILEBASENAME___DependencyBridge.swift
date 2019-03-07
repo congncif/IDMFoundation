@@ -15,8 +15,8 @@ class ___VARIABLE_moduleName___DependencyBridge: NSObject {
 
     @IBOutlet weak var viewBridge: AnyObject? {
         didSet {
-            if let subscriber = viewBridge as? ViewStateSubscriber {
-                presenter.state.register(subscriber: subscriber)
+            if let view = viewBridge as? ___VARIABLE_moduleName___ViewProtocol {
+                presenter.register(view: view)
             }
         }
     }
