@@ -39,7 +39,7 @@ protocol SearchUserViewActionDelegate: class {
     func refresh()
 }
 
-protocol SearchViewViewProtocol: ViewStateSubscriber {
+protocol SearchUserViewViewProtocol: ViewStateSubscriber {
     var actionDelegate: SearchUserViewActionDelegate? { get }
 }
 
@@ -53,7 +53,7 @@ protocol SearchUserPresenterProtocol {
     var dataLoadingMonitor: LoadingMonitorProtocol? { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 
-    func register(view: SearchViewViewProtocol)
+    func register(view: SearchUserViewViewProtocol)
     
     func start(with query: String)
     func currentQuery() -> String

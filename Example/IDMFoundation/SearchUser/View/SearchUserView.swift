@@ -9,7 +9,7 @@
 import UIKit
 import ViewStateCore
 
-class SearchUserView: UIView, SearchViewViewProtocol {
+class SearchUserView: UIView, SearchUserViewViewProtocol {
     weak var actionDelegate: SearchUserViewActionDelegate?
 
     var dataSource = SearchUserArrayController()

@@ -26,7 +26,7 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
         self.state = state
     }
 
-    func register(view: SearchViewViewProtocol) {
+    func register(view: SearchUserViewViewProtocol) {
         state.register(subscriber: view)
     }
 
