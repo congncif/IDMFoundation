@@ -36,8 +36,6 @@ extension MainPresenter {
 }
 
 class MainPresenter: MainPresenterProtocol {
-    weak var dataLoadingMonitor: LoadingMonitorProtocol?
-
     fileprivate let state: MainViewState
 
     init(state: MainViewState = MainViewState()) {

@@ -15,10 +15,15 @@ extension SearchUserControllerProtocol {
     func performSearch() {
         let param = SearchUserParameter(q: presenter.currentQuery())
         integrator.prepareCall(parameters: param)
-            .setLoadingMonitor(presenter.dataLoadingMonitor)
+            .loadingHandler(presenter.loadingHandler)
+            .errorHandler(errorHandler)
             .dataProcessor(presenter.dataProcessor)
             .call()
     }
+}
+
+extension SearchUserControllerProtocol where Self: ErrorHandlingObjectProtocol {
+    var errorHandler: ErrorHandlingProtocol { return asValueType() }
 }
 
 extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol, Self: SearchUserModuleInterface {

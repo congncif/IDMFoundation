@@ -18,7 +18,7 @@ class SearchUserViewState: ViewState {
 }
 
 class SearchUserPresenter: SearchUserPresenterProtocol {
-    weak var dataLoadingMonitor: LoadingMonitorProtocol?
+    var loadingHandler: LoadingProtocol!
 
     fileprivate let state: SearchUserViewState
 

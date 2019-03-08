@@ -26,7 +26,6 @@ public struct MainBuilder: MainBuilderProtocol {
         viewController.presenter = presenter
         viewController.router = router
 
-        presenter.dataLoadingMonitor = viewController
         presenter.register(view: view)
 
         router.sourceModule = viewController

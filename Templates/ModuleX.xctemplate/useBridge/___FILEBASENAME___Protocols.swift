@@ -41,12 +41,13 @@ protocol ___VARIABLE_moduleName___ViewProtocol: ViewStateSubscriber {
 protocol ___VARIABLE_moduleName___ControllerProtocol {
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
+    var errorHandler: ErrorHandlingProtocol { get }
 
     // Declare methods to work internal module
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
-    var dataLoadingMonitor: LoadingMonitorProtocol? { get set }
+    var loadingHandler: LoadingProtocol! { get set }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 
     func register(view: ___VARIABLE_moduleName___ViewProtocol)

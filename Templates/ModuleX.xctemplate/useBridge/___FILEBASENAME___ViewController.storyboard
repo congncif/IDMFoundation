@@ -12,8 +12,8 @@
         <!--product Name View Controller-->
         <scene sceneID="GzV-lN-fg7">
             <objects>
-                <viewController id="vKn-9P-Ny8" customClass="___VARIABLE_productName___ViewController" storyboardIdentifier="___VARIABLE_productName___ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" customClass="___VARIABLE_productName___View" customModuleProvider="target" id="BNZ-bO-rhc">
+                <viewController id="vKn-9P-Ny8" userLabel="Module Controller" customClass="___VARIABLE_productName___ViewController" storyboardIdentifier="___VARIABLE_productName___ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" customClass="___VARIABLE_productName___View" customModuleProvider="target" id="BNZ-bO-rhc" userLabel="Module View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,8 +27,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target">
+                <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target" userLabel="Dependency Bridge">
                     <connections>
+                        <outlet property="loadingHandler" destination="BNZ-bO-rhc" id="nSo-Xh-5br"/>
                         <outlet property="viewBridge" destination="BNZ-bO-rhc" id="70d-RM-Qwd"/>
                     </connections>
                  </customObject>   

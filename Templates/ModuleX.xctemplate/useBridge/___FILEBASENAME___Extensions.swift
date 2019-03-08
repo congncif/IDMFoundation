@@ -12,6 +12,10 @@ import IDMFoundation
 
 /*Always put every application logic in extensions of protocols*/
 
+extension ___VARIABLE_moduleName___ControllerProtocol where Self: ErrorHandlingObjectProtocol {
+    var errorHandler: ErrorHandlingProtocol { return asValueType() }
+}
+
 extension ___VARIABLE_moduleName___ViewActionDelegate where Self: ___VARIABLE_moduleName___ControllerProtocol {
     func viewReady() {
         // <#code here#>

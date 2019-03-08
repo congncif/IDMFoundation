@@ -12,14 +12,6 @@ import ViewStateCore
 class ___VARIABLE_moduleName___DependencyBridge: NSObject {
     var presenter: ___VARIABLE_moduleName___PresenterProtocol!
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
-
-    @IBOutlet weak var viewBridge: AnyObject? {
-        didSet {
-            if let view = viewBridge as? ___VARIABLE_moduleName___ViewProtocol {
-                presenter.register(view: view)
-            }
-        }
-    }
 }
 
 protocol ___VARIABLE_moduleName___ControllerBridgeProtocol: ___VARIABLE_moduleName___ControllerProtocol {
