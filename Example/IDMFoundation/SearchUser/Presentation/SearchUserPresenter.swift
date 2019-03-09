@@ -28,7 +28,7 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
         errorHandlingProxy = ErrorHandlingProxy()
     }
 
-    var errorHandler: ErrorHandlingProtocol! {
+    var errorHandler: ErrorHandlingProtocol {
         return errorHandlingProxy
     }
 

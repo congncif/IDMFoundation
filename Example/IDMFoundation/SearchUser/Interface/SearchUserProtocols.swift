@@ -51,7 +51,7 @@ protocol SearchUserControllerProtocol {
 }
 
 protocol SearchUserPresenterProtocol {
-    var errorHandler: ErrorHandlingProtocol! { get }
+    var errorHandler: ErrorHandlingProtocol { get }
     var loadingHandler: LoadingProtocol! { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 

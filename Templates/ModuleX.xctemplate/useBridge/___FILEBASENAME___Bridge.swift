@@ -17,37 +17,27 @@ class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___DependencyBridge
         // integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
     }
 
-    @IBOutlet var viewBridge: [AnyObject] {
-        set {
-            let values = newValue.compactMap {
-                $0 as? ___VARIABLE_moduleName___ViewProtocol
-            }
-            values.forEach {
-                presenter.register(view: $0)
+    @IBOutlet weak var view: AnyObject? {
+        didSet {
+            if let _view = view as? ___VARIABLE_moduleName___ViewProtocol {
+                presenter.register(view: _view)
             }
         }
-
-        get { return [] } // trick for setter only property
     }
 	
 	@IBOutlet weak var loadingHandler: AnyObject? {
-        set {
-            if let handler = newValue as? LoadingObjectProtocol {
+        didSet {
+            if let handler = loadingHandler as? LoadingObjectProtocol {
                 presenter.loadingHandler = handler.asValueType()
             }
         }
-
-        get { return nil } // trick for setter only property
     }
 
-    @IBOutlet var errorHandler: [AnyObject] {
-        set {
-            let values = newValue.compactMap {
-                ($0 as? ErrorHandlingObjectProtocol)?.asValueType()
+    @IBOutlet weak var errorHandler: AnyObject? {
+        didSet {
+            if let handler = errorHandler as? ErrorHandlingObjectProtocol, let _presenter = presenter as? ___VARIABLE_moduleName___Presenter {
+                _presenter.register(errorHandler: handler.asValueType())
             }
-            presenter.errorHandler = ErrorHandlingProxy(handlers: values)
         }
-
-        get { return [] } // trick for setter only property
     }
 }

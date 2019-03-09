@@ -46,7 +46,7 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
-    var errorHandler: ErrorHandlingProtocol { get set }
+    var errorHandler: ErrorHandlingProtocol { get }
     var loadingHandler: LoadingProtocol! { get set }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 

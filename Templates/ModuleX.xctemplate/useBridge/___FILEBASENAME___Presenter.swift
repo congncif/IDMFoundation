@@ -29,17 +29,12 @@ class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProt
     }
 
     var errorHandler: ErrorHandlingProtocol {
-        get {
-            return errorHandlingProxy
-        }
+        return errorHandlingProxy
+    }
 
-        set {
-            if let proxy = newValue as? ErrorHandlingProxy {
-                errorHandlingProxy = proxy
-            } else {
-                errorHandlingProxy = ErrorHandlingProxy(handlers: [newValue])
-            }
-        }
+    func register(errorHandler: ErrorHandlingProtocol,
+                  where condition: ((Error?) -> Bool)? = nil) {
+        errorHandlingProxy.addHandler(errorHandler, where: condition)
     }
 
     func register(view: ___VARIABLE_moduleName___ViewProtocol) {
