@@ -11,15 +11,23 @@ import IDMCore
 import IDMFoundation
 
 class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___DependencyBridge {
+    override init() {
+        super.init()
+        presenter = ___VARIABLE_moduleName___Presenter()
+        // integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
+    }
 
-    @IBOutlet weak var viewBridge: AnyObject? {
+    @IBOutlet var viewBridge: [AnyObject] {
         set {
-            if let view = newValue as? ___VARIABLE_moduleName___ViewProtocol {
-                presenter.register(view: view)
+            let values = newValue.compactMap {
+                $0 as? ___VARIABLE_moduleName___ViewProtocol
+            }
+            values.forEach {
+                presenter.register(view: $0)
             }
         }
 
-        get { return nil } // trick for setter only property
+        get { return [] } // trick for setter only property
     }
 	
 	@IBOutlet weak var loadingHandler: AnyObject? {
@@ -32,9 +40,14 @@ class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___DependencyBridge
         get { return nil } // trick for setter only property
     }
 
-    override init() {
-    	super.init()
-        presenter = ___VARIABLE_moduleName___Presenter()
-        // integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
+    @IBOutlet var errorHandler: [AnyObject] {
+        set {
+            let values = newValue.compactMap {
+                ($0 as? ErrorHandlingObjectProtocol)?.asValueType()
+            }
+            presenter.errorHandler = ErrorHandlingProxy(handlers: values)
+        }
+
+        get { return [] } // trick for setter only property
     }
 }

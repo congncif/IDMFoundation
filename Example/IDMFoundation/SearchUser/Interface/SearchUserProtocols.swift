@@ -35,7 +35,8 @@ public protocol SearchUserOutputProtocol {
 // Be class to work weak reference
 protocol SearchUserViewActionDelegate: class {
     func viewReady()
-    func listItemDidSelect(at index: Int)
+    func selectUser(at index: Int)
+    func usersDidSelect(at index: Int)
     func refresh()
 }
 
@@ -47,10 +48,10 @@ protocol SearchUserControllerProtocol {
     var router: SearchUserRouterProtocol! { get }
     var presenter: SearchUserPresenterProtocol! { get }
     var integrator: SearchUserAbstractIntegrator! { get }
-    var errorHandler: ErrorHandlingProtocol { get }
 }
 
 protocol SearchUserPresenterProtocol {
+    var errorHandler: ErrorHandlingProtocol! { get }
     var loadingHandler: LoadingProtocol! { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 

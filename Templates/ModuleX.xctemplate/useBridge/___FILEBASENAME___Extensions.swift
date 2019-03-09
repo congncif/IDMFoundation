@@ -12,15 +12,19 @@ import IDMFoundation
 
 /*Always put every application logic in extensions of protocols*/
 
-extension ___VARIABLE_moduleName___ControllerProtocol where Self: ErrorHandlingObjectProtocol {
-    var errorHandler: ErrorHandlingProtocol { return asValueType() }
-}
+// MARK: - Actions
 
 extension ___VARIABLE_moduleName___ViewActionDelegate where Self: ___VARIABLE_moduleName___ControllerProtocol {
     func viewReady() {
         // <#code here#>
     }
 }
+
+// MARK: - Controller
+
+extension ___VARIABLE_moduleName___ControllerProtocol {}
+
+// MARK: - Presenter
 
 extension ___VARIABLE_moduleName___PresenterProtocol {
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> {

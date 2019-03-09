@@ -46,12 +46,12 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
     var router: ___VARIABLE_moduleName___RouterProtocol! { get }
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
-    var errorHandler: ErrorHandlingProtocol { get }
 
     // Declare methods to work internal module
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
+    var errorHandler: ErrorHandlingProtocol { get }
     var loadingHandler: LoadingProtocol! { get }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 

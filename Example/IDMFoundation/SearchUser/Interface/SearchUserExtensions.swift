@@ -11,26 +11,20 @@ import IDMCore
 import IDMFoundation
 import ViewStateCore
 
-extension SearchUserControllerProtocol {
-    func performSearch() {
-        let param = SearchUserParameter(q: presenter.currentQuery())
-        integrator.prepareCall(parameters: param)
-            .loadingHandler(presenter.loadingHandler)
-            .errorHandler(errorHandler)
-            .dataProcessor(presenter.dataProcessor)
-            .call()
-    }
-}
-
-extension SearchUserControllerProtocol where Self: ErrorHandlingObjectProtocol {
-    var errorHandler: ErrorHandlingProtocol { return asValueType() }
-}
+// MARK: - Actions
 
 extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol, Self: SearchUserModuleInterface {
-    func listItemDidSelect(at index: Int) {
+    func usersDidSelect(at index: Int) {
         let model = presenter.user(at: index)
         output?.userDidSelect(model)
         router?.closeSearchUserModule()
+    }
+
+    func selectUser(at index: Int) {
+        let user = presenter.user(at: index)
+        viewController.confirm(message: "Are you sure select user with name \(user.name.unwrapped())?") { [weak self] in
+            self?.usersDidSelect(at: index)
+        }
     }
 }
 
@@ -43,6 +37,21 @@ extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol 
         performSearch()
     }
 }
+
+// MARK: - Controller
+
+extension SearchUserControllerProtocol {
+    func performSearch() {
+        let param = SearchUserParameter(q: presenter.currentQuery())
+        integrator.prepareCall(parameters: param)
+            .loadingHandler(presenter.loadingHandler)
+            .errorHandler(presenter.errorHandler)
+            .dataProcessor(presenter.dataProcessor)
+            .call()
+    }
+}
+
+// MARK: - Presenter
 
 extension SearchUserPresenterProtocol {
     var dataProcessor: DataProcessor<SearchUserResponseModel> {

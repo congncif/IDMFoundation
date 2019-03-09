@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import IDMCore
+import IDMFoundation
 import ModuleX
 import SiFUtilities
 
@@ -33,6 +35,7 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         
         presenter.loadingHandler = customView.asValueType()
         presenter.register(view: customView)
+        presenter.register(errorHandler: viewController.asValueType())
         
         router.sourceModule = viewController
         

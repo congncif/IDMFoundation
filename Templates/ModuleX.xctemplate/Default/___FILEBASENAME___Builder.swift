@@ -28,6 +28,7 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         presenter.loadingHandler = view.asValueType()
         presenter.register(view: view)
+        presenter.register(errorHandler: viewController.asValueType())
 
         router.sourceModule = viewController
         // <#router.nextBuilder = NextBuilder()#>

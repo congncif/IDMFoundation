@@ -50,7 +50,7 @@ class SearchUserView: UIView, SearchUserViewViewProtocol {
 
 extension SearchUserView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        actionDelegate?.listItemDidSelect(at: indexPath.row)
+        actionDelegate?.selectUser(at: indexPath.row)
     }
 }
 

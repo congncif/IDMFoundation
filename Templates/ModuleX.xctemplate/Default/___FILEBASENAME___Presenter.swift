@@ -21,9 +21,20 @@ class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProt
     var loadingHandler: LoadingProtocol!
 
     fileprivate let state: ___VARIABLE_moduleName___ViewState
+    fileprivate var errorHandlingProxy: ErrorHandlingProxy
 
     init(state: ___VARIABLE_moduleName___ViewState = ___VARIABLE_moduleName___ViewState()) {
         self.state = state
+        errorHandlingProxy = ErrorHandlingProxy()
+    }
+
+    var errorHandler: ErrorHandlingProtocol {
+        return errorHandlingProxy
+    }
+
+    func register(errorHandler: ErrorHandlingProtocol,
+                  where condition: ((Error?) -> Bool)? = nil) {
+        errorHandlingProxy.addHandler(errorHandler, where: condition)
     }
 
     func register(view: ___VARIABLE_moduleName___ViewProtocol) {

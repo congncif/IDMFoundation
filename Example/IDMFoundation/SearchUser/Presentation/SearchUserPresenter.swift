@@ -21,9 +21,20 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
     var loadingHandler: LoadingProtocol!
 
     fileprivate let state: SearchUserViewState
+    fileprivate var errorHandlingProxy: ErrorHandlingProxy
 
     init(state: SearchUserViewState = SearchUserViewState()) {
         self.state = state
+        errorHandlingProxy = ErrorHandlingProxy()
+    }
+
+    var errorHandler: ErrorHandlingProtocol! {
+        return errorHandlingProxy
+    }
+
+    func register(errorHandler: ErrorHandlingProtocol,
+                  where condition: ((Error?) -> Bool)? = nil) {
+        errorHandlingProxy.addHandler(errorHandler, where: condition)
     }
 
     func register(view: SearchUserViewViewProtocol) {
@@ -43,7 +54,7 @@ extension SearchUserPresenter {
     func start(with query: String) {
         state.query = query
     }
-    
+
     func setUsers(_ users: [SearchUserModel]) {
         state.users = users
     }
