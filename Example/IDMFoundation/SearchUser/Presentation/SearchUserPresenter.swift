@@ -12,9 +12,9 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-class SearchUserViewState: ViewState {
-    @objc fileprivate(set) dynamic var query: String?
-    @objc fileprivate(set) dynamic var users: [SearchUserModel] = []
+@objcMembers class SearchUserViewState: ViewState {
+    fileprivate(set) dynamic var query: String?
+    fileprivate(set) dynamic var users: [SearchUserModel] = []
 }
 
 class SearchUserPresenter: SearchUserPresenterProtocol {
