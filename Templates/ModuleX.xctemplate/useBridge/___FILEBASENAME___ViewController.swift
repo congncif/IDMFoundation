@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
+public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
 	public var output: ___VARIABLE_moduleName___OutputProtocol?
 
 	@IBOutlet var bridge: ___VARIABLE_moduleName___DependencyBridge!

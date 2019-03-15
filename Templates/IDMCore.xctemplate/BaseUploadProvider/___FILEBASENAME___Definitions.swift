@@ -11,7 +11,7 @@ import IDMFoundation
 
 public struct ___VARIABLE_moduleName___DataModel {}
 
-public class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressDataModelProtocol {
+public final class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressDataModelProtocol {
 	public var progress: Progress?
     public var isDelaying: Bool = false
     public var data: ___VARIABLE_moduleName___DataModel?

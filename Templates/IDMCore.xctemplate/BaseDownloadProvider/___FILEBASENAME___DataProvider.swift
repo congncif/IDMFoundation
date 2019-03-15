@@ -12,4 +12,4 @@ import IDMFoundation
 
 public typealias ___VARIABLE_moduleName___Provider = ___VARIABLE_providerType:identifier___<___VARIABLE_moduleName___Parameter>
 
-public class ___VARIABLE_moduleName___DownloadProvider: ___VARIABLE_moduleName___Provider {}
+public final class ___VARIABLE_moduleName___DownloadProvider: ___VARIABLE_moduleName___Provider {}

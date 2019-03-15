@@ -9,7 +9,7 @@
 import UIKit
 import ViewStateCore
 
-class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___ViewProtocol {
+final class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___ViewProtocol {
 	@IBOutlet weak var actionDelegateBridge: AnyObject?
 
     var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate? {

@@ -11,7 +11,7 @@ import IDMFoundation
 
 public struct ___VARIABLE_moduleName___Parameter: DownloadParameterProtocol {}
 
-public class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressModelProtocol {
+public final class ___VARIABLE_moduleName___ResponseModel: NSObject, ProgressModelProtocol {
     public var progress: Progress?
     public var isDelaying: Bool = false
 }

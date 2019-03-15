@@ -9,7 +9,7 @@
 import Foundation
 import ModuleX
 
-class ___VARIABLE_moduleName___Router: ___VARIABLE_moduleName___RouterProtocol {
+final class ___VARIABLE_moduleName___Router: ___VARIABLE_moduleName___RouterProtocol {
 	weak var sourceModule: ___VARIABLE_moduleName___ModuleInterface?
 
 //	private struct <#TargetModuleOutputProxy#>: <#TargetModuleOutputProtocol#> {

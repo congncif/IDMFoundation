@@ -13,11 +13,11 @@ import ViewStateCore
 
 // Properties of ViewState should be protected from outside.
 
-class ___VARIABLE_moduleName___ViewState: ViewState {
+final class ___VARIABLE_moduleName___ViewState: ViewState {
 //    <#@objc fileprivate(set) dynamic var id: String?#>
 }
 
-class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProtocol {
+final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProtocol {
     var loadingHandler: LoadingProtocol!
 
     fileprivate let state: ___VARIABLE_moduleName___ViewState
