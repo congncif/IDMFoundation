@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.1.7'
+  s.version          = '2.1.8'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -82,7 +82,6 @@ Pod::Spec.new do |s|
       co.dependency 'IDMFoundation/Core'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
-      co.dependency 'UIImage+FixOrientation'
   end
   
   s.subspec 'ObjectMapper' do |co|
