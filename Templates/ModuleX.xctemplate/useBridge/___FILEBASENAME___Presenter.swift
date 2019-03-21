@@ -25,7 +25,7 @@ final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___Present
 
     init(state: ___VARIABLE_moduleName___ViewState = ___VARIABLE_moduleName___ViewState()) {
         self.state = state
-        errorHandlingProxy = ErrorHandlingProxy()
+        errorHandlingProxy = ErrorHandlingProxy(type: .independence)
     }
 
     var errorHandler: ErrorHandlingProtocol {
