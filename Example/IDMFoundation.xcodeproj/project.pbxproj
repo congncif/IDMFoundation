@@ -37,6 +37,7 @@
 		0A75F08D222AD48F0062D85A /* MainExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F085222AD48F0062D85A /* MainExtensions.swift */; };
 		0A75F08E222AD48F0062D85A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F086222AD48F0062D85A /* MainView.swift */; };
 		0A75F095222AD5B20062D85A /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A75F094222AD5B20062D85A /* MainView.xib */; };
+		0AC911C7224352CF00B9FD24 /* SearchUserExternalActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC911C6224352CF00B9FD24 /* SearchUserExternalActions.swift */; };
 		203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 203487B72077D8CB0033D4FA /* CHANGELOG.md */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -75,6 +76,7 @@
 		0A75F085222AD48F0062D85A /* MainExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExtensions.swift; sourceTree = "<group>"; };
 		0A75F086222AD48F0062D85A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0A75F094222AD5B20062D85A /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		0AC911C6224352CF00B9FD24 /* SearchUserExternalActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserExternalActions.swift; sourceTree = "<group>"; };
 		203487B72077D8CB0033D4FA /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		2110C647574A8E665A44A819 /* Pods-IDMFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Example.release.xcconfig"; path = "Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		461D6D91D16FEB4BF94A18B1 /* Pods-IDMFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Example.debug.xcconfig"; path = "Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,37 +105,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A1A27E42203422C000C264D /* SearchUser */ = {
-			isa = PBXGroup;
-			children = (
-				0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */,
-				0A5A08B321FDA847009D7309 /* SearchUserIntegrating.swift */,
-				0A5A08B421FDA847009D7309 /* SearchUserDefinitions.swift */,
-				0A5A08B521FDA847009D7309 /* SearchUserDataProvider.swift */,
-				0A5A08B621FDA847009D7309 /* SearchUserIntegratorFactory.swift */,
-			);
-			name = SearchUser;
-			sourceTree = "<group>";
-		};
-		0A5A08BC21FDAA8D009D7309 /* Integrators */ = {
-			isa = PBXGroup;
-			children = (
-				0A1A27E42203422C000C264D /* SearchUser */,
-			);
-			name = Integrators;
-			sourceTree = "<group>";
-		};
-		0A5A08BE21FDAAB3009D7309 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */,
-				0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */,
-				0A5A08EA21FDB876009D7309 /* UIViewController++.swift */,
-				0A1A27D222028C71000C264D /* Network++.swift */,
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
 		0A5A08C721FDAB05009D7309 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,14 +112,6 @@
 				0A75F097222AD6600062D85A /* SearchUser */,
 			);
 			name = Modules;
-			sourceTree = "<group>";
-		};
-		0A5A08EE21FDC23C009D7309 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		0A75EF83222A89AD0062D85A /* Test */ = {
@@ -243,6 +206,7 @@
 			children = (
 				0A5A08C021FDAADC009D7309 /* SearchUserRouter.swift */,
 				0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */,
+				0AC911C6224352CF00B9FD24 /* SearchUserExternalActions.swift */,
 			);
 			path = InOut;
 			sourceTree = "<group>";
@@ -254,6 +218,45 @@
 				0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		0AC911C82243543900B9FD24 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */,
+				0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */,
+				0A5A08EA21FDB876009D7309 /* UIViewController++.swift */,
+				0A1A27D222028C71000C264D /* Network++.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0AC911C92243545900B9FD24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0AC911CB2243547100B9FD24 /* Integrators */ = {
+			isa = PBXGroup;
+			children = (
+				0AC911CC2243548500B9FD24 /* SearchUser */,
+			);
+			path = Integrators;
+			sourceTree = "<group>";
+		};
+		0AC911CC2243548500B9FD24 /* SearchUser */ = {
+			isa = PBXGroup;
+			children = (
+				0A5A08B221FDA847009D7309 /* SearchUserMapper.swift */,
+				0A5A08B321FDA847009D7309 /* SearchUserIntegrating.swift */,
+				0A5A08B421FDA847009D7309 /* SearchUserDefinitions.swift */,
+				0A5A08B521FDA847009D7309 /* SearchUserDataProvider.swift */,
+				0A5A08B621FDA847009D7309 /* SearchUserIntegratorFactory.swift */,
+			);
+			path = SearchUser;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -279,15 +282,15 @@
 		607FACD21AFB9204008FA782 /* Example for IDMFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				0AC911CB2243547100B9FD24 /* Integrators */,
+				0AC911C92243545900B9FD24 /* Models */,
+				0AC911C82243543900B9FD24 /* Shared */,
 				0A75EF83222A89AD0062D85A /* Test */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				0A5A08BE21FDAAB3009D7309 /* Shared */,
-				0A5A08EE21FDC23C009D7309 /* Models */,
 				0A5A08C721FDAB05009D7309 /* Modules */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				0A5A08BC21FDAA8D009D7309 /* Integrators */,
 			);
 			name = "Example for IDMFoundation";
 			path = IDMFoundation;
@@ -501,6 +504,7 @@
 				0A75F088222AD48F0062D85A /* MainPresenter.swift in Sources */,
 				0A5A08C521FDAADC009D7309 /* SearchUserViewController.swift in Sources */,
 				0A75F08B222AD48F0062D85A /* MainProtocols.swift in Sources */,
+				0AC911C7224352CF00B9FD24 /* SearchUserExternalActions.swift in Sources */,
 				0A5A08BA21FDA847009D7309 /* SearchUserDataProvider.swift in Sources */,
 				0A5A08C321FDAADC009D7309 /* SearchUserPresenter.swift in Sources */,
 				0A5A08B821FDA847009D7309 /* SearchUserIntegrating.swift in Sources */,
