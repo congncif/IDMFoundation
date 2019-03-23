@@ -28,7 +28,7 @@ final class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___Dependency
 	@IBOutlet weak var loadingHandler: AnyObject? {
         didSet {
             if let handler = loadingHandler as? LoadingObjectProtocol {
-                presenter.loadingHandler = handler.asValueType()
+                presenter.loadingHandler = handler.asLoadingHandler()
             }
         }
     }
@@ -36,7 +36,7 @@ final class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___Dependency
     @IBOutlet weak var errorHandler: AnyObject? {
         didSet {
             if let handler = errorHandler as? ErrorHandlingObjectProtocol, let _presenter = presenter as? ___VARIABLE_moduleName___Presenter {
-                _presenter.register(errorHandler: handler.asValueType())
+                _presenter.register(errorHandler: handler.asErrorHandler())
             }
         }
     }

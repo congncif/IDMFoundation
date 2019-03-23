@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
-  - IDMCore (2.8.19)
+  - IDMCore (2.8.20)
   - IDMFoundation (2.1.8):
     - IDMFoundation/Default (= 2.1.8)
   - IDMFoundation/Alamofire (2.1.8):
@@ -110,7 +110,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  IDMCore: 91a08f42bc6187a3ee28676b90221a9fe3c75fe4
+  IDMCore: e704e533a3293e988b11b546c5bc84dd5c9f7671
   IDMFoundation: 464f242ed62413c6327c9789eaa18a002275a9ac
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
