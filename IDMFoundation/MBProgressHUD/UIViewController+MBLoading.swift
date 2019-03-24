@@ -23,21 +23,6 @@ extension LoadingProtocol where Self: UIView {
     }
 }
 
-extension UIViewController: ErrorHandlingProtocol {
-    @objc open func handle(error: Error?) {
-        guard let error = error else {
-            return
-        }
-        
-        if let err = error as? CommonError {
-            self.notify(title: err.title, message: err.message)
-        } else {
-            let message = error.localizedDescription
-            self.notify(message: message)
-        }
-    }
-}
-
 extension ProgressLoadingProtocol where Self: UIView {
     public func beginProgressLoading() {
         let hud = MBProgressHUD.showAdded(to: self, animated: true)
@@ -66,7 +51,7 @@ extension UIViewController: LoadingProtocol {
     @objc open func beginLoading() {
         view.beginLoading()
     }
-    
+
     @objc open func finishLoading() {
         view.finishLoading()
     }
@@ -76,12 +61,13 @@ extension UIViewController: ProgressLoadingProtocol {
     @objc open func beginProgressLoading() {
         view.beginProgressLoading()
     }
-    
+
     @objc open func finishProgressLoading() {
         view.finishProgressLoading()
     }
-    
+
     @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
         view.loadingDidUpdateProgress(progress)
     }
 }
+

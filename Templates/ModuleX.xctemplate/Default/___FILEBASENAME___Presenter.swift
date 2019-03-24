@@ -38,6 +38,12 @@ final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___Present
         errorHandlingProxy.addHandler(errorHandler, priority: priority, where: condition)
     }
 
+    func register<E>(dedicatedErrorHandler handler: DedicatedErrorHandler<E>,
+                  priority: ErrorHandlingProxy.HandlingPriority = .default,
+                  where condition: ((E) -> Bool)? = nil) {
+        errorHandlingProxy.addDedicatedHandler(handler, priority: priority, where: condition)
+    }
+
     func register(view: ___VARIABLE_moduleName___ViewProtocol) {
         state.register(subscriber: view)
     }

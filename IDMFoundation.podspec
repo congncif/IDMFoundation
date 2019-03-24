@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.1.8'
+  s.version          = '2.1.9'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -100,7 +100,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'MBProgressHUD' do |co|
-      co.source_files = 'IDMFoundation/MBProgressHUD/**/*'
+      co.source_files = 'IDMFoundation/MBProgressHUD/*.swift', 'IDMFoundation/ErrorHandling/*.swift'
       
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
@@ -116,7 +116,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'JGProgressHUD' do |co|
-      co.source_files = 'IDMFoundation/JGProgressHUD/**/*'
+      co.source_files = 'IDMFoundation/JGProgressHUD/*.swift', 'IDMFoundation/ErrorHandling/*.swift'
       
       co.dependency 'JGProgressHUD'
       co.dependency 'SiFUtilities'

@@ -10,34 +10,29 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-final class ___VARIABLE_moduleName___Bridge: ___VARIABLE_moduleName___DependencyBridge {
+final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___DependencyBridge {
+    private let _presenter = ___VARIABLE_moduleName___Presenter()
+    
+    @IBOutlet private weak var viewController: ___VARIABLE_moduleName___ViewController!
+    @IBOutlet private weak var view: ___VARIABLE_moduleName___View!
+
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return _presenter }
+    var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
+
     override init() {
         super.init()
-        presenter = ___VARIABLE_moduleName___Presenter()
-        // integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
     }
 
-    @IBOutlet weak var view: AnyObject? {
-        didSet {
-            if let _view = view as? ___VARIABLE_moduleName___ViewProtocol {
-                presenter.register(view: _view)
-            }
-        }
-    }
-	
-	@IBOutlet weak var loadingHandler: AnyObject? {
-        didSet {
-            if let handler = loadingHandler as? LoadingObjectProtocol {
-                presenter.loadingHandler = handler.asLoadingHandler()
-            }
-        }
-    }
-
-    @IBOutlet weak var errorHandler: AnyObject? {
-        didSet {
-            if let handler = errorHandler as? ErrorHandlingObjectProtocol, let _presenter = presenter as? ___VARIABLE_moduleName___Presenter {
-                _presenter.register(errorHandler: handler.asErrorHandler())
-            }
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        viewController.dependencyBridge = self
+        
+        presenter.register(view: view)
+        
+        _presenter.loadingHandler = view.asLoadingHandler()
+        _presenter.register(errorHandler: viewController.asErrorHandler())
+        
+        view.actionDelegate = viewController
     }
 }

@@ -37,6 +37,12 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
                   where condition: ((Error?) -> Bool)? = nil) {
         errorHandlingProxy.addHandler(errorHandler, priority: priority, where: condition)
     }
+    
+    func register<E>(dedicatedErrorHandler handler: DedicatedErrorHandler<E>,
+                  priority: ErrorHandlingProxy.HandlingPriority = .default,
+                  where condition: ((E) -> Bool)? = nil) {
+        errorHandlingProxy.addDedicatedHandler(handler, priority: priority, where: condition)
+    }
 
     func register(view: SearchUserViewViewProtocol) {
         state.register(subscriber: view)

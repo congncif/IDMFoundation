@@ -149,7 +149,10 @@
     },
     {
       "name": "MBProgressHUD",
-      "source_files": "IDMFoundation/MBProgressHUD/**/*",
+      "source_files": [
+        "IDMFoundation/MBProgressHUD/*.swift",
+        "IDMFoundation/ErrorHandling/*.swift"
+      ],
       "dependencies": {
         "SiFUtilities": [
 
@@ -179,7 +182,10 @@
     },
     {
       "name": "JGProgressHUD",
-      "source_files": "IDMFoundation/JGProgressHUD/**/*",
+      "source_files": [
+        "IDMFoundation/JGProgressHUD/*.swift",
+        "IDMFoundation/ErrorHandling/*.swift"
+      ],
       "dependencies": {
         "JGProgressHUD": [
 

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import JGProgressHUD
 import IDMCore
+import JGProgressHUD
 import SiFUtilities
 import UIKit
 
@@ -17,25 +17,10 @@ extension LoadingProtocol where Self: UIView {
         hud.textLabel.text = "Loading...".localized
         hud.show(in: self)
     }
-    
-    public func finishLoading() {
-        JGProgressHUD.allProgressHUDs(in: self).forEach { (hud) in
-            hud.dismiss()
-        }
-    }
-}
 
-extension UIViewController: ErrorHandlingProtocol {
-    @objc open func handle(error: Error?) {
-        guard let error = error else {
-            return
-        }
-        
-        if let err = error as? CommonError {
-            self.notify(title: err.title, message: err.message)
-        } else {
-            let message = error.localizedDescription
-            self.notify(message: message)
+    public func finishLoading() {
+        JGProgressHUD.allProgressHUDs(in: self).forEach { hud in
+            hud.dismiss()
         }
     }
 }
@@ -48,13 +33,13 @@ extension ProgressLoadingProtocol where Self: UIView {
         hud.detailTextLabel.text = "0% " + "Complete".localized
         hud.show(in: self)
     }
-    
+
     public func finishProgressLoading() {
-        JGProgressHUD.allProgressHUDs(in: self).forEach { (hud) in
+        JGProgressHUD.allProgressHUDs(in: self).forEach { hud in
             hud.dismiss()
         }
     }
-    
+
     public func loadingDidUpdateProgress(_ progress: Progress?) {
         if let value = progress?.fractionCompleted {
             let hud = JGProgressHUD.allProgressHUDs(in: self).first
@@ -75,7 +60,7 @@ extension UIViewController: LoadingProtocol {
     @objc open func beginLoading() {
         view.beginLoading()
     }
-    
+
     @objc open func finishLoading() {
         view.finishLoading()
     }
@@ -85,12 +70,12 @@ extension UIViewController: ProgressLoadingProtocol {
     @objc open func beginProgressLoading() {
         view.beginProgressLoading()
     }
-    
+
     @objc open func finishProgressLoading() {
         view.finishProgressLoading()
     }
-    
+
     @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
         view.loadingDidUpdateProgress(progress)
     }
-}
+}s

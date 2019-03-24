@@ -13,6 +13,7 @@ import ModuleX
 import SDWebImage
 import UIKit
 import ViewStateCore
+import SiFUtilities
 
 public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface, SearchUserViewActionDelegate {
     public var output: SearchUserOutputProtocol?

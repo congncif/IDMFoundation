@@ -9,16 +9,16 @@
 import Foundation
 import ViewStateCore
 
-class ___VARIABLE_moduleName___DependencyBridge: NSObject {
-    var presenter: ___VARIABLE_moduleName___PresenterProtocol!
-    var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
+protocol ___VARIABLE_moduleName___DependencyBridge {
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { get }
+    var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { get }
 }
 
 protocol ___VARIABLE_moduleName___ControllerBridgeProtocol: ___VARIABLE_moduleName___ControllerProtocol {
-    var bridge: ___VARIABLE_moduleName___DependencyBridge! { get }
+    var dependencyBridge: ___VARIABLE_moduleName___DependencyBridge! { get }
 }
 
 extension ___VARIABLE_moduleName___ControllerBridgeProtocol {
-    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return bridge.presenter }
-    var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { return bridge.integrator }
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return dependencyBridge.presenter }
+    var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { return dependencyBridge.integrator }
 }

@@ -13,7 +13,7 @@ import ViewStateCore
 public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
 	public var output: ___VARIABLE_moduleName___OutputProtocol?
 
-	@IBOutlet var bridge: ___VARIABLE_moduleName___DependencyBridge!
+	var dependencyBridge: ___VARIABLE_moduleName___DependencyBridge!
 
 	public override func viewDidLoad() {
         super.viewDidLoad()

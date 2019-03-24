@@ -10,11 +10,7 @@ import UIKit
 import ViewStateCore
 
 final class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___ViewProtocol {
-	@IBOutlet weak var actionDelegateBridge: AnyObject?
-
-    var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate? {
-        return actionDelegateBridge as? ___VARIABLE_moduleName___ViewActionDelegate
-    }
+    weak var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
 }
 
 extension ___VARIABLE_moduleName___View: ViewStateFillable {

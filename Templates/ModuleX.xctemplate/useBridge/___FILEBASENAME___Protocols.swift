@@ -47,7 +47,7 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
     var errorHandler: ErrorHandlingProtocol { get }
-    var loadingHandler: LoadingProtocol! { get set }
+    var loadingHandler: LoadingProtocol! { get }
     var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 
     func register(view: ___VARIABLE_moduleName___ViewProtocol)
