@@ -78,4 +78,4 @@ extension UIViewController: ProgressLoadingProtocol {
     @objc open func loadingDidUpdateProgress(_ progress: Progress?) {
         view.loadingDidUpdateProgress(progress)
     }
-}s
+}
