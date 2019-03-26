@@ -12,14 +12,6 @@ import IDMFoundation
 
 /*Always put every application logic in extensions of protocols*/
 
-// MARK: - Actions
-
-extension ___VARIABLE_moduleName___ViewActionDelegate where Self: ___VARIABLE_moduleName___ControllerProtocol {
-    func viewReady() {
-        // <#code here#>
-    }
-}
-
 // MARK: - Controller
 
 extension ___VARIABLE_moduleName___ControllerProtocol {}

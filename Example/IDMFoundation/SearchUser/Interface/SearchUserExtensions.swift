@@ -11,17 +11,6 @@ import IDMCore
 import IDMFoundation
 import ViewStateCore
 
-// MARK: - Actions
-extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol {
-    func refresh() {
-        performSearch()
-    }
-
-    func viewReady() {
-        performSearch()
-    }
-}
-
 // MARK: - Controller
 
 extension SearchUserControllerProtocol {

@@ -38,6 +38,7 @@
 		0A75F08E222AD48F0062D85A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75F086222AD48F0062D85A /* MainView.swift */; };
 		0A75F095222AD5B20062D85A /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A75F094222AD5B20062D85A /* MainView.xib */; };
 		0AC911C7224352CF00B9FD24 /* SearchUserExternalActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC911C6224352CF00B9FD24 /* SearchUserExternalActions.swift */; };
+		0AE85128224A7968000C92F9 /* SearchUserInternalActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE85127224A7968000C92F9 /* SearchUserInternalActions.swift */; };
 		203487B82077D8CB0033D4FA /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 203487B72077D8CB0033D4FA /* CHANGELOG.md */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -77,6 +78,7 @@
 		0A75F086222AD48F0062D85A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0A75F094222AD5B20062D85A /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		0AC911C6224352CF00B9FD24 /* SearchUserExternalActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserExternalActions.swift; sourceTree = "<group>"; };
+		0AE85127224A7968000C92F9 /* SearchUserInternalActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserInternalActions.swift; sourceTree = "<group>"; };
 		203487B72077D8CB0033D4FA /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		2110C647574A8E665A44A819 /* Pods-IDMFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Example.release.xcconfig"; path = "Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		461D6D91D16FEB4BF94A18B1 /* Pods-IDMFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDMFoundation_Example.debug.xcconfig"; path = "Target Support Files/Pods-IDMFoundation_Example/Pods-IDMFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		0A75F098222AD6AC0062D85A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0AE85127224A7968000C92F9 /* SearchUserInternalActions.swift */,
 				0A5A08BF21FDAADC009D7309 /* SearchUserPresenter.swift */,
 				0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */,
 			);
@@ -521,6 +524,7 @@
 				0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */,
 				0A5A08B921FDA847009D7309 /* SearchUserDefinitions.swift in Sources */,
 				0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */,
+				0AE85128224A7968000C92F9 /* SearchUserInternalActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
