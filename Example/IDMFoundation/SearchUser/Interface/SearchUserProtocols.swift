@@ -51,11 +51,11 @@ protocol SearchUserControllerProtocol {
 }
 
 protocol SearchUserPresenterProtocol {
+    var view: SearchUserViewViewProtocol? { get }
     var errorHandler: ErrorHandlingProtocol { get }
     var loadingHandler: LoadingProtocol! { get }
     var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
 
-    func register(view: SearchUserViewViewProtocol)
     func start(with query: String)
     func currentQuery() -> String
     func setUsers(_ users: [SearchUserModel])

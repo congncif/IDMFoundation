@@ -18,36 +18,58 @@ import ViewStateCore
 }
 
 class SearchUserPresenter: SearchUserPresenterProtocol {
-    var loadingHandler: LoadingProtocol!
-
     fileprivate let state: SearchUserViewState
     fileprivate var errorHandlingProxy: ErrorHandlingProxy
+
+    fileprivate weak var internalView: SearchUserViewViewProtocol?
 
     init(state: SearchUserViewState = SearchUserViewState()) {
         self.state = state
         errorHandlingProxy = ErrorHandlingProxy()
     }
 
+    var loadingHandler: LoadingProtocol!
+
+    var view: SearchUserViewViewProtocol? {
+        get {
+            return internalView
+        }
+
+        set {
+            if let oldValue = internalView {
+                state.unregister(subscriber: oldValue)
+            }
+            if let value = newValue {
+                state.register(subscriber: value)
+            }
+            internalView = newValue
+        }
+    }
+
     var errorHandler: ErrorHandlingProtocol {
         return errorHandlingProxy
     }
+}
 
+extension SearchUserPresenter {
     func register(errorHandler: ErrorHandlingProtocol,
                   priority: ErrorHandlingProxy.HandlingPriority = .default,
                   where condition: ((Error?) -> Bool)? = nil) {
         errorHandlingProxy.addHandler(errorHandler, priority: priority, where: condition)
     }
-    
-    func register<E>(dedicatedErrorHandler handler: DedicatedErrorHandler<E>,
-                  priority: ErrorHandlingProxy.HandlingPriority = .default,
-                  where condition: ((E) -> Bool)? = nil) {
+
+    func register<ErrorType>(dedicatedErrorHandler handler: DedicatedErrorHandler<ErrorType>,
+                             priority: ErrorHandlingProxy.HandlingPriority = .default,
+                             where condition: ((ErrorType) -> Bool)? = nil) {
         errorHandlingProxy.addDedicatedHandler(handler, priority: priority, where: condition)
     }
 
-    func register(view: SearchUserViewViewProtocol) {
-        state.register(subscriber: view)
+    func register(viewStateListener listener: ViewStateSubscriber) {
+        state.register(subscriber: listener)
     }
+}
 
+extension SearchUserPresenter {
     func currentQuery() -> String {
         return state.query.unwrapped()
     }

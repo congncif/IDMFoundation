@@ -18,10 +18,10 @@ final class ___VARIABLE_moduleName___ViewState: ViewState {
 }
 
 final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___PresenterProtocol {
-    var loadingHandler: LoadingProtocol!
-
     fileprivate let state: ___VARIABLE_moduleName___ViewState
     fileprivate var errorHandlingProxy: ErrorHandlingProxy
+
+    fileprivate weak var internalView: ___VARIABLE_moduleName___ViewProtocol?
 
     init(state: ___VARIABLE_moduleName___ViewState = ___VARIABLE_moduleName___ViewState()) {
         self.state = state
@@ -32,19 +32,39 @@ final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___Present
         return errorHandlingProxy
     }
 
+    var loadingHandler: LoadingProtocol!
+
+    var view: ___VARIABLE_moduleName___ViewProtocol? {
+        get {
+            return internalView
+        }
+
+        set {
+            if let oldValue = internalView {
+                state.unregister(subscriber: oldValue)
+            }
+            if let value = newValue {
+                state.register(subscriber: value)
+            }
+            internalView = newValue
+        }
+    }    
+}
+
+extension ___VARIABLE_moduleName___Presenter {
     func register(errorHandler: ErrorHandlingProtocol,
                   priority: ErrorHandlingProxy.HandlingPriority = .default,
                   where condition: ((Error?) -> Bool)? = nil) {
         errorHandlingProxy.addHandler(errorHandler, priority: priority, where: condition)
     }
 
-    func register<E>(dedicatedErrorHandler handler: DedicatedErrorHandler<E>,
-                  priority: ErrorHandlingProxy.HandlingPriority = .default,
-                  where condition: ((E) -> Bool)? = nil) {
+    func register<ErrorType>(dedicatedErrorHandler handler: DedicatedErrorHandler<ErrorType>,
+                     priority: ErrorHandlingProxy.HandlingPriority = .default,
+                     where condition: ((ErrorType) -> Bool)? = nil) {
         errorHandlingProxy.addDedicatedHandler(handler, priority: priority, where: condition)
     }
 
-    func register(view: ___VARIABLE_moduleName___ViewProtocol) {
+    func register(view: ViewStateSubscriber) {
         state.register(subscriber: view)
     }
 }

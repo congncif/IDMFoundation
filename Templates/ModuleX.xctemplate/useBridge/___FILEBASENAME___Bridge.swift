@@ -28,8 +28,7 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
         
         viewController.dependencyBridge = self
         
-        presenter.register(view: view)
-        
+        _presenter.view = view
         _presenter.loadingHandler = view.asLoadingHandler()
         _presenter.register(errorHandler: viewController.asErrorHandler())
         

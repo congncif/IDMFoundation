@@ -1,35 +1,35 @@
 PODS:
   - Alamofire (4.8.1)
   - IDMCore (2.8.21)
-  - IDMFoundation (2.1.8):
-    - IDMFoundation/Default (= 2.1.8)
-  - IDMFoundation/Alamofire (2.1.8):
+  - IDMFoundation (2.1.9):
+    - IDMFoundation/Default (= 2.1.9)
+  - IDMFoundation/Alamofire (2.1.9):
     - Alamofire
     - IDMCore
     - IDMFoundation/Networking
     - SiFUtilities
-  - IDMFoundation/CameraAsset (2.1.8):
+  - IDMFoundation/CameraAsset (2.1.9):
     - IDMFoundation/Networking
     - SiFUtilities
-  - IDMFoundation/Core (2.1.8):
+  - IDMFoundation/Core (2.1.9):
     - IDMCore
     - SiFUtilities
-  - IDMFoundation/Default (2.1.8):
+  - IDMFoundation/Default (2.1.9):
     - IDMFoundation/Alamofire
     - IDMFoundation/CameraAsset
     - IDMFoundation/Core
     - IDMFoundation/MBProgressHUD
     - IDMFoundation/Networking
     - IDMFoundation/ObjectMapper
-  - IDMFoundation/MBProgressHUD (2.1.8):
+  - IDMFoundation/MBProgressHUD (2.1.9):
     - IDMCore
     - MBProgressHUD
     - SiFUtilities
-  - IDMFoundation/Networking (2.1.8):
+  - IDMFoundation/Networking (2.1.9):
     - IDMCore
     - IDMFoundation/Core
     - SiFUtilities
-  - IDMFoundation/ObjectMapper (2.1.8):
+  - IDMFoundation/ObjectMapper (2.1.9):
     - IDMCore
     - IDMFoundation/Core
     - ObjectMapper
@@ -72,11 +72,6 @@ PODS:
     - SiFUtilities/Core
     - SiFUtilities/Localize
   - SiFUtilities/WeakObject (4.1.7)
-  - Swinject (2.6.0)
-  - SwinjectAutoregistration (2.5.1):
-    - Swinject (~> 2.5)
-  - SwinjectStoryboard (2.1.0):
-    - Swinject (~> 2.5)
   - ViewStateCore (1.2.5)
 
 DEPENDENCIES:
@@ -84,9 +79,6 @@ DEPENDENCIES:
   - ModuleX
   - ObjectMapper
   - SDWebImage
-  - Swinject
-  - SwinjectAutoregistration
-  - SwinjectStoryboard
   - ViewStateCore
 
 SPEC REPOS:
@@ -99,9 +91,6 @@ SPEC REPOS:
     - ObjectMapper
     - SDWebImage
     - SiFUtilities
-    - Swinject
-    - SwinjectAutoregistration
-    - SwinjectStoryboard
     - ViewStateCore
 
 EXTERNAL SOURCES:
@@ -111,18 +100,15 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   IDMCore: 3abf76eb72fb993db873a0cedc269f356416f471
-  IDMFoundation: 4ca207035988341e3b64e854ebf63d8d89dd46e4
+  IDMFoundation: 73c66e7d43a274573f72c72bb29f13573d363d49
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ModuleX: c6965f347d31836ddf40b0d803c8ef6571313b1c
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SiFUtilities: 891472941749cc394a86f042116b662aaced83cb
-  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
-  SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
-  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
   ViewStateCore: 0978cf1970699368ffe6f8ffdf1452e44e15fa3f
 
-PODFILE CHECKSUM: c8ac09efbb01df41a0e4a8311b21d11e96e02c22
+PODFILE CHECKSUM: b40c3f10eb298480f7ffd40700711e594ac7af0b
 
 COCOAPODS: 1.6.1

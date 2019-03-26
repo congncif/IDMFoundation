@@ -26,8 +26,8 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
         viewController.router = router
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
 
+        presenter.view = view
         presenter.loadingHandler = view.asLoadingHandler()
-        presenter.register(view: view)
         presenter.register(errorHandler: viewController.asErrorHandler())
 
         router.sourceModule = viewController
