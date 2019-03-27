@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.2.0'
+  s.version          = '2.2.1'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 

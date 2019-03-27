@@ -20,15 +20,16 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         var presenter = ___VARIABLE_moduleName___Presenter()
 
-        view.actionDelegate = viewController
-
         viewController.presenter = presenter
         viewController.router = router
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
 
+        presenter.actionDelegate = viewController
         presenter.add(errorHandler: viewController.asErrorHandler())
         presenter.register(stateListener: view)
         presenter.dataLoadingHandler = view.asLoadingHandler()
+
+        view.actionDelegate = viewController
 
         router.sourceModule = viewController
         // <#router.nextBuilder = NextBuilder()#>
