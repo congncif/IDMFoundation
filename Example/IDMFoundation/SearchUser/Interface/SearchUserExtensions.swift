@@ -17,9 +17,9 @@ extension SearchUserControllerProtocol {
     func performSearch() {
         let param = SearchUserParameter(q: presenter.currentQuery())
         integrator.prepareCall(parameters: param)
-            .loadingHandler(presenter.loadingHandler)
+            .loadingHandler(presenter.dataLoadingHandler)
             .errorHandler(presenter.errorHandler)
-            .dataProcessor(presenter.dataProcessor)
+            .dataProcessor(presenter.dataResponseHandler)
             .call()
     }
 }
@@ -27,7 +27,7 @@ extension SearchUserControllerProtocol {
 // MARK: - Presenter
 
 extension SearchUserPresenterProtocol {
-    var dataProcessor: DataProcessor<SearchUserResponseModel> {
+    var dataResponseHandler: DataProcessor<SearchUserResponseModel> {
         return DataProcessor<SearchUserResponseModel>(dataProcessing: { data in
             let originItems = data?.items ?? []
             let items: [SearchUserModel] = originItems.map { item in
@@ -40,5 +40,11 @@ extension SearchUserPresenterProtocol {
             }
             self.setUsers(items)
         })
+    }
+}
+
+extension SearchUserPresenterProtocol where Self: MultipleErrorHandlingProtocol {
+    var errorHandler: ErrorHandlingProtocol {
+        return errorHandlingProxy
     }
 }

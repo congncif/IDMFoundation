@@ -11,12 +11,12 @@ import UIKit
 import ViewStateCore
 
 public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
-	public var output: ___VARIABLE_moduleName___OutputProtocol?
+    public var output: ___VARIABLE_moduleName___OutputProtocol?
 
-	var router: ___VARIABLE_moduleName___RouterProtocol!
+    var router: ___VARIABLE_moduleName___RouterProtocol!
 
-	var presenter: ___VARIABLE_moduleName___PresenterProtocol!
-	var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol!
+    var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
     private var customView: UIView?
 
@@ -37,7 +37,7 @@ public final class ___VARIABLE_moduleName___ViewController: UIViewController, __
         }
     }
 
-	public override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         viewReady()
     }

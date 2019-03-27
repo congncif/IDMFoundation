@@ -51,10 +51,12 @@ protocol SearchUserControllerProtocol {
 }
 
 protocol SearchUserPresenterProtocol {
-    var view: SearchUserViewViewProtocol? { get }
+    var actionDelegate: SearchUserViewActionDelegate? { get }
     var errorHandler: ErrorHandlingProtocol { get }
-    var loadingHandler: LoadingProtocol! { get }
-    var dataProcessor: DataProcessor<SearchUserResponseModel> { get }
+
+    // define a data flow
+    var dataLoadingHandler: LoadingProtocol! { get }
+    var dataResponseHandler: DataProcessor<SearchUserResponseModel> { get }
 
     func start(with query: String)
     func currentQuery() -> String

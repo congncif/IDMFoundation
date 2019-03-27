@@ -25,7 +25,7 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         
         let router = SearchUserRouter()
         
-        let presenter = SearchUserPresenter()
+        var presenter = SearchUserPresenter()
         
         customView.actionDelegate = viewController
         
@@ -33,9 +33,9 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         viewController.presenter = presenter
         viewController.integrator = SearchUserIntegratorFactory.getIntegrator()
         
-        presenter.view = customView
-        presenter.loadingHandler = customView.asLoadingHandler()
-        presenter.register(errorHandler: viewController.asErrorHandler())
+        presenter.register(stateListener: customView)
+        presenter.dataLoadingHandler = customView.asLoadingHandler()
+        presenter.add(errorHandler: viewController.asErrorHandler())
         
         router.sourceModule = viewController
         

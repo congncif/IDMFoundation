@@ -10,12 +10,12 @@ import UIKit
 import ViewStateCore
 
 final class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___ViewProtocol {
-	weak var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
+    weak var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
 }
 
 extension ___VARIABLE_moduleName___View: ViewStateFillable {
     func fillingOptions(_ state: ViewState) -> [FillingOption] {
-    	// <#Configure to render View here#>
+        // <#Configure to render View here#>
         return []
     }
 }

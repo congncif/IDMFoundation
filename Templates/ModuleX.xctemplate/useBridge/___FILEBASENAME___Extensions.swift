@@ -10,7 +10,7 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-/*Always put every application logic in extensions of protocols*/
+/* Always put every application logic in extensions of protocols */
 
 // MARK: - Controller
 
@@ -19,9 +19,15 @@ extension ___VARIABLE_moduleName___ControllerProtocol {}
 // MARK: - Presenter
 
 extension ___VARIABLE_moduleName___PresenterProtocol {
-    var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> {
-        return DataProcessor<___VARIABLE_moduleName___ResponseModel>(dataProcessing: { data in
+    var dataResponseHandler: DataProcessor<___VARIABLE_moduleName___ResponseModel> {
+        return DataProcessor<___VARIABLE_moduleName___ResponseModel>(dataProcessing: { _ in
             // <#Process data here, cool where to convert response model to ViewState#>
         })
+    }
+}
+
+extension ___VARIABLE_moduleName___PresenterProtocol where Self: MultipleErrorHandlingProtocol {
+    var errorHandler: ErrorHandlingProtocol {
+        return errorHandlingProxy
     }
 }

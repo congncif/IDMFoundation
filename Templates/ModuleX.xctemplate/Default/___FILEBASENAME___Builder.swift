@@ -10,7 +10,7 @@ import Foundation
 import ModuleX
 import SiFUtilities
 
-public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {    
+public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {
     public func build() -> ___VARIABLE_moduleName___ModuleInterface {
         let view = ___VARIABLE_moduleName___View(frame: UIScreen.main.bounds)
 
@@ -18,17 +18,17 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         let router = ___VARIABLE_moduleName___Router()
 
-        let presenter = ___VARIABLE_moduleName___Presenter()
-        
+        var presenter = ___VARIABLE_moduleName___Presenter()
+
         view.actionDelegate = viewController
 
         viewController.presenter = presenter
         viewController.router = router
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
 
-        presenter.view = view
-        presenter.loadingHandler = view.asLoadingHandler()
-        presenter.register(errorHandler: viewController.asErrorHandler())
+        presenter.add(errorHandler: viewController.asErrorHandler())
+        presenter.register(stateListener: view)
+        presenter.dataLoadingHandler = view.asLoadingHandler()
 
         router.sourceModule = viewController
         // <#router.nextBuilder = NextBuilder()#>

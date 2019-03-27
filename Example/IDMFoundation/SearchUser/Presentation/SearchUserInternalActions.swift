@@ -10,11 +10,11 @@ import Foundation
 
 // MARK: - Actions
 extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol {
-    func refresh() {
-        performSearch()
-    }
-    
     func viewReady() {
         performSearch()
     }
+    
+    func refresh() {
+        performSearch()
+    }   
 }

@@ -15,7 +15,7 @@ import ViewStateCore
 /// Come from outside
 
 public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VARIABLE_moduleName___InputProtocol {
-	var output: ___VARIABLE_moduleName___OutputProtocol? { get set }
+    var output: ___VARIABLE_moduleName___OutputProtocol? { get set }
 }
 
 public protocol ___VARIABLE_moduleName___BuilderProtocol {
@@ -25,11 +25,11 @@ public protocol ___VARIABLE_moduleName___BuilderProtocol {
 /// In/Out
 
 public protocol ___VARIABLE_moduleName___InputProtocol {
-	// Declare method to come in from outside module
+    // Declare method to come in from outside module
 }
 
 public protocol ___VARIABLE_moduleName___OutputProtocol {
-	// Declare method to go out module
+    // Declare method to go out module
 }
 
 /// Internal
@@ -51,10 +51,11 @@ protocol ___VARIABLE_moduleName___ControllerProtocol {
 }
 
 protocol ___VARIABLE_moduleName___PresenterProtocol {
-    var view: ___VARIABLE_moduleName___ViewProtocol? { get }
+    var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate? { get }
     var errorHandler: ErrorHandlingProtocol { get }
-    var loadingHandler: LoadingProtocol! { get }
-    var dataProcessor: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
+
+    var dataLoadingHandler: LoadingProtocol! { get }
+    var dataResponseHandler: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 }
 
 protocol ___VARIABLE_moduleName___RouterProtocol {}

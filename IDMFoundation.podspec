@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.1.9'
+  s.version          = '2.2.0'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_version    = '4.2'
 
@@ -43,13 +43,14 @@ Pod::Spec.new do |s|
   
   s.subspec 'Default' do |co|
       co.dependency 'IDMFoundation/Core'
-      co.dependency 'IDMFoundation/Alamofire'
       co.dependency 'IDMFoundation/Networking'
-      co.dependency 'IDMFoundation/ObjectMapper'
-      co.dependency 'IDMFoundation/MBProgressHUD'
+      
+      co.dependency 'IDMFoundation/Alamofire'
       co.dependency 'IDMFoundation/CameraAsset'
-      #co.dependency 'IDMFoundation/ViewState'
-      #co.dependency 'IDMFoundation/ModuleX'
+      co.dependency 'IDMFoundation/ObjectMapper'
+      
+      co.dependency 'IDMFoundation/MBProgressHUD'
+      co.dependency 'IDMFoundation/ModuleHelper'
   end
   
   s.subspec 'Core' do |co|
@@ -57,14 +58,6 @@ Pod::Spec.new do |s|
       
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
-  end
-
-  s.subspec 'ViewState' do |co|
-    co.dependency 'ViewStateCore'
-  end
-
-  s.subspec 'ModuleX' do |co|
-    co.dependency 'ModuleX'
   end
 
   s.subspec 'Alamofire' do |co|
@@ -107,20 +100,20 @@ Pod::Spec.new do |s|
       co.dependency 'MBProgressHUD'
   end
   
-  s.subspec 'Reachability' do |co|
-      co.source_files = 'IDMFoundation/Reachability/**/*'
-      
-      co.dependency 'CWStatusBarNotification'
-      co.dependency 'Reachability'
-      co.dependency 'SiFUtilities'
-  end
-  
   s.subspec 'JGProgressHUD' do |co|
       co.source_files = 'IDMFoundation/JGProgressHUD/*.swift', 'IDMFoundation/ErrorHandling/*.swift'
       
       co.dependency 'JGProgressHUD'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
+  end
+  
+  s.subspec 'Reachability' do |co|
+      co.source_files = 'IDMFoundation/Reachability/**/*'
+      
+      co.dependency 'CWStatusBarNotification'
+      co.dependency 'Reachability'
+      co.dependency 'SiFUtilities'
   end
   
   s.subspec 'CameraAsset' do |co|
@@ -130,12 +123,10 @@ Pod::Spec.new do |s|
       co.dependency 'SiFUtilities'
   end
   
-  #  s.subspec 'DKAsset' do |co|
-  #      co.source_files = 'IDMFoundation/DKAsset/**/*'
-  #
-  #      co.dependency 'DKImagePickerController'
-  #      co.dependency 'SiFUtilities'
-  #      co.dependency 'IDMFoundation/Core'
-  # end
-  
+  s.subspec 'ModuleHelper' do |co|
+      co.source_files = 'IDMFoundation/ModuleHelper/**/*'
+      
+      co.dependency 'ViewStateCore'
+      co.dependency 'IDMCore'
+  end
 end

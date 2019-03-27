@@ -12,64 +12,30 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
-@objcMembers class SearchUserViewState: ViewState {
+@objcMembers
+class SearchUserViewState: ViewState {
     fileprivate(set) dynamic var query: String?
     fileprivate(set) dynamic var users: [SearchUserModel] = []
 }
 
-class SearchUserPresenter: SearchUserPresenterProtocol {
-    fileprivate let state: SearchUserViewState
-    fileprivate var errorHandlingProxy: ErrorHandlingProxy
-
-    fileprivate weak var internalView: SearchUserViewViewProtocol?
+class SearchUserPresenter: SearchUserPresenterProtocol, StatefulPresenterProtocol, MultipleErrorHandlingProtocol {
+    let state: SearchUserViewState
+    var errorHandlingProxy: ErrorHandlingProxy
 
     init(state: SearchUserViewState = SearchUserViewState()) {
         self.state = state
         errorHandlingProxy = ErrorHandlingProxy()
     }
-
-    var loadingHandler: LoadingProtocol!
-
-    var view: SearchUserViewViewProtocol? {
-        get {
-            return internalView
-        }
-
-        set {
-            if let oldValue = internalView {
-                state.unregister(subscriber: oldValue)
-            }
-            if let value = newValue {
-                state.register(subscriber: value)
-            }
-            internalView = newValue
-        }
-    }
-
-    var errorHandler: ErrorHandlingProtocol {
-        return errorHandlingProxy
-    }
+    
+    var actionDelegate: SearchUserViewActionDelegate?
+    var dataLoadingHandler: LoadingProtocol!
 }
 
 extension SearchUserPresenter {
-    func register(errorHandler: ErrorHandlingProtocol,
-                  priority: ErrorHandlingProxy.HandlingPriority = .default,
-                  where condition: ((Error?) -> Bool)? = nil) {
-        errorHandlingProxy.addHandler(errorHandler, priority: priority, where: condition)
+    func start(with query: String) {
+        state.query = query
     }
-
-    func register<ErrorType>(dedicatedErrorHandler handler: DedicatedErrorHandler<ErrorType>,
-                             priority: ErrorHandlingProxy.HandlingPriority = .default,
-                             where condition: ((ErrorType) -> Bool)? = nil) {
-        errorHandlingProxy.addDedicatedHandler(handler, priority: priority, where: condition)
-    }
-
-    func register(viewStateListener listener: ViewStateSubscriber) {
-        state.register(subscriber: listener)
-    }
-}
-
-extension SearchUserPresenter {
+    
     func currentQuery() -> String {
         return state.query.unwrapped()
     }
@@ -77,13 +43,7 @@ extension SearchUserPresenter {
     func user(at index: Int) -> SearchUserModel {
         return state.users[index]
     }
-}
-
-extension SearchUserPresenter {
-    func start(with query: String) {
-        state.query = query
-    }
-
+    
     func setUsers(_ users: [SearchUserModel]) {
         state.users = users
     }

@@ -11,8 +11,8 @@ import IDMCore
 import IDMFoundation
 
 final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___DependencyBridge {
-    private let _presenter = ___VARIABLE_moduleName___Presenter()
-    
+    private var _presenter = ___VARIABLE_moduleName___Presenter()
+
     @IBOutlet private weak var viewController: ___VARIABLE_moduleName___ViewController!
     @IBOutlet private weak var view: ___VARIABLE_moduleName___View!
 
@@ -25,13 +25,13 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         viewController.dependencyBridge = self
-        
-        _presenter.view = view
-        _presenter.loadingHandler = view.asLoadingHandler()
-        _presenter.register(errorHandler: viewController.asErrorHandler())
-        
+
+        _presenter.add(errorHandler: viewController.asErrorHandler())
+        _presenter.register(stateListener: view)
+        _presenter.dataLoadingHandler = view.asLoadingHandler()
+
         view.actionDelegate = viewController
     }
 }

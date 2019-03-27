@@ -15,7 +15,7 @@ final class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___View
 
 extension ___VARIABLE_moduleName___View: ViewStateFillable {
     func fillingOptions(_ state: ViewState) -> [FillingOption] {
-    	// <#Configure to render View here#>
+        // <#Configure to render View here#>
         return []
     }
 }

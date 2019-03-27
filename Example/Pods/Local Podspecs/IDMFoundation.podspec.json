@@ -36,10 +36,13 @@
         "IDMFoundation/Core": [
 
         ],
+        "IDMFoundation/Networking": [
+
+        ],
         "IDMFoundation/Alamofire": [
 
         ],
-        "IDMFoundation/Networking": [
+        "IDMFoundation/CameraAsset": [
 
         ],
         "IDMFoundation/ObjectMapper": [
@@ -48,7 +51,7 @@
         "IDMFoundation/MBProgressHUD": [
 
         ],
-        "IDMFoundation/CameraAsset": [
+        "IDMFoundation/ModuleHelper": [
 
         ]
       }
@@ -66,17 +69,13 @@
       }
     },
     {
-      "name": "ViewState",
+      "name": "ModuleHelper",
+      "source_files": "IDMFoundation/ModuleHelper/**/*",
       "dependencies": {
         "ViewStateCore": [
 
-        ]
-      }
-    },
-    {
-      "name": "ModuleX",
-      "dependencies": {
-        "ModuleX": [
+        ],
+        "IDMCore": [
 
         ]
       }

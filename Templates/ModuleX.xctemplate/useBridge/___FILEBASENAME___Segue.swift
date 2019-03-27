@@ -20,7 +20,7 @@ extension ___VARIABLE_moduleName___Segue {
 //		return destination as? <#TargetModuleInterface#>
 //  }
 
-	var current: ___VARIABLE_moduleName___ModuleInterface? {
+    var current: ___VARIABLE_moduleName___ModuleInterface? {
         return source as? ___VARIABLE_moduleName___ModuleInterface
     }
 
