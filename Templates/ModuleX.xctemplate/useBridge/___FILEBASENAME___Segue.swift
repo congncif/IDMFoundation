@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class ___VARIABLE_moduleName___Segue: UIStoryboardSegue, ___VARIABLE_moduleName___RouterProtocol {
-//	private struct <#TargetModuleOutputProxy#>: <#TargetModuleOutputProtocol#> {
+//	private struct <#TargetModuleOutputAdapter#>: <#TargetModuleOutputProtocol#> {
 //      weak var output: ___VARIABLE_moduleName___ModuleInterface?
 //  }
 }
