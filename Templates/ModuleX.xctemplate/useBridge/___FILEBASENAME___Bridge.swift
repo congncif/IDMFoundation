@@ -14,7 +14,8 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
     private var _presenter = ___VARIABLE_moduleName___Presenter()
 
     @IBOutlet private weak var viewController: ___VARIABLE_moduleName___ViewController!
-    @IBOutlet private weak var view: ___VARIABLE_moduleName___View!
+    @IBOutlet private weak var contentView: ___VARIABLE_moduleName___View!
+    @IBOutlet private weak var navigationView: ___VARIABLE_moduleName___NavigationView!
 
     var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return _presenter }
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
@@ -32,9 +33,12 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
 
         _presenter.actionDelegate = viewController
         _presenter.add(errorHandler: viewController.asErrorHandler())
-        _presenter.register(stateListener: view)
-        _presenter.dataLoadingHandler = view.asLoadingHandler()
+        _presenter.dataLoadingHandler = contentView.asLoadingHandler()
 
-        view.actionDelegate = viewController
+        _presenter.state.register(subscriberObject: contentView)
+        _presenter.state.register(subscriberObject: navigationView)
+
+        navigationView.actionDelegate = viewController
+        contentView.actionDelegate = viewController
     }
 }

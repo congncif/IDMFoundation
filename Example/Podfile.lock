@@ -76,7 +76,7 @@ PODS:
     - SiFUtilities/Core
     - SiFUtilities/Localize
   - SiFUtilities/WeakObject (4.1.7)
-  - ViewStateCore (1.2.5)
+  - ViewStateCore (1.3.0)
 
 DEPENDENCIES:
   - IDMFoundation (from `../`)
@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SiFUtilities: 891472941749cc394a86f042116b662aaced83cb
-  ViewStateCore: 0978cf1970699368ffe6f8ffdf1452e44e15fa3f
+  ViewStateCore: 8fec9226aedccdbf2f9067786e7b5a258a5dc27a
 
 PODFILE CHECKSUM: b40c3f10eb298480f7ffd40700711e594ac7af0b
 

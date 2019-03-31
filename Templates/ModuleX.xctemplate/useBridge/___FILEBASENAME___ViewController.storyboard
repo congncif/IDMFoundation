@@ -19,14 +19,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationItem key="navigationItem" title="Title" id="Ddi-rK-q70"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target" userLabel="Dependency Bridge">
                     <connections>
-                        <outlet property="view" destination="BNZ-bO-rhc" id="EAV-rw-qg8"/>
+                        <outlet property="contentView" destination="BNZ-bO-rhc" id="EAV-rw-qg8"/>
+                        <outlet property="navigationView" destination="Z0z-d7-Bwq" id="75l-9i-AXG"/>
                         <outlet property="viewController" destination="vKn-9P-Ny8" id="LiZ-pM-mtN"/>
                     </connections>
-                 </customObject>   
+                 </customObject>
+                 <customObject id="Z0z-d7-Bwq" customClass="___VARIABLE_productName___NavigationView" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationItem" destination="Ddi-rK-q70" id="H7r-1W-kTw"/>
+                    </connections>
+                </customObject>   
             </objects>
             <point key="canvasLocation" x="244" y="205"/>
         </scene>

@@ -13,11 +13,3 @@ public protocol StatefulPresenterProtocol {
     
     var state: State { get }
 }
-
-extension StatefulPresenterProtocol {
-    public func register(stateListener: ViewStateSubscriber) {
-        state.register(subscriber: stateListener)
-    }
-}
-
-

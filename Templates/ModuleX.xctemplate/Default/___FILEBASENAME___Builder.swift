@@ -12,9 +12,12 @@ import SiFUtilities
 
 public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___BuilderProtocol {
     public func build() -> ___VARIABLE_moduleName___ModuleInterface {
-        let view = ___VARIABLE_moduleName___View(frame: UIScreen.main.bounds)
+        let contentView = ___VARIABLE_moduleName___View(frame: UIScreen.main.bounds)
 
-        let viewController = ___VARIABLE_moduleName___ViewController(customView: view)
+        let viewController = ___VARIABLE_moduleName___ViewController(customView: contentView)
+
+        let navigationView = ___VARIABLE_moduleName___NavigationView()
+        navigationView.navigationItem = viewController.navigationItem
 
         let router = ___VARIABLE_moduleName___Router()
 
@@ -26,10 +29,13 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         presenter.actionDelegate = viewController
         presenter.add(errorHandler: viewController.asErrorHandler())
-        presenter.register(stateListener: view)
-        presenter.dataLoadingHandler = view.asLoadingHandler()
+        presenter.dataLoadingHandler = contentView.asLoadingHandler()
 
-        view.actionDelegate = viewController
+        presenter.state.register(subscriberObject: contentView)
+        presenter.state.register(subscriberObject: navigationView, retain: true)
+
+        contentView.actionDelegate = viewController
+        navigationView.actionDelegate = viewController
 
         router.sourceModule = viewController
         // <#router.nextBuilder = NextBuilder()#>

@@ -17,17 +17,19 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         let customView = SearchUserView(frame: UIScreen.main.bounds)
         customView.backgroundColor = UIColor.red
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: customView, action: #selector(customView.refreshButtonDidTap))
-        
         let viewController = SearchUserViewController(customView: customView)
-        viewController.title = "Search"
-        viewController.navigationItem.rightBarButtonItem = refreshButton
+        
+        let navigationView = SearchUserNavigationView()
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: navigationView, action: #selector(navigationView.refreshButtonDidTap))
+        navigationView.navigationItem = viewController.navigationItem
+        navigationView.navigationItem.rightBarButtonItem = refreshButton
         
         let router = SearchUserRouter()
         
         var presenter = SearchUserPresenter()
         
         customView.actionDelegate = viewController
+        navigationView.actionDelegate = viewController
         
         viewController.router = router
         viewController.presenter = presenter
@@ -35,9 +37,10 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         
         presenter.actionDelegate = viewController
         presenter.add(errorHandler: viewController.asErrorHandler())
-        presenter.register(stateListener: customView)
         presenter.dataLoadingHandler = customView.asLoadingHandler()
         
+        presenter.state.register(subscriberObject: customView)
+        presenter.state.register(subscriberObject: navigationView, retain: true)
         
         router.sourceModule = viewController
         

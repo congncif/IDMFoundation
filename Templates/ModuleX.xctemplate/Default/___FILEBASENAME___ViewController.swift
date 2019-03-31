@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ViewActionDelegate, ___VARIABLE_moduleName___ModuleInterface {
+public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
     public var output: ___VARIABLE_moduleName___OutputProtocol?
 
     var router: ___VARIABLE_moduleName___RouterProtocol!
@@ -42,3 +42,5 @@ public final class ___VARIABLE_moduleName___ViewController: UIViewController, __
         viewReady()
     }
 }
+
+extension ___VARIABLE_moduleName___ViewController: ___VARIABLE_moduleName___ViewActionDelegate {}

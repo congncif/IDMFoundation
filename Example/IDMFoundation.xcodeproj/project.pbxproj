@@ -11,6 +11,7 @@
 		0A1A28252203E3BF000C264D /* SearchUserArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */; };
 		0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */; };
 		0A1A282C2204814D000C264D /* SearchUserExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A282B2204814D000C264D /* SearchUserExtensions.swift */; };
+		0A1A86F622507CA8002225DA /* SearchUserNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A86F522507CA7002225DA /* SearchUserNavigationView.swift */; };
 		0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A113A222843220007C0EE /* SearchUserView.swift */; };
 		0A3A113D2228EF850007C0EE /* SearchUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A113C2228EF850007C0EE /* SearchUserView.xib */; };
 		0A5A08AF21FDA711009D7309 /* GitHubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */; };
@@ -51,6 +52,7 @@
 		0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserArrayController.swift; sourceTree = "<group>"; };
 		0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		0A1A282B2204814D000C264D /* SearchUserExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserExtensions.swift; sourceTree = "<group>"; };
+		0A1A86F522507CA7002225DA /* SearchUserNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserNavigationView.swift; sourceTree = "<group>"; };
 		0A3A113A222843220007C0EE /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		0A3A113C2228EF850007C0EE /* SearchUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchUserView.xib; sourceTree = "<group>"; };
 		0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEndpoint.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		0A75F099222AD6BC0062D85A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A86F522507CA7002225DA /* SearchUserNavigationView.swift */,
 				0A1A28242203E3BF000C264D /* SearchUserArrayController.swift */,
 				0A1A28262203E3F3000C264D /* SearchUserTableViewCell.swift */,
 				0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */,
@@ -520,6 +523,7 @@
 				0A1A282C2204814D000C264D /* SearchUserExtensions.swift in Sources */,
 				0A3A113B222843220007C0EE /* SearchUserView.swift in Sources */,
 				0A5A08F021FDC256009D7309 /* SearchUserModel.swift in Sources */,
+				0A1A86F622507CA8002225DA /* SearchUserNavigationView.swift in Sources */,
 				0A5A08BB21FDA847009D7309 /* SearchUserIntegratorFactory.swift in Sources */,
 				0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */,
 				0A5A08B921FDA847009D7309 /* SearchUserDefinitions.swift in Sources */,
