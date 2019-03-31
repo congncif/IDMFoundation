@@ -26,6 +26,8 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        viewController.loadViewIfNeeded()
+
         viewController.dependencyBridge = self
 
         _presenter.actionDelegate = viewController
