@@ -25,7 +25,7 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         viewController.presenter = presenter
         viewController.router = router
-        // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.produce()
+        // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.getIntegrator()
 
         presenter.actionDelegate = viewController
         presenter.add(errorHandler: viewController.asErrorHandler())

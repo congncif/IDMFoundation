@@ -12,7 +12,7 @@ import IDMFoundation
 public struct ___VARIABLE_moduleName___IntegratorFactory {
 	private init() {}
 	
-	public static func produce() -> ___VARIABLE_moduleName___AbstractIntegrator {
+	public static func getIntegrator() -> ___VARIABLE_moduleName___AbstractIntegrator {
 		return ___VARIABLE_moduleName___Integrator(dataProvider: ___VARIABLE_moduleName___UploadProvider(route: <#NetworkRoute#>), executingType: .only)
 	}
 }
