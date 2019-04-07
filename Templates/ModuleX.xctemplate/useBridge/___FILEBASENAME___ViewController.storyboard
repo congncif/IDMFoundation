@@ -20,7 +20,9 @@
                         <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationItem key="navigationItem" title="Title" id="Ddi-rK-q70"/>
+                    <navigationItem key="navigationItem" title="Title" id="Ddi-rK-q70">
+                    	<barButtonItem key="backBarButtonItem" title=" " id="3ap-Og-wzN"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="axh-Bd-Vxu" customClass="___VARIABLE_productName___Bridge" customModuleProvider="target" userLabel="Dependency Bridge">
