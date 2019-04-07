@@ -17,7 +17,10 @@ final class ___VARIABLE_moduleName___Bridge: NSObject, ___VARIABLE_moduleName___
     @IBOutlet private weak var contentView: ___VARIABLE_moduleName___View!
     @IBOutlet private weak var navigationView: ___VARIABLE_moduleName___NavigationView!
 
-    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return _presenter }
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol! {
+        return _presenter
+    }
+    
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
 
     override init() {

@@ -19,6 +19,11 @@ protocol ___VARIABLE_moduleName___ControllerBridgeProtocol: ___VARIABLE_moduleNa
 }
 
 extension ___VARIABLE_moduleName___ControllerBridgeProtocol {
-    var presenter: ___VARIABLE_moduleName___PresenterProtocol! { return dependencyBridge.presenter }
-    var integrator: ___VARIABLE_moduleName___AbstractIntegrator! { return dependencyBridge.integrator }
+    var presenter: ___VARIABLE_moduleName___PresenterProtocol! {
+    	return dependencyBridge.presenter
+    }
+    
+    var integrator: ___VARIABLE_moduleName___AbstractIntegrator! {
+    	return dependencyBridge.integrator
+    }
 }
