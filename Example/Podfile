@@ -1,5 +1,8 @@
+source 'https://cdn.jsdelivr.net/cocoa/'
+
 use_frameworks!
 inhibit_all_warnings!
+install! 'cocoapods', :generate_multiple_pod_projects => true, :incremental_installation => true
 
 target 'IDMFoundation_Example' do
   pod 'IDMFoundation', :path => '../'
@@ -19,4 +22,5 @@ target 'IDMFoundation_Example' do
   pod 'ModuleX'
   pod 'ViewStateCore'
   pod 'SDWebImage'
+  pod 'IDMCore', :git => 'https://github.com/congncif/IDMCore.git', :branch => 'swift5'
 end

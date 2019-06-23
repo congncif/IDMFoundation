@@ -46,7 +46,7 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
         super.viewDidLoad()
     }
 
-    public override func viewDidFinishLayout() {
+    public override func viewDidFinishInitialLayout() {
         viewReady()
     }
 

@@ -6,28 +6,23 @@
 //  Copyright © 2016 [iF] Solution. All rights reserved.
 //
 
-import Foundation
 import AVFoundation
+import Foundation
 
 extension AVPlayer {
     open func takeImage() -> UIImage? {
-        
-        let currentItem = self.currentItem
-        guard currentItem != nil else {
+        guard let currentItem = self.currentItem, let asset = self.currentItem?.asset else {
             return nil
         }
-        
-        let asset = self.currentItem?.asset
-        guard asset != nil else { return nil }
-        
-        let imageGenerator = AVAssetImageGenerator(asset: asset!)
-        
+
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+
         do {
-            let ref = try imageGenerator.copyCGImage(at: (self.currentItem?.currentTime())!, actualTime: nil)
+            let ref = try imageGenerator.copyCGImage(at: currentItem.currentTime(), actualTime: nil)
             let viewImage = UIImage(cgImage: ref)
             return viewImage
-        }catch (let ex) {
-            print(ex)
+        } catch let ex {
+            assertionFailure(String(describing: ex))
             return nil
         }
     }

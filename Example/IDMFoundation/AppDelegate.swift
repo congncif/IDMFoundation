@@ -32,7 +32,7 @@ public class Person: Codable {
 
 public class CLGT: ModelProtocol {
     public required init(fromData data: Any?) throws {
-        throw IDMError.modelCannotInitialize
+        throw ParsingError(message: "Can not init")
     }
     
     public typealias DataType = Any
