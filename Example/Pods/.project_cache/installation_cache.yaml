@@ -11,12 +11,9 @@ CACHE_KEYS:
   IDMCore:
     BUILD_SETTINGS_CHECKSUM:
       IDMCore: afa118d36afd9b291a62a9fc385a3f1c
-    CHECKOUT_OPTIONS:
-      :commit: 4ccd8fd66f6fd65e2c39a7890dec1be172481532
-      :git: https://github.com/congncif/IDMCore.git
-    CHECKSUM: 06c5c736cf4aecce14eb570781f382912dc89ccf
+    CHECKSUM: 4d14869757995c78707edb11227a5937b1d5e952
     SPECS:
-      - IDMCore (3.0.0)
+      - IDMCore (3.1.1)
   IDMFoundation:
     BUILD_SETTINGS_CHECKSUM:
       IDMFoundation: d0daf57e2d7da2a07189b62687f36513
@@ -93,9 +90,9 @@ CACHE_KEYS:
   ObjectMapper:
     BUILD_SETTINGS_CHECKSUM:
       ObjectMapper: 21eea98855f08976126cfa955749b7fd
-    CHECKSUM: 078b564ed25c6578b62588e306bf1da3924636d4
+    CHECKSUM: 70187b8941977c62ccfb423caf6b50be405cabf0
     SPECS:
-      - ObjectMapper (3.5.0)
+      - ObjectMapper (3.5.1)
   Pods-IDMFoundation_Example:
     BUILD_SETTINGS_CHECKSUM:
       Debug: 6795959d50b78f89cedbbd572581706c
@@ -110,21 +107,21 @@ CACHE_KEYS:
   SiFUtilities:
     BUILD_SETTINGS_CHECKSUM:
       SiFUtilities: f666076e9bddfa557b1bb90bcfa80956
-    CHECKSUM: 2eff1d10249cbe54adf31ffa12c9e475d7b24da9
+    CHECKSUM: 43c90fffd622716693baca51160d9276dbdd33f1
     SPECS:
-      - SiFUtilities (4.1.11)
-      - SiFUtilities/Core (4.1.11)
-      - SiFUtilities/Default (4.1.11)
-      - SiFUtilities/Endpoint (4.1.11)
-      - SiFUtilities/Helpers (4.1.11)
-      - SiFUtilities/IBDesignable (4.1.11)
-      - SiFUtilities/KeyValue (4.1.11)
-      - SiFUtilities/Loading (4.1.11)
-      - SiFUtilities/Localize (4.1.11)
-      - SiFUtilities/Nib (4.1.11)
-      - SiFUtilities/Runtime (4.1.11)
-      - SiFUtilities/Show (4.1.11)
-      - SiFUtilities/WeakObject (4.1.11)
+      - SiFUtilities (4.1.13)
+      - SiFUtilities/Core (4.1.13)
+      - SiFUtilities/Default (4.1.13)
+      - SiFUtilities/Endpoint (4.1.13)
+      - SiFUtilities/Helpers (4.1.13)
+      - SiFUtilities/IBDesignable (4.1.13)
+      - SiFUtilities/KeyValue (4.1.13)
+      - SiFUtilities/Loading (4.1.13)
+      - SiFUtilities/Localize (4.1.13)
+      - SiFUtilities/Nib (4.1.13)
+      - SiFUtilities/Runtime (4.1.13)
+      - SiFUtilities/Show (4.1.13)
+      - SiFUtilities/WeakObject (4.1.13)
   ViewStateCore:
     BUILD_SETTINGS_CHECKSUM:
       ViewStateCore: 678c0e953464e9bf5567477146677129

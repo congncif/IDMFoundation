@@ -27,7 +27,7 @@ extension NetworkResponseHandler where BaseRequest == DownloadRequest {
                 completion(.success(response))
             } else {
                 log(url: response.response?.url, mark: "🥀", data: response.error)
-                completion(.failure(error.unwrapped(default: UnknownError.default)))
+                completion(.failure(error.unwrapped(UnknownError.default)))
             }
         }
     })

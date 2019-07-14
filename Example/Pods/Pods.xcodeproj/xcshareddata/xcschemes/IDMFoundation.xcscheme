@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CAAB677F261E459D86ECB626D86B269"
+               BlueprintIdentifier = "8843542DE30D6ABCA6908BCC7CE9AD77"
                BuildableName = "IDMFoundation.framework"
                BlueprintName = "IDMFoundation"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:IDMFoundation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4CAAB677F261E459D86ECB626D86B269"
+            BlueprintIdentifier = "8843542DE30D6ABCA6908BCC7CE9AD77"
             BuildableName = "IDMFoundation.framework"
             BlueprintName = "IDMFoundation"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            ReferencedContainer = "container:IDMFoundation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4CAAB677F261E459D86ECB626D86B269"
+            BlueprintIdentifier = "8843542DE30D6ABCA6908BCC7CE9AD77"
             BuildableName = "IDMFoundation.framework"
             BlueprintName = "IDMFoundation"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            ReferencedContainer = "container:IDMFoundation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -21,7 +21,7 @@ extension NetworkResponseHandler where BaseRequest == DataRequest {
                 completion(.success(response.value))
             } else {
                 log(url: response.response?.url, mark: "🥀", data: response.error)
-                completion(.failure(response.error.unwrapped(default: UnknownError.default)))
+                completion(.failure(response.error.unwrapped(UnknownError.default)))
             }
         }
     })
