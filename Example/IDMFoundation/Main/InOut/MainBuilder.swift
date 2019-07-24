@@ -17,19 +17,13 @@ public struct MainBuilder: MainBuilderProtocol {
         let viewController = MainViewController(customView: view)
         viewController.title = "Main"
 
-        let router = MainRouter()
-
         let presenter = MainPresenter()
 
         view.actionDelegate = viewController
 
         viewController.presenter = presenter
-        viewController.router = router
 
         presenter.register(view: view)
-
-        router.sourceModule = viewController
-        router.searchUserBuilder = SearchUserBuilder()
 
         return viewController
     }

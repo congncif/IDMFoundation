@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Actions
 
 extension ___VARIABLE_moduleName___ViewActionDelegate where Self: ___VARIABLE_moduleName___ControllerProtocol {
-    func viewReady() {
+    func activateView() {
         // <#code here#>
     }
 }

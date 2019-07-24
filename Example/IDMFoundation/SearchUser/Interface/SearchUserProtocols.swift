@@ -14,6 +14,7 @@ import ViewStateCore
 
 public protocol SearchUserModuleInterface: ModuleInterface, SearchUserInputProtocol {
     var output: SearchUserOutputProtocol? { get set }
+    var router: SearchUserRouterProtocol? { get set }
 }
 
 public protocol SearchUserBuilderProtocol {
@@ -28,6 +29,10 @@ public protocol SearchUserInputProtocol {
 
 public protocol SearchUserOutputProtocol {
     func userDidSelect(_ user: SearchUserModel)
+}
+
+public protocol SearchUserRouterProtocol {
+    func closeSearchUserModule()
 }
 
 // Internal
@@ -45,7 +50,6 @@ protocol SearchUserViewViewProtocol: ViewStateSubscriber {
 }
 
 protocol SearchUserControllerProtocol {
-    var router: SearchUserRouterProtocol! { get }
     var presenter: SearchUserPresenterProtocol! { get }
     var integrator: SearchUserAbstractIntegrator! { get }
 }
@@ -64,6 +68,4 @@ protocol SearchUserPresenterProtocol {
     func user(at index: Int) -> SearchUserModel
 }
 
-protocol SearchUserRouterProtocol {
-    func closeSearchUserModule()
-}
+

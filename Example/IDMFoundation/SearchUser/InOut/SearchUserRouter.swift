@@ -10,7 +10,9 @@ import Foundation
 import IDMFoundation
 import ModuleX
 
-class SearchUserRouter: Router, SearchUserRouterProtocol {
+class SearchUserRouter: SearchUserRouterProtocol {
+    weak var sourceModule: SearchUserModuleInterface?
+    
     func closeSearchUserModule() {
         sourceModule?.viewController
             .navigationController?.popViewController(animated: true)

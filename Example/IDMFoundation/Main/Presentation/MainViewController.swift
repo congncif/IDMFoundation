@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public class MainViewController: UIViewController, MainControllerProtocol, MainViewActionDelegate, MainModuleInterface {
+final class MainViewController: UIViewController, MainControllerProtocol, MainViewActionDelegate, MainModuleInterface {
     
 	public var output: MainOutputProtocol?
-
-	var router: MainRouterProtocol!
+	public var router: MainRouterProtocol?
 
 	var presenter: MainPresenterProtocol!
 
@@ -29,7 +28,7 @@ public class MainViewController: UIViewController, MainControllerProtocol, MainV
         super.init(coder: aDecoder)
     }
 
-    public override func loadView() {
+    override func loadView() {
         if let customView = customView {
             view = customView
         } else {
@@ -37,7 +36,7 @@ public class MainViewController: UIViewController, MainControllerProtocol, MainV
         }
     }
 
-	public override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
         viewReady()
     }

@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
+final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerProtocol, ___VARIABLE_moduleName___ModuleInterface {
     public var output: ___VARIABLE_moduleName___OutputProtocol?
-
-    var router: ___VARIABLE_moduleName___RouterProtocol!
+    public var router: ___VARIABLE_moduleName___RouterProtocol?
 
     var presenter: ___VARIABLE_moduleName___PresenterProtocol!
     var integrator: ___VARIABLE_moduleName___AbstractIntegrator!
@@ -29,7 +28,7 @@ public final class ___VARIABLE_moduleName___ViewController: UIViewController, __
         super.init(coder: aDecoder)
     }
 
-    public override func loadView() {
+    override func loadView() {
         if let customView = customView {
             view = customView
         } else {
@@ -37,9 +36,9 @@ public final class ___VARIABLE_moduleName___ViewController: UIViewController, __
         }
     }
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        viewReady()
+        activateView()
     }
 }
 

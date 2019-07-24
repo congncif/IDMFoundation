@@ -16,22 +16,28 @@ import ViewStateCore
 
 public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VARIABLE_moduleName___InputProtocol {
     var output: ___VARIABLE_moduleName___OutputProtocol? { get set }
+    var router: ___VARIABLE_moduleName___RouterProtocol? { get set }
+}
+
+public protocol ___VARIABLE_moduleName___BuilderProtocol {
+    func build() -> ___VARIABLE_moduleName___ModuleInterface
 }
 
 /// In/Out
 
-public protocol ___VARIABLE_moduleName___InputProtocol {
-    // Declare method to come in from outside module
-}
+// Declare methods come in from outside module
+public protocol ___VARIABLE_moduleName___InputProtocol {}
 
-public protocol ___VARIABLE_moduleName___OutputProtocol {
-    // Declare method to go out module
-}
+// Declare methods call back from previous module
+public protocol ___VARIABLE_moduleName___OutputProtocol {}
+
+// Declare methods go out to next module
+public protocol ___VARIABLE_moduleName___RouterProtocol {}
 
 /// Internal
 
 protocol ___VARIABLE_moduleName___ViewActionDelegate: AnyObject {
-    func viewReady()
+    func activateView()
 }
 
 protocol ___VARIABLE_moduleName___ViewProtocol: ViewStateSubscriber {
@@ -52,5 +58,3 @@ protocol ___VARIABLE_moduleName___PresenterProtocol {
     var dataLoadingHandler: LoadingProtocol! { get }
     var dataResponseHandler: DataProcessor<___VARIABLE_moduleName___ResponseModel> { get }
 }
-
-protocol ___VARIABLE_moduleName___RouterProtocol {}

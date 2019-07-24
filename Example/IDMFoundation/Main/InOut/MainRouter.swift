@@ -24,8 +24,14 @@ class MainRouter: MainRouterProtocol {
     
     func openSearchModule(with query: String) {
         guard let nextModule = searchUserBuilder?.build() else { return }
+        
+        let router = SearchUserRouter()
+        router.sourceModule = nextModule
+        nextModule.router = router
         nextModule.output = SearchUserOutputProxy(output: sourceModule)
+        
         nextModule.start(with: query)
+        
         sourceModule?.viewController
             .navigationController?
             .pushViewController(nextModule.viewController,

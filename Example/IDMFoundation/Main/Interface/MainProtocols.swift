@@ -15,7 +15,8 @@ import ViewStateCore
 /// Come from outside
 
 public protocol MainModuleInterface: ModuleInterface, MainInputProtocol {
-	var output: MainOutputProtocol? { get set }
+    var output: MainOutputProtocol? { get set }
+    var router: MainRouterProtocol? { get set }
 }
 
 public protocol MainBuilderProtocol {
@@ -24,20 +25,24 @@ public protocol MainBuilderProtocol {
 
 /// In/Out
 
+// Declare methods to come in from outside module
 public protocol MainInputProtocol {
-	// Declare method to come in from outside module
     func selectUser(_ user: SearchUserModel)
 }
 
-public protocol MainOutputProtocol {
-	// Declare method to go out module
+// Declare methods to call back previous module
+public protocol MainOutputProtocol {}
+
+// Declare methods to go out module
+public protocol MainRouterProtocol {
+    func openSearchModule(with query: String)
 }
 
 /// Internal
 
 protocol MainViewActionDelegate: class {
     func viewReady()
-    
+
     func searchQueryDidChange(_ query: String)
     func search()
 }
@@ -47,7 +52,6 @@ protocol MainViewProtocol: ViewStateSubscriber {
 }
 
 protocol MainControllerProtocol {
-    var router: MainRouterProtocol! { get }
     var presenter: MainPresenterProtocol! { get }
 
     // Declare methods to work internal module
@@ -55,12 +59,8 @@ protocol MainControllerProtocol {
 
 protocol MainPresenterProtocol {
     func register(view: MainViewProtocol)
-    
+
     func currentQuery() -> String
     func selectUser(_ user: SearchUserModel)
     func setQuery(_ query: String?)
-}
-
-protocol MainRouterProtocol {
-    func openSearchModule(with query: String)
 }

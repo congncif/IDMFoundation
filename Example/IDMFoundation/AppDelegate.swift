@@ -48,8 +48,6 @@ import IDMCore
 import IDMFoundation
 import ModuleX
 
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, LaunchRouterProtocol {
     var window: UIWindow?
@@ -61,6 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LaunchRouterProtocol {
         
         let mainBuilder = MainBuilder()
         let mainModule = mainBuilder.build()
+        
+        let mainRouter = MainRouter()
+        mainRouter.sourceModule = mainModule
+        mainModule.router = mainRouter
+        
+        mainRouter.searchUserBuilder = SearchUserBuilder()
         
         // build navigation module
         let nav = UINavigationController(rootViewController: mainModule.viewController)

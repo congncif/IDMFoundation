@@ -15,10 +15,9 @@ import UIKit
 import ViewStateCore
 import SiFUtilities
 
-public class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface, SearchUserViewActionDelegate {
+final class SearchUserViewController: UIViewController, SearchUserControllerProtocol, SearchUserModuleInterface, SearchUserViewActionDelegate {
     public var output: SearchUserOutputProtocol?
-
-    var router: SearchUserRouterProtocol!
+    public var router: SearchUserRouterProtocol?
 
     var presenter: SearchUserPresenterProtocol!
     var integrator: SearchUserAbstractIntegrator!
@@ -34,7 +33,7 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
         super.init(coder: aDecoder)
     }
 
-    public override func loadView() {
+    override func loadView() {
         if let customView = customView {
             view = customView
         } else {
@@ -42,11 +41,11 @@ public class SearchUserViewController: UIViewController, SearchUserControllerPro
         }
     }
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    public override func viewDidFinishInitialLayout() {
+    override func viewDidFinishInitialLayout() {
         viewReady()
     }
 

@@ -24,14 +24,11 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         navigationView.navigationItem = viewController.navigationItem
         navigationView.navigationItem.rightBarButtonItem = refreshButton
         
-        let router = SearchUserRouter()
-        
         var presenter = SearchUserPresenter()
         
         customView.actionDelegate = viewController
         navigationView.actionDelegate = viewController
         
-        viewController.router = router
         viewController.presenter = presenter
         viewController.integrator = SearchUserIntegratorFactory.getIntegrator()
         
@@ -41,8 +38,6 @@ public struct SearchUserBuilder: SearchUserBuilderProtocol {
         
         presenter.state.register(subscriberObject: customView)
         presenter.state.register(subscriberObject: navigationView, retain: true)
-        
-        router.sourceModule = viewController
         
         return viewController
     }

@@ -20,7 +20,9 @@ extension MainViewActionDelegate where Self: MainControllerProtocol {
     func searchQueryDidChange(_ query: String) {
         presenter.setQuery(query)
     }
+}
 
+extension MainViewActionDelegate where Self: MainControllerProtocol, Self: MainModuleInterface {
     func search() {
         let query = presenter.currentQuery()
         router?.openSearchModule(with: query)

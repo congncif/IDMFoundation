@@ -19,12 +19,9 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
         let navigationView = ___VARIABLE_moduleName___NavigationView()
         navigationView.navigationItem = viewController.navigationItem
 
-        let router = ___VARIABLE_moduleName___Router()
-
         var presenter = ___VARIABLE_moduleName___Presenter()
 
         viewController.presenter = presenter
-        viewController.router = router
         // viewController.integrator = ___VARIABLE_moduleName___IntegratorFactory.getIntegrator()
 
         presenter.actionDelegate = viewController
@@ -36,9 +33,6 @@ public struct ___VARIABLE_moduleName___Builder: ___VARIABLE_moduleName___Builder
 
         contentView.actionDelegate = viewController
         navigationView.actionDelegate = viewController
-
-        router.sourceModule = viewController
-        // <#router.nextBuilder = NextBuilder()#>
 
         return viewController
     }

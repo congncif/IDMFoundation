@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 import ViewStateCore
 
-public final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ModuleInterface {
-    public var output: ___VARIABLE_moduleName___OutputProtocol?
+final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIABLE_moduleName___ControllerBridgeProtocol, ___VARIABLE_moduleName___ModuleInterface {
+	public var output: ___VARIABLE_moduleName___OutputProtocol?
+	public var router: ___VARIABLE_moduleName___RouterProtocol?
 
     var dependencyBridge: ___VARIABLE_moduleName___DependencyBridge!
 
-    public override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
+		activateView()
     }
 }
 
