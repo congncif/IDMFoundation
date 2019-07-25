@@ -38,9 +38,9 @@
 			<key>Required</key>
 			<string>true</string>
 			<key>Name</key>
-			<string>Use Storyboard &amp; Dependency Bridge</string>
+			<string>Use Storyboard Segue &amp; Dependency Bridge</string>
 			<key>Description</key>
-			<string>Use Storyboard &amp; Dependency Bridge</string>
+			<string>Using Storyboard Segue &amp; Dependency Bridge means you are dealing with Internal Routing. If you would like to strongly modularize, you should uncheck this option and use Builder &amp; Router instead.</string>
 			<key>Type</key>
 			<string>checkbox</string>
 			<key>Default</key>

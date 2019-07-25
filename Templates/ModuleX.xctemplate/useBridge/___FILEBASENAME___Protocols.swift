@@ -12,6 +12,12 @@ import IDMFoundation
 import ModuleX
 import ViewStateCore
 
+/**
+ * NOTE: Convenience always comes with limitations. 
+ * Using Storyboard Segue & Dependency Bridge means you are dealing with Internal Routing.
+ * If you would like to strongly modularize, you should use Builder & Router instead.
+ **/
+
 /// Come from outside
 
 public protocol ___VARIABLE_moduleName___ModuleInterface: ModuleInterface, ___VARIABLE_moduleName___InputProtocol {
