@@ -59,12 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LaunchRouterProtocol {
         
         let mainBuilder = MainBuilder()
         let mainModule = mainBuilder.build()
-        
-        let mainRouter = MainRouter()
-        mainRouter.sourceModule = mainModule
-        mainModule.router = mainRouter
-        
-        mainRouter.searchUserBuilder = SearchUserBuilder()
+        mainModule.router = MainRouter(sourceModule: mainModule)
+            .intendedDestination(SearchUserBuilder())
         
         // build navigation module
         let nav = UINavigationController(rootViewController: mainModule.viewController)

@@ -10,11 +10,21 @@ import Foundation
 import ModuleX
 
 final class ___VARIABLE_moduleName___Router: ___VARIABLE_moduleName___RouterProtocol {
-    weak var sourceModule: ___VARIABLE_moduleName___ModuleInterface?
+    private weak var sourceModule: ___VARIABLE_moduleName___ModuleInterface?
+
+    init(sourceModule: ___VARIABLE_moduleName___ModuleInterface?) {
+        self.sourceModule = sourceModule
+    }
 
 //	private struct <#TargetModuleOutputAdapter#>: <#TargetModuleOutputProtocol#> {
 //      weak var output: ___VARIABLE_moduleName___ModuleInterface?
 //  }
 
-	// <#var nextBuilder: NextModuleBuilderProtocol?#>
+	// <#private var nextBuilder: NextModuleBuilderProtocol?#>
+
+// func intendedDestination(_ nextBuilder: NextModuleBuilderProtocol) -> Self {
+//     self.nextBuilder = nextBuilder
+// 	return self
+// }
+
 }

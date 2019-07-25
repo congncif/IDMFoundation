@@ -11,7 +11,11 @@ import IDMFoundation
 import ModuleX
 
 class SearchUserRouter: SearchUserRouterProtocol {
-    weak var sourceModule: SearchUserModuleInterface?
+    private weak var sourceModule: SearchUserModuleInterface?
+
+    init(sourceModule: SearchUserModuleInterface?) {
+        self.sourceModule = sourceModule
+    }
     
     func closeSearchUserModule() {
         sourceModule?.viewController

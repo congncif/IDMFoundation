@@ -10,9 +10,17 @@ import Foundation
 import ModuleX
 
 class MainRouter: MainRouterProtocol {
-    weak var sourceModule: MainModuleInterface?
+    private weak var sourceModule: MainModuleInterface?
+    private var searchUserBuilder: SearchUserBuilderProtocol?
     
-    var searchUserBuilder: SearchUserBuilderProtocol?
+    init(sourceModule: MainModuleInterface?) {
+        self.sourceModule = sourceModule
+    }
+    
+    func intendedDestination(_ searchUserBuilder: SearchUserBuilderProtocol) -> Self {
+        self.searchUserBuilder = searchUserBuilder
+        return self
+    }
     
     private struct SearchUserOutputProxy: SearchUserOutputProtocol {
         weak var output: MainModuleInterface?
@@ -25,9 +33,7 @@ class MainRouter: MainRouterProtocol {
     func openSearchModule(with query: String) {
         guard let nextModule = searchUserBuilder?.build() else { return }
         
-        let router = SearchUserRouter()
-        router.sourceModule = nextModule
-        nextModule.router = router
+        nextModule.router = SearchUserRouter(sourceModule: nextModule)
         nextModule.output = SearchUserOutputProxy(output: sourceModule)
         
         nextModule.start(with: query)
