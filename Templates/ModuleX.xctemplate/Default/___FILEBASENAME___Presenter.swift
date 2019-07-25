@@ -26,7 +26,7 @@ final class ___VARIABLE_moduleName___Presenter: ___VARIABLE_moduleName___Present
         errorHandlingProxy = ErrorHandlingProxy()
     }
 
-    var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
+    weak var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
     var dataLoadingHandler: LoadingProtocol!
 }
 
