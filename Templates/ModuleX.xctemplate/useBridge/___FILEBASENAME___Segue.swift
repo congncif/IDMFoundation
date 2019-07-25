@@ -9,22 +9,4 @@
 import Foundation
 import UIKit
 
-final class ___VARIABLE_moduleName___Segue: UIStoryboardSegue, ___VARIABLE_moduleName___RouterProtocol {
-//	private struct <#TargetModuleOutputAdapter#>: <#TargetModuleOutputProtocol#> {
-//      weak var output: ___VARIABLE_moduleName___ModuleInterface?
-//  }
-}
-
-extension ___VARIABLE_moduleName___Segue {
-//	var target: <#TargetModuleInterface#>? {
-//		return destination as? <#TargetModuleInterface#>
-//  }
-
-    var current: ___VARIABLE_moduleName___ModuleInterface? {
-        return source as? ___VARIABLE_moduleName___ModuleInterface
-    }
-
-    override var identifier: String? {
-        return self.typeName
-    }
-}
+public final class ___VARIABLE_moduleName___Segue: UIStoryboardSegue {}

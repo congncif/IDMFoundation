@@ -44,6 +44,8 @@ public protocol ___VARIABLE_moduleName___RouterProtocol {}
 
 protocol ___VARIABLE_moduleName___ViewActionDelegate: AnyObject {
     func activateView()
+    
+    func gotoNext()
 }
 
 protocol ___VARIABLE_moduleName___ViewProtocol: ViewStateSubscriber {
