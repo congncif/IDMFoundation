@@ -7,33 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01586A1B4B09118262D83B9C1D97C8EB /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A5465F71A5229461298682A56E1672 /* IntegerOperators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		14A5A55F44B22D36754F9CE054A14BB7 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80813E80E32AF2A41117AFEF566D2046 /* DateTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1F436067A8E789825D07603C6A2B40E3 /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A31115A740EB74FDCFD1EF183D0C45 /* HexColorTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		306EB91C04ED6EAECC1919DD522B78EA /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE057DCDE58CC9BB7EF0424A9BCFB1D8 /* EnumOperators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		314D343176F6E613E7B89A8BEEE7A94C /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDF961A3FE848B211B4BB10B2ECAA1 /* NSDecimalNumberTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		40FF5446A3BE2C001881799E33EFEA39 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0068D56391EF6DF5BCCB31A04173462 /* ToJSON.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		41A6F813B48E9ACCD6516D0DF582EA9B /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C731B60EB02B0C43F75CD5A68B64157B /* ObjectMapper-dummy.m */; };
-		46842B79C5BA95753B2DCC2EBECA9F82 /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745735C17107C00F032D77BBA7510FE /* DictionaryTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4DF3B50DD6552B7567826CD6822C58A0 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD45096B801C172F46BE231607BCC /* Operators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5B5646ABD89E2CD54B53D0C29D596895 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7556A7974CE9B0F0404616986684D /* EnumTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6A3C5CAC3D44DDB20D5DD95314437485 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C4CF1834366B0CE48381B0EC8FA69 /* URLTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6CA21C579D2453869E0691E4C9819687 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3A248A006BA38EB55E00AC1C613DB /* FromJSON.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		80B38783F356BE01BE6D7753C37DE3D1 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE80F6847AA983CC7D0476C88D6AF5 /* DataTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		86576888B56E5A45E80C2E68CF9B34D2 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB298F6669FC7F43A6418BD57B21FC5C /* Mapper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		866C0C939B22390AA57E951DB638E75A /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED897741413E386A167E86C3CA8DE74 /* ISO8601DateTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		02E2F2D684ABF0D9510A674345E0847A /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED897741413E386A167E86C3CA8DE74 /* ISO8601DateTransform.swift */; };
+		06D096CED450FDE36A3D6349BB27F11C /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839552DA2B34BDF32059C648E55BC859 /* DateFormatterTransform.swift */; };
+		0BF768BCDA51AC330AFA2CB67AA20FAB /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A5465F71A5229461298682A56E1672 /* IntegerOperators.swift */; };
+		1680A24B0740D9BB6A112342CBF53BDD /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C4CF1834366B0CE48381B0EC8FA69 /* URLTransform.swift */; };
+		315CACA18DA75D94B567418A0437ED31 /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE80F6847AA983CC7D0476C88D6AF5 /* DataTransform.swift */; };
+		372FE28175296F9BD38E2572AD442B9D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A31115A740EB74FDCFD1EF183D0C45 /* HexColorTransform.swift */; };
+		37655028D2A1EB07337E1C7C5FCB930D /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD964106F0221992C7D974A5945A4EA1 /* Map.swift */; };
+		4294C2BA88918DCDE93BD60BBC890A1C /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0068D56391EF6DF5BCCB31A04173462 /* ToJSON.swift */; };
+		4DB5C672EEF86DBA5ACDCD941B0F372E /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3A248A006BA38EB55E00AC1C613DB /* FromJSON.swift */; };
+		5842DC0B958E852CAE04490154C91A28 /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FF94B354739FB5A2C28D48490CE90 /* MapError.swift */; };
+		5E8F026A61F31EED4D3AAF6591919259 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE413B9F8B8D358BD6549343FA0E14AD /* Mappable.swift */; };
+		608B4B1D5CF2D4B7B7C0D3B38C238C89 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB298F6669FC7F43A6418BD57B21FC5C /* Mapper.swift */; };
+		7F15190EBBC83B03062988A4B8F8CB40 /* CodableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11719660D9C2EFEBC92DD9BCCA913098 /* CodableTransform.swift */; };
+		87DA887ADAA22C1F10B916FAAE1D22B2 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FE1DC650B51BF2C5FC96DDDAE3CEE9 /* ImmutableMappable.swift */; };
 		898B021C8EEA9123A288B71EE2C6EA7B /* ObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C7E0DF10CEA927C0FB8E5CC0BC59BAD /* ObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99DE075A08F269E2159D9A024593FC3F /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D283B4B172B6008EFD7A50EA60EACB /* TransformType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9B49916D82988E634D9297C8F1BD489B /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FF94B354739FB5A2C28D48490CE90 /* MapError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		924FCEB9B7DFB71284D59C485FFB7BAC /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7556A7974CE9B0F0404616986684D /* EnumTransform.swift */; };
+		9626DC9E67834CE0F6520725C1A97ADC /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA8A50FA27756E04EE248A9DEFD07E /* CustomDateFormatTransform.swift */; };
+		9E9873039E3F4E67092CF4D488EA982B /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80813E80E32AF2A41117AFEF566D2046 /* DateTransform.swift */; };
+		9FEC15603752A33684BF0FACB25E8E66 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C731B60EB02B0C43F75CD5A68B64157B /* ObjectMapper-dummy.m */; };
 		A4566AAC393B721DA1E39F9A4AD2588C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056FBD7DE18FF26C17A7C075ACDAC3B3 /* Foundation.framework */; };
-		ABF9F535CDA0EE1769CAD42D91C8612B /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BA8A50FA27756E04EE248A9DEFD07E /* CustomDateFormatTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B8D5AFC02F2EABD8FCD6BAD9E462987A /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD964106F0221992C7D974A5945A4EA1 /* Map.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B950BBFE27B26FED401D2022E4D2B39D /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86F6EAE43A68B0C06787EB0DE01C78 /* TransformOf.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BA4DB8C517431AD03E2ADBE0EBDF9D3E /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE413B9F8B8D358BD6549343FA0E14AD /* Mappable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CEA0FF2CED12D31430DBD8F98FA22D62 /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19841ED6A5BAB0B61A646F0C280E6A7 /* TransformOperators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DCCBCD27B4D12CC7AE0A1AE750764BDB /* CodableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11719660D9C2EFEBC92DD9BCCA913098 /* CodableTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E6DEF8269978A2E1314E0533C3325ABC /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839552DA2B34BDF32059C648E55BC859 /* DateFormatterTransform.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FA68812D02736DF715B3647B8DE87BE4 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FE1DC650B51BF2C5FC96DDDAE3CEE9 /* ImmutableMappable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B9F7C9B6A1CFB141EE4163698430F325 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD45096B801C172F46BE231607BCC /* Operators.swift */; };
+		BC6BCCC636045808D3DE5A2D149066B2 /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19841ED6A5BAB0B61A646F0C280E6A7 /* TransformOperators.swift */; };
+		D3DE75C20B5FEAE845165E159A9DFA1F /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE057DCDE58CC9BB7EF0424A9BCFB1D8 /* EnumOperators.swift */; };
+		D600A3019AC7AFA38D34CC3F9FBD35D6 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDF961A3FE848B211B4BB10B2ECAA1 /* NSDecimalNumberTransform.swift */; };
+		E33B09AA0B06F5EB5CC27811D4794BD4 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86F6EAE43A68B0C06787EB0DE01C78 /* TransformOf.swift */; };
+		ECEB2E8A9BB2F7DBE20904371D3FF1C9 /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745735C17107C00F032D77BBA7510FE /* DictionaryTransform.swift */; };
+		EE8C221BD9905E2D7108E3F66541FE9A /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D283B4B172B6008EFD7A50EA60EACB /* TransformType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,7 +182,7 @@
 			buildConfigurationList = 453D2CC1800EE0DD180FA2648DB066BB /* Build configuration list for PBXNativeTarget "ObjectMapper" */;
 			buildPhases = (
 				4432A504B5B0F970E6354AEA0ECA8A60 /* Headers */,
-				8BEC6DAD4EF3F167F816C76953246974 /* Sources */,
+				9C081FCB65A4E336C8DA678AF3561887 /* Sources */,
 				D010445489FFC7DD8C1A7F38DF3AF1F7 /* Frameworks */,
 				FCA436AA100F6815F67C94F2D1737C46 /* Resources */,
 			);
@@ -232,35 +232,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8BEC6DAD4EF3F167F816C76953246974 /* Sources */ = {
+		9C081FCB65A4E336C8DA678AF3561887 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCCBCD27B4D12CC7AE0A1AE750764BDB /* CodableTransform.swift in Sources */,
-				ABF9F535CDA0EE1769CAD42D91C8612B /* CustomDateFormatTransform.swift in Sources */,
-				80B38783F356BE01BE6D7753C37DE3D1 /* DataTransform.swift in Sources */,
-				E6DEF8269978A2E1314E0533C3325ABC /* DateFormatterTransform.swift in Sources */,
-				14A5A55F44B22D36754F9CE054A14BB7 /* DateTransform.swift in Sources */,
-				46842B79C5BA95753B2DCC2EBECA9F82 /* DictionaryTransform.swift in Sources */,
-				306EB91C04ED6EAECC1919DD522B78EA /* EnumOperators.swift in Sources */,
-				5B5646ABD89E2CD54B53D0C29D596895 /* EnumTransform.swift in Sources */,
-				6CA21C579D2453869E0691E4C9819687 /* FromJSON.swift in Sources */,
-				1F436067A8E789825D07603C6A2B40E3 /* HexColorTransform.swift in Sources */,
-				FA68812D02736DF715B3647B8DE87BE4 /* ImmutableMappable.swift in Sources */,
-				01586A1B4B09118262D83B9C1D97C8EB /* IntegerOperators.swift in Sources */,
-				866C0C939B22390AA57E951DB638E75A /* ISO8601DateTransform.swift in Sources */,
-				B8D5AFC02F2EABD8FCD6BAD9E462987A /* Map.swift in Sources */,
-				9B49916D82988E634D9297C8F1BD489B /* MapError.swift in Sources */,
-				BA4DB8C517431AD03E2ADBE0EBDF9D3E /* Mappable.swift in Sources */,
-				86576888B56E5A45E80C2E68CF9B34D2 /* Mapper.swift in Sources */,
-				314D343176F6E613E7B89A8BEEE7A94C /* NSDecimalNumberTransform.swift in Sources */,
-				41A6F813B48E9ACCD6516D0DF582EA9B /* ObjectMapper-dummy.m in Sources */,
-				4DF3B50DD6552B7567826CD6822C58A0 /* Operators.swift in Sources */,
-				40FF5446A3BE2C001881799E33EFEA39 /* ToJSON.swift in Sources */,
-				B950BBFE27B26FED401D2022E4D2B39D /* TransformOf.swift in Sources */,
-				CEA0FF2CED12D31430DBD8F98FA22D62 /* TransformOperators.swift in Sources */,
-				99DE075A08F269E2159D9A024593FC3F /* TransformType.swift in Sources */,
-				6A3C5CAC3D44DDB20D5DD95314437485 /* URLTransform.swift in Sources */,
+				7F15190EBBC83B03062988A4B8F8CB40 /* CodableTransform.swift in Sources */,
+				9626DC9E67834CE0F6520725C1A97ADC /* CustomDateFormatTransform.swift in Sources */,
+				315CACA18DA75D94B567418A0437ED31 /* DataTransform.swift in Sources */,
+				06D096CED450FDE36A3D6349BB27F11C /* DateFormatterTransform.swift in Sources */,
+				9E9873039E3F4E67092CF4D488EA982B /* DateTransform.swift in Sources */,
+				ECEB2E8A9BB2F7DBE20904371D3FF1C9 /* DictionaryTransform.swift in Sources */,
+				D3DE75C20B5FEAE845165E159A9DFA1F /* EnumOperators.swift in Sources */,
+				924FCEB9B7DFB71284D59C485FFB7BAC /* EnumTransform.swift in Sources */,
+				4DB5C672EEF86DBA5ACDCD941B0F372E /* FromJSON.swift in Sources */,
+				372FE28175296F9BD38E2572AD442B9D /* HexColorTransform.swift in Sources */,
+				87DA887ADAA22C1F10B916FAAE1D22B2 /* ImmutableMappable.swift in Sources */,
+				0BF768BCDA51AC330AFA2CB67AA20FAB /* IntegerOperators.swift in Sources */,
+				02E2F2D684ABF0D9510A674345E0847A /* ISO8601DateTransform.swift in Sources */,
+				37655028D2A1EB07337E1C7C5FCB930D /* Map.swift in Sources */,
+				5842DC0B958E852CAE04490154C91A28 /* MapError.swift in Sources */,
+				5E8F026A61F31EED4D3AAF6591919259 /* Mappable.swift in Sources */,
+				608B4B1D5CF2D4B7B7C0D3B38C238C89 /* Mapper.swift in Sources */,
+				D600A3019AC7AFA38D34CC3F9FBD35D6 /* NSDecimalNumberTransform.swift in Sources */,
+				9FEC15603752A33684BF0FACB25E8E66 /* ObjectMapper-dummy.m in Sources */,
+				B9F7C9B6A1CFB141EE4163698430F325 /* Operators.swift in Sources */,
+				4294C2BA88918DCDE93BD60BBC890A1C /* ToJSON.swift in Sources */,
+				E33B09AA0B06F5EB5CC27811D4794BD4 /* TransformOf.swift in Sources */,
+				BC6BCCC636045808D3DE5A2D149066B2 /* TransformOperators.swift in Sources */,
+				EE8C221BD9905E2D7108E3F66541FE9A /* TransformType.swift in Sources */,
+				1680A24B0740D9BB6A112342CBF53BDD /* URLTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

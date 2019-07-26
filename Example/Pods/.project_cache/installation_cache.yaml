@@ -17,58 +17,58 @@ CACHE_KEYS:
   IDMFoundation:
     BUILD_SETTINGS_CHECKSUM:
       IDMFoundation: d0daf57e2d7da2a07189b62687f36513
-    CHECKSUM: 5a3f9e5836ed845bcb4b4723da75363584c216a2
+    CHECKSUM: 0181d8419864ccd18e0fb0af6f9b2565fdb8f5a0
     FILES:
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/AlamofireProtocols.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseDataProvider.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseDownloadProvider.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseUploadProvider.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/MultipartFormData+Parameter.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/NetworkDataProvider.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/SessionManager+Background.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAsset+Upload.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAsset.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAssetPicker.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Providers/CustomProvider.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Providers/DataProviderWrapper.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Utils/LogLevel.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Utils/TemporaryUtils.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/ErrorHandling/ErrorHandling.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/MBProgressHUD/UIViewController+MBLoading.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/ModuleHelper/MultipleErrorHandlingProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/ModuleHelper/StatefulPresenterProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Base/BaseRequestAdapter.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Base/UploadParameter.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Helpers/DataTransform.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Helpers/String+URL.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkComponents.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkExtensions.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkProtocols.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/ParameterProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/StringKeyValueProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/TemporaryProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/UploadFilesParameterProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/URLRequestProtocols.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/BaseMapper.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/DataResponseModel.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/PageResponseModel.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/ResponseModel.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/ResponseModelConfiguration.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/ResponseModelProtocol++.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/ResponseModelProtocol.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/StandardProgressResponseModel.swift"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/LICENSE"
-      - "/Users/congncif/Documents/Frameworks/IDMFoundation/README.md"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/AlamofireProtocols.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseDataProvider.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseDownloadProvider.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseUploadProvider.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/MultipartFormData+Parameter.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/NetworkDataProvider.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/SessionManager+Background.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAsset+Upload.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAsset.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/CameraAsset/CameraAssetPicker.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Providers/CustomProvider.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Providers/DataProviderWrapper.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Utils/LogLevel.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Core/Utils/TemporaryUtils.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/ErrorHandling/ErrorHandling.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/MBProgressHUD/UIViewController+MBLoading.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/ModuleHelper/MultipleErrorHandlingProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/ModuleHelper/StatefulPresenterProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Base/BaseRequestAdapter.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Base/UploadParameter.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Helpers/DataTransform.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Helpers/String+URL.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkComponents.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkExtensions.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/NetworkProtocols.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/ParameterProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/StringKeyValueProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/TemporaryProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/UploadFilesParameterProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Networking/Protocols/URLRequestProtocols.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/BaseMapper.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/DataResponseModel.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/PageResponseModel.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/ResponseModel.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/ObjectMapper/ResponseModelConfiguration.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/ResponseModelProtocol++.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/ResponseModelProtocol.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Response/Shared/StandardProgressResponseModel.swift"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/LICENSE"
+      - "/Users/congnc7/Documents/Frameworks/IDMFoundation/README.md"
     SPECS:
-      - IDMFoundation (2.3.0)
-      - IDMFoundation/Alamofire (2.3.0)
-      - IDMFoundation/CameraAsset (2.3.0)
-      - IDMFoundation/Core (2.3.0)
-      - IDMFoundation/Default (2.3.0)
-      - IDMFoundation/MBProgressHUD (2.3.0)
-      - IDMFoundation/ModuleHelper (2.3.0)
-      - IDMFoundation/Networking (2.3.0)
-      - IDMFoundation/ObjectMapper (2.3.0)
+      - IDMFoundation (2.3.1)
+      - IDMFoundation/Alamofire (2.3.1)
+      - IDMFoundation/CameraAsset (2.3.1)
+      - IDMFoundation/Core (2.3.1)
+      - IDMFoundation/Default (2.3.1)
+      - IDMFoundation/MBProgressHUD (2.3.1)
+      - IDMFoundation/ModuleHelper (2.3.1)
+      - IDMFoundation/Networking (2.3.1)
+      - IDMFoundation/ObjectMapper (2.3.1)
   Localize-Swift:
     BUILD_SETTINGS_CHECKSUM:
       Localize-Swift: f19dcdc902662d86b65b41a8370a420e
@@ -125,7 +125,7 @@ CACHE_KEYS:
   ViewStateCore:
     BUILD_SETTINGS_CHECKSUM:
       ViewStateCore: 678c0e953464e9bf5567477146677129
-    CHECKSUM: 8fec9226aedccdbf2f9067786e7b5a258a5dc27a
+    CHECKSUM: c273f47a5516326bb9cf48b1c9bf06a9715822df
     SPECS:
-      - ViewStateCore (1.3.0)
+      - ViewStateCore (1.4.0)
 OBJECT_VERSION: 46

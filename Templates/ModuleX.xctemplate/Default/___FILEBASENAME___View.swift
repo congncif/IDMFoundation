@@ -13,8 +13,8 @@ final class ___VARIABLE_moduleName___View: UIView, ___VARIABLE_moduleName___View
     weak var actionDelegate: ___VARIABLE_moduleName___ViewActionDelegate?
 }
 
-extension ___VARIABLE_moduleName___View: ViewStateFillable {
-    func fillingOptions(_ state: ViewState) -> [FillingOption] {
+extension ___VARIABLE_moduleName___View: DedicatedViewStateFillable {
+    func didicatedFillingOptions(_ state: ___VARIABLE_moduleName___ViewState) -> [FillingOption] {
         // <#Configure to render View here#>
         return []
     }

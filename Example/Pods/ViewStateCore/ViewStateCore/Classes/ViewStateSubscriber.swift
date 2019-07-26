@@ -96,6 +96,14 @@ public struct FillingOption {
     }
 }
 
+public typealias OOO = FillingOption
+
+extension OOO {
+    public init(_ stateKeyPath: String, _ target: NSObject, _ targetKeyPath: String) {
+        self.init(keyPath: stateKeyPath, target: target, targetKeyPath: targetKeyPath)
+    }
+}
+
 public protocol ViewStateFillable: ViewStateSubscriber {
     func fillingOptions(_ state: ViewState) -> [FillingOption]
 }

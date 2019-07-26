@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		237DCFCFA87D9A2382DA991FDFD24402 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D039C5A66185B03C0632C0F9D9B6FC /* Notifications.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2BF8CACCCBF513B0783E1D2316E94222 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08513ACBF79F8FF6FD3BA48C9D9A4B6F /* Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		35F93DC13BD07385CAD89E40C67AC359 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D907625ACE573C66DA0C059CA5BAB1 /* Request.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4CC84E77EED8A85B761CAE46D20DAE21 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F54236C5E5D78634ED488D8F9CAA43B /* SessionManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		51047F26619335511B4D45BB2EA96685 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F917CCDB66221002436E203D12A7C927 /* ServerTrustPolicy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		58B7B8122DEB391FA22B6984A21B35AF /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFEA8EC17FF010FE138D77A4FBAA0B7 /* DispatchQueue+Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		067A5733F68B2873788777970202E21E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79989F7737C8D297462569B8AA8DC7 /* Response.swift */; };
+		2C57AAB28B12C08F05C5DE0B654517FE /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B8CA97615C533C13CF63963F68C51 /* ParameterEncoding.swift */; };
+		411614E7B6514F2784489B84765780CD /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F874C432162F75CCCECFC1A04458D /* ResponseSerialization.swift */; };
+		42595A55AC05EA9215F98070BC689D05 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFEA8EC17FF010FE138D77A4FBAA0B7 /* DispatchQueue+Alamofire.swift */; };
 		59A307747C4CCDB761ABF95FC4786620 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47260A98E07DE07F1A945396C68E275C /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C108EA27A3AAFF1D315D9CB1CD2A7D9 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597328B7B4289A109ACF458D02EDD71 /* NetworkReachabilityManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7C6BB23FFA25CF8284E95CBEE1ACAFEA /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F874C432162F75CCCECFC1A04458D /* ResponseSerialization.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7E2B1F82BEC9309EF41A9874C34A9188 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79989F7737C8D297462569B8AA8DC7 /* Response.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8B25949A641A1125A0D26B0C2FBA60D4 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D99AECBEB3EFA54B8CEC72495C6C /* MultipartFormData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9CA0CE7B2AAC1B6066F932EA23A6088F /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F5D8F5CE9BF2D3BA2AC3153B3D45FB /* Alamofire-dummy.m */; };
-		9EF38FC09F2247347E783F3569D35B09 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4511EC5CC4C17433693A5493BE74C /* Validation.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A4EF682A321DB3B8BBC60937278E8CB2 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7282FA84777C05D4B06B0510604E010 /* SessionDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C2BB5CCAE10A13A41AC6242E1598D7F9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A05872C5F736C5C8DA65B8FD5BE009 /* Result.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		630867BAD4BFE44A21BD867572B9117A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F54236C5E5D78634ED488D8F9CAA43B /* SessionManager.swift */; };
+		88BB87BF798A3285851B3BD474738915 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A05872C5F736C5C8DA65B8FD5BE009 /* Result.swift */; };
+		8DEDE7CB9B7B2637636052C216FA9124 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597328B7B4289A109ACF458D02EDD71 /* NetworkReachabilityManager.swift */; };
+		B096825F12C9D803C2B11F074B3CDB79 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672FB433FF140C45838309A88EA203C4 /* TaskDelegate.swift */; };
+		B46AA5A9C98E326C93CCA70B59CE33E4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D907625ACE573C66DA0C059CA5BAB1 /* Request.swift */; };
+		B4A39F98069988D6FAC4C9914C23CA65 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D913AA78B0581F32125492C8E33F94C /* AFError.swift */; };
+		BE19769C9B4D02A2E2F871A98F9BFD0E /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7282FA84777C05D4B06B0510604E010 /* SessionDelegate.swift */; };
+		BEAB9F0230B8347FFE6D7E86AED994D8 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F917CCDB66221002436E203D12A7C927 /* ServerTrustPolicy.swift */; };
+		CB6E1AC18AC6906257F8DE91B6780400 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4511EC5CC4C17433693A5493BE74C /* Validation.swift */; };
 		D200AA8B6277919BB5387F7096AF4017 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078B9CF97A5BD3D20DBF5C8CAF997306 /* Foundation.framework */; };
-		D7A15F58900E8A99966C605BCD3DD4E9 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672FB433FF140C45838309A88EA203C4 /* TaskDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D9CEDB101381DC55FB3504F70B3716B0 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0536FFE6E13F401F53725DB58C8C2E82 /* Timeline.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DF99D33217AC36DCD20BF3DD84836D1D /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B8CA97615C533C13CF63963F68C51 /* ParameterEncoding.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E7643F071EE8A500872D69D70A3732AE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D913AA78B0581F32125492C8E33F94C /* AFError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E4729E769675C2169DE975A9D465767A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D039C5A66185B03C0632C0F9D9B6FC /* Notifications.swift */; };
+		E6695F849A0F036EA0B1E69AF60B5902 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08513ACBF79F8FF6FD3BA48C9D9A4B6F /* Alamofire.swift */; };
+		E6B568ECAFF03F404FEDBC341537C2F6 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F5D8F5CE9BF2D3BA2AC3153B3D45FB /* Alamofire-dummy.m */; };
+		E8B770A753249792FEFC8CD1605E1B35 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0536FFE6E13F401F53725DB58C8C2E82 /* Timeline.swift */; };
+		F9B522AF871CC12DD2E39EB38E34DFAE /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D99AECBEB3EFA54B8CEC72495C6C /* MultipartFormData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,7 +161,7 @@
 			buildConfigurationList = 36E39D39C9A61CF3DECCD2B12B39095E /* Build configuration list for PBXNativeTarget "Alamofire" */;
 			buildPhases = (
 				8BC594E2566AB833D2AFF1F0402961F7 /* Headers */,
-				304601D39B248E8A5F87CF2DEF6F184C /* Sources */,
+				4529BFE81EC0FDC1710750FA90BFA95C /* Sources */,
 				DBD0C94B5F2CABABCA0FD3CD40A2619F /* Frameworks */,
 				4A76E7786641C52386F1074F743B8F20 /* Resources */,
 			);
@@ -211,28 +211,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		304601D39B248E8A5F87CF2DEF6F184C /* Sources */ = {
+		4529BFE81EC0FDC1710750FA90BFA95C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7643F071EE8A500872D69D70A3732AE /* AFError.swift in Sources */,
-				9CA0CE7B2AAC1B6066F932EA23A6088F /* Alamofire-dummy.m in Sources */,
-				2BF8CACCCBF513B0783E1D2316E94222 /* Alamofire.swift in Sources */,
-				58B7B8122DEB391FA22B6984A21B35AF /* DispatchQueue+Alamofire.swift in Sources */,
-				8B25949A641A1125A0D26B0C2FBA60D4 /* MultipartFormData.swift in Sources */,
-				6C108EA27A3AAFF1D315D9CB1CD2A7D9 /* NetworkReachabilityManager.swift in Sources */,
-				237DCFCFA87D9A2382DA991FDFD24402 /* Notifications.swift in Sources */,
-				DF99D33217AC36DCD20BF3DD84836D1D /* ParameterEncoding.swift in Sources */,
-				35F93DC13BD07385CAD89E40C67AC359 /* Request.swift in Sources */,
-				7E2B1F82BEC9309EF41A9874C34A9188 /* Response.swift in Sources */,
-				7C6BB23FFA25CF8284E95CBEE1ACAFEA /* ResponseSerialization.swift in Sources */,
-				C2BB5CCAE10A13A41AC6242E1598D7F9 /* Result.swift in Sources */,
-				51047F26619335511B4D45BB2EA96685 /* ServerTrustPolicy.swift in Sources */,
-				A4EF682A321DB3B8BBC60937278E8CB2 /* SessionDelegate.swift in Sources */,
-				4CC84E77EED8A85B761CAE46D20DAE21 /* SessionManager.swift in Sources */,
-				D7A15F58900E8A99966C605BCD3DD4E9 /* TaskDelegate.swift in Sources */,
-				D9CEDB101381DC55FB3504F70B3716B0 /* Timeline.swift in Sources */,
-				9EF38FC09F2247347E783F3569D35B09 /* Validation.swift in Sources */,
+				B4A39F98069988D6FAC4C9914C23CA65 /* AFError.swift in Sources */,
+				E6B568ECAFF03F404FEDBC341537C2F6 /* Alamofire-dummy.m in Sources */,
+				E6695F849A0F036EA0B1E69AF60B5902 /* Alamofire.swift in Sources */,
+				42595A55AC05EA9215F98070BC689D05 /* DispatchQueue+Alamofire.swift in Sources */,
+				F9B522AF871CC12DD2E39EB38E34DFAE /* MultipartFormData.swift in Sources */,
+				8DEDE7CB9B7B2637636052C216FA9124 /* NetworkReachabilityManager.swift in Sources */,
+				E4729E769675C2169DE975A9D465767A /* Notifications.swift in Sources */,
+				2C57AAB28B12C08F05C5DE0B654517FE /* ParameterEncoding.swift in Sources */,
+				B46AA5A9C98E326C93CCA70B59CE33E4 /* Request.swift in Sources */,
+				067A5733F68B2873788777970202E21E /* Response.swift in Sources */,
+				411614E7B6514F2784489B84765780CD /* ResponseSerialization.swift in Sources */,
+				88BB87BF798A3285851B3BD474738915 /* Result.swift in Sources */,
+				BEAB9F0230B8347FFE6D7E86AED994D8 /* ServerTrustPolicy.swift in Sources */,
+				BE19769C9B4D02A2E2F871A98F9BFD0E /* SessionDelegate.swift in Sources */,
+				630867BAD4BFE44A21BD867572B9117A /* SessionManager.swift in Sources */,
+				B096825F12C9D803C2B11F074B3CDB79 /* TaskDelegate.swift in Sources */,
+				E8B770A753249792FEFC8CD1605E1B35 /* Timeline.swift in Sources */,
+				CB6E1AC18AC6906257F8DE91B6780400 /* Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

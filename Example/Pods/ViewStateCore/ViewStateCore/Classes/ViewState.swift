@@ -10,7 +10,7 @@ import Foundation
 
 public typealias ViewStateSubscriberObject = ViewStateSubscriber & AnyObject
 
-private struct Subscriber: Equatable {
+struct Subscriber: Equatable {
     var id: String
     var target: ViewStateSubscriber? {
         if let _target = _retainTarget {
@@ -20,7 +20,7 @@ private struct Subscriber: Equatable {
     }
     
     init(target: ViewStateSubscriberObject, retain: Bool) {
-        self.id = String(describing: target)
+        id = String(describing: target)
         if retain {
             _retainTarget = target
         } else {
@@ -29,7 +29,7 @@ private struct Subscriber: Equatable {
     }
     
     init(target: ViewStateSubscriber) {
-        self.id = String(describing: target)
+        id = String(describing: target)
         _retainTarget = target
     }
     
@@ -55,9 +55,10 @@ open class ViewState: NSObject, ViewStateSubscriber {
         }
         
         set {
-            if newValue == nil {
-                _delegate?.viewStateWillUnsubscribe(self)
+            if let current = _delegate, newValue == nil {
+                notifyviewStateWillUnsubscribe(to: current)
             }
+            
             _delegate = newValue
             
             if let value = newValue {
@@ -127,8 +128,10 @@ open class ViewState: NSObject, ViewStateSubscriber {
             scrb.id == id
         }) {
             let _subscriber = subscribers[index]
-            let target = _subscriber.target
-            target?.viewStateWillUnsubscribe(self)
+            
+            if let target = _subscriber.target {
+                notifyviewStateWillUnsubscribe(to: target)
+            }
             
             subscribers.remove(at: index)
         }
@@ -186,7 +189,7 @@ open class ViewState: NSObject, ViewStateSubscriber {
     }
 }
 
-fileprivate extension ViewState {
+private extension ViewState {
     func key(for value: ViewState) -> String? {
         for aKey in workingKeys {
             if let val = self.value(forKeyPath: aKey) as? ViewState, val == value {
@@ -228,7 +231,7 @@ fileprivate extension ViewState {
 internal extension ViewState {
     var workingKeys: [String] {
         var workingKeys = keys
-        if allowedKeys.count > 0 {
+        if !allowedKeys.isEmpty {
             workingKeys = allowedKeys
         }
         let igKeys = allIgnoreKeys
@@ -248,10 +251,10 @@ internal extension ViewState {
     
     var deepStates: [ViewState] {
         let _children = children
-        if _children.count > 0 {
-            return _children.reduce([self], { (result, child) -> [ViewState] in
+        if !_children.isEmpty {
+            return _children.reduce([self]) { (result, child) -> [ViewState] in
                 result + child.deepStates
-            })
+            }
         } else {
             return [self]
         }
@@ -261,6 +264,13 @@ internal extension ViewState {
         let allStates = deepStates
         allStates.forEach { currentState in
             subscriber.viewStateDidSubscribe(currentState)
+        }
+    }
+    
+    func notifyviewStateWillUnsubscribe(to subscriber: ViewStateSubscriber) {
+        let allStates = deepStates
+        allStates.forEach { currentState in
+            subscriber.viewStateWillUnsubscribe(currentState)
         }
     }
 }

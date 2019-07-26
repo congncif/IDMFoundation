@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		160F86324B1A2FA9C30618DF5B7403FF /* ModuleX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA33E604F8855F80041C47F89F5253BE /* ModuleX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		428B8360B80FD4513A800B893A225843 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A986D7011BFA2E4397C5A8E8A91F526 /* ModuleBuilderProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5E3EAD1F323864EC0CCB10248528039E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C471EC1CB8777D9F7DBB764367AAA74 /* Router.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		729937D3BCB81062A3181EC9AC2B8787 /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12E311D816E7C0EB3E05BFFC51AE81 /* AnimatorProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		74724A42B8466D670D6E79C8EA031C0D /* LaunchRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BFAC6AF2799F49E3D21C6BDD340BB /* LaunchRouterProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		75AD8B71A861E16763A16C28A99D6603 /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000D63C2DA8FB928389ED3B95159C0D /* ModuleInterface.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7EF02A092A0ED7D37FAFB85365827B56 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2C360A49929BB98F96B29E9533229 /* RouterProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		84825BD7CB60D8508DDE3BCBD1478ED5 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D676546F4801CF50725597D8EF5F29 /* PushTransition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A2ACD4B3FBA6BBD3D5DE7231CBC4C96B /* TransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE1F9DAB6D42A72E669158FF234FCC /* TransitionProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		24064358DF4D0A56FDEBA176F30E94F3 /* ModuleX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA64D55DC95FDF748615B81DE18348 /* ModuleX-dummy.m */; };
+		270E2264651EFA9224FC0C4F30218BA3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C471EC1CB8777D9F7DBB764367AAA74 /* Router.swift */; };
+		3245C3BD49418C77EB11FAE40227F476 /* TransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE1F9DAB6D42A72E669158FF234FCC /* TransitionProtocol.swift */; };
+		5BBCB768D8463AA7C8586EF7B702B72A /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2C360A49929BB98F96B29E9533229 /* RouterProtocol.swift */; };
+		7008CE5C2BDFEE28D887A8CBEAE9D59E /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000D63C2DA8FB928389ED3B95159C0D /* ModuleInterface.swift */; };
+		753B9B458727ABB823048143C6C7956B /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12E311D816E7C0EB3E05BFFC51AE81 /* AnimatorProtocol.swift */; };
+		82A26B6700C2854766AAD350C715E26A /* LaunchRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BFAC6AF2799F49E3D21C6BDD340BB /* LaunchRouterProtocol.swift */; };
+		88E777DA7485F0B6875C9D7C17F54E6E /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D676546F4801CF50725597D8EF5F29 /* PushTransition.swift */; };
+		AC92819633F8443C0C4D580B78F0BF1C /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A986D7011BFA2E4397C5A8E8A91F526 /* ModuleBuilderProtocol.swift */; };
+		B6A3CF4A2FC3CDFEBBE17155221CD3FA /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F309C767F9C53BEA582F4091A3A3F44 /* ModalTransition.swift */; };
 		B95248B1B464BD63DFD895B956F363AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE392F4FBD4AAEB5ED78107CD83D9279 /* Foundation.framework */; };
-		D272F8064292B7814D7DD06B75AA6BEC /* ModuleX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA64D55DC95FDF748615B81DE18348 /* ModuleX-dummy.m */; };
-		FBA796701E68D3CD4DEADFF486DB72A1 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F309C767F9C53BEA582F4091A3A3F44 /* ModalTransition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,7 +137,7 @@
 			buildConfigurationList = 6AA1A346E01335E0FB55E25BD6F06378 /* Build configuration list for PBXNativeTarget "ModuleX" */;
 			buildPhases = (
 				3C9B665A1C3414B91C6995CACBF9579A /* Headers */,
-				F940CBD1B66AC03FFA4E5E6AB34A6D24 /* Sources */,
+				1CFA281EB3AE529F35DD2D2CD4EF8C99 /* Sources */,
 				9B1A1EAF7BB74EC8C513F8B3C90F0E67 /* Frameworks */,
 				804061AB9C55D08FF00ACB94F15892FD /* Resources */,
 			);
@@ -187,20 +187,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F940CBD1B66AC03FFA4E5E6AB34A6D24 /* Sources */ = {
+		1CFA281EB3AE529F35DD2D2CD4EF8C99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729937D3BCB81062A3181EC9AC2B8787 /* AnimatorProtocol.swift in Sources */,
-				74724A42B8466D670D6E79C8EA031C0D /* LaunchRouterProtocol.swift in Sources */,
-				FBA796701E68D3CD4DEADFF486DB72A1 /* ModalTransition.swift in Sources */,
-				428B8360B80FD4513A800B893A225843 /* ModuleBuilderProtocol.swift in Sources */,
-				75AD8B71A861E16763A16C28A99D6603 /* ModuleInterface.swift in Sources */,
-				D272F8064292B7814D7DD06B75AA6BEC /* ModuleX-dummy.m in Sources */,
-				84825BD7CB60D8508DDE3BCBD1478ED5 /* PushTransition.swift in Sources */,
-				5E3EAD1F323864EC0CCB10248528039E /* Router.swift in Sources */,
-				7EF02A092A0ED7D37FAFB85365827B56 /* RouterProtocol.swift in Sources */,
-				A2ACD4B3FBA6BBD3D5DE7231CBC4C96B /* TransitionProtocol.swift in Sources */,
+				753B9B458727ABB823048143C6C7956B /* AnimatorProtocol.swift in Sources */,
+				82A26B6700C2854766AAD350C715E26A /* LaunchRouterProtocol.swift in Sources */,
+				B6A3CF4A2FC3CDFEBBE17155221CD3FA /* ModalTransition.swift in Sources */,
+				AC92819633F8443C0C4D580B78F0BF1C /* ModuleBuilderProtocol.swift in Sources */,
+				7008CE5C2BDFEE28D887A8CBEAE9D59E /* ModuleInterface.swift in Sources */,
+				24064358DF4D0A56FDEBA176F30E94F3 /* ModuleX-dummy.m in Sources */,
+				88E777DA7485F0B6875C9D7C17F54E6E /* PushTransition.swift in Sources */,
+				270E2264651EFA9224FC0C4F30218BA3 /* Router.swift in Sources */,
+				5BBCB768D8463AA7C8586EF7B702B72A /* RouterProtocol.swift in Sources */,
+				3245C3BD49418C77EB11FAE40227F476 /* TransitionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

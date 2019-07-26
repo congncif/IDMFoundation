@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		094C42319D365ECC4DA4C4E134229CD6 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DA5CD73BD93E9DD8155DFBB49F957 /* Localize.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0AF68B275C632F9D9A5AB46100C7A87E /* String+LocalizeBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431ABF3244117AFC25991AA8CD0172F /* String+LocalizeBundle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0B45184B446E3E8D9A51D54EF4912124 /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF99D59DFB891F2BC008F4B99D0B25D /* Localize-Swift-dummy.m */; };
-		0F36D8927C71BED3E9DAFAAE93D3C06C /* String+LocalizeTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A93FFE786DCD180941D6E2FE1B8BF4A /* String+LocalizeTableName.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1F8270EBF2A1A2DF46CE5443501E6DB9 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50DA5CD73BD93E9DD8155DFBB49F957 /* Localize.swift */; };
 		23AB0CF80A6CBD0D66228C70C5FBF797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E0BFDEA6043BD14DFFB18DEAB8FE45 /* Foundation.framework */; };
-		8903BA7321EB4B474A46D3A7291588F1 /* String+LocalizedBundleTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8FE0512D7C16647D2A1E81AA05AB5 /* String+LocalizedBundleTableName.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		579F04691FCABCE131E063EC314054CD /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF99D59DFB891F2BC008F4B99D0B25D /* Localize-Swift-dummy.m */; };
 		96AD7CEFD1026A47750BE001201F9F6A /* Localize-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EBFDE2E7625D1BDB7BCC89D081EDDD0 /* Localize-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AEEA8A66D3EA9AD5205EC7438A14810F /* String+LocalizedBundleTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8FE0512D7C16647D2A1E81AA05AB5 /* String+LocalizedBundleTableName.swift */; };
+		C69F0EABC4A121FB59B69499D3CB9A2A /* String+LocalizeTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A93FFE786DCD180941D6E2FE1B8BF4A /* String+LocalizeTableName.swift */; };
+		D6CB27BB357C11571718B9B8C34D1F0D /* String+LocalizeBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431ABF3244117AFC25991AA8CD0172F /* String+LocalizeBundle.swift */; };
 		DEF4F4DEBA35D670ABACA3B08351FF2F /* Localize_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = E0708472D03BEA11D7A3486AEE7FE65D /* Localize_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -126,7 +126,7 @@
 			buildConfigurationList = C5E2FB041FF63E7EA9CB9508328E4B7B /* Build configuration list for PBXNativeTarget "Localize-Swift" */;
 			buildPhases = (
 				6D13FFEAE7804A062574008456A040E7 /* Headers */,
-				2AE27ABE6AE079F5F13E2BFA3A489DA7 /* Sources */,
+				B943AE19154319007439B51853CE5715 /* Sources */,
 				3DF48026AC05F6B772817A03A1A1D959 /* Frameworks */,
 				0A2AF87053D733F9B5A2B2A86E12EDF6 /* Resources */,
 			);
@@ -176,15 +176,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2AE27ABE6AE079F5F13E2BFA3A489DA7 /* Sources */ = {
+		B943AE19154319007439B51853CE5715 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B45184B446E3E8D9A51D54EF4912124 /* Localize-Swift-dummy.m in Sources */,
-				094C42319D365ECC4DA4C4E134229CD6 /* Localize.swift in Sources */,
-				0AF68B275C632F9D9A5AB46100C7A87E /* String+LocalizeBundle.swift in Sources */,
-				8903BA7321EB4B474A46D3A7291588F1 /* String+LocalizedBundleTableName.swift in Sources */,
-				0F36D8927C71BED3E9DAFAAE93D3C06C /* String+LocalizeTableName.swift in Sources */,
+				579F04691FCABCE131E063EC314054CD /* Localize-Swift-dummy.m in Sources */,
+				1F8270EBF2A1A2DF46CE5443501E6DB9 /* Localize.swift in Sources */,
+				D6CB27BB357C11571718B9B8C34D1F0D /* String+LocalizeBundle.swift in Sources */,
+				AEEA8A66D3EA9AD5205EC7438A14810F /* String+LocalizedBundleTableName.swift in Sources */,
+				C69F0EABC4A121FB59B69499D3CB9A2A /* String+LocalizeTableName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

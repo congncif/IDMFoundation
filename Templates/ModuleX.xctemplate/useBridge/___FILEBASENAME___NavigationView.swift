@@ -16,6 +16,6 @@ final class ___VARIABLE_moduleName___NavigationView: NSObject {
     @IBOutlet weak var navigationItem: UINavigationItem!
 }
 
-extension ___VARIABLE_moduleName___NavigationView: ViewStateRenderable {
-    func render(state: ViewState) {}
+extension ___VARIABLE_moduleName___NavigationView: DedicatedViewStateRenderable {
+    func dedicatedRender(state: ___VARIABLE_moduleName___ViewState) {}
 }

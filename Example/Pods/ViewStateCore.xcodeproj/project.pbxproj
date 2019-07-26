@@ -7,34 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A3632DC8605E4D7EDFE2B903D72BAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6729658AF22B52B67817C6A148A7109D /* Foundation.framework */; };
-		4E16C73CDD8722608A0223417740B1D1 /* NSObject++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F371DD4D972767847714CDE69D5381E3 /* NSObject++.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4F1192510EF00BF25D68F2C6D6F1457C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9495719E671C0ED233762E6C7014F0 /* Protocols.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7D1757553E268D71E6183C49BB9FE617 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C89099C58ED934ADDA64D1293641B2 /* ViewState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		854FB153840B0627162CC5B6D2012583 /* ViewStateCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D31DC81B89F29F5259A360B95F961BD4 /* ViewStateCore-dummy.m */; };
-		D85B07E10544D84368BB77A1B6BB38D4 /* ViewStateCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 626B1FA93051C5E0DD2655C099808994 /* ViewStateCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AAFC0EE7EC006CCDB7250FDAC7D9DF8 /* NSObject++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814B3AB0E2CE14D00D36791B83B3292 /* NSObject++.swift */; };
+		6029ACA36380731EC5D553F719F7E0D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6729658AF22B52B67817C6A148A7109D /* Foundation.framework */; };
+		7BA272495EF4789EC9D26215D1725966 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ABEC6BF6AE98D74EDE443FF87D8436 /* ViewState.swift */; };
+		96E3D9B327ED7A845D7817787042A743 /* ViewStateCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43EBD5523F106873318F0BCF4ED3D754 /* ViewStateCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5DB42EA1D4276FEAA81E4C6EB2602F6 /* ViewStateCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BD182DDC8BBE6D6412FAA64DCC77CF /* ViewStateCore-dummy.m */; };
+		B6FD9CC523432C0CD96F5F81EEEABF84 /* DedicatedSubscribing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907942C8532C089A1746C35F5B82AA6 /* DedicatedSubscribing.swift */; };
+		CB9F362C7B60509E49BBA2C396E07C92 /* ViewStateSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A34CA3D6A94FF9B877064DDCA27172 /* ViewStateSubscriber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03DDA72E7C9DD2DD27D9B95FB01D401A /* ViewStateCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ViewStateCore-Info.plist"; sourceTree = "<group>"; };
-		1383CAB156C23311CAA84E54149386A1 /* ViewStateCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ViewStateCore.xcconfig; sourceTree = "<group>"; };
+		1D14A28C4F204BC5D8424A2E0F6DA142 /* ViewStateCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ViewStateCore.modulemap; sourceTree = "<group>"; };
+		35A34CA3D6A94FF9B877064DDCA27172 /* ViewStateSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewStateSubscriber.swift; path = ViewStateCore/Classes/ViewStateSubscriber.swift; sourceTree = "<group>"; };
+		43EBD5523F106873318F0BCF4ED3D754 /* ViewStateCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ViewStateCore-umbrella.h"; sourceTree = "<group>"; };
 		4A93D0FA21E198A2F6F2A8DB027E0804 /* ViewStateCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ViewStateCore.framework; path = ViewStateCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		626B1FA93051C5E0DD2655C099808994 /* ViewStateCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ViewStateCore-umbrella.h"; sourceTree = "<group>"; };
 		6729658AF22B52B67817C6A148A7109D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8693BE94F456A845BDCAD18A7281B0F0 /* ViewStateCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ViewStateCore.modulemap; sourceTree = "<group>"; };
-		9D9495719E671C0ED233762E6C7014F0 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = ViewStateCore/Classes/Protocols.swift; sourceTree = "<group>"; };
-		D31DC81B89F29F5259A360B95F961BD4 /* ViewStateCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ViewStateCore-dummy.m"; sourceTree = "<group>"; };
-		F371DD4D972767847714CDE69D5381E3 /* NSObject++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject++.swift"; path = "ViewStateCore/Classes/NSObject++.swift"; sourceTree = "<group>"; };
-		F4C89099C58ED934ADDA64D1293641B2 /* ViewState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewState.swift; path = ViewStateCore/Classes/ViewState.swift; sourceTree = "<group>"; };
-		FC2C9D983C775D3B3D4879876A34941D /* ViewStateCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ViewStateCore-prefix.pch"; sourceTree = "<group>"; };
+		74ABEC6BF6AE98D74EDE443FF87D8436 /* ViewState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewState.swift; path = ViewStateCore/Classes/ViewState.swift; sourceTree = "<group>"; };
+		8814B3AB0E2CE14D00D36791B83B3292 /* NSObject++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject++.swift"; path = "ViewStateCore/Classes/NSObject++.swift"; sourceTree = "<group>"; };
+		A7BD182DDC8BBE6D6412FAA64DCC77CF /* ViewStateCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ViewStateCore-dummy.m"; sourceTree = "<group>"; };
+		CD85EE22AEB0E37096818CAA13F9BE96 /* ViewStateCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ViewStateCore.xcconfig; sourceTree = "<group>"; };
+		D907942C8532C089A1746C35F5B82AA6 /* DedicatedSubscribing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DedicatedSubscribing.swift; path = ViewStateCore/Classes/DedicatedSubscribing.swift; sourceTree = "<group>"; };
+		F41601E3A482B1AF9F2E8A8353E86161 /* ViewStateCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ViewStateCore-Info.plist"; sourceTree = "<group>"; };
+		F4777149AB680793624490F04876B6C9 /* ViewStateCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ViewStateCore-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4FA93EB7866DAE0497FAB68D97408BF9 /* Frameworks */ = {
+		0F68B0F5BE5D06E738AAC0E7B9B0C419 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A3632DC8605E4D7EDFE2B903D72BAD1 /* Foundation.framework in Frameworks */,
+				6029ACA36380731EC5D553F719F7E0D4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,22 +48,8 @@
 			children = (
 				7D396E588FE3D4B76EDFC3E97F610F0B /* Frameworks */,
 				3A837377947CB769CF1AA0927376CDC4 /* Products */,
-				E0562528A0BA44BC7D8C8BBB86F5148D /* ViewStateCore */,
+				55B87114E1B0854662BCB80E6B82DAFB /* ViewStateCore */,
 			);
-			sourceTree = "<group>";
-		};
-		18A3A5EB063AF52A61447D471E32C521 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8693BE94F456A845BDCAD18A7281B0F0 /* ViewStateCore.modulemap */,
-				1383CAB156C23311CAA84E54149386A1 /* ViewStateCore.xcconfig */,
-				D31DC81B89F29F5259A360B95F961BD4 /* ViewStateCore-dummy.m */,
-				03DDA72E7C9DD2DD27D9B95FB01D401A /* ViewStateCore-Info.plist */,
-				FC2C9D983C775D3B3D4879876A34941D /* ViewStateCore-prefix.pch */,
-				626B1FA93051C5E0DD2655C099808994 /* ViewStateCore-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ViewStateCore";
 			sourceTree = "<group>";
 		};
 		30EF7651086C56CE4328DAD17EA6ADE0 /* iOS */ = {
@@ -80,6 +68,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		55B87114E1B0854662BCB80E6B82DAFB /* ViewStateCore */ = {
+			isa = PBXGroup;
+			children = (
+				D907942C8532C089A1746C35F5B82AA6 /* DedicatedSubscribing.swift */,
+				8814B3AB0E2CE14D00D36791B83B3292 /* NSObject++.swift */,
+				74ABEC6BF6AE98D74EDE443FF87D8436 /* ViewState.swift */,
+				35A34CA3D6A94FF9B877064DDCA27172 /* ViewStateSubscriber.swift */,
+				94AECBDB1BC45C063597FA0AB06E3942 /* Support Files */,
+			);
+			name = ViewStateCore;
+			path = ViewStateCore;
+			sourceTree = "<group>";
+		};
 		7D396E588FE3D4B76EDFC3E97F610F0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,26 +89,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E0562528A0BA44BC7D8C8BBB86F5148D /* ViewStateCore */ = {
+		94AECBDB1BC45C063597FA0AB06E3942 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F371DD4D972767847714CDE69D5381E3 /* NSObject++.swift */,
-				9D9495719E671C0ED233762E6C7014F0 /* Protocols.swift */,
-				F4C89099C58ED934ADDA64D1293641B2 /* ViewState.swift */,
-				18A3A5EB063AF52A61447D471E32C521 /* Support Files */,
+				1D14A28C4F204BC5D8424A2E0F6DA142 /* ViewStateCore.modulemap */,
+				CD85EE22AEB0E37096818CAA13F9BE96 /* ViewStateCore.xcconfig */,
+				A7BD182DDC8BBE6D6412FAA64DCC77CF /* ViewStateCore-dummy.m */,
+				F41601E3A482B1AF9F2E8A8353E86161 /* ViewStateCore-Info.plist */,
+				F4777149AB680793624490F04876B6C9 /* ViewStateCore-prefix.pch */,
+				43EBD5523F106873318F0BCF4ED3D754 /* ViewStateCore-umbrella.h */,
 			);
-			name = ViewStateCore;
-			path = ViewStateCore;
+			name = "Support Files";
+			path = "../Target Support Files/ViewStateCore";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		93A008CCD82E22AB9B4E540EB87A6023 /* Headers */ = {
+		3E0EDDE0393C2920AAAB00B697B6B634 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85B07E10544D84368BB77A1B6BB38D4 /* ViewStateCore-umbrella.h in Headers */,
+				96E3D9B327ED7A845D7817787042A743 /* ViewStateCore-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +119,12 @@
 /* Begin PBXNativeTarget section */
 		B46B52A582E14BDFC09BD34BD719682C /* ViewStateCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BE774142A9B98ED072BE2070CC50BAC /* Build configuration list for PBXNativeTarget "ViewStateCore" */;
+			buildConfigurationList = FFF5E714CE5E1C038A5B04010B586993 /* Build configuration list for PBXNativeTarget "ViewStateCore" */;
 			buildPhases = (
-				93A008CCD82E22AB9B4E540EB87A6023 /* Headers */,
-				A008EA4EBF29C1FBB39FDA2C0440B7C5 /* Sources */,
-				4FA93EB7866DAE0497FAB68D97408BF9 /* Frameworks */,
-				527D77C47BB703ABD39699648CDABA71 /* Resources */,
+				3E0EDDE0393C2920AAAB00B697B6B634 /* Headers */,
+				188B672B17A6E0CB975CB2D8A7D66534 /* Sources */,
+				0F68B0F5BE5D06E738AAC0E7B9B0C419 /* Frameworks */,
+				2CFBB0509DC713ACE4918B2742178FB6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -159,7 +162,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		527D77C47BB703ABD39699648CDABA71 /* Resources */ = {
+		2CFBB0509DC713ACE4918B2742178FB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -169,23 +172,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A008EA4EBF29C1FBB39FDA2C0440B7C5 /* Sources */ = {
+		188B672B17A6E0CB975CB2D8A7D66534 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E16C73CDD8722608A0223417740B1D1 /* NSObject++.swift in Sources */,
-				4F1192510EF00BF25D68F2C6D6F1457C /* Protocols.swift in Sources */,
-				7D1757553E268D71E6183C49BB9FE617 /* ViewState.swift in Sources */,
-				854FB153840B0627162CC5B6D2012583 /* ViewStateCore-dummy.m in Sources */,
+				B6FD9CC523432C0CD96F5F81EEEABF84 /* DedicatedSubscribing.swift in Sources */,
+				3AAFC0EE7EC006CCDB7250FDAC7D9DF8 /* NSObject++.swift in Sources */,
+				7BA272495EF4789EC9D26215D1725966 /* ViewState.swift in Sources */,
+				A5DB42EA1D4276FEAA81E4C6EB2602F6 /* ViewStateCore-dummy.m in Sources */,
+				CB9F362C7B60509E49BBA2C396E07C92 /* ViewStateSubscriber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		17ABC7BBC4CC92FB0EC558187C9C03E0 /* Release */ = {
+		721DBD9392AA5DDD9B922C98E9C81DB4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1383CAB156C23311CAA84E54149386A1 /* ViewStateCore.xcconfig */;
+			baseConfigurationReference = CD85EE22AEB0E37096818CAA13F9BE96 /* ViewStateCore.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -214,9 +218,9 @@
 			};
 			name = Release;
 		};
-		802F3EFC444BCCA6308358F391929FFC /* Debug */ = {
+		730B591B6F224DAC76A333F960AC225E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1383CAB156C23311CAA84E54149386A1 /* ViewStateCore.xcconfig */;
+			baseConfigurationReference = CD85EE22AEB0E37096818CAA13F9BE96 /* ViewStateCore.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -371,20 +375,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6BE774142A9B98ED072BE2070CC50BAC /* Build configuration list for PBXNativeTarget "ViewStateCore" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				802F3EFC444BCCA6308358F391929FFC /* Debug */,
-				17ABC7BBC4CC92FB0EC558187C9C03E0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D30AA6D8291D78795C006393DF30DD74 /* Build configuration list for PBXProject "ViewStateCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE7FE5C78FFE971F60C25AA9B124ABF2 /* Debug */,
 				D1536087CD37AE7DCCB9EEB73E3EFFE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFF5E714CE5E1C038A5B04010B586993 /* Build configuration list for PBXNativeTarget "ViewStateCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				730B591B6F224DAC76A333F960AC225E /* Debug */,
+				721DBD9392AA5DDD9B922C98E9C81DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
