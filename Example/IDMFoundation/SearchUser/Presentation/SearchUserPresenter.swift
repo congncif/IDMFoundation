@@ -27,7 +27,7 @@ class SearchUserPresenter: SearchUserPresenterProtocol, StatefulPresenterProtoco
         errorHandlingProxy = ErrorHandlingProxy()
     }
     
-    var actionDelegate: SearchUserViewActionDelegate?
+    weak var actionDelegate: SearchUserViewActionDelegate?
     var dataLoadingHandler: LoadingProtocol!
 }
 
