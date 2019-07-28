@@ -17,7 +17,7 @@ final class ___VARIABLE_moduleName___Router: ___VARIABLE_moduleName___RouterProt
     }
 
 //	private struct <#TargetModuleOutputAdapter#>: <#TargetModuleOutputProtocol#> {
-//      weak var input: ___VARIABLE_moduleName___ModuleInterface?
+//      weak var output: ___VARIABLE_moduleName___ModuleInterface?
 //  }
 
 	// <#private var nextBuilder: NextModuleBuilderProtocol?#>
