@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-extension ___VARIABLE_moduleName___Segue: ___VARIABLE_moduleName___RouterProtocol {
-//	private struct <#TargetModuleOutputAdapter#>: <#TargetModuleOutputProtocol#> {
-//      weak var output: ___VARIABLE_moduleName___ModuleInterface?
-//  }
+extension ___VARIABLE_moduleName___Segue {
+	public override func perform() {
+        super.perform()
+    }
 }
 
 extension ___VARIABLE_moduleName___Segue {
