@@ -34,7 +34,7 @@ public protocol ___VARIABLE_moduleName___BuilderProtocol {
 // Declare methods come in from outside module
 public protocol ___VARIABLE_moduleName___InputProtocol {}
 
-// Declare methods call back from previous module
+// Declare methods call back to previous module
 public protocol ___VARIABLE_moduleName___OutputProtocol {}
 
 // Declare methods go out to next module

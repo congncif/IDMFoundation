@@ -10,7 +10,7 @@ import Foundation
 import IDMCore
 import IDMFoundation
 
-/* Always put every application logic in extensions of protocols */
+/* Always put most application logics into extensions of protocol */
 
 // MARK: - Controller
 
