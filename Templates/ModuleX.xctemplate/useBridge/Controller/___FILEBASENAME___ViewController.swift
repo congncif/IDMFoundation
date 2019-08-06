@@ -18,7 +18,10 @@ final class ___VARIABLE_moduleName___ViewController: UIViewController, ___VARIAB
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		activateView()
+    }
+
+    override func viewDidFinishInitialLayout() {
+        activateView()
     }
 }
 
