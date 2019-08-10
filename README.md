@@ -19,7 +19,7 @@ As part of the base project, **IDMFoundation** includes the foundation classes b
 
 ### CocoaPods
 ```
-pod 'IDMFoundation`
+pod 'IDMFoundation'
 ```
 
 ### Carthage
