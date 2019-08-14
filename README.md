@@ -37,7 +37,7 @@ Swift 4.1+
 
 **IDMFoundation** provides templates to help quickly create an ios app which follows [**IDMCore**](https://github.com/congncif/IDMCore) & [**ModuleX**](https://github.com/congncif/ModuleX).
 
-To install template, clone this repo then go to the project directory, run command `./install-template.sh`.
+To install template, clone [module-template](https://github.com/congncif/module-template) repo then go to the project directory, run command `./install-template.sh`.
 
 Once that's done, when you create a new file, you'll see them appears.
 
