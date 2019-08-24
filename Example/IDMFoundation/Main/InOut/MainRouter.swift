@@ -38,9 +38,9 @@ class MainRouter: MainRouterProtocol {
         
         nextModule.start(with: query)
         
-        sourceModule?.viewController
+        sourceModule?.userInterface
             .navigationController?
-            .pushViewController(nextModule.viewController,
+            .pushViewController(nextModule.userInterface,
                                 animated: true)
     }
 }

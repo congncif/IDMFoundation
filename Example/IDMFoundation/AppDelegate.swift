@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LaunchRouterProtocol {
             .intendedDestination(SearchUserBuilder())
         
         // build navigation module
-        let nav = UINavigationController(rootViewController: mainModule.viewController)
+        let nav = UINavigationController(rootViewController: mainModule.userInterface)
         
         launch(nav)
         

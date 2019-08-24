@@ -17,7 +17,7 @@ extension SearchUserViewActionDelegate where Self: SearchUserControllerProtocol,
     
     func selectUser(at index: Int) {
         let user = presenter.user(at: index)
-        viewController.confirm(message: "Are you sure select user with name \(user.name.unwrapped())?") { [weak self] in
+        userInterface.confirm(message: "Are you sure select user with name \(user.name.unwrapped())?") { [weak self] in
             self?.usersDidSelect(at: index)
         }
     }

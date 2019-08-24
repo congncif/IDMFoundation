@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 public protocol ModuleInterface: class {
-    var viewController: UIViewController { get }
+    var userInterface: UIViewController { get }
 }
 
 extension ModuleInterface where Self: UIViewController {
-    public var viewController: UIViewController {
+    public var userInterface: UIViewController {
         return self
     }
 }

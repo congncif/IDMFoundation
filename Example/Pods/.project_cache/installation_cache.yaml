@@ -84,9 +84,9 @@ CACHE_KEYS:
   ModuleX:
     BUILD_SETTINGS_CHECKSUM:
       ModuleX: 2613135cf07ffd4a393cb8b18f219ef7
-    CHECKSUM: c6965f347d31836ddf40b0d803c8ef6571313b1c
+    CHECKSUM: f01b96fdaec1503f03515e93557fea4786fd8014
     SPECS:
-      - ModuleX (1.0.2)
+      - ModuleX (1.1.1)
   ObjectMapper:
     BUILD_SETTINGS_CHECKSUM:
       ObjectMapper: 21eea98855f08976126cfa955749b7fd

@@ -18,7 +18,7 @@ class SearchUserRouter: SearchUserRouterProtocol {
     }
     
     func closeSearchUserModule() {
-        sourceModule?.viewController
+        sourceModule?.userInterface
             .navigationController?.popViewController(animated: true)
     }
 }

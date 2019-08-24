@@ -10,25 +10,27 @@ import Foundation
 import UIKit
 
 open class Router: RouterProtocol, Closable {
-    public weak var sourceModule: ModuleInterface?
+    public weak var defaultSourceModule: ModuleInterface?
     public private(set) var openTransition: TransitionProtocol?
 
-    public init() {}
+    public init(sourceModule: ModuleInterface?) {
+        self.defaultSourceModule = sourceModule
+    }
 
     open func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol) {
-        transition.sourceViewController = self.sourceModule?.viewController
+        transition.sourceViewController = self.defaultSourceModule?.userInterface
         self.openTransition = transition
-        transition.open(desinationModule.viewController)
+        transition.open(desinationModule.userInterface)
     }
 
     open func close(transition: TransitionProtocol? = nil) {
-        let closeTransition = transition ?? openTransition
+        let closeTransition = transition ?? self.openTransition
         guard let activeTransition = closeTransition else {
-            print("Router: No transition")
+            assertionFailure("Router: No transition")
             return
         }
-        guard let viewController = self.sourceModule?.viewController else {
-            print("Router: No thing to close")
+        guard let viewController = self.defaultSourceModule?.userInterface else {
+            assertionFailure("Router: No thing to close")
             return
         }
         activeTransition.close(viewController)

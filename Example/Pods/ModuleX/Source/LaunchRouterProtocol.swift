@@ -17,9 +17,10 @@ public protocol LaunchRouterProtocol {
 extension LaunchRouterProtocol {
     public func launch(_ desinationModule: ModuleInterface, animationOptions: UIView.AnimationOptions = .curveEaseInOut, duration: TimeInterval = 0.3) {
         guard let window = self.window else {
+            assertionFailure("Window not found")
             return
         }
-        let viewController = desinationModule.viewController
+        let viewController = desinationModule.userInterface
         window.rootViewController = viewController
 
         UIView.transition(with: window, duration: duration, options: animationOptions, animations: {}) { _ in }

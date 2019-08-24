@@ -26,7 +26,6 @@
 		0A5A08C521FDAADC009D7309 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */; };
 		0A5A08E021FDAD90009D7309 /* SearchUserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */; };
 		0A5A08E621FDB3E8009D7309 /* SearchUserProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */; };
-		0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08EA21FDB876009D7309 /* UIViewController++.swift */; };
 		0A5A08F021FDC256009D7309 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */; };
 		0A75EF82222A80150062D85A /* SearchUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */; };
 		0A75EF95222A8A520062D85A /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A75EF94222A8A520062D85A /* Services.swift */; };
@@ -67,7 +66,6 @@
 		0A5A08C121FDAADC009D7309 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		0A5A08DF21FDAD90009D7309 /* SearchUserBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserBuilder.swift; sourceTree = "<group>"; };
 		0A5A08E521FDB3E8009D7309 /* SearchUserProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserProtocols.swift; sourceTree = "<group>"; };
-		0A5A08EA21FDB876009D7309 /* UIViewController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++.swift"; sourceTree = "<group>"; };
 		0A5A08EF21FDC256009D7309 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 		0A75EF81222A80150062D85A /* SearchUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchUserTableViewCell.xib; sourceTree = "<group>"; };
 		0A75EF94222A8A520062D85A /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 			children = (
 				0A5A08AE21FDA711009D7309 /* GitHubEndpoint.swift */,
 				0A5A08B021FDA7BA009D7309 /* NetworkRoutes.swift */,
-				0A5A08EA21FDB876009D7309 /* UIViewController++.swift */,
 				0A1A27D222028C71000C264D /* Network++.swift */,
 			);
 			path = Shared;
@@ -542,7 +539,6 @@
 				0A5A08BB21FDA847009D7309 /* SearchUserIntegratorFactory.swift in Sources */,
 				0A1A28272203E3F3000C264D /* SearchUserTableViewCell.swift in Sources */,
 				0A5A08B921FDA847009D7309 /* SearchUserDefinitions.swift in Sources */,
-				0A5A08EB21FDB876009D7309 /* UIViewController++.swift in Sources */,
 				0AE85128224A7968000C92F9 /* SearchUserInternalActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

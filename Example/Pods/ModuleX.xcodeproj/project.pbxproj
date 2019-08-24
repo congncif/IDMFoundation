@@ -7,66 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		160F86324B1A2FA9C30618DF5B7403FF /* ModuleX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA33E604F8855F80041C47F89F5253BE /* ModuleX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24064358DF4D0A56FDEBA176F30E94F3 /* ModuleX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBA64D55DC95FDF748615B81DE18348 /* ModuleX-dummy.m */; };
-		270E2264651EFA9224FC0C4F30218BA3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C471EC1CB8777D9F7DBB764367AAA74 /* Router.swift */; };
-		3245C3BD49418C77EB11FAE40227F476 /* TransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE1F9DAB6D42A72E669158FF234FCC /* TransitionProtocol.swift */; };
-		5BBCB768D8463AA7C8586EF7B702B72A /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2C360A49929BB98F96B29E9533229 /* RouterProtocol.swift */; };
-		7008CE5C2BDFEE28D887A8CBEAE9D59E /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000D63C2DA8FB928389ED3B95159C0D /* ModuleInterface.swift */; };
-		753B9B458727ABB823048143C6C7956B /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD12E311D816E7C0EB3E05BFFC51AE81 /* AnimatorProtocol.swift */; };
-		82A26B6700C2854766AAD350C715E26A /* LaunchRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BFAC6AF2799F49E3D21C6BDD340BB /* LaunchRouterProtocol.swift */; };
-		88E777DA7485F0B6875C9D7C17F54E6E /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D676546F4801CF50725597D8EF5F29 /* PushTransition.swift */; };
-		AC92819633F8443C0C4D580B78F0BF1C /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A986D7011BFA2E4397C5A8E8A91F526 /* ModuleBuilderProtocol.swift */; };
-		B6A3CF4A2FC3CDFEBBE17155221CD3FA /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F309C767F9C53BEA582F4091A3A3F44 /* ModalTransition.swift */; };
-		B95248B1B464BD63DFD895B956F363AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE392F4FBD4AAEB5ED78107CD83D9279 /* Foundation.framework */; };
+		1BE66F963CE15F8B610593072BEB4397 /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086EC68F1534908C21576527DE50F57 /* ModuleInterface.swift */; };
+		256E0043AF0AF1D42F80F699BC03913E /* ModuleX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 868221291BE92F85A85F43F1C58710A5 /* ModuleX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39A6031BA16F0E1C0B0CA7D06F8FDB1A /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1263AC62B3E57F10128EDD52B2B050C /* AnimatorProtocol.swift */; };
+		39E338D0832F68CAF3C80E9045B74D2F /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CEA3FB0B9B128AFF76A812667B5F5 /* RouterProtocol.swift */; };
+		3CD62D0345A52E7C9C9BAACE9C6E69C2 /* UIViewController+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63670CE0672B16DE59B698B2DC290B10 /* UIViewController+Module.swift */; };
+		48855E807E83E598D42449173BDED520 /* LaunchRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC7DE79DC86C0A20FF75A85307CCBA9 /* LaunchRouterProtocol.swift */; };
+		59791C502036AAE05A7A1D99D61D4378 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AA65A2CFA03E6762E6F69479820D17 /* ModalTransition.swift */; };
+		6EE0ADB205EC2814EC85BD8D75B68579 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE392F4FBD4AAEB5ED78107CD83D9279 /* Foundation.framework */; };
+		70B1AEF28B52B6510413827EE7228A97 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D741CB11788C27DFA5AD5D3FAD79798 /* ModuleBuilderProtocol.swift */; };
+		A573D87F25B94D80B854653467F36C3C /* TransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1D398210F5D52F7C022A29647719D /* TransitionProtocol.swift */; };
+		D010103B894EF2454FCF4F34A9A34321 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE0BD1691A5A623AEF178F43BEAFD1 /* Router.swift */; };
+		F400952B66D381A83B268ABB5FCC65EF /* ModuleX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D913608E45290A0465743D923C08A /* ModuleX-dummy.m */; };
+		F666A0155E16F53652C7C1C280AAAEB7 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6222772652DEEAD524361DD81CB866B /* PushTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		066BFAC6AF2799F49E3D21C6BDD340BB /* LaunchRouterProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LaunchRouterProtocol.swift; path = Source/LaunchRouterProtocol.swift; sourceTree = "<group>"; };
-		18EE1F9DAB6D42A72E669158FF234FCC /* TransitionProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionProtocol.swift; path = Source/TransitionProtocol.swift; sourceTree = "<group>"; };
-		3F309C767F9C53BEA582F4091A3A3F44 /* ModalTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalTransition.swift; path = Source/ModalTransition.swift; sourceTree = "<group>"; };
+		0AE1E715BBE2271FC5741F883B47002C /* ModuleX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModuleX.xcconfig; sourceTree = "<group>"; };
+		10409BDCA26B429DE408323000AE5053 /* ModuleX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModuleX-prefix.pch"; sourceTree = "<group>"; };
+		1AC1D398210F5D52F7C022A29647719D /* TransitionProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionProtocol.swift; path = Source/TransitionProtocol.swift; sourceTree = "<group>"; };
+		1D741CB11788C27DFA5AD5D3FAD79798 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModuleBuilderProtocol.swift; path = Source/ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
+		2086EC68F1534908C21576527DE50F57 /* ModuleInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Source/ModuleInterface.swift; sourceTree = "<group>"; };
+		2BBE0BD1691A5A623AEF178F43BEAFD1 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Source/Router.swift; sourceTree = "<group>"; };
+		553D913608E45290A0465743D923C08A /* ModuleX-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModuleX-dummy.m"; sourceTree = "<group>"; };
 		5F82CDDAA0FBEC19CD31FAAC9E1AD682 /* ModuleX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ModuleX.framework; path = ModuleX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		605DF145DE405F25E814937EE0C5DDDB /* ModuleX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModuleX-prefix.pch"; sourceTree = "<group>"; };
-		7523F46D274BBA93B8FF4F91CEFF8A2C /* ModuleX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ModuleX.modulemap; sourceTree = "<group>"; };
-		8C471EC1CB8777D9F7DBB764367AAA74 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Source/Router.swift; sourceTree = "<group>"; };
-		8DC03BB716ABE2BAE0E93DABBA4F093C /* ModuleX-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ModuleX-Info.plist"; sourceTree = "<group>"; };
-		93FE243ACF6B1E70413685C7FBC84C45 /* ModuleX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModuleX.xcconfig; sourceTree = "<group>"; };
-		9A986D7011BFA2E4397C5A8E8A91F526 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModuleBuilderProtocol.swift; path = Source/ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
-		BCBA64D55DC95FDF748615B81DE18348 /* ModuleX-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModuleX-dummy.m"; sourceTree = "<group>"; };
-		C7A2C360A49929BB98F96B29E9533229 /* RouterProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterProtocol.swift; path = Source/RouterProtocol.swift; sourceTree = "<group>"; };
-		E5D676546F4801CF50725597D8EF5F29 /* PushTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushTransition.swift; path = Source/PushTransition.swift; sourceTree = "<group>"; };
+		63670CE0672B16DE59B698B2DC290B10 /* UIViewController+Module.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Module.swift"; path = "Source/UIViewController+Module.swift"; sourceTree = "<group>"; };
+		868221291BE92F85A85F43F1C58710A5 /* ModuleX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModuleX-umbrella.h"; sourceTree = "<group>"; };
+		868CEA3FB0B9B128AFF76A812667B5F5 /* RouterProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterProtocol.swift; path = Source/RouterProtocol.swift; sourceTree = "<group>"; };
+		8E4F543B176E93E801F343DCEC213987 /* ModuleX-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ModuleX-Info.plist"; sourceTree = "<group>"; };
+		A6222772652DEEAD524361DD81CB866B /* PushTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushTransition.swift; path = Source/PushTransition.swift; sourceTree = "<group>"; };
+		AB1F8EA68DA4A945EE2A7D2B9C3C32E5 /* ModuleX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ModuleX.modulemap; sourceTree = "<group>"; };
+		D1263AC62B3E57F10128EDD52B2B050C /* AnimatorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatorProtocol.swift; path = Source/AnimatorProtocol.swift; sourceTree = "<group>"; };
+		DFC7DE79DC86C0A20FF75A85307CCBA9 /* LaunchRouterProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LaunchRouterProtocol.swift; path = Source/LaunchRouterProtocol.swift; sourceTree = "<group>"; };
+		E3AA65A2CFA03E6762E6F69479820D17 /* ModalTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModalTransition.swift; path = Source/ModalTransition.swift; sourceTree = "<group>"; };
 		EE392F4FBD4AAEB5ED78107CD83D9279 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F000D63C2DA8FB928389ED3B95159C0D /* ModuleInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Source/ModuleInterface.swift; sourceTree = "<group>"; };
-		FA33E604F8855F80041C47F89F5253BE /* ModuleX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModuleX-umbrella.h"; sourceTree = "<group>"; };
-		FD12E311D816E7C0EB3E05BFFC51AE81 /* AnimatorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatorProtocol.swift; path = Source/AnimatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9B1A1EAF7BB74EC8C513F8B3C90F0E67 /* Frameworks */ = {
+		39626684B15BEAE02A88772F1CF1A6B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B95248B1B464BD63DFD895B956F363AB /* Foundation.framework in Frameworks */,
+				6EE0ADB205EC2814EC85BD8D75B68579 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02D612C4C4F621B11BE7103414536F26 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7523F46D274BBA93B8FF4F91CEFF8A2C /* ModuleX.modulemap */,
-				93FE243ACF6B1E70413685C7FBC84C45 /* ModuleX.xcconfig */,
-				BCBA64D55DC95FDF748615B81DE18348 /* ModuleX-dummy.m */,
-				8DC03BB716ABE2BAE0E93DABBA4F093C /* ModuleX-Info.plist */,
-				605DF145DE405F25E814937EE0C5DDDB /* ModuleX-prefix.pch */,
-				FA33E604F8855F80041C47F89F5253BE /* ModuleX-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ModuleX";
-			sourceTree = "<group>";
-		};
 		06F64B17DD0137C807961B1285A2699F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,22 +63,18 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		9924AE4F959A0E2EC533995BEF69281C /* ModuleX */ = {
+		3863C8D26E5F0D00D59E5C84525D952D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD12E311D816E7C0EB3E05BFFC51AE81 /* AnimatorProtocol.swift */,
-				066BFAC6AF2799F49E3D21C6BDD340BB /* LaunchRouterProtocol.swift */,
-				3F309C767F9C53BEA582F4091A3A3F44 /* ModalTransition.swift */,
-				9A986D7011BFA2E4397C5A8E8A91F526 /* ModuleBuilderProtocol.swift */,
-				F000D63C2DA8FB928389ED3B95159C0D /* ModuleInterface.swift */,
-				E5D676546F4801CF50725597D8EF5F29 /* PushTransition.swift */,
-				8C471EC1CB8777D9F7DBB764367AAA74 /* Router.swift */,
-				C7A2C360A49929BB98F96B29E9533229 /* RouterProtocol.swift */,
-				18EE1F9DAB6D42A72E669158FF234FCC /* TransitionProtocol.swift */,
-				02D612C4C4F621B11BE7103414536F26 /* Support Files */,
+				AB1F8EA68DA4A945EE2A7D2B9C3C32E5 /* ModuleX.modulemap */,
+				0AE1E715BBE2271FC5741F883B47002C /* ModuleX.xcconfig */,
+				553D913608E45290A0465743D923C08A /* ModuleX-dummy.m */,
+				8E4F543B176E93E801F343DCEC213987 /* ModuleX-Info.plist */,
+				10409BDCA26B429DE408323000AE5053 /* ModuleX-prefix.pch */,
+				868221291BE92F85A85F43F1C58710A5 /* ModuleX-umbrella.h */,
 			);
-			name = ModuleX;
-			path = ModuleX;
+			name = "Support Files";
+			path = "../Target Support Files/ModuleX";
 			sourceTree = "<group>";
 		};
 		9AA1B6F13A0F6E8CDB43A7694C8A8E21 /* Frameworks */ = {
@@ -105,9 +89,28 @@
 			isa = PBXGroup;
 			children = (
 				9AA1B6F13A0F6E8CDB43A7694C8A8E21 /* Frameworks */,
-				9924AE4F959A0E2EC533995BEF69281C /* ModuleX */,
+				E2933122E957CC04E3C819B8AD7C9C67 /* ModuleX */,
 				FDC8AB5983F713DD30C6C34F3ED004D4 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		E2933122E957CC04E3C819B8AD7C9C67 /* ModuleX */ = {
+			isa = PBXGroup;
+			children = (
+				D1263AC62B3E57F10128EDD52B2B050C /* AnimatorProtocol.swift */,
+				DFC7DE79DC86C0A20FF75A85307CCBA9 /* LaunchRouterProtocol.swift */,
+				E3AA65A2CFA03E6762E6F69479820D17 /* ModalTransition.swift */,
+				1D741CB11788C27DFA5AD5D3FAD79798 /* ModuleBuilderProtocol.swift */,
+				2086EC68F1534908C21576527DE50F57 /* ModuleInterface.swift */,
+				A6222772652DEEAD524361DD81CB866B /* PushTransition.swift */,
+				2BBE0BD1691A5A623AEF178F43BEAFD1 /* Router.swift */,
+				868CEA3FB0B9B128AFF76A812667B5F5 /* RouterProtocol.swift */,
+				1AC1D398210F5D52F7C022A29647719D /* TransitionProtocol.swift */,
+				63670CE0672B16DE59B698B2DC290B10 /* UIViewController+Module.swift */,
+				3863C8D26E5F0D00D59E5C84525D952D /* Support Files */,
+			);
+			name = ModuleX;
+			path = ModuleX;
 			sourceTree = "<group>";
 		};
 		FDC8AB5983F713DD30C6C34F3ED004D4 /* Products */ = {
@@ -121,11 +124,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3C9B665A1C3414B91C6995CACBF9579A /* Headers */ = {
+		725D39487FDDFE641E5354F1DF015719 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				160F86324B1A2FA9C30618DF5B7403FF /* ModuleX-umbrella.h in Headers */,
+				256E0043AF0AF1D42F80F699BC03913E /* ModuleX-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +137,12 @@
 /* Begin PBXNativeTarget section */
 		BDA3C472DA6FF7751936523AC79F48BE /* ModuleX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AA1A346E01335E0FB55E25BD6F06378 /* Build configuration list for PBXNativeTarget "ModuleX" */;
+			buildConfigurationList = 9AA19B5229FDCD8B556B6791797F06CD /* Build configuration list for PBXNativeTarget "ModuleX" */;
 			buildPhases = (
-				3C9B665A1C3414B91C6995CACBF9579A /* Headers */,
-				1CFA281EB3AE529F35DD2D2CD4EF8C99 /* Sources */,
-				9B1A1EAF7BB74EC8C513F8B3C90F0E67 /* Frameworks */,
-				804061AB9C55D08FF00ACB94F15892FD /* Resources */,
+				725D39487FDDFE641E5354F1DF015719 /* Headers */,
+				6DD6EBA74938EC1A4AB4184D6A370BFC /* Sources */,
+				39626684B15BEAE02A88772F1CF1A6B6 /* Frameworks */,
+				ED6D79A849F9AF05DF8E1C97A8441C4C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -177,7 +180,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		804061AB9C55D08FF00ACB94F15892FD /* Resources */ = {
+		ED6D79A849F9AF05DF8E1C97A8441C4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -187,20 +190,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1CFA281EB3AE529F35DD2D2CD4EF8C99 /* Sources */ = {
+		6DD6EBA74938EC1A4AB4184D6A370BFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753B9B458727ABB823048143C6C7956B /* AnimatorProtocol.swift in Sources */,
-				82A26B6700C2854766AAD350C715E26A /* LaunchRouterProtocol.swift in Sources */,
-				B6A3CF4A2FC3CDFEBBE17155221CD3FA /* ModalTransition.swift in Sources */,
-				AC92819633F8443C0C4D580B78F0BF1C /* ModuleBuilderProtocol.swift in Sources */,
-				7008CE5C2BDFEE28D887A8CBEAE9D59E /* ModuleInterface.swift in Sources */,
-				24064358DF4D0A56FDEBA176F30E94F3 /* ModuleX-dummy.m in Sources */,
-				88E777DA7485F0B6875C9D7C17F54E6E /* PushTransition.swift in Sources */,
-				270E2264651EFA9224FC0C4F30218BA3 /* Router.swift in Sources */,
-				5BBCB768D8463AA7C8586EF7B702B72A /* RouterProtocol.swift in Sources */,
-				3245C3BD49418C77EB11FAE40227F476 /* TransitionProtocol.swift in Sources */,
+				39A6031BA16F0E1C0B0CA7D06F8FDB1A /* AnimatorProtocol.swift in Sources */,
+				48855E807E83E598D42449173BDED520 /* LaunchRouterProtocol.swift in Sources */,
+				59791C502036AAE05A7A1D99D61D4378 /* ModalTransition.swift in Sources */,
+				70B1AEF28B52B6510413827EE7228A97 /* ModuleBuilderProtocol.swift in Sources */,
+				1BE66F963CE15F8B610593072BEB4397 /* ModuleInterface.swift in Sources */,
+				F400952B66D381A83B268ABB5FCC65EF /* ModuleX-dummy.m in Sources */,
+				F666A0155E16F53652C7C1C280AAAEB7 /* PushTransition.swift in Sources */,
+				D010103B894EF2454FCF4F34A9A34321 /* Router.swift in Sources */,
+				39E338D0832F68CAF3C80E9045B74D2F /* RouterProtocol.swift in Sources */,
+				A573D87F25B94D80B854653467F36C3C /* TransitionProtocol.swift in Sources */,
+				3CD62D0345A52E7C9C9BAACE9C6E69C2 /* UIViewController+Module.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +275,9 @@
 			};
 			name = Debug;
 		};
-		36A6DCBF1E82E3F79E37809AF4B052A4 /* Release */ = {
+		81F64518EEE88DFD54FE5F87256AFD38 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93FE243ACF6B1E70413685C7FBC84C45 /* ModuleX.xcconfig */;
+			baseConfigurationReference = 0AE1E715BBE2271FC5741F883B47002C /* ModuleX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -295,39 +299,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8F7AC5057364944691603DB6EFFC4C24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93FE243ACF6B1E70413685C7FBC84C45 /* ModuleX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ModuleX/ModuleX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ModuleX/ModuleX-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ModuleX/ModuleX.modulemap";
-				PRODUCT_MODULE_NAME = ModuleX;
-				PRODUCT_NAME = ModuleX;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -394,6 +366,38 @@
 			};
 			name = Release;
 		};
+		AA8A4CA0BEF1F2275CC9A33F808D9C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE1E715BBE2271FC5741F883B47002C /* ModuleX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ModuleX/ModuleX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ModuleX/ModuleX-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ModuleX/ModuleX.modulemap";
+				PRODUCT_MODULE_NAME = ModuleX;
+				PRODUCT_NAME = ModuleX;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -406,11 +410,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AA1A346E01335E0FB55E25BD6F06378 /* Build configuration list for PBXNativeTarget "ModuleX" */ = {
+		9AA19B5229FDCD8B556B6791797F06CD /* Build configuration list for PBXNativeTarget "ModuleX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F7AC5057364944691603DB6EFFC4C24 /* Debug */,
-				36A6DCBF1E82E3F79E37809AF4B052A4 /* Release */,
+				81F64518EEE88DFD54FE5F87256AFD38 /* Debug */,
+				AA8A4CA0BEF1F2275CC9A33F808D9C80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

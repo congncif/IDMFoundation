@@ -13,7 +13,7 @@ public protocol Closable: class {
 }
 
 public protocol RouterProtocol: class {
-    var sourceModule: ModuleInterface? { get }
+    var defaultSourceModule: ModuleInterface? { get }
     
     func open(_ desinationModule: ModuleInterface, transition: TransitionProtocol)
 }
