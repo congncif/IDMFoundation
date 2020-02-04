@@ -1,20 +1,20 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
   - IDMCore (3.1.2)
-  - IDMFoundation (2.3.1):
-    - IDMFoundation/Default (= 2.3.1)
-  - IDMFoundation/Alamofire (2.3.1):
+  - IDMFoundation (2.3.2):
+    - IDMFoundation/Default (= 2.3.2)
+  - IDMFoundation/Alamofire (2.3.2):
     - Alamofire
     - IDMCore
     - IDMFoundation/Networking
     - SiFUtilities
-  - IDMFoundation/CameraAsset (2.3.1):
+  - IDMFoundation/CameraAsset (2.3.2):
     - IDMFoundation/Networking
     - SiFUtilities
-  - IDMFoundation/Core (2.3.1):
+  - IDMFoundation/Core (2.3.2):
     - IDMCore
     - SiFUtilities
-  - IDMFoundation/Default (2.3.1):
+  - IDMFoundation/Default (2.3.2):
     - IDMFoundation/Alamofire
     - IDMFoundation/CameraAsset
     - IDMFoundation/Core
@@ -22,32 +22,32 @@ PODS:
     - IDMFoundation/ModuleHelper
     - IDMFoundation/Networking
     - IDMFoundation/ObjectMapper
-  - IDMFoundation/MBProgressHUD (2.3.1):
+  - IDMFoundation/MBProgressHUD (2.3.2):
     - IDMCore
     - MBProgressHUD
     - SiFUtilities
-  - IDMFoundation/ModuleHelper (2.3.1):
+  - IDMFoundation/ModuleHelper (2.3.2):
     - IDMCore
     - ViewStateCore
-  - IDMFoundation/Networking (2.3.1):
+  - IDMFoundation/Networking (2.3.2):
     - IDMCore
     - IDMFoundation/Core
     - SiFUtilities
-  - IDMFoundation/ObjectMapper (2.3.1):
+  - IDMFoundation/ObjectMapper (2.3.2):
     - IDMCore
     - IDMFoundation/Core
     - ObjectMapper
-  - Localize-Swift (2.0.0)
+  - Localize-Swift (3.0.0)
   - MBProgressHUD (1.1.0)
-  - ModuleX (1.1.1)
+  - ModuleX (1.1.6)
   - ObjectMapper (3.5.1)
-  - SDWebImage (5.0.6):
-    - SDWebImage/Core (= 5.0.6)
-  - SDWebImage/Core (5.0.6)
-  - SiFUtilities (4.1.13):
-    - SiFUtilities/Default (= 4.1.13)
-  - SiFUtilities/Core (4.1.13)
-  - SiFUtilities/Default (4.1.13):
+  - SDWebImage (5.1.1):
+    - SDWebImage/Core (= 5.1.1)
+  - SDWebImage/Core (5.1.1)
+  - SiFUtilities (4.4.1):
+    - SiFUtilities/Default (= 4.4.1)
+  - SiFUtilities/Core (4.4.1)
+  - SiFUtilities/Default (4.4.1):
     - SiFUtilities/Core
     - SiFUtilities/Endpoint
     - SiFUtilities/Helpers
@@ -59,24 +59,24 @@ PODS:
     - SiFUtilities/Runtime
     - SiFUtilities/Show
     - SiFUtilities/WeakObject
-  - SiFUtilities/Endpoint (4.1.13)
-  - SiFUtilities/Helpers (4.1.13)
-  - SiFUtilities/IBDesignable (4.1.13):
+  - SiFUtilities/Endpoint (4.4.1)
+  - SiFUtilities/Helpers (4.4.1)
+  - SiFUtilities/IBDesignable (4.4.1):
     - SiFUtilities/Core
-  - SiFUtilities/KeyValue (4.1.13)
-  - SiFUtilities/Loading (4.1.13)
-  - SiFUtilities/Localize (4.1.13):
+  - SiFUtilities/KeyValue (4.4.1)
+  - SiFUtilities/Loading (4.4.1)
+  - SiFUtilities/Localize (4.4.1):
     - Localize-Swift
     - SiFUtilities/Core
     - SiFUtilities/Runtime
-  - SiFUtilities/Nib (4.1.13):
+  - SiFUtilities/Nib (4.4.1):
     - SiFUtilities/Core
-  - SiFUtilities/Runtime (4.1.13)
-  - SiFUtilities/Show (4.1.13):
+  - SiFUtilities/Runtime (4.4.1)
+  - SiFUtilities/Show (4.4.1):
     - SiFUtilities/Core
     - SiFUtilities/Localize
-  - SiFUtilities/WeakObject (4.1.13)
-  - ViewStateCore (1.4.0)
+  - SiFUtilities/WeakObject (4.4.1)
+  - ViewStateCore (1.7.0)
 
 DEPENDENCIES:
   - IDMCore
@@ -103,16 +103,16 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   IDMCore: 5245d8e71f221e1aaef60465a1e37d247aa8cb78
-  IDMFoundation: 0181d8419864ccd18e0fb0af6f9b2565fdb8f5a0
-  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  IDMFoundation: e58c1bcac176f81a2f0e2359ec2a8f160c259eab
+  Localize-Swift: 1363ec008c6972dced79a80ac72c71d14e98db44
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  ModuleX: f01b96fdaec1503f03515e93557fea4786fd8014
+  ModuleX: 3b91c65c77bd49e17c053c30588a6cd96d7c969d
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
-  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  SiFUtilities: 43c90fffd622716693baca51160d9276dbdd33f1
-  ViewStateCore: c273f47a5516326bb9cf48b1c9bf06a9715822df
+  SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
+  SiFUtilities: 0b62a92c7012a179871a7374b7cad4259dda6b12
+  ViewStateCore: 2f433a0e17e44edf36e90f52c0887d981c08d1a7
 
 PODFILE CHECKSUM: 2109c3afc8df2c546017f7b1df9c85de5a519012
 

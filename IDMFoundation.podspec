@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.3.2'
+  s.version          = '2.3.3'
   s.summary          = 'Base classes for new project which follows IDMCore'
-  s.swift_versions    = ['4.2', '5.0', '5.1']
+  s.swift_versions    = ['5.0', '5.1']
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

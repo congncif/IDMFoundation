@@ -23,3 +23,38 @@ extension ModuleInterface {
         return navigation
     }
 }
+
+extension ModuleInterface {
+    public func pushModule(_ destinationModule: ModuleInterface, animated: Bool = true) {
+        navigationController?.pushViewController(destinationModule.userInterface, animated: animated)
+    }
+
+    public func popModule(animated: Bool) {
+        navigationController?.popViewController(animated: animated)
+    }
+
+    public func popToModule(_ destinationModule: ModuleInterface, animated: Bool) {
+        navigationController?.popToViewController(destinationModule.userInterface, animated: animated)
+    }
+
+    public func popToRootModule(animated: Bool) {
+        navigationController?.popToRootViewController(animated: animated)
+    }
+
+    public func presentModule(_ destinationModule: ModuleInterface,
+                              animated: Bool = true,
+                              completion: (() -> Void)? = nil) {
+        userInterface.present(destinationModule.userInterface, animated: true, completion: completion)
+    }
+
+    public func dismissModule(animated: Bool, completion: (() -> Void)? = nil) {
+        userInterface.dismiss(animated: animated, completion: completion)
+    }
+
+    private var navigationController: UINavigationController? {
+        if let nav = userInterface as? UINavigationController {
+            return nav
+        }
+        return userInterface.navigationController
+    }
+}

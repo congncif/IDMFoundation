@@ -5,9 +5,9 @@ CACHE_KEYS:
   Alamofire:
     BUILD_SETTINGS_CHECKSUM:
       Alamofire: 45225c0e8313098e3378d223b7a62e0f
-    CHECKSUM: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+    CHECKSUM: afc3e7c6db61476cb45cdd23fed06bad03bbc321
     SPECS:
-      - Alamofire (4.8.2)
+      - Alamofire (4.9.0)
   IDMCore:
     BUILD_SETTINGS_CHECKSUM:
       IDMCore: afa118d36afd9b291a62a9fc385a3f1c
@@ -17,7 +17,7 @@ CACHE_KEYS:
   IDMFoundation:
     BUILD_SETTINGS_CHECKSUM:
       IDMFoundation: d0daf57e2d7da2a07189b62687f36513
-    CHECKSUM: 0181d8419864ccd18e0fb0af6f9b2565fdb8f5a0
+    CHECKSUM: e58c1bcac176f81a2f0e2359ec2a8f160c259eab
     FILES:
       - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/AlamofireProtocols.swift"
       - "/Users/congnc7/Documents/Frameworks/IDMFoundation/IDMFoundation/Alamofire/BaseDataProvider.swift"
@@ -60,21 +60,21 @@ CACHE_KEYS:
       - "/Users/congnc7/Documents/Frameworks/IDMFoundation/LICENSE"
       - "/Users/congnc7/Documents/Frameworks/IDMFoundation/README.md"
     SPECS:
-      - IDMFoundation (2.3.1)
-      - IDMFoundation/Alamofire (2.3.1)
-      - IDMFoundation/CameraAsset (2.3.1)
-      - IDMFoundation/Core (2.3.1)
-      - IDMFoundation/Default (2.3.1)
-      - IDMFoundation/MBProgressHUD (2.3.1)
-      - IDMFoundation/ModuleHelper (2.3.1)
-      - IDMFoundation/Networking (2.3.1)
-      - IDMFoundation/ObjectMapper (2.3.1)
+      - IDMFoundation (2.3.2)
+      - IDMFoundation/Alamofire (2.3.2)
+      - IDMFoundation/CameraAsset (2.3.2)
+      - IDMFoundation/Core (2.3.2)
+      - IDMFoundation/Default (2.3.2)
+      - IDMFoundation/MBProgressHUD (2.3.2)
+      - IDMFoundation/ModuleHelper (2.3.2)
+      - IDMFoundation/Networking (2.3.2)
+      - IDMFoundation/ObjectMapper (2.3.2)
   Localize-Swift:
     BUILD_SETTINGS_CHECKSUM:
-      Localize-Swift: f19dcdc902662d86b65b41a8370a420e
-    CHECKSUM: c798ec9286494866f7068f85f7c71283ac5bdab4
+      Localize-Swift: 15e4f6d4abb633b334f7308ffade7ea1
+    CHECKSUM: 1363ec008c6972dced79a80ac72c71d14e98db44
     SPECS:
-      - Localize-Swift (2.0.0)
+      - Localize-Swift (3.0.0)
   MBProgressHUD:
     BUILD_SETTINGS_CHECKSUM:
       MBProgressHUD: 9ddcf1e04f61c1f52ce835899d840054
@@ -84,9 +84,9 @@ CACHE_KEYS:
   ModuleX:
     BUILD_SETTINGS_CHECKSUM:
       ModuleX: 2613135cf07ffd4a393cb8b18f219ef7
-    CHECKSUM: f01b96fdaec1503f03515e93557fea4786fd8014
+    CHECKSUM: 3b91c65c77bd49e17c053c30588a6cd96d7c969d
     SPECS:
-      - ModuleX (1.1.1)
+      - ModuleX (1.1.6)
   ObjectMapper:
     BUILD_SETTINGS_CHECKSUM:
       ObjectMapper: 21eea98855f08976126cfa955749b7fd
@@ -100,32 +100,32 @@ CACHE_KEYS:
   SDWebImage:
     BUILD_SETTINGS_CHECKSUM:
       SDWebImage: 571bd76ad7f5bf1fe6db43df0cc99aa2
-    CHECKSUM: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+    CHECKSUM: 96d7f03415ccb28d299d765f93557ff8a617abd8
     SPECS:
-      - SDWebImage (5.0.6)
-      - SDWebImage/Core (5.0.6)
+      - SDWebImage (5.1.1)
+      - SDWebImage/Core (5.1.1)
   SiFUtilities:
     BUILD_SETTINGS_CHECKSUM:
       SiFUtilities: f666076e9bddfa557b1bb90bcfa80956
-    CHECKSUM: 43c90fffd622716693baca51160d9276dbdd33f1
+    CHECKSUM: 0b62a92c7012a179871a7374b7cad4259dda6b12
     SPECS:
-      - SiFUtilities (4.1.13)
-      - SiFUtilities/Core (4.1.13)
-      - SiFUtilities/Default (4.1.13)
-      - SiFUtilities/Endpoint (4.1.13)
-      - SiFUtilities/Helpers (4.1.13)
-      - SiFUtilities/IBDesignable (4.1.13)
-      - SiFUtilities/KeyValue (4.1.13)
-      - SiFUtilities/Loading (4.1.13)
-      - SiFUtilities/Localize (4.1.13)
-      - SiFUtilities/Nib (4.1.13)
-      - SiFUtilities/Runtime (4.1.13)
-      - SiFUtilities/Show (4.1.13)
-      - SiFUtilities/WeakObject (4.1.13)
+      - SiFUtilities (4.4.1)
+      - SiFUtilities/Core (4.4.1)
+      - SiFUtilities/Default (4.4.1)
+      - SiFUtilities/Endpoint (4.4.1)
+      - SiFUtilities/Helpers (4.4.1)
+      - SiFUtilities/IBDesignable (4.4.1)
+      - SiFUtilities/KeyValue (4.4.1)
+      - SiFUtilities/Loading (4.4.1)
+      - SiFUtilities/Localize (4.4.1)
+      - SiFUtilities/Nib (4.4.1)
+      - SiFUtilities/Runtime (4.4.1)
+      - SiFUtilities/Show (4.4.1)
+      - SiFUtilities/WeakObject (4.4.1)
   ViewStateCore:
     BUILD_SETTINGS_CHECKSUM:
-      ViewStateCore: 678c0e953464e9bf5567477146677129
-    CHECKSUM: c273f47a5516326bb9cf48b1c9bf06a9715822df
+      ViewStateCore: 7bbe8e6a1c4d7347e8638c7675628062
+    CHECKSUM: 2f433a0e17e44edf36e90f52c0887d981c08d1a7
     SPECS:
-      - ViewStateCore (1.4.0)
+      - ViewStateCore (1.7.0)
 OBJECT_VERSION: 46

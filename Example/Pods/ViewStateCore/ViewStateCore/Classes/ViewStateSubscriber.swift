@@ -20,16 +20,6 @@ public protocol ViewStateSubscriber {
     func viewStateWillUnsubscribe(_ state: ViewState)
 }
 
-// Optional methods
-
-extension ViewStateSubscriber {
-    public func viewStateDidChange(newState: ViewState, keyPath: String, oldValue: Any?, newValue: Any?) {}
-
-    public func viewStateDidSubscribe(_ state: ViewState) {}
-
-    public func viewStateWillUnsubscribe(_ state: ViewState) {}
-}
-
 /**********************************************************************
  /// Use ViewStateFillable if you want listen changes of each of ViewState keys then fill into a target.
 
@@ -74,33 +64,72 @@ public struct FillableKey {
     public static let image = "image"
 }
 
-public struct FillingOption {
-    public var keyPath: String
-    public var action: (Any?) -> Void
+public struct FillingMapper<Input, Output> {
+    let mapping: (Input) -> Output
 
-    public init(keyPath: String, action: @escaping (Any?) -> Void) {
-        self.keyPath = keyPath
-        self.action = action
-    }
-
-    public init(keyPath: String, target: NSObject, targetKeyPath: String) {
-        let _fillingValue: (Any?) -> Void = { [weak target] value in
-            guard let _target = target else { return }
-            if _target.propertyNames().contains(targetKeyPath) {
-                _target.setValue(value, forKeyPath: targetKeyPath)
-            } else {
-                print("[ViewStateCore] The target \(_target) doesn't contain \(targetKeyPath) key")
-            }
-        }
-        self.init(keyPath: keyPath, action: _fillingValue)
+    public init(_ mapping: @escaping (Input) -> Output) {
+        self.mapping = mapping
     }
 }
 
-public typealias OOO = FillingOption
+public struct FillingOption {
+    public typealias Filling<Type> = (Type?) -> Void
+    public typealias Mapping = (Any?) -> Any?
 
-extension OOO {
-    public init(_ stateKeyPath: String, _ target: NSObject, _ targetKeyPath: String) {
-        self.init(keyPath: stateKeyPath, target: target, targetKeyPath: targetKeyPath)
+    public var keyPath: String
+    public var action: Filling<Any>
+
+    public init(keyPath: String, filling: @escaping Filling<Any>) {
+        self.keyPath = keyPath
+        self.action = filling
+    }
+
+    public init(keyPath: String, target: NSObject,
+                targetKeyPath: String, mapping: Mapping? = nil) {
+        let fillingValue: (Any?) -> Void = { [weak target] value in
+            guard let target = target else { return }
+            if target.properties.contains(targetKeyPath) {
+                var newValue = value
+                if let mapping = mapping {
+                    newValue = mapping(value)
+                }
+                target.setValue(newValue, forKeyPath: targetKeyPath)
+            } else {
+                assertionFailure("[ViewStateCore] The target \(target) doesn't contain \(targetKeyPath) key")
+            }
+        }
+        self.init(keyPath: keyPath, filling: fillingValue)
+    }
+
+    public init<In, Out>(keyPath: String, target: NSObject,
+                         targetKeyPath: String, mapper: FillingMapper<In, Out>? = nil) {
+        self.init(keyPath: keyPath, target: target, targetKeyPath: targetKeyPath, mapping: {
+            guard let input = $0 as? In else { return nil }
+            return mapper?.mapping(input)
+        })
+    }
+
+    public init<ValueType>(keyPath: String, mapTo valueType: ValueType.Type, filling: @escaping Filling<ValueType>) {
+        let action: (Any?) -> Void = { stateValue in
+            let value = stateValue as? ValueType
+            filling(value)
+        }
+        self.init(keyPath: keyPath, filling: action)
+    }
+}
+
+/// Option to Option
+public typealias O2O = FillingOption
+
+extension O2O {
+    public init(_ stateKeyPath: String, _ target: NSObject,
+                _ targetKeyPath: String, _ mapping: Mapping? = nil) {
+        self.init(keyPath: stateKeyPath, target: target, targetKeyPath: targetKeyPath, mapping: mapping)
+    }
+
+    public init<In, Out>(_ stateKeyPath: String, _ target: NSObject,
+                         _ targetKeyPath: String, _ mapper: FillingMapper<In, Out>? = nil) {
+        self.init(keyPath: stateKeyPath, target: target, targetKeyPath: targetKeyPath, mapper: mapper)
     }
 }
 
@@ -108,26 +137,21 @@ public protocol ViewStateFillable: ViewStateSubscriber {
     func fillingOptions(_ state: ViewState) -> [FillingOption]
 }
 
+/// Internal
 extension ViewStateFillable {
-    public func viewStateDidChange(newState: ViewState) {}
-
-    public func viewStateDidChange(newState: ViewState, keyPath: String, oldValue: Any?, newValue: Any?) {
-        fill(value: newValue, of: newState, forKeyPath: keyPath)
-    }
-
-    public func viewStateDidSubscribe(_ state: ViewState) {
-        let workingKeys = state.workingKeys
-        for key in workingKeys {
-            let value = state.value(forKeyPath: key)
-            fill(value: value, of: state, forKeyPath: key)
-        }
-    }
-
-    fileprivate func fill(value: Any?, of state: ViewState, forKeyPath keyPath: String) {
+    func fill(value: Any?, of state: ViewState, forKeyPath keyPath: String) {
         let options = fillingOptions(state)
         let targets = options.filter { $0.keyPath == keyPath }
         for item in targets {
             item.action(value)
+        }
+    }
+
+    func fillValuesFromState(_ state: ViewState) {
+        let workingKeys = state.workingKeys
+        for key in workingKeys {
+            let value = state.value(forKeyPath: key)
+            fill(value: value, of: state, forKeyPath: key)
         }
     }
 }
@@ -169,12 +193,54 @@ public protocol ViewStateRenderable: ViewStateSubscriber {
     func render(state: ViewState)
 }
 
-extension ViewStateRenderable {
+// MARK: - MutiSubscribers
+
+public protocol ViewStateMutiSubscribing {
+    func effectSubscribers(forState viewState: ViewState) -> [ViewStateSubscriber]
+}
+
+extension ViewStateSubscriber {
     public func viewStateDidChange(newState: ViewState) {
-        render(state: newState)
+        if let multiSubs = self as? ViewStateMutiSubscribing {
+            for sub in multiSubs.effectSubscribers(forState: newState) {
+                sub.viewStateDidChange(newState: newState)
+            }
+        }
+
+        if let renderableSub = self as? ViewStateRenderable {
+            renderableSub.render(state: newState)
+        }
+    }
+
+    public func viewStateDidChange(newState: ViewState, keyPath: String, oldValue: Any?, newValue: Any?) {
+        if let multiSubs = self as? ViewStateMutiSubscribing {
+            for sub in multiSubs.effectSubscribers(forState: newState) {
+                sub.viewStateDidChange(newState: newState, keyPath: keyPath, oldValue: oldValue, newValue: newValue)
+            }
+        }
+
+        if let fillableSub = self as? ViewStateFillable {
+            fillableSub.fill(value: newValue, of: newState, forKeyPath: keyPath)
+        }
     }
 
     public func viewStateDidSubscribe(_ state: ViewState) {
-        render(state: state)
+        if let multiSubs = self as? ViewStateMutiSubscribing {
+            for sub in multiSubs.effectSubscribers(forState: state) {
+                sub.viewStateDidSubscribe(state)
+            }
+        }
+
+        if let renderableSub = self as? ViewStateRenderable {
+            renderableSub.render(state: state)
+        }
+
+        if let fillableSub = self as? ViewStateFillable {
+            fillableSub.fillValuesFromState(state)
+        }
+    }
+
+    public func viewStateWillUnsubscribe(_ state: ViewState) {
+        // default optional
     }
 }

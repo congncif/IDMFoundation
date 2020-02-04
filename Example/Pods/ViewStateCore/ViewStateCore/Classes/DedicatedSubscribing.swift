@@ -48,13 +48,13 @@ extension DedicatedViewStateSubscriber {
 public protocol DedicatedViewStateFillable: ViewStateFillable {
     associatedtype State: ViewState
 
-    func didicatedFillingOptions(_ state: State) -> [FillingOption]
+    func dedicatedFillingOptions(_ state: State) -> [FillingOption]
 }
 
 extension DedicatedViewStateFillable {
     public func fillingOptions(_ state: ViewState) -> [FillingOption] {
         guard let state = state as? State else { return [] }
-        return didicatedFillingOptions(state)
+        return dedicatedFillingOptions(state)
     }
 }
 

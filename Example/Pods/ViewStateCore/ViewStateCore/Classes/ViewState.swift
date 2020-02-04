@@ -41,7 +41,7 @@ struct Subscriber: Equatable {
     }
 }
 
-open class ViewState: NSObject, ViewStateSubscriber {
+open class ViewState: NSObject, NSCoding, ViewStateSubscriber {
     enum IgnoreKey: String, CaseIterable {
         case subscribers
         case delegate
@@ -77,9 +77,26 @@ open class ViewState: NSObject, ViewStateSubscriber {
         return []
     }
     
-    public override init() {
+    public required override init() {
         super.init()
         addObservers()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init()
+        addObservers()
+        
+        for property in properties {
+            let value = coder.decodeObject(forKey: property)
+            setValue(value, forKey: property)
+        }
+    }
+    
+    public func encode(with coder: NSCoder) {
+        for property in properties {
+            let value = self.value(forKey: property)
+            coder.encode(value, forKey: property)
+        }
     }
     
     open func addObservers() {
@@ -167,7 +184,7 @@ open class ViewState: NSObject, ViewStateSubscriber {
         }
     }
     
-    @objc open func notifyStateDidChange(newState: ViewState? = nil, keyPath: String, oldValue: Any?, newValue: Any?) {
+    @objc open func notifyStateDidChange(newState: ViewState? = nil, keyPath: String, oldValue: Any? = nil, newValue: Any?) {
         let state = newState ?? self
         
         delegate?.viewStateDidChange(newState: state, keyPath: keyPath, oldValue: oldValue, newValue: newValue)

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vKn-9P-Ny8">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Module Controller-->
+        <scene sceneID="GzV-lN-fg7">
+            <objects>
+                <viewController storyboardIdentifier="TestViewController" id="vKn-9P-Ny8" userLabel="Module Controller" customClass="TestViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BNZ-bO-rhc" userLabel="Module View" customClass="TestView" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="HgA-Aw-ocO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Ddi-rK-q70">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3ap-Og-wzN"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0X-am-vwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Fas-Ut-vDc" customClass="TestController" customModuleProvider="target"/>
+                <customObject id="Z0z-d7-Bwq" customClass="TestNavigationView" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationItem" destination="Ddi-rK-q70" id="H7r-1W-kTw"/>
+                    </connections>
+                </customObject>
+                <customObject id="axh-Bd-Vxu" userLabel="Dependency Bridge" customClass="TestBridge" customModuleProvider="target">
+                    <connections>
+                        <outlet property="contentView" destination="BNZ-bO-rhc" id="EAV-rw-qg8"/>
+                        <outlet property="controller" destination="Fas-Ut-vDc" id="sMb-PE-QfX"/>
+                        <outlet property="navigationView" destination="Z0z-d7-Bwq" id="75l-9i-AXG"/>
+                        <outlet property="viewController" destination="vKn-9P-Ny8" id="LiZ-pM-mtN"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="244" y="205"/>
+        </scene>
+    </scenes>
+</document>
