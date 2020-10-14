@@ -1,9 +1,8 @@
 {
   "name": "IDMFoundation",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "summary": "Base classes for new project which follows IDMCore",
   "swift_versions": [
-    "4.2",
     "5.0",
     "5.1"
   ],
@@ -18,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/congncif/IDMFoundation.git",
-    "tag": "2.3.2"
+    "tag": "2.3.3"
   },
   "platforms": {
     "ios": "8.2"

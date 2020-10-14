@@ -28,7 +28,7 @@ class MainRouter: MainRouterProtocol {
         return self
     }
     
-    private struct SearchUserOutputProxy: SearchUserOutputProtocol {
+    private struct SearchUserOutputApdapter: SearchUserOutputProtocol {
         weak var output: MainModuleInterface?
         
         func userDidSelect(_ user: SearchUserModel) {

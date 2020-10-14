@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IDMFoundation'
-  s.version          = '2.3.3'
+  s.version          = '2.3.4'
   s.summary          = 'Base classes for new project which follows IDMCore'
   s.swift_versions    = ['5.0', '5.1']
 
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/congncif/IDMFoundation.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.2'
+  s.ios.deployment_target = '9.0'
   
   # s.resource_bundles = {
   #   'IDMFoundation' => ['IDMFoundation/Assets/*.png']
