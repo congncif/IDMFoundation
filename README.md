@@ -1,4 +1,4 @@
-# IDMFoundation
+# IDMFoundation is now deprecated. Use IDMExtensions instead.
 
 [![CI Status](http://img.shields.io/travis/congncif/IDMFoundation.svg?style=flat)](https://travis-ci.org/congncif/IDMFoundation)
 [![Version](https://img.shields.io/cocoapods/v/IDMFoundation.svg?style=flat)](http://cocoapods.org/pods/IDMFoundation)
