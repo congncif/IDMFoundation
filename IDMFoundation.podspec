@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
       co.dependency 'IDMFoundation/Networking'
       co.dependency 'SiFUtilities'
       co.dependency 'IDMCore'
-      co.dependency 'Alamofire'
+      co.dependency 'Alamofire', '~> 4.9'
   end
   
   s.subspec 'Networking' do |co|
