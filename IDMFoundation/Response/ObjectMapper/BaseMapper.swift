@@ -19,7 +19,7 @@ public struct MappableError: LocalizedError {
 extension ModelProtocol where Self: BaseMappable {
     public init(fromData data: Any?) throws {
         guard let data = data else {
-            throw MappableError()
+            throw IgnoreError.default
         }
         if let JSONString = data as? String {
             if let obj: Self = Mapper(context: nil).map(JSONString: JSONString) {
